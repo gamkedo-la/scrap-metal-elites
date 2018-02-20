@@ -33,8 +33,8 @@ public class AIController : MonoBehaviour {
     {
         float angToFaceTarget = 0.0f;
         if (target) {
-            float angToTarget = Mathf.Atan2(target.transform.position.z - transform.position.z,
-                target.transform.position.x - transform.position.x);
+			float angToTarget = Mathf.Atan2(target.transform.position.x - transform.position.x,
+				target.transform.position.z - transform.position.z);
             angToFaceTarget = AngleAroundAxis(transform.forward, Quaternion.AngleAxis(angToTarget * Mathf.Rad2Deg, Vector3.up) * Vector3.forward, Vector3.up);
             Debug.Log(angToFaceTarget);
         }
@@ -46,7 +46,7 @@ public class AIController : MonoBehaviour {
                 moveScript.rotateDrive = -1.0f;
                 break;
             case mood.aggressive:
-                moveScript.forwardDrive = 0.0f;
+                moveScript.forwardDrive = 1.0f;
                 moveScript.rotateDrive = (angToFaceTarget < 0.0f ? -1.0f : 1.0f);
 
                 break;
