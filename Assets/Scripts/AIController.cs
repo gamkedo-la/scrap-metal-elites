@@ -51,6 +51,8 @@ public class AIController : MonoBehaviour {
 
                 break;
             case mood.flee:
+                moveScript.forwardDrive = -1.0f;
+                moveScript.rotateDrive = (angToFaceTarget < 0.0f ? -1.0f : 1.0f);
                 break;
         }
 
