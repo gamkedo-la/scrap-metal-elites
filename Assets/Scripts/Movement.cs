@@ -9,6 +9,8 @@ public class Movement : MonoBehaviour {
     public float accelSpeed = 3.0f;
     public float friction = 0.1f;
     private float moveSpeed = 0.0f;
+    public float forwardDrive = 0.0f;
+    public float rotateDrive = 0.0f;
 
 	// Use this for initialization
 	void Start () {
@@ -17,10 +19,10 @@ public class Movement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        moveSpeed += Time.deltaTime * accelSpeed * Input.GetAxisRaw("Vertical");
+        moveSpeed += Time.deltaTime * accelSpeed * forwardDrive;
         moveSpeed = Mathf.Clamp(moveSpeed, -moveTopSpeed, moveTopSpeed);
         transform.position += moveSpeed * Time.deltaTime * transform.forward;
-        transform.Rotate(Vector3.up, turnSpeed * Time.deltaTime * Input.GetAxis("Horizontal"));
+        transform.Rotate(Vector3.up, turnSpeed * Time.deltaTime * rotateDrive);
     }
 
     private void FixedUpdate()
