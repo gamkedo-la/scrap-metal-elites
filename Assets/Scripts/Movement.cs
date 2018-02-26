@@ -22,7 +22,7 @@ public class Movement : MonoBehaviour {
         moveSpeed += Time.deltaTime * accelSpeed * forwardDrive;
         moveSpeed = Mathf.Clamp(moveSpeed, -moveTopSpeed, moveTopSpeed);
         transform.position += moveSpeed * Time.deltaTime * transform.forward;
-        transform.Rotate(Vector3.up, turnSpeed * Time.deltaTime * rotateDrive);
+		transform.Rotate(Vector3.up, (moveSpeed>0?1:-1) * turnSpeed * Time.deltaTime * rotateDrive); // like a car, turn the opposite way when reversing
     }
 
     private void FixedUpdate()
