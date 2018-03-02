@@ -47,12 +47,19 @@ public class AIController : MonoBehaviour {
                 break;
             case mood.aggressive:
                 moveScript.forwardDrive = 1.0f;
-                moveScript.rotateDrive = (angToFaceTarget < 0.0f ? -1.0f : 1.0f);
-
+                if (Mathf.Abs(angToFaceTarget) >= 10f) {
+                    moveScript.rotateDrive = (angToFaceTarget < 0.0f ? -1.0f : 1.0f);
+                } else {
+                    moveScript.rotateDrive = 0f;
+                }
                 break;
             case mood.flee:
                 moveScript.forwardDrive = -1.0f;
-                moveScript.rotateDrive = (angToFaceTarget < 0.0f ? -1.0f : 1.0f);
+                if (Mathf.Abs(angToFaceTarget) >= 10f) {
+                    moveScript.rotateDrive = (angToFaceTarget < 0.0f ? -1.0f : 1.0f);
+                } else {
+                    moveScript.rotateDrive = 0f;
+                }
                 break;
         }
 
