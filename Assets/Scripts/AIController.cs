@@ -6,13 +6,13 @@ public class AIController : MonoBehaviour {
 
     public GameObject target;
     public float thinkSpeed = 1.0f;
-    private Movement moveScript;
+    private IMovement moveScript;
     public enum mood { idle, wander, aggressive, flee };
     public mood moodNow;
 
 	// Use this for initialization
 	void Start () {
-        moveScript = gameObject.GetComponent<Movement>();
+        moveScript = gameObject.GetComponent<IMovement>();
 	}
     public static float AngleAroundAxis(Vector3 dirA, Vector3 dirB, Vector3 axis)
     {
@@ -36,7 +36,7 @@ public class AIController : MonoBehaviour {
 			float angToTarget = Mathf.Atan2(target.transform.position.x - transform.position.x,
 				target.transform.position.z - transform.position.z);
             angToFaceTarget = AngleAroundAxis(transform.forward, Quaternion.AngleAxis(angToTarget * Mathf.Rad2Deg, Vector3.up) * Vector3.forward, Vector3.up);
-            Debug.Log(angToFaceTarget);
+            //Debug.Log(angToFaceTarget);
         }
         switch (moodNow) {
             case mood.idle:
