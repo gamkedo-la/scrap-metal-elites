@@ -42,6 +42,7 @@ public class DriveMotorActuator : MonoBehaviour, IMovement {
     }
 
     void SetConfig() {
+        if (joint == null) return;
         // set joint limits bsaed on public vars
         var lowLimit = new SoftJointLimit();
         //lowLimit.limit = -maxFlexAngle;
@@ -78,45 +79,103 @@ public class DriveMotorActuator : MonoBehaviour, IMovement {
         SetConfig();
     }
 
+    void rbMotor() {
+        var rb = GetComponent<Rigidbody>();
+        if (rb == null) return;
+        var f = maxTorque * _forwardDrive;
+        if (left) {
+            f = -f;
+        }
+        rb.maxAngularVelocity = maxSpeed;
+        rb.AddTorque(transform.right * f);
+    }
+
+    void rbSteer() {
+        var rb = GetComponent<Rigidbody>();
+        if (rb == null) return;
+        var f = 10 * _rotateDrive;
+        rb.maxAngularVelocity = maxSpeed;
+        rb.AddTorque(transform.up * f);
+        print("f: " + f);
+    }
+
+    // configurableJoint motor
+    void cjMotor() {
+        if (joint == null) return;
+        float targetSpeed = 0f;
+        if (!Mathf.Approximately(forwardDrive, 0)) {
+            targetSpeed = maxSpeed;
+            // reverse motor direction for opposite tires
+            if (left) {
+                targetSpeed *= (-1f * _forwardDrive);
+            } else {
+                targetSpeed *= _forwardDrive;
+            }
+        }
+        if (joint.targetAngularVelocity.y != targetSpeed) {
+            // if gas is applied, ensure yDrive is set to max torque
+            if (Mathf.Abs(targetSpeed) > .01f && !Mathf.Approximately(joint.angularYZDrive.maximumForce, maxTorque)) {
+                var yDrive = new JointDrive();
+                yDrive.maximumForce = maxTorque;
+                yDrive.positionDamper = yDamper;
+                yDrive.positionSpring = 0f;
+                joint.angularYZDrive = yDrive;
+            // if gas is let up, allow free speen of wheels
+            } else if (targetSpeed < .01f && !Mathf.Approximately(joint.angularYZDrive.maximumForce, 0f)) {
+                var yDrive = new JointDrive();
+                yDrive.maximumForce = 0;
+                yDrive.positionDamper = yDamper;
+                yDrive.positionSpring = 0f;
+                joint.angularYZDrive = yDrive;
+            }
+            // set target angular velocity
+            joint.targetAngularVelocity = new Vector3(0f, targetSpeed, 0f);
+        }
+    }
+
+    void cjSteer() {
+        var joint = GetComponent<ConfigurableJoint>();
+        if (joint == null) return;
+        float targetSteeringAngle = 0f;
+        float targetRotation = 0;
+        if (!Mathf.Approximately(_rotateDrive, 0)) {
+            targetSteeringAngle = _rotateDrive * maxSteeringAngle;
+            if (_rotateDrive < 0f) {
+                targetRotation = -targetFlexRotation;
+            } else {
+                targetRotation = targetFlexRotation;
+            }
+            if (!reverseSteering) {
+                targetSteeringAngle = -targetSteeringAngle;
+                targetRotation = -targetRotation;
+            }
+        }
+        if (!Mathf.Approximately(targetSteeringAngle, (joint.highAngularXLimit.limit + joint.lowAngularXLimit.limit)/2f)) {
+            var lowLimit = new SoftJointLimit();
+            lowLimit.limit = targetSteeringAngle-maxFlexAngle;
+            joint.lowAngularXLimit = lowLimit;
+            var highLimit = new SoftJointLimit();
+            highLimit.limit = targetSteeringAngle+maxFlexAngle;
+            joint.highAngularXLimit = highLimit;
+        }
+        if (!Mathf.Approximately(joint.targetRotation.x, targetRotation)) {
+            joint.targetRotation = new Quaternion(targetRotation,0,0,1);
+        }
+    }
+
     public void FixedUpdate() {
         if (configModified) {
             SetConfig();
         }
 
-        //var hinge = GetComponent<HingeJoint>();
-        var joint = GetComponent<ConfigurableJoint>();
-        if (joint == null) return;
-
         if (motor) {
-            float targetSpeed = 0f;
-            if (!Mathf.Approximately(forwardDrive, 0)) {
-                targetSpeed = maxSpeed;
-                // reverse motor direction for opposite tires
-                if (left) {
-                    targetSpeed *= (-1f * _forwardDrive);
-                } else {
-                    targetSpeed *= _forwardDrive;
-                }
-            }
-            if (joint.targetAngularVelocity.y != targetSpeed) {
-                // if gas is applied, ensure yDrive is set to max torque
-                if (Mathf.Abs(targetSpeed) > .01f && !Mathf.Approximately(joint.angularYZDrive.maximumForce, maxTorque)) {
-                    var yDrive = new JointDrive();
-                    yDrive.maximumForce = maxTorque;
-                    yDrive.positionDamper = yDamper;
-                    yDrive.positionSpring = 0f;
-                    joint.angularYZDrive = yDrive;
-                // if gas is let up, allow free speen of wheels
-                } else if (targetSpeed < .01f && !Mathf.Approximately(joint.angularYZDrive.maximumForce, 0f)) {
-                    var yDrive = new JointDrive();
-                    yDrive.maximumForce = 0;
-                    yDrive.positionDamper = yDamper;
-                    yDrive.positionSpring = 0f;
-                    joint.angularYZDrive = yDrive;
-                }
-                // set target angular velocity
-                joint.targetAngularVelocity = new Vector3(0f, targetSpeed, 0f);
-            }
+            rbMotor();
+            //cjMotor();
+        }
+
+        if (steer) {
+            rbSteer();
+            //cjSteer();
         }
 
         /*
@@ -130,34 +189,6 @@ public class DriveMotorActuator : MonoBehaviour, IMovement {
             joint.targetRotation = new Quaternion(targetRotation,0,0,1);
         }
         */
-
-        if (steer) {
-            float targetSteeringAngle = 0f;
-            float targetRotation = 0;
-            if (!Mathf.Approximately(_rotateDrive, 0)) {
-                targetSteeringAngle = _rotateDrive * maxSteeringAngle;
-                if (_rotateDrive < 0f) {
-                    targetRotation = -targetFlexRotation;
-                } else {
-                    targetRotation = targetFlexRotation;
-                }
-                if (!reverseSteering) {
-                    targetSteeringAngle = -targetSteeringAngle;
-                    targetRotation = -targetRotation;
-                }
-            }
-            if (!Mathf.Approximately(targetSteeringAngle, (joint.highAngularXLimit.limit + joint.lowAngularXLimit.limit)/2f)) {
-                var lowLimit = new SoftJointLimit();
-                lowLimit.limit = targetSteeringAngle-maxFlexAngle;
-                joint.lowAngularXLimit = lowLimit;
-                var highLimit = new SoftJointLimit();
-                highLimit.limit = targetSteeringAngle+maxFlexAngle;
-                joint.highAngularXLimit = highLimit;
-            }
-            if (!Mathf.Approximately(joint.targetRotation.x, targetRotation)) {
-                joint.targetRotation = new Quaternion(targetRotation,0,0,1);
-            }
-        }
 
     }
 
