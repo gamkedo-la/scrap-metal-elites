@@ -3,11 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class HingeSteeringActuator : MonoBehaviour, IMovement {
-    public bool steer = false;
-    public bool reverseSteering = false;
-    public float steeringSpring = 10;
-    public float steeringDamper = 3;
-    public float maxSteeringAngle = 30;
     public float forwardDrive {
         get {
             return _forwardDrive;
@@ -25,22 +20,22 @@ public class HingeSteeringActuator : MonoBehaviour, IMovement {
         }
     }
 
-    private bool configModified = false;
     private float _forwardDrive = 0.0f;
     private float _rotateDrive = 0.0f;
     private HingeJoint joint;
+    private DriveConfig config;
 
-    void OnValidate() {
-        configModified = true;
-    }
-
-    void SetConfig() {
-        if (joint == null) return;
-        configModified = false;
-        // set joint limits bsaed on public vars
+    void OnConfigModified(DriveConfig config) {
+        if (joint == null || config == null) return;
+        // set joint limits/params bsaed on public vars
+        var limits = joint.limits;
+        limits.min = -config.steeringMaxAngle;
+        limits.max = config.steeringMaxAngle;
+        joint.limits = limits;
+        joint.useLimits = true;
         var hingeSpring = joint.spring;
-        hingeSpring.spring = steeringSpring;
-        hingeSpring.damper = steeringDamper;
+        hingeSpring.spring = config.steeringMaxTorque;
+        hingeSpring.damper = config.steeringDamper;
         hingeSpring.targetPosition = 0;
         joint.spring = hingeSpring;
         joint.useSpring = true;
@@ -48,15 +43,19 @@ public class HingeSteeringActuator : MonoBehaviour, IMovement {
 
     void Start() {
         joint = GetComponent<HingeJoint>();
-        SetConfig();
+        config = GetComponentInParent<DriveConfig>();
+        if (config != null) {
+            config.onConfigChange.AddListener(OnConfigModified);
+            OnConfigModified(config);
+        }
     }
 
     void hingeSteer() {
-        if (joint == null) return;
+        if (joint == null || config == null) return;
         float targetSteeringAngle = 0f;
         if (!Mathf.Approximately(_rotateDrive, 0)) {
-            targetSteeringAngle = _rotateDrive * maxSteeringAngle;
-            if (reverseSteering) {
+            targetSteeringAngle = _rotateDrive * config.steeringMaxAngle;
+            if (config.steeringReverse) {
                 targetSteeringAngle = -targetSteeringAngle;
             }
         }
@@ -68,10 +67,8 @@ public class HingeSteeringActuator : MonoBehaviour, IMovement {
     }
 
     public void FixedUpdate() {
-        if (configModified) {
-            SetConfig();
-        }
-        if (steer) {
+        if (config == null) return;
+        if (config.steering) {
             hingeSteer();
         }
 
