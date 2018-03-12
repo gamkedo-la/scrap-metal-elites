@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RigidbodyMotorActuator : MonoBehaviour, IMovement {
+public class RigidbodyMotorActuator : MonoBehaviour, IMotorActuator {
     public float forwardDrive {
         get {
             return _forwardDrive;
@@ -11,19 +11,19 @@ public class RigidbodyMotorActuator : MonoBehaviour, IMovement {
             _forwardDrive = value;
         }
     }
-    public float rotateDrive {
+    public bool left {
         get {
-            return _rotateDrive;
-        }
-        set {
-            _rotateDrive = value;
+            if (config != null) {
+                return config.motorLeft;
+            } else {
+                return false;
+            }
         }
     }
 
     private Rigidbody rb;
     private DriveConfig config;
     private float _forwardDrive = 0.0f;
-    private float _rotateDrive = 0.0f;
 
     void Start() {
         rb = GetComponent<Rigidbody>();

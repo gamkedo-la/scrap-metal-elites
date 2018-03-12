@@ -28,6 +28,12 @@ public class Movement : MonoBehaviour, IMovement {
             _rotateDrive = value;
         }
     }
+    // NOT IMPLEMENTED
+    public bool left {
+        get {
+            return false;
+        }
+    }
 
 	// Use this for initialization
 	void Start () {

@@ -25,6 +25,12 @@ public class RigidbodySteeringActuator : MonoBehaviour, IMovement {
             _rotateDrive = value;
         }
     }
+    // NOT IMPLEMENTED
+    public bool left {
+        get {
+            return false;
+        }
+    }
 
     private float _forwardDrive = 0.0f;
     private float _rotateDrive = 0.0f;

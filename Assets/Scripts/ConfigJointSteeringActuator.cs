@@ -26,6 +26,12 @@ public class ConfigJointSteeringActuator : MonoBehaviour, IMovement {
             _rotateDrive = value;
         }
     }
+    // NOT IMPLEMENTED FOR STEERING CONTROLLER
+    public bool left {
+        get {
+            return false;
+        }
+    }
 
     private bool configModified = false;
     private float _forwardDrive = 0.0f;

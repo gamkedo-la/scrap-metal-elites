@@ -5,7 +5,7 @@ using UnityEngine;
 public class DriveMotorActuator : MonoBehaviour, IMovement {
     public bool steer = false;
     public bool motor = false;
-    public bool left = true;
+    public bool motorLeft = true;
     public bool reverseSteering = false;
     public float maxSpeed = 100f;
     public float steeringSpring = 300f;
@@ -28,6 +28,11 @@ public class DriveMotorActuator : MonoBehaviour, IMovement {
         }
         set {
             _rotateDrive = value;
+        }
+    }
+    public bool left {
+        get {
+            return motorLeft;
         }
     }
 

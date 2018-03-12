@@ -2,15 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HingeSteeringActuator : MonoBehaviour, IMovement {
-    public float forwardDrive {
-        get {
-            return _forwardDrive;
-        }
-        set {
-            _forwardDrive = value;
-        }
-    }
+public class HingeSteeringActuator : MonoBehaviour, ISteeringActuator {
     public float rotateDrive {
         get {
             return _rotateDrive;
@@ -20,7 +12,6 @@ public class HingeSteeringActuator : MonoBehaviour, IMovement {
         }
     }
 
-    private float _forwardDrive = 0.0f;
     private float _rotateDrive = 0.0f;
     private HingeJoint joint;
     private DriveConfig config;
