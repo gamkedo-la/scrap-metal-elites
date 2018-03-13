@@ -44,7 +44,7 @@ public class AIController : MonoBehaviour {
 			float angToTarget = Mathf.Atan2(target.transform.position.x - ownFrameTransform.position.x,
 				target.transform.position.z - ownFrameTransform.position.z);
             angToFaceTarget = AngleAroundAxis(ownFrameTransform.forward, Quaternion.AngleAxis(angToTarget * Mathf.Rad2Deg, Vector3.up) * Vector3.forward, Vector3.up);
-            Debug.Log("angle to target: " +angToFaceTarget);
+            //Debug.Log("angle to target: " +angToFaceTarget);
         }
         switch (moodNow) {
             case mood.idle:
