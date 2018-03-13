@@ -419,7 +419,7 @@ Transform:
   - {fileID: 1616507330}
   - {fileID: 1570643177}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &500894704
 GameObject:
@@ -785,7 +785,7 @@ Transform:
   - {fileID: 1905381429}
   - {fileID: 1133767266}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &928674344
 GameObject:
@@ -921,7 +921,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   steer: 0
   motor: 1
-  left: 1
+  motorLeft: 1
   reverseSteering: 0
   maxSpeed: 10
   steeringSpring: 300
@@ -1476,6 +1476,48 @@ MeshFilter:
   m_PrefabInternal: {fileID: 2111669053}
   m_GameObject: {fileID: 1406137939}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &1458792224
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4809628352554652, guid: 4757edc1475e74b37bbcfef5725c5320, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4809628352554652, guid: 4757edc1475e74b37bbcfef5725c5320, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4809628352554652, guid: 4757edc1475e74b37bbcfef5725c5320, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4809628352554652, guid: 4757edc1475e74b37bbcfef5725c5320, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4809628352554652, guid: 4757edc1475e74b37bbcfef5725c5320, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4809628352554652, guid: 4757edc1475e74b37bbcfef5725c5320, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4809628352554652, guid: 4757edc1475e74b37bbcfef5725c5320, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4809628352554652, guid: 4757edc1475e74b37bbcfef5725c5320, type: 2}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 4757edc1475e74b37bbcfef5725c5320, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1460237723
 GameObject:
   m_ObjectHideFlags: 0
@@ -1695,7 +1737,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   steer: 0
   motor: 1
-  left: 1
+  motorLeft: 1
   reverseSteering: 0
   maxSpeed: 10
   steeringSpring: 300
@@ -1763,11 +1805,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52023d3da8fd74cdc92a45331838fba5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  steer: 1
-  reverseSteering: 0
-  steeringSpring: 100
-  steeringDamper: 3
-  maxSteeringAngle: 30
 --- !u!59 &1616507329
 HingeJoint:
   m_ObjectHideFlags: 0
@@ -1818,48 +1855,6 @@ Transform:
   m_Father: {fileID: 493506759}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1683568623
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4480716791067792, guid: 0b41ebd8f87f44d08974a42c39169a8d, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4480716791067792, guid: 0b41ebd8f87f44d08974a42c39169a8d, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4480716791067792, guid: 0b41ebd8f87f44d08974a42c39169a8d, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4480716791067792, guid: 0b41ebd8f87f44d08974a42c39169a8d, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4480716791067792, guid: 0b41ebd8f87f44d08974a42c39169a8d, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4480716791067792, guid: 0b41ebd8f87f44d08974a42c39169a8d, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4480716791067792, guid: 0b41ebd8f87f44d08974a42c39169a8d, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4480716791067792, guid: 0b41ebd8f87f44d08974a42c39169a8d, type: 2}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 0b41ebd8f87f44d08974a42c39169a8d, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &1704739427
 GameObject:
   m_ObjectHideFlags: 0
@@ -2500,11 +2495,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52023d3da8fd74cdc92a45331838fba5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  steer: 1
-  reverseSteering: 0
-  steeringSpring: 10
-  steeringDamper: 3
-  maxSteeringAngle: 30
 --- !u!59 &2021922531
 HingeJoint:
   m_ObjectHideFlags: 0

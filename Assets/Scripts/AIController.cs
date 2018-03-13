@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AIController : MonoBehaviour {
 
+    public Transform ownFrameTransform;
     public GameObject target;
     public float thinkSpeed = 1.0f;
     private IMovement moveScript;
@@ -13,6 +14,13 @@ public class AIController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         moveScript = gameObject.GetComponent<IMovement>();
+        // attempts to find main bot frame in bot, otherwise uses gameobject attached to script
+        ownFrameTransform = transform.Find("frame");
+        if (ownFrameTransform != null) {
+            Debug.Log("found own frame");
+        } else {
+            ownFrameTransform = transform;
+        }
 	}
     public static float AngleAroundAxis(Vector3 dirA, Vector3 dirB, Vector3 axis)
     {
@@ -33,10 +41,10 @@ public class AIController : MonoBehaviour {
     {
         float angToFaceTarget = 0.0f;
         if (target) {
-			float angToTarget = Mathf.Atan2(target.transform.position.x - transform.position.x,
-				target.transform.position.z - transform.position.z);
-            angToFaceTarget = AngleAroundAxis(transform.forward, Quaternion.AngleAxis(angToTarget * Mathf.Rad2Deg, Vector3.up) * Vector3.forward, Vector3.up);
-            //Debug.Log(angToFaceTarget);
+			float angToTarget = Mathf.Atan2(target.transform.position.x - ownFrameTransform.position.x,
+				target.transform.position.z - ownFrameTransform.position.z);
+            angToFaceTarget = AngleAroundAxis(ownFrameTransform.forward, Quaternion.AngleAxis(angToTarget * Mathf.Rad2Deg, Vector3.up) * Vector3.forward, Vector3.up);
+            Debug.Log("angle to target: " +angToFaceTarget);
         }
         switch (moodNow) {
             case mood.idle:
@@ -48,7 +56,8 @@ public class AIController : MonoBehaviour {
             case mood.aggressive:
                 moveScript.forwardDrive = 1.0f;
                 if (Mathf.Abs(angToFaceTarget) >= 10f) {
-                    moveScript.rotateDrive = (angToFaceTarget < 0.0f ? -1.0f : 1.0f);
+                    var targetDrive = (angToFaceTarget < 0.0f ? -1.0f : 1.0f);
+                    moveScript.rotateDrive = targetDrive;
                 } else {
                     moveScript.rotateDrive = 0f;
                 }
