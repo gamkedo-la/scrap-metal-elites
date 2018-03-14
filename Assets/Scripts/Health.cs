@@ -39,6 +39,7 @@ public class Health : MonoBehaviour {
 
         // apply damage
         health -= amount;
+        Debug.Log("new health: " + health);
 
         // check for death
         if (health <= 0) {
@@ -51,7 +52,8 @@ public class Health : MonoBehaviour {
 
         // communicate health change
         onChange.Invoke(health);
-        var percent = health/maxHealth;
+        var percent = (health*100)/maxHealth;
+        Debug.Log("percent: " + percent);
         onChangePercent.Invoke(percent);
     }
 
