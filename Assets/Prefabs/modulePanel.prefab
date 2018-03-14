@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 33640394030901478}
   - component: {fileID: 23054500983387974}
   - component: {fileID: 65471911491845150}
+  - component: {fileID: 114556280218532364}
   m_Layer: 0
   m_Name: model
   m_TagString: Untagged
@@ -243,6 +244,17 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: Health+OnHealthValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
+--- !u!114 &114556280218532364
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1389316821229500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65ebe0387d327457c8b52b52074032b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114850355391475900
 MonoBehaviour:
   m_ObjectHideFlags: 1
