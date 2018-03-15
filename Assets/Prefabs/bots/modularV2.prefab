@@ -2979,7 +2979,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   steer: 0
   motor: 1
-  left: 0
+  motorLeft: 1
   reverseSteering: 0
   maxSpeed: 100
   steeringSpring: 300
@@ -2999,11 +2999,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52023d3da8fd74cdc92a45331838fba5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  steer: 1
-  reverseSteering: 0
-  steeringSpring: 100
-  steeringDamper: 3
-  maxSteeringAngle: 30
 --- !u!114 &114178920754947718
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3050,7 +3045,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   steer: 0
   motor: 1
-  left: 1
+  motorLeft: 1
   reverseSteering: 0
   maxSpeed: 100
   steeringSpring: 300
@@ -3072,7 +3067,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   steer: 0
   motor: 1
-  left: 1
+  motorLeft: 1
   reverseSteering: 0
   maxSpeed: 100
   steeringSpring: 300
@@ -3092,11 +3087,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52023d3da8fd74cdc92a45331838fba5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  steer: 1
-  reverseSteering: 0
-  steeringSpring: 100
-  steeringDamper: 3
-  maxSteeringAngle: 30
 --- !u!114 &114715909308346432
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3119,11 +3109,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52023d3da8fd74cdc92a45331838fba5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  steer: 0
-  reverseSteering: 0
-  steeringSpring: 100
-  steeringDamper: 3
-  maxSteeringAngle: 30
 --- !u!114 &114811968644508246
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3137,7 +3122,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   steer: 0
   motor: 1
-  left: 0
+  motorLeft: 1
   reverseSteering: 0
   maxSpeed: 100
   steeringSpring: 300
@@ -3157,11 +3142,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52023d3da8fd74cdc92a45331838fba5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  steer: 0
-  reverseSteering: 0
-  steeringSpring: 100
-  steeringDamper: 3
-  maxSteeringAngle: 30
 --- !u!114 &114992062000066516
 MonoBehaviour:
   m_ObjectHideFlags: 1

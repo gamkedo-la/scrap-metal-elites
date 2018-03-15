@@ -5784,6 +5784,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   breakForceMultiplier: 1
   breakTorqueMultiplier: 1
+  applyDistributedForce: 1
+  applyDistributedTorque: 1
+  applyDamageToForce: 1
+  applyDamageToTorque: 1
+  debug: 0
 --- !u!114 &114040095384137538
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5819,6 +5824,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   breakForceMultiplier: 1
   breakTorqueMultiplier: 1
+  applyDistributedForce: 1
+  applyDistributedTorque: 1
+  applyDamageToForce: 1
+  applyDamageToTorque: 1
+  debug: 0
 --- !u!114 &114225943675596938
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5843,6 +5853,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   breakForceMultiplier: 1
   breakTorqueMultiplier: 1
+  applyDistributedForce: 1
+  applyDistributedTorque: 1
+  applyDamageToForce: 1
+  applyDamageToTorque: 1
+  debug: 0
 --- !u!114 &114245849090756650
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5867,6 +5882,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   breakForceMultiplier: 1
   breakTorqueMultiplier: 1
+  applyDistributedForce: 1
+  applyDistributedTorque: 1
+  applyDamageToForce: 1
+  applyDamageToTorque: 1
+  debug: 0
 --- !u!114 &114262968928055310
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5902,6 +5922,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   breakForceMultiplier: 1
   breakTorqueMultiplier: 1
+  applyDistributedForce: 1
+  applyDistributedTorque: 1
+  applyDamageToForce: 1
+  applyDamageToTorque: 1
+  debug: 0
 --- !u!114 &114372011414075250
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5915,6 +5940,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   breakForceMultiplier: 1
   breakTorqueMultiplier: 1
+  applyDistributedForce: 1
+  applyDistributedTorque: 1
+  applyDamageToForce: 1
+  applyDamageToTorque: 1
+  debug: 0
 --- !u!114 &114426141459811006
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5954,6 +5984,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   breakForceMultiplier: 1
   breakTorqueMultiplier: 1
+  applyDistributedForce: 1
+  applyDistributedTorque: 1
+  applyDamageToForce: 1
+  applyDamageToTorque: 1
+  debug: 0
 --- !u!114 &114507622432324342
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5967,6 +6002,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   breakForceMultiplier: 1
   breakTorqueMultiplier: 1
+  applyDistributedForce: 1
+  applyDistributedTorque: 1
+  applyDamageToForce: 1
+  applyDamageToTorque: 1
+  debug: 0
 --- !u!114 &114553627863003168
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6028,6 +6068,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   breakForceMultiplier: 1
   breakTorqueMultiplier: 1
+  applyDistributedForce: 1
+  applyDistributedTorque: 1
+  applyDamageToForce: 1
+  applyDamageToTorque: 1
+  debug: 0
 --- !u!114 &114672250795354822
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6041,6 +6086,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   breakForceMultiplier: 1
   breakTorqueMultiplier: 1
+  applyDistributedForce: 1
+  applyDistributedTorque: 1
+  applyDamageToForce: 1
+  applyDamageToTorque: 1
+  debug: 0
 --- !u!114 &114700428793229792
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6080,6 +6130,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   breakForceMultiplier: 1
   breakTorqueMultiplier: 1
+  applyDistributedForce: 1
+  applyDistributedTorque: 1
+  applyDamageToForce: 1
+  applyDamageToTorque: 1
+  debug: 0
 --- !u!114 &114752770218764476
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6104,6 +6159,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   breakForceMultiplier: 1
   breakTorqueMultiplier: 1
+  applyDistributedForce: 1
+  applyDistributedTorque: 1
+  applyDamageToForce: 1
+  applyDamageToTorque: 1
+  debug: 0
 --- !u!114 &114783721063808524
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6178,6 +6238,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   breakForceMultiplier: 1
   breakTorqueMultiplier: 1
+  applyDistributedForce: 1
+  applyDistributedTorque: 1
+  applyDamageToForce: 1
+  applyDamageToTorque: 1
+  debug: 0
 --- !u!114 &114887251644773998
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6191,6 +6256,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   breakForceMultiplier: 1
   breakTorqueMultiplier: 1
+  applyDistributedForce: 1
+  applyDistributedTorque: 1
+  applyDamageToForce: 1
+  applyDamageToTorque: 1
+  debug: 0
 --- !u!114 &114915190981101418
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6204,6 +6274,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   breakForceMultiplier: 1
   breakTorqueMultiplier: 1
+  applyDistributedForce: 1
+  applyDistributedTorque: 1
+  applyDamageToForce: 1
+  applyDamageToTorque: 1
+  debug: 0
 --- !u!137 &137720534230026146
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

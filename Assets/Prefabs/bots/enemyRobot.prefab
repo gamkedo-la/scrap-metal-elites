@@ -590,6 +590,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1836fda98f101946a2cb209538ef06d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ownFrameTransform: {fileID: 0}
   target: {fileID: 0}
   thinkSpeed: 1
   moodNow: 2
