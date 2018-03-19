@@ -390,7 +390,7 @@ Prefab:
     - target: {fileID: 198248647151504192, guid: 5f91fe4c938bc9e41af7484450f60bd4,
         type: 2}
       propertyPath: randomSeed
-      value: 1991066139
+      value: -1379098525
       objectReference: {fileID: 0}
     - target: {fileID: 198248647151504192, guid: 5f91fe4c938bc9e41af7484450f60bd4,
         type: 2}
@@ -516,6 +516,11 @@ Prefab:
         type: 2}
       propertyPath: NoiseModule.remapY.maxCurve.m_Curve.Array.data[3].outSlope
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198248647151504192, guid: 5f91fe4c938bc9e41af7484450f60bd4,
+        type: 2}
+      propertyPath: UVModule.frameOverTime.scalar
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5f91fe4c938bc9e41af7484450f60bd4, type: 2}
