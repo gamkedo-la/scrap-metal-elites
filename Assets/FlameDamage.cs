@@ -15,7 +15,8 @@ public class FlameDamage : MonoBehaviour {
     public Material burnt;
     private Rigidbody body;
     private Transform emitlocation;
-    
+    private bool is_burnt;
+    private bool is_exploded;
    
     
        
@@ -36,22 +37,29 @@ public class FlameDamage : MonoBehaviour {
         FireDamage -= FireRate;
         //Debug.Log("Health left:" + FireDamage);
         }
-        if (FireDamage < showBurnt) {
-           
+        if (FireDamage < showBurnt & is_burnt!=true) {
+
+            is_burnt = true;
             unburnt.CopyPropertiesFromMaterial(burnt);
             
         }
-        if (FireDamage < explodeBurnt)
+        if (FireDamage < explodeBurnt & is_exploded!=true)
         {
-            //body.AddForce(transform.up * 50);
-            sparks.transform.position = emitlocation.position;
+            is_exploded = true;
+            body.AddForce(transform.up * 1000);
+            //sparks.transform.position = emitlocation.position;
             // sparks.transform.position = emitlocation;
-            sparks.Emit(20);
+            //sparks.Emit(20);
         }
     }
 
        
     void Update () {
-		
-	}
+
+        if (is_exploded)
+        {
+            sparks.transform.position = emitlocation.position;
+            sparks.Emit(5);
+        }
+    }
 }

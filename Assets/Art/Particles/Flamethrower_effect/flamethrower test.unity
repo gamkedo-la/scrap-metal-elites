@@ -11273,7 +11273,7 @@ MonoBehaviour:
   FireDamage: 100
   plume: {fileID: 312963614}
   sparks: {fileID: 591584484}
-  burnt: {fileID: 2100000, guid: d818f41c88d4efe409fac6ee446464e3, type: 2}
+  burnt: {fileID: 2100000, guid: a6101176eb433e5428a507d02a363ab3, type: 2}
 --- !u!1 &1706511647
 GameObject:
   m_ObjectHideFlags: 0
