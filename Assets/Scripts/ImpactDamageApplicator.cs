@@ -28,12 +28,14 @@ public class ImpactDamageApplicator : MonoBehaviour {
     }
 
     void OnCollisionEnter(Collision collision) {
+        var force = collision.impulse.magnitude / Time.fixedDeltaTime;
         // compute damage (impulse * velocity * modifier)
-        var damage = collision.impulse.magnitude * collision.relativeVelocity.magnitude * damageModifier;
+        var damage = collision.impulse.magnitude * damageModifier;
 
         if (debug) {
             Debug.Log(gameObject.name + " OnCollisionEnter\n impulse: " + collision.impulse.magnitude +
                                         " velocity: " + collision.relativeVelocity.magnitude +
+                                        " force: " + force +
                                         " times: " + (collision.impulse.magnitude * collision.relativeVelocity.magnitude) +
                                         " computed damage: " + damage);
             DebugCollision(collision);
