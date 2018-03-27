@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c16a472c5a6b4cfcafc4959de97a920, type: 3}
+  m_Name: Model
+  m_EditorClassIdentifier: 
+  modelOffset: {x: 0, y: 0, z: 0}
+  modelRotation: {x: 0, y: 0, z: 0}
+  modelPrefab: {fileID: 100000, guid: d7c1463fa6c1c41a088733347f354e42, type: 3}
+  connectedParts:
+  - modelOffset: {x: 0, y: 0, z: 0}
+    modelRotation: {x: -90, y: 0, z: 0}
+    part: {fileID: 11400000, guid: 9c7296dec88a34faf952cc6b08a314ad, type: 2}
+  - modelOffset: {x: 0, y: 0, z: 0}
+    modelRotation: {x: 0, y: 0, z: 0}
+    part: {fileID: 11400000, guid: 9c7296dec88a34faf952cc6b08a314ad, type: 2}
