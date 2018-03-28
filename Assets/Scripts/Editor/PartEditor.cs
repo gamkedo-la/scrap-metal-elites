@@ -75,6 +75,7 @@ public class PartDisplayer {
 public class PartEditor : Editor {
 
     SerializedProperty modelPrefabProp;
+    SerializedProperty applicatorsProp;
     SerializedProperty connectedPartsProp;
     PartDisplayer[] displayedParts;
 
@@ -104,6 +105,7 @@ public class PartEditor : Editor {
     void OnEnable() {
         // Setup the SerializedProperties.
         modelPrefabProp = serializedObject.FindProperty("modelPrefab");
+        applicatorsProp = serializedObject.FindProperty("applicators");
         connectedPartsProp = serializedObject.FindProperty("connectedParts");
         DisplayParts();
     }
@@ -111,6 +113,7 @@ public class PartEditor : Editor {
     public override void OnInspectorGUI() {
         serializedObject.Update();
         EditorGUILayout.PropertyField(modelPrefabProp);
+        EditorGUILayout.PropertyField(applicatorsProp, true);
         EditorGUILayout.PropertyField(connectedPartsProp, true);
         if (serializedObject.ApplyModifiedProperties()) {
             DisplayParts();

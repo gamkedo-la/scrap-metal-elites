@@ -9,9 +9,10 @@ public class PartImport {
     public Part part;
 }
 
-[CreateAssetMenu(fileName = "Part", menuName = "Part", order = 1)]
+[CreateAssetMenu(fileName = "Part", menuName = "Parts/Part")]
 public class Part : ScriptableObject {
     public GameObject modelPrefab;
+    public ComponentApplicator[] applicators;
     public PartImport[] connectedParts;
 
     public GameObject Build(
@@ -30,6 +31,13 @@ public class Part : ScriptableObject {
         var rigidbodyGo = new GameObject(label + ".body", typeof(Rigidbody));
         rigidbodyGo.transform.parent = partsGo.transform;
 
+        // apply applicators to parts container
+        if (applicators != null) {
+            for (var i=0; i<applicators.Length; i++) {
+                applicators[0].Apply(partsGo);
+            }
+        }
+
         // instantiate model under rigid body
         if (modelPrefab != null) {
             var modelGo = Instantiate(modelPrefab, rigidbodyGo.transform) as GameObject;
@@ -40,13 +48,19 @@ public class Part : ScriptableObject {
 
         // instantiate connected parts
         if (connectedParts != null && connectedParts.Length > 0) {
-
             for (var i=0; i<connectedParts.Length; i++) {
                 if (connectedParts[i].part != null) {
                     var childGo = connectedParts[i].part.Build(partsGo, connectedParts[i].label);
                     if (childGo != null) {
+                        // set position/rotation of child
                         childGo.transform.position = connectedParts[i].modelOffset;
                         childGo.transform.eulerAngles = connectedParts[i].modelRotation;
+
+                        // join child part to current rigidbody
+                        var joiner = childGo.GetComponent<Joiner>();
+                        if (joiner != null) {
+                            joiner.Join(rigidbodyGo.GetComponent<Rigidbody>());
+                        }
                     }
                 }
             }
