@@ -9,15 +9,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0c16a472c5a6b4cfcafc4959de97a920, type: 3}
-  m_Name: Model
+  m_Name: module
   m_EditorClassIdentifier: 
   modelOffset: {x: 0, y: 0, z: 0}
   modelRotation: {x: 0, y: 0, z: 0}
-  modelPrefab: {fileID: 100000, guid: d7c1463fa6c1c41a088733347f354e42, type: 3}
+  modelPrefab: {fileID: 1808414059628808, guid: a8f8dea8eb2fc460794ca5436ecac4f2,
+    type: 2}
   connectedParts:
-  - modelOffset: {x: 0, y: 0, z: 0}
-    modelRotation: {x: -90, y: 0, z: 0}
-    part: {fileID: 11400000, guid: 9c7296dec88a34faf952cc6b08a314ad, type: 2}
-  - modelOffset: {x: 0, y: 0, z: 0}
+  - label: leftPanel
+    modelOffset: {x: 0, y: 0, z: 0}
     modelRotation: {x: 0, y: 0, z: 0}
+    part: {fileID: 11400000, guid: 9c7296dec88a34faf952cc6b08a314ad, type: 2}
+  - label: topPanel
+    modelOffset: {x: 0, y: -0, z: 0}
+    modelRotation: {x: -90, y: 0, z: 0}
     part: {fileID: 11400000, guid: 9c7296dec88a34faf952cc6b08a314ad, type: 2}

@@ -9,9 +9,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0c16a472c5a6b4cfcafc4959de97a920, type: 3}
-  m_Name: Panel
+  m_Name: panel
   m_EditorClassIdentifier: 
   modelOffset: {x: 0, y: 0, z: 0}
   modelRotation: {x: 0, y: 0, z: 0}
-  modelPrefab: {fileID: 100004, guid: 8eba1871148484db38b456b95b5fca5f, type: 3}
+  modelPrefab: {fileID: 1375570567107832, guid: c33d7bcd497364cae94cbfed89acb1ed,
+    type: 2}
   connectedParts: []
