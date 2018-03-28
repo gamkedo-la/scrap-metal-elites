@@ -30,14 +30,14 @@ public class PartDisplayer {
     public void Display(
     ) {
         // clear any previous display
-        Hide();
+        Clear();
 
         if (part == null) return;
 
         // display model prefab
         if (part.modelPrefab != null) {
             displayedModel = PrefabUtility.InstantiatePrefab(part.modelPrefab) as GameObject;
-            displayedModel.hideFlags = HideFlags.HideInHierarchy;
+            displayedModel.hideFlags = HideFlags.HideAndDontSave;
             displayedModel.transform.position = modelOffset;
             displayedModel.transform.eulerAngles = modelRotation;
         }
@@ -56,14 +56,14 @@ public class PartDisplayer {
         }
     }
 
-    public void Hide() {
+    public void Clear() {
         if (displayedModel != null) {
             Object.DestroyImmediate(displayedModel);
         }
         if (displayedParts != null) {
             for (var i=0; i<displayedParts.Length; i++) {
                 if (displayedParts[i] != null) {
-                    displayedParts[i].Hide();
+                    displayedParts[i].Clear();
                 }
             }
         }
@@ -80,21 +80,36 @@ public class PartEditor : Editor {
     SerializedProperty connectedPartsProp;
     PartDisplayer[] displayedParts;
 
+    void DisplayParts() {
+        // ensure parts are cleared before instantiating again... don't leak instantiated prefabs
+        ClearParts();
+        // do not display prefab models if application is playing
+        if (Application.isPlaying) return;
+        displayedParts = new PartDisplayer[targets.Length];
+        for (var i=0; i<targets.Length; i++) {
+            displayedParts[i] = new PartDisplayer((Part) targets[i]);
+            displayedParts[i].Display();
+        }
+    }
+
+    void ClearParts() {
+        if (displayedParts != null) {
+            for (var i=0; i<displayedParts.Length; i++) {
+                if (displayedParts[i] != null) {
+                    displayedParts[i].Clear();
+                }
+            }
+            displayedParts = null;
+        }
+    }
+
     void OnEnable() {
-        Debug.Log("PartEditor OnEnable");
         // Setup the SerializedProperties.
         modelOffsetProp = serializedObject.FindProperty("modelOffset");
         modelRotationProp = serializedObject.FindProperty("modelRotation");
         modelPrefabProp = serializedObject.FindProperty("modelPrefab");
         connectedPartsProp = serializedObject.FindProperty("connectedParts");
-
-        displayedParts = new PartDisplayer[targets.Length];
-        for (var i=0; i<targets.Length; i++) {
-            Debug.Log("on enable part: " + targets[i]);
-            displayedParts[i] = new PartDisplayer((Part) targets[i]);
-            displayedParts[i].Display();
-        }
-
+        DisplayParts();
     }
 
     public override void OnInspectorGUI() {
@@ -103,18 +118,12 @@ public class PartEditor : Editor {
         EditorGUILayout.PropertyField(modelRotationProp);
         EditorGUILayout.PropertyField(modelPrefabProp);
         EditorGUILayout.PropertyField(connectedPartsProp, true);
-        serializedObject.ApplyModifiedProperties();
+        if (serializedObject.ApplyModifiedProperties()) {
+            DisplayParts();
+        }
     }
 
     void OnDisable() {
-        Debug.Log("PartEditor OnDisable");
-        if (displayedParts != null) {
-            for (var i=0; i<displayedParts.Length; i++) {
-                if (displayedParts[i] != null) {
-                    displayedParts[i].Hide();
-                }
-            }
-            displayedParts = null;
-        }
+        ClearParts();
     }
 }
