@@ -11,11 +11,24 @@ public class PartImport {
 
 [CreateAssetMenu(fileName = "Part", menuName = "Parts/Part")]
 public class Part : ScriptableObject {
-    public GameObject modelPrefab;
+    public ModelReference[] models;
     public ComponentApplicator[] applicators;
-    public PartImport[] connectedParts;
+    public PartReference[] connectedParts;
 
-    public GameObject Build(
+    public virtual void Display(IDisplayer displayer) {
+        if (models != null) {
+            for (var i=0; i<models.Length; i++) {
+                models[i].Display(displayer);
+            }
+        }
+        if (connectedParts != null) {
+            for (var i=0; i<connectedParts.Length; i++) {
+                connectedParts[i].Display(displayer);
+            }
+        }
+    }
+
+    public virtual GameObject Build(
         GameObject root,
         string label
     ) {
@@ -25,6 +38,7 @@ public class Part : ScriptableObject {
 
         // create empty parts container
         var partsGo = new GameObject(label);
+        // FIXME: make sure translation isn't happening here
         partsGo.transform.parent = root.transform;
 
         // create new rigid body for this part, set parts container as parent
@@ -39,28 +53,21 @@ public class Part : ScriptableObject {
         }
 
         // instantiate model under rigid body
-        if (modelPrefab != null) {
-            var modelGo = Instantiate(modelPrefab, rigidbodyGo.transform) as GameObject;
-            // preserve model's original rotation (prior to parenting to rigidbodyGo)
-            modelGo.transform.localRotation = Quaternion.identity;
-            modelGo.name = label + ".model";
+        if (models != null) {
+            for (var i=0; i<models.Length; i++) {
+                models[i].Build(rigidbodyGo, label + ".model");
+            }
         }
 
         // instantiate connected parts
         if (connectedParts != null && connectedParts.Length > 0) {
             for (var i=0; i<connectedParts.Length; i++) {
-                if (connectedParts[i].part != null) {
-                    var childGo = connectedParts[i].part.Build(partsGo, connectedParts[i].label);
-                    if (childGo != null) {
-                        // set position/rotation of child
-                        childGo.transform.position = connectedParts[i].modelOffset;
-                        childGo.transform.eulerAngles = connectedParts[i].modelRotation;
-
-                        // join child part to current rigidbody
-                        var joiner = childGo.GetComponent<Joiner>();
-                        if (joiner != null) {
-                            joiner.Join(rigidbodyGo.GetComponent<Rigidbody>());
-                        }
+                var childGo = connectedParts[i].Build(partsGo, label + ".part");
+                if (childGo != null) {
+                    // join child part to current rigidbody
+                    var joiner = childGo.GetComponent<Joiner>();
+                    if (joiner != null) {
+                        joiner.Join(rigidbodyGo.GetComponent<Rigidbody>());
                     }
                 }
             }

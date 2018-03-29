@@ -11,8 +11,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c16a472c5a6b4cfcafc4959de97a920, type: 3}
   m_Name: panel
   m_EditorClassIdentifier: 
-  modelOffset: {x: 0, y: 0, z: 0}
-  modelRotation: {x: 0, y: 0, z: 0}
-  modelPrefab: {fileID: 1375570567107832, guid: c33d7bcd497364cae94cbfed89acb1ed,
-    type: 2}
+  models:
+  - label: 
+    offset: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0}
+    model: {fileID: 1375570567107832, guid: c33d7bcd497364cae94cbfed89acb1ed, type: 2}
+  applicators:
+  - {fileID: 11400000, guid: cf560ac34a5574d049139a8a926e4ab6, type: 2}
   connectedParts: []

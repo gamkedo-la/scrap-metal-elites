@@ -1,23 +1,33 @@
 using UnityEngine;
-using System.Collections;
 
-public class PartReference : MonoBehaviour {
+[System.Serializable]
+public class PartReference {
+    public string label;
+    public Vector3 offset;
+    public Vector3 rotation;
     public Part part;
 
-    void Build() {
+    public void Display(
+        IDisplayer displayer
+    ) {
         if (part != null) {
-            var gameObject = Instantiate(part.modelPrefab) as GameObject;
-            gameObject.name = "partreferencebuild";
+            displayer.AddOffsetRotation(offset, rotation);
+            part.Display(displayer);
+            displayer.AddOffsetRotation(-offset, -rotation);
         }
     }
 
-    void Clear() {
-    }
-
-    void Start() {
+    public GameObject Build(
+        GameObject root,
+        string label
+    ) {
+        GameObject partGo = null;
         if (part != null) {
-            part.Build(gameObject, null);
+            partGo = part.Build(root, (this.label == null) ? this.label : label);
+            partGo.transform.position = offset;
+            partGo.transform.eulerAngles = rotation;
         }
+        return partGo;
     }
 
 }

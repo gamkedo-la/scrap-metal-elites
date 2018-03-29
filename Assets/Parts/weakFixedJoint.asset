@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06f115a3b8f874e1ca1c9ebc2dd054d0, type: 3}
   m_Name: weakFixedJoint
   m_EditorClassIdentifier: 
-  applyBreakForce: 0
-  breakForce: 0
-  applyBreakTorque: 0
-  breakTorque: 0
+  applyBreakForce: 1
+  breakForce: 500
+  applyBreakTorque: 1
+  breakTorque: 500
