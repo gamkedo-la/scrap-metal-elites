@@ -456,7 +456,7 @@ GameObject:
   - component: {fileID: 925847722}
   - component: {fileID: 925847721}
   m_Layer: 0
-  m_Name: partReference
+  m_Name: partBuilder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -473,7 +473,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 585de4093d4434305a8a54f35efa4b87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  part: {fileID: 11400000, guid: 5dda41ee5bd0d47c9abf4528925e594c, type: 2}
+  part: {fileID: 11400000, guid: 164e020a7a56e4a2b9aea2c1ede1cfff, type: 2}
 --- !u!4 &925847722
 Transform:
   m_ObjectHideFlags: 0

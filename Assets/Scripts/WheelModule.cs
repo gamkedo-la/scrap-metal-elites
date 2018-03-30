@@ -29,16 +29,6 @@ public class WheelModule: Part {
         base.Display(displayer);
     }
 
-    GameObject BuildEmptyBody(
-        GameObject root,
-        string label
-    ) {
-        // create empty game object w/ rigidbody component
-        var bodyGo = new GameObject(label, typeof(Rigidbody));
-        bodyGo.transform.parent = root.transform;
-        return bodyGo;
-    }
-
     public override GameObject Build(
         PartConfig config,
         GameObject root,
@@ -48,8 +38,6 @@ public class WheelModule: Part {
         GameObject bodyGo = null;
         GameObject steeringBodyGo = null;
         GameObject hubBodyGo = null;
-        Vector3 rotation = Vector3.zero;
-        Vector3 offset = Vector3.zero;
 
         // build out part model first
         partsGo = base.Build(config, root, label);
@@ -63,7 +51,7 @@ public class WheelModule: Part {
 
         // steering goes next (if specified) under parts
         if (steering != null) {
-            steeringBodyGo = BuildEmptyBody(partsGo, "steering.body");
+            steeringBodyGo = PartUtil.BuildEmptyBody(partsGo, "steering.body");
             steering.Build(config, steeringBodyGo, "steering");
             // steering joint is attached to the rigidbody for steering, connect joint to top-level rigidbody
             if (steeringJoint != null) {
@@ -77,7 +65,7 @@ public class WheelModule: Part {
 
         // hub/wheel goes next under parts
         if (hub != null) {
-            hubBodyGo = BuildEmptyBody(partsGo, "hub.body");
+            hubBodyGo = PartUtil.BuildEmptyBody(partsGo, "hub.body");
             hub.Build(config, hubBodyGo, "hub");
             if (wheel != null) {
                 wheel.Build(config, hubBodyGo, "wheel");

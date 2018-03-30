@@ -13,21 +13,6 @@ public class WheelModuleEditor : PartEditor {
     SerializedProperty hubJointProp;
     SerializedProperty wheelProp;
 
-    protected override void DisplayModel() {
-        base.DisplayModel();
-        if (displayer == null) return;
-        // do not display prefab models if application is playing
-        if (Application.isPlaying) return;
-
-        // iterate through referenced objects
-        for (var i=0; i<targets.Length; i++) {
-            var part = (WheelModule) targets[i];
-            displayer.Display(part.frame.offset, part.frame.rotation, part.frame.model);
-            displayer.Display(part.hub.offset, part.hub.rotation, part.hub.model);
-            displayer.Display(part.steering.offset, part.steering.rotation, part.steering.model);
-        }
-    }
-
     protected override void OnEnable() {
         // Setup the SerializedProperties.
         frameProp = serializedObject.FindProperty("frame");

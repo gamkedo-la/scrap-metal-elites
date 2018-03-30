@@ -43,8 +43,7 @@ public class Part : ScriptableObject {
         partsGo.transform.parent = root.transform;
 
         // create new rigid body for this part, set parts container as parent
-        var rigidbodyGo = new GameObject(label + ".body", typeof(Rigidbody));
-        rigidbodyGo.transform.parent = partsGo.transform;
+        var rigidbodyGo = PartUtil.BuildEmptyBody(partsGo, label + ".body");
 
         // apply applicators to parts container
         if (applicators != null) {

@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Name: wheelModule
   m_EditorClassIdentifier: 
   models: []
-  applicators: []
+  applicators:
+  - {fileID: 11400000, guid: cf560ac34a5574d049139a8a926e4ab6, type: 2}
   connectedParts: []
   frame:
     label: 
