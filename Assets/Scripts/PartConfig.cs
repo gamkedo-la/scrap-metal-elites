@@ -4,50 +4,67 @@ using UnityEngine;
 [System.Serializable]
 public class PartConfigRow {
     public ConfigTag key;
-    public object value;
-    public PartConfigRow(
-        ConfigTag key,
-        object value
-    ) {
+    public int valueType;
+    public bool boolValue;
+    public string stringValue;
+    public float floatValue;
+
+    public PartConfigRow(ConfigTag key) {
         this.key = key;
-        this.value = value;
     }
 }
 
 [System.Serializable]
 public class PartConfig {
-    PartConfigRow[] rows;
+    public PartConfigRow[] rows;
 
     public PartConfig() {
         rows = new PartConfigRow[0];
     }
 
     public T Get<T>(ConfigTag key) {
-        object result = null;
         for (var i=0; i<rows.Length; i++) {
             if (rows[i].key == key) {
-                result = rows[i].value;
+                if (typeof(T) == typeof(bool)) {
+                    return (T)(object)(rows[i].boolValue);
+                } else if (typeof(T) == typeof(string)) {
+                    return (T)(object)(rows[i].stringValue);
+                } else if (typeof(T) == typeof(float)) {
+                    return (T)(object)(rows[i].floatValue);
+                }
             }
         }
-        if (result == null) {
-            return default(T);
-        } else {
-            return (T)result;
-        }
+        return default(T);
     }
 
     public void Save<T>(ConfigTag key, T value) {
         // see if key already exists
-        for (var i=0; i<rows.Length; i++) {
-            if (rows[i].key == key) {
-                rows[i].value = value;
-                return;
+        int index = 0;
+        bool found = false;
+        for (; index<rows.Length; index++) {
+            if (rows[index].key == key) {
+                found = true;
             }
         }
 
-        // otherwise... add to end
-        Array.Resize(ref rows, rows.Length+1);
-        rows[rows.Length-1] = new PartConfigRow(key, value);
+        // resize to add room if not found
+        if (!found) {
+            Array.Resize(ref rows, rows.Length+1);
+            index = rows.Length-1;
+            rows[index] = new PartConfigRow(key);
+        }
+
+        // set value based on type
+        if (typeof(T) == typeof(bool)) {
+            rows[index].valueType = 0;
+            rows[index].boolValue = (bool)(object)value;
+        } else if (typeof(T) == typeof(string)) {
+            rows[index].valueType = 1;
+            rows[index].stringValue = (string)(object)value;
+        } else if (typeof(T) == typeof(float)) {
+            rows[index].valueType = 2;
+            rows[index].floatValue = (float)(object)value;
+        }
     }
 
 }
