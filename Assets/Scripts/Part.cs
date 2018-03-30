@@ -29,6 +29,7 @@ public class Part : ScriptableObject {
     }
 
     public virtual GameObject Build(
+        PartConfig config,
         GameObject root,
         string label
     ) {
@@ -55,14 +56,14 @@ public class Part : ScriptableObject {
         // instantiate model under rigid body
         if (models != null) {
             for (var i=0; i<models.Length; i++) {
-                models[i].Build(rigidbodyGo, label + ".model");
+                models[i].Build(config, rigidbodyGo, label + ".model");
             }
         }
 
         // instantiate connected parts
         if (connectedParts != null && connectedParts.Length > 0) {
             for (var i=0; i<connectedParts.Length; i++) {
-                var childGo = connectedParts[i].Build(partsGo, label + ".part");
+                var childGo = connectedParts[i].Build(config, partsGo, label + ".part");
                 if (childGo != null) {
                     // join child part to current rigidbody
                     var joiner = childGo.GetComponent<Joiner>();

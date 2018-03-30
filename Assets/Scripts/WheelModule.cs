@@ -40,6 +40,7 @@ public class WheelModule: Part {
     }
 
     public override GameObject Build(
+        PartConfig config,
         GameObject root,
         string label
     ) {
@@ -51,19 +52,19 @@ public class WheelModule: Part {
         Vector3 offset = Vector3.zero;
 
         // build out part model first
-        partsGo = base.Build(root, label);
+        partsGo = base.Build(config, root, label);
         bodyGo = partsGo.transform.Find(partsGo.name + ".body").gameObject;
 
         // now build out wheel parts hierarchy
         // frame is instantiated under parts.body
         if (frame != null) {
-            frame.Build(bodyGo, "frame");
+            frame.Build(config, bodyGo, "frame");
         }
 
         // steering goes next (if specified) under parts
         if (steering != null) {
             steeringBodyGo = BuildEmptyBody(partsGo, "steering.body");
-            steering.Build(steeringBodyGo, "steering");
+            steering.Build(config, steeringBodyGo, "steering");
             // steering joint is attached to the rigidbody for steering, connect joint to top-level rigidbody
             if (steeringJoint != null) {
                 steeringJoint.Apply(null, steeringBodyGo);
@@ -77,9 +78,9 @@ public class WheelModule: Part {
         // hub/wheel goes next under parts
         if (hub != null) {
             hubBodyGo = BuildEmptyBody(partsGo, "hub.body");
-            hub.Build(hubBodyGo, "hub");
+            hub.Build(config, hubBodyGo, "hub");
             if (wheel != null) {
-                wheel.Build(hubBodyGo, "wheel");
+                wheel.Build(config, hubBodyGo, "wheel");
             }
             // hub joint is attached to the rigidbody for the hub and connected to either the steering body (if present), or the top-level rigidbody
             if (hubJoint != null) {

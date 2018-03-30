@@ -18,12 +18,13 @@ public class PartReference {
     }
 
     public GameObject Build(
+        PartConfig config,
         GameObject root,
         string label
     ) {
         GameObject partGo = null;
         if (part != null) {
-            partGo = part.Build(root, (this.label == null) ? this.label : label);
+            partGo = part.Build(config, root, (this.label == null) ? this.label : label);
             partGo.transform.position = offset;
             partGo.transform.eulerAngles = rotation;
         }

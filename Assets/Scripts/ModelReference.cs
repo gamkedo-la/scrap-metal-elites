@@ -14,6 +14,7 @@ public class ModelReference {
     }
 
     public GameObject Build(
+        PartConfig config,
         GameObject root,
         string label
     ) {
