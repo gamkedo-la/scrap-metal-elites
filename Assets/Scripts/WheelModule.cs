@@ -11,24 +11,6 @@ public class WheelModule: Part {
     public HubJointApplicator hubJoint;
     public ModelReference wheel;
 
-    public override void Display(
-        IDisplayer displayer
-    ) {
-        if (frame != null) {
-            frame.Display(displayer);
-        }
-        if (steering != null) {
-            steering.Display(displayer);
-        }
-        if (hub != null) {
-            hub.Display(displayer);
-        }
-        if (wheel != null) {
-            wheel.Display(displayer);
-        }
-        base.Display(displayer);
-    }
-
     public override GameObject Build(
         PartConfig config,
         GameObject root,
@@ -51,7 +33,7 @@ public class WheelModule: Part {
 
         // steering goes next (if specified) under parts
         if (steering != null) {
-            steeringBodyGo = PartUtil.BuildEmptyBody(partsGo, "steering.body");
+            steeringBodyGo = PartUtil.BuildGo(config, partsGo, "steering.body", typeof(Rigidbody));
             steering.Build(config, steeringBodyGo, "steering");
             // steering joint is attached to the rigidbody for steering, connect joint to top-level rigidbody
             if (steeringJoint != null) {
@@ -65,7 +47,7 @@ public class WheelModule: Part {
 
         // hub/wheel goes next under parts
         if (hub != null) {
-            hubBodyGo = PartUtil.BuildEmptyBody(partsGo, "hub.body");
+            hubBodyGo = PartUtil.BuildGo(config, partsGo, "hub.body", typeof(Rigidbody));
             hub.Build(config, hubBodyGo, "hub");
             if (wheel != null) {
                 wheel.Build(config, hubBodyGo, "wheel");

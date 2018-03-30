@@ -1,15 +1,49 @@
+using System;
 using UnityEngine;
+using UnityEditor;
 
 public static class PartUtil {
 
-    public static GameObject BuildEmptyBody(
+    const string hideTagKey = "part.hide";
+    const string dontsaveTagKey = "part.dontsave";
+    public static ConfigTag hideTag;
+    public static ConfigTag dontsaveTag;
+
+    // Static Initialization;
+    static PartUtil() {
+        var guids = AssetDatabase.FindAssets("t:ConfigTag " + hideTagKey);
+        if (guids.Length > 0) {
+            var assetPath = AssetDatabase.GUIDToAssetPath(guids[0]);
+            hideTag = AssetDatabase.LoadAssetAtPath(assetPath, typeof(ConfigTag)) as ConfigTag;
+        }
+        guids = AssetDatabase.FindAssets("t:ConfigTag " + dontsaveTagKey);
+        if (guids.Length > 0) {
+            var assetPath = AssetDatabase.GUIDToAssetPath(guids[0]);
+            dontsaveTag = AssetDatabase.LoadAssetAtPath(assetPath, typeof(ConfigTag)) as ConfigTag;
+        }
+    }
+
+    public static GameObject BuildGo(
+        PartConfig config,
         GameObject root,
-        string label
+        string label,
+        params Type[] components
     ) {
         // create empty game object w/ rigidbody component
-        var bodyGo = new GameObject(label, typeof(Rigidbody));
-        bodyGo.transform.parent = root.transform;
-        return bodyGo;
+        var go = new GameObject(label, components);
+        if (root != null) {
+            // FIXME: make sure translation isn't happening here
+            go.transform.parent = root.transform;
+        }
+
+        // look in config to determine if we are in display or build mode
+        if (hideTag != null && config != null && config.Get<bool>(hideTag)) {
+            go.hideFlags |= HideFlags.HideInHierarchy;
+        }
+        if (dontsaveTag != null && config != null && config.Get<bool>(dontsaveTag)) {
+            go.hideFlags |= HideFlags.DontSave;
+        }
+        return go;
     }
 
     public static GameObject GetBodyGo(

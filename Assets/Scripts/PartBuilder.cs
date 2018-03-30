@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
+//[ExecuteInEditMode]
 public class PartBuilder : MonoBehaviour {
     public Part part;
 

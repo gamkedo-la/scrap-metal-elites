@@ -14,23 +14,6 @@ public class BotModule: Part {
     public ModelReference frame;
     public PartConfigMap[] modules;
 
-    public override void Display(
-        IDisplayer displayer
-    ) {
-        Debug.Log("BotModule Display");
-        if (frame != null) {
-            frame.Display(displayer);
-        }
-        if (modules != null) {
-            for (var i=0; i<modules.Length; i++) {
-                if (modules[i] != null && modules[i].part != null) {
-                    modules[i].part.Display(displayer);
-                }
-            }
-        }
-        base.Display(displayer);
-    }
-
     public override GameObject Build(
         PartConfig config,
         GameObject root,

@@ -7,16 +7,6 @@ public class PartReference {
     public Vector3 rotation;
     public Part part;
 
-    public void Display(
-        IDisplayer displayer
-    ) {
-        if (part != null) {
-            displayer.AddOffsetRotation(offset, rotation);
-            part.Display(displayer);
-            displayer.AddOffsetRotation(-offset, -rotation);
-        }
-    }
-
     public GameObject Build(
         PartConfig config,
         GameObject root,

@@ -15,19 +15,6 @@ public class Part : ScriptableObject {
     public ComponentApplicator[] applicators;
     public PartReference[] connectedParts;
 
-    public virtual void Display(IDisplayer displayer) {
-        if (models != null) {
-            for (var i=0; i<models.Length; i++) {
-                models[i].Display(displayer);
-            }
-        }
-        if (connectedParts != null) {
-            for (var i=0; i<connectedParts.Length; i++) {
-                connectedParts[i].Display(displayer);
-            }
-        }
-    }
-
     public virtual GameObject Build(
         PartConfig config,
         GameObject root,
@@ -38,12 +25,10 @@ public class Part : ScriptableObject {
         }
 
         // create empty parts container
-        var partsGo = new GameObject(label);
-        // FIXME: make sure translation isn't happening here
-        partsGo.transform.parent = root.transform;
+        var partsGo = PartUtil.BuildGo(config, root, label);
 
         // create new rigid body for this part, set parts container as parent
-        var rigidbodyGo = PartUtil.BuildEmptyBody(partsGo, label + ".body");
+        var rigidbodyGo = PartUtil.BuildGo(config, partsGo, label + ".body", typeof(Rigidbody));
 
         // apply applicators to parts container
         if (applicators != null) {

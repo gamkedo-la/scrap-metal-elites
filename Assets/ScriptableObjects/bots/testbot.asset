@@ -21,32 +21,24 @@ MonoBehaviour:
     model: {fileID: 1853439771169596, guid: ca4d8304e8a97463bac30c14e9a824ea, type: 2}
   modules:
   - label: rightFrontWheel
-    config:
-      label: 
     part:
       label: 
       offset: {x: 0.25, y: 0, z: 0.75}
       rotation: {x: 0, y: 0, z: 0}
       part: {fileID: 11400000, guid: 5dda41ee5bd0d47c9abf4528925e594c, type: 2}
   - label: leftFrontWheel
-    config:
-      label: 
     part:
       label: 
       offset: {x: -0.25, y: 0, z: 0.75}
       rotation: {x: 0, y: 180, z: 0}
       part: {fileID: 11400000, guid: 5dda41ee5bd0d47c9abf4528925e594c, type: 2}
   - label: rightRearWheel
-    config:
-      label: 
     part:
       label: rightFrontWheel
       offset: {x: 0.25, y: 0, z: -0.75}
       rotation: {x: 0, y: 0, z: 0}
       part: {fileID: 11400000, guid: 5dda41ee5bd0d47c9abf4528925e594c, type: 2}
   - label: leftRearWheel
-    config:
-      label: 
     part:
       label: 
       offset: {x: -0.25, y: 0, z: -0.75}

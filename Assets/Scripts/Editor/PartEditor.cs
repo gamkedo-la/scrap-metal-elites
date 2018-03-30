@@ -10,27 +10,35 @@ public class PartEditor : Editor {
     SerializedProperty modelsProp;
     SerializedProperty applicatorsProp;
     SerializedProperty connectedPartsProp;
-    protected EditorModelDisplayer displayer;
+    List<GameObject> displayedGos = null;
 
     void Awake() {
-        displayer = new EditorModelDisplayer();
+        displayedGos = new List<GameObject>();
     }
 
     protected virtual void DisplayModel() {
-        if (displayer == null) return;
-        displayer.Clear();
-        // do not display prefab models if application is playing
-        if (Application.isPlaying) return;
-
-        // display part
+        if (displayedGos != null) {
+            ClearModel();
+        }
+        // build display config to hide built objects and not save
+        var displayConfig = new PartConfig();
+        displayConfig.Save<bool>(PartUtil.hideTag, true);
+        displayConfig.Save<bool>(PartUtil.dontsaveTag, true);
+        // build the part
         for (var i=0; i<targets.Length; i++) {
-            ((Part) targets[i]).Display(displayer);
+            displayedGos.Add(((Part) targets[i]).Build(displayConfig, null, "display"));
         }
     }
 
     protected virtual void ClearModel() {
-        if (displayer == null) return;
-        displayer.Clear();
+        if (displayedGos != null) {
+            for (var i=0; i<displayedGos.Count; i++) {
+                DestroyImmediate(displayedGos[i]);
+                displayedGos[i] = null;
+            }
+            displayedGos = new List<GameObject>();
+        }
+
     }
 
     protected virtual void OnEnable() {
