@@ -12,6 +12,12 @@ MonoBehaviour:
   m_Name: weakFixedJoint
   m_EditorClassIdentifier: 
   applyBreakForce: 1
-  breakForce: 500
+  breakForce:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: 1feaccd46b17749baa58dc950905686e, type: 2}
   applyBreakTorque: 1
-  breakTorque: 500
+  breakTorque:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: 88d4db20f980a45808a7c9e433e9df71, type: 2}

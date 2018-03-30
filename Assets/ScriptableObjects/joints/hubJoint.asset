@@ -11,7 +11,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abfb1a8978ee34c5c9ea642a94a5ac5a, type: 3}
   m_Name: hubJoint
   m_EditorClassIdentifier: 
-  applyBreakForce: 0
-  breakForce: 0
-  applyBreakTorque: 0
-  breakTorque: 0
+  applyBreakForce: 1
+  breakForce:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: c4adba5c8d39e45b6a46c08c5e289dd7, type: 2}
+  applyBreakTorque: 1
+  breakTorque:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: 779069272847e4643bef368e0cb0a29a, type: 2}
