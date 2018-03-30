@@ -1,8 +1,8 @@
 using UnityEngine;
 using System.Collections;
 
-[CreateAssetMenu(fileName = "fixedJoint", menuName = "Joints/Fixed")]
-public class FixedJointApplicator : ComponentApplicator {
+[CreateAssetMenu(fileName = "hubJoint", menuName = "Joints/Hub")]
+public class HubJointApplicator : ComponentApplicator {
     public bool applyBreakForce;
     public FloatReference breakForce;
     public bool applyBreakTorque;
@@ -16,7 +16,7 @@ public class FixedJointApplicator : ComponentApplicator {
         if (rigidbodyGo == null) return;
 
         // add fixed joint component to target
-        var joint = rigidbodyGo.AddComponent<FixedJoint>();
+        var joint = rigidbodyGo.AddComponent<HingeJoint>();
 
         // apply break limits, as specified
         if (applyBreakForce && breakForce != null) {
@@ -25,6 +25,9 @@ public class FixedJointApplicator : ComponentApplicator {
         if (applyBreakTorque && breakTorque != null) {
             joint.breakTorque = breakTorque.Value;
         }
+
+        // apply hinge properties
+        joint.axis = new Vector3(1,0,0);
 
         // add simple joiner script to target, allowing quick joint join
         var joiner = target.AddComponent<Joiner>();
