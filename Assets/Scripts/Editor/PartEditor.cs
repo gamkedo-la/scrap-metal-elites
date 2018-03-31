@@ -20,6 +20,8 @@ public class PartEditor : Editor {
         if (displayedGos != null) {
             ClearModel();
         }
+        // don't display if application is playing
+        if (Application.isPlaying) return;
         // build display config to hide built objects and not save
         var displayConfig = new PartConfig();
         displayConfig.Save<bool>(PartUtil.hideTag, true);
@@ -51,6 +53,9 @@ public class PartEditor : Editor {
     }
 
     public override void OnInspectorGUI() {
+        if (Application.isPlaying && displayedGos != null) {
+            ClearModel();
+        }
         serializedObject.Update();
         EditorGUILayout.PropertyField(modelsProp, true);
         EditorGUILayout.PropertyField(applicatorsProp, true);
