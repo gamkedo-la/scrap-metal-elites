@@ -32,7 +32,7 @@ public class WheelModule: Part {
         }
 
         // steering goes next (if specified) under parts
-        if (steering != null) {
+        if (steering != null && steeringJoint != null) {
             steeringBodyGo = PartUtil.BuildGo(config, partsGo, "steering.body", typeof(Rigidbody));
             steering.Build(config, steeringBodyGo, "steering");
             // steering joint is attached to the rigidbody for steering, connect joint to top-level rigidbody
@@ -46,7 +46,7 @@ public class WheelModule: Part {
         }
 
         // hub/wheel goes next under parts
-        if (hub != null) {
+        if (hub != null && hubJoint != null) {
             hubBodyGo = PartUtil.BuildGo(config, partsGo, "hub.body", typeof(Rigidbody));
             hub.Build(config, hubBodyGo, "hub");
             if (wheel != null) {

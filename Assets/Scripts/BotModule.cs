@@ -41,11 +41,12 @@ public class BotModule: Part {
                 if (modules[i] != null && modules[i].part != null) {
                     // build the module under the top level parts
                     var moduleGo = modules[i].part.Build(modules[i].config, partsGo, modules[i].label);
-
-                    // connect module to the frame
-                    var joiner = moduleGo.GetComponent<Joiner>();
-                    if (joiner != null) {
-                        joiner.Join(bodyGo.GetComponent<Rigidbody>());
+                    if (moduleGo != null) {
+                        // connect module to the frame
+                        var joiner = moduleGo.GetComponent<Joiner>();
+                        if (joiner != null) {
+                            joiner.Join(bodyGo.GetComponent<Rigidbody>());
+                        }
                     }
                 }
             }

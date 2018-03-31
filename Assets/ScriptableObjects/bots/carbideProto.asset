@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e751a7e88dda48628b9b3bb820e61b9, type: 3}
+  m_Name: carbideProto
+  m_EditorClassIdentifier: 
+  models: []
+  applicators: []
+  connectedParts: []
+  frame:
+    label: 
+    offset: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0}
+    model: {fileID: 1779514873559192, guid: cd5181abb02284584a4fd10d3f26530a, type: 2}
+  modules:
+  - label: leftWheel
+    config:
+      rows:
+      - key: {fileID: 11400000, guid: 07a0e812ec009431098054dc25010019, type: 2}
+        valueType: 0
+        boolValue: 1
+        stringValue: 
+        floatValue: 0
+    part:
+      label: 
+      offset: {x: -1.5, y: 0.22, z: -0.25}
+      rotation: {x: 0, y: 180, z: 0}
+      part: {fileID: 11400000, guid: b3de5662f9f3b4827aedebd40ae0df7c, type: 2}
+  - label: 
+    config:
+      rows: []
+    part:
+      label: 
+      offset: {x: 1.5, y: 0.22, z: -0.25}
+      rotation: {x: 0, y: 0, z: 0}
+      part: {fileID: 11400000, guid: b3de5662f9f3b4827aedebd40ae0df7c, type: 2}

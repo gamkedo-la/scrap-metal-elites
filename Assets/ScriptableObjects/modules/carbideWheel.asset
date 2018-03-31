@@ -9,7 +9,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c0a0580469dcb4bc2b6c6612d3f69af0, type: 3}
-  m_Name: wheelModule
+  m_Name: carbideWheel
   m_EditorClassIdentifier: 
   models: []
   applicators:
@@ -19,21 +19,21 @@ MonoBehaviour:
     label: 
     offset: {x: 0, y: 0, z: 0}
     rotation: {x: 0, y: 0, z: 0}
-    model: {fileID: 1808414059628808, guid: a8f8dea8eb2fc460794ca5436ecac4f2, type: 2}
+    model: {fileID: 0}
   steering:
     label: 
-    offset: {x: 0.4, y: 0, z: 0}
+    offset: {x: 0, y: 0, z: 0}
     rotation: {x: 0, y: 0, z: 0}
-    model: {fileID: 1863949122992824, guid: 52465df0c7013471a9e83efb3761abe1, type: 2}
-  steeringJoint: {fileID: 11400000, guid: ec0c947b4a18a411199252ec5f1a76dd, type: 2}
+    model: {fileID: 0}
+  steeringJoint: {fileID: 0}
   hub:
     label: 
-    offset: {x: 0.5, y: 0, z: 0}
-    rotation: {x: 0, y: 180, z: 0}
-    model: {fileID: 1486721200503198, guid: 1dba77d52ccfd4f8b99dacc0a051db50, type: 2}
+    offset: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0}
+    model: {fileID: 0}
   hubJoint: {fileID: 11400000, guid: c7a54a083d03d438d8bdacc7096e6160, type: 2}
   wheel:
     label: 
-    offset: {x: 0.48, y: 0, z: 0}
+    offset: {x: 0, y: 0, z: 0}
     rotation: {x: 0, y: 90, z: 0}
-    model: {fileID: 1865947958468748, guid: 5e6b403887bf948a69b41fe42fdd86ec, type: 2}
+    model: {fileID: 1708872625811878, guid: 414191280e7be430db7d17e102832aa2, type: 2}

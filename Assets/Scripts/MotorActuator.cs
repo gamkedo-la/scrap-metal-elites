@@ -29,6 +29,9 @@ public class MotorActuator : MonoBehaviour, IMotorActuator {
 
     void rbMotor() {
         if (rb == null || maxTorque == null || maxSpeed == null) return;
+        if (Mathf.Approximately(_forwardDrive, 0)) {
+            return;
+        }
         var f = maxTorque.Value * _forwardDrive;
         if (isLeft) {
             f = -f;
