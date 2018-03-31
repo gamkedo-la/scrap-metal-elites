@@ -25,9 +25,6 @@ public class PartEditor : Editor {
         displayConfig.Save<bool>(PartUtil.hideTag, true);
         displayConfig.Save<bool>(PartUtil.dontsaveTag, true);
 
-        Debug.Log("hideTag: " + displayConfig.Get<bool>(PartUtil.hideTag));
-        Debug.Log("hideTag: " + displayConfig.Get<bool>(PartUtil.dontsaveTag));
-
         // build the part
         for (var i=0; i<targets.Length; i++) {
             displayedGos.Add(((Part) targets[i]).Build(displayConfig, null, "display"));

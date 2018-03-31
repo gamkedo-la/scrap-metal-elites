@@ -21,3 +21,11 @@ MonoBehaviour:
     UseConstant: 0
     ConstantValue: 0
     Variable: {fileID: 11400000, guid: 779069272847e4643bef368e0cb0a29a, type: 2}
+  motorMaxTorque:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: 7430a56f38e9e4f97861f4b1cd36467a, type: 2}
+  motorMaxSpeed:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: f36b74915db364037987d7fde610f791, type: 2}

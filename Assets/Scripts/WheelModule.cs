@@ -37,7 +37,7 @@ public class WheelModule: Part {
             steering.Build(config, steeringBodyGo, "steering");
             // steering joint is attached to the rigidbody for steering, connect joint to top-level rigidbody
             if (steeringJoint != null) {
-                steeringJoint.Apply(null, steeringBodyGo);
+                steeringJoint.Apply(config, steeringBodyGo);
                 var joiner = steeringBodyGo.GetComponent<Joiner>();
                 if (joiner != null) {
                     joiner.Join(bodyGo.GetComponent<Rigidbody>());
@@ -54,7 +54,7 @@ public class WheelModule: Part {
             }
             // hub joint is attached to the rigidbody for the hub and connected to either the steering body (if present), or the top-level rigidbody
             if (hubJoint != null) {
-                hubJoint.Apply(null, hubBodyGo);
+                hubJoint.Apply(config, hubBodyGo);
                 var joiner = hubBodyGo.GetComponent<Joiner>();
                 if (joiner != null) {
                     var connectGo = (steeringBodyGo != null) ? steeringBodyGo : bodyGo;

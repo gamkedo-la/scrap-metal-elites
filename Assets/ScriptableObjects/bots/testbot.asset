@@ -21,24 +21,52 @@ MonoBehaviour:
     model: {fileID: 1853439771169596, guid: ca4d8304e8a97463bac30c14e9a824ea, type: 2}
   modules:
   - label: rightFrontWheel
+    config:
+      rows: []
     part:
       label: 
       offset: {x: 0.25, y: 0, z: 0.75}
       rotation: {x: 0, y: 0, z: 0}
       part: {fileID: 11400000, guid: 5dda41ee5bd0d47c9abf4528925e594c, type: 2}
   - label: leftFrontWheel
+    config:
+      rows:
+      - key: {fileID: 11400000, guid: 07a0e812ec009431098054dc25010019, type: 2}
+        valueType: 0
+        boolValue: 1
+        stringValue: 
+        floatValue: 0
     part:
       label: 
       offset: {x: -0.25, y: 0, z: 0.75}
       rotation: {x: 0, y: 180, z: 0}
       part: {fileID: 11400000, guid: 5dda41ee5bd0d47c9abf4528925e594c, type: 2}
   - label: rightRearWheel
+    config:
+      rows:
+      - key: {fileID: 11400000, guid: 20843fa35adad43aaaad4d2f1a01faed, type: 2}
+        valueType: 0
+        boolValue: 1
+        stringValue: 
+        floatValue: 0
     part:
       label: rightFrontWheel
       offset: {x: 0.25, y: 0, z: -0.75}
       rotation: {x: 0, y: 0, z: 0}
       part: {fileID: 11400000, guid: 5dda41ee5bd0d47c9abf4528925e594c, type: 2}
   - label: leftRearWheel
+    config:
+      rows:
+      - key: {fileID: 11400000, guid: 20843fa35adad43aaaad4d2f1a01faed, type: 2}
+        valueType: 0
+        boolValue: 1
+        stringValue: 
+        floatValue: 0
+      - key: {fileID: 11400000, guid: 07a0e812ec009431098054dc25010019, type: 2}
+        valueType: 0
+        boolValue: 1
+        stringValue: 
+        floatValue: 0
     part:
       label: 
       offset: {x: -0.25, y: 0, z: -0.75}

@@ -28,18 +28,22 @@ public class AutoWheeledMovement : MonoBehaviour, IMovement {
     private float _rotateDrive = 0.0f;
     private bool motorSentLastUpdate;
     private bool steeringSentLastUpdate;
+    private bool runDiscovery = true;
     private IMotorActuator[] motorScripts;
     private ISteeringActuator[] steeringScripts;
 
-	// Use this for initialization
-	void Start () {
+    void Discover() {
         motorScripts = GetComponentsInChildren<IMotorActuator>();
         steeringScripts = GetComponentsInChildren<ISteeringActuator>();
         Debug.Log("# motorSripts: " + motorScripts.Length + " steeringScripts: " + steeringScripts.Length);
-	}
+    }
 
 	// Update is called once per frame
 	void Update () {
+        if (runDiscovery) {
+            Discover();
+            runDiscovery = false;
+        }
         // don't spam updates if controller is zero'd
         bool sendMotor = false;
         if (!Mathf.Approximately(_forwardDrive, 0f) || !motorSentLastUpdate) {

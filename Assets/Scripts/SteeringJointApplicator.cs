@@ -1,4 +1,6 @@
+using System;
 using UnityEngine;
+using UnityEditor;
 using System.Collections;
 
 [CreateAssetMenu(fileName = "steeringJoint", menuName = "Joints/Steering")]
@@ -12,6 +14,17 @@ public class SteeringJointApplicator : ComponentApplicator {
     public float steeringDamper;
     public float maxTurnAngle;
 
+    const string reverseSteeringTagKey = "steering.reverse";
+    public static ConfigTag reverseSteeringTag;
+
+    void OnEnable() {
+        var guids = AssetDatabase.FindAssets("t:ConfigTag " + reverseSteeringTagKey);
+        if (guids.Length > 0) {
+            var assetPath = AssetDatabase.GUIDToAssetPath(guids[0]);
+            reverseSteeringTag = AssetDatabase.LoadAssetAtPath(assetPath, typeof(ConfigTag)) as ConfigTag;
+        }
+    }
+
     public override void Apply(PartConfig config, GameObject target) {
         if (target == null) return;
 
@@ -21,6 +34,15 @@ public class SteeringJointApplicator : ComponentApplicator {
 
         // add fixed joint component to target
         var joint = rigidbodyGo.AddComponent<HingeJoint>();
+
+        // add steering actuator
+        var steering = rigidbodyGo.AddComponent<SteeringActuator>();
+        if (reverseSteeringTag != null && config != null && config.Get<bool>(reverseSteeringTag)) {
+            steering.reverse = true;
+        } else {
+            steering.reverse = false;
+        }
+        steering.maxTurnAngle = maxTurnAngle;
 
         // apply break limits, as specified
         if (applyBreakForce && breakForce != null) {

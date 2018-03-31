@@ -22,6 +22,15 @@ public class PartConfig {
         rows = new PartConfigRow[0];
     }
 
+    public bool Has(ConfigTag key) {
+        for (var i=0; i<rows.Length; i++) {
+            if (rows[i].key == key) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public T Get<T>(ConfigTag key) {
         for (var i=0; i<rows.Length; i++) {
             if (rows[i].key == key) {
