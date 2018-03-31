@@ -34,6 +34,7 @@ public static class PartUtil {
         if (root != null) {
             // FIXME: make sure translation isn't happening here
             go.transform.parent = root.transform;
+            go.transform.localPosition = Vector3.zero;
         }
 
         // look in config to determine if we are in display or build mode

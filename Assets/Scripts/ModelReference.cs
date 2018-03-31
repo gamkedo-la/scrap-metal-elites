@@ -27,8 +27,8 @@ public class ModelReference {
             // preserve model's original rotation (prior to parenting)
             modelGo.transform.localRotation = Quaternion.identity;
             modelGo.name = label + ".model";
-            modelGo.transform.position = offset;
-            modelGo.transform.eulerAngles = rotation;
+            modelGo.transform.localPosition = offset;
+            modelGo.transform.localEulerAngles = rotation;
         }
         return modelGo;
     }

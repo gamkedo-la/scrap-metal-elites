@@ -15,8 +15,8 @@ public class PartReference {
         GameObject partGo = null;
         if (part != null) {
             partGo = part.Build(config, root, (this.label == null) ? this.label : label);
-            partGo.transform.position = offset;
-            partGo.transform.eulerAngles = rotation;
+            partGo.transform.localPosition = offset;
+            partGo.transform.localEulerAngles = rotation;
         }
         return partGo;
     }
