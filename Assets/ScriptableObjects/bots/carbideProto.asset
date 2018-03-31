@@ -33,7 +33,7 @@ MonoBehaviour:
       offset: {x: -1.5, y: 0.22, z: -0.25}
       rotation: {x: 0, y: 180, z: 0}
       part: {fileID: 11400000, guid: b3de5662f9f3b4827aedebd40ae0df7c, type: 2}
-  - label: 
+  - label: rightWheel
     config:
       rows: []
     part:
@@ -41,3 +41,11 @@ MonoBehaviour:
       offset: {x: 1.5, y: 0.22, z: -0.25}
       rotation: {x: 0, y: 0, z: 0}
       part: {fileID: 11400000, guid: b3de5662f9f3b4827aedebd40ae0df7c, type: 2}
+  - label: spinner
+    config:
+      rows: []
+    part:
+      label: 
+      offset: {x: 0, y: 0.07, z: 1.43}
+      rotation: {x: 0, y: 0, z: 0}
+      part: {fileID: 11400000, guid: 310419de03e5c4e2491787b4d7709694, type: 2}

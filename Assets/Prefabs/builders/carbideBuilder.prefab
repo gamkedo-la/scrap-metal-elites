@@ -22,6 +22,8 @@ GameObject:
   - component: {fileID: 114454678224052894}
   - component: {fileID: 114182996929022596}
   - component: {fileID: 114645977295630122}
+  - component: {fileID: 114414764084227154}
+  - component: {fileID: 114043535853079420}
   m_Layer: 0
   m_Name: carbideBuilder
   m_TagString: Untagged
@@ -36,12 +38,23 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1531212166475178}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.47100055, z: -0.000000059604645}
+  m_LocalPosition: {x: 0, y: 0.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114043535853079420
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1531212166475178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cb6281f834c242d5800dd479a965807, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114182996929022596
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -51,6 +64,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1b7b21c70ed2e4b2ca83483984b567e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114414764084227154
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1531212166475178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5454e5c28a9f49b0ac79b2f39f921bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &114454678224052894
