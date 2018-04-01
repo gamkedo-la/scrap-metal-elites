@@ -50,7 +50,7 @@ public class AIController : MonoBehaviour {
             case mood.idle:
                 break;
             case mood.wander:
-                moveScript.forwardDrive = 0.0f;
+                moveScript.forwardDrive = 1.0f;
                 moveScript.rotateDrive = -1.0f;
                 break;
             case mood.aggressive:
