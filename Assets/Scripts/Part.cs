@@ -9,8 +9,12 @@ public class PartImport {
     public Part part;
 }
 
-[CreateAssetMenu(fileName = "Part", menuName = "Parts/Part")]
+[CreateAssetMenu(fileName = "part", menuName = "Parts/Part")]
 public class Part : ScriptableObject {
+    [Tooltip("Mass of the part model, not including connected parts")]
+    public FloatVariable mass;
+    public FloatVariable drag;
+    public FloatVariable angularDrag;
     public ModelReference[] models;
     public ComponentApplicator[] applicators;
     public PartReference[] connectedParts;
@@ -29,6 +33,7 @@ public class Part : ScriptableObject {
 
         // create new rigid body for this part, set parts container as parent
         var rigidbodyGo = PartUtil.BuildGo(config, partsGo, label + ".body", typeof(Rigidbody));
+        PartUtil.ApplyRigidBodyProperties(rigidbodyGo, mass, drag, angularDrag);
 
         // apply applicators to parts container
         if (applicators != null) {

@@ -5,9 +5,9 @@ using System.Collections;
 [CreateAssetMenu(fileName = "wheel", menuName = "Modules/wheel")]
 public class WheelModule: Part {
     public ModelReference frame;
-    public ModelReference steering;
+    public PartReference steering;
     public SteeringJointApplicator steeringJoint;
-    public ModelReference hub;
+    public PartReference hub;
     public HubJointApplicator hubJoint;
     public ModelReference wheel;
 
@@ -33,22 +33,29 @@ public class WheelModule: Part {
 
         // steering goes next (if specified) under parts
         if (steering != null && steeringJoint != null) {
-            steeringBodyGo = PartUtil.BuildGo(config, partsGo, "steering.body", typeof(Rigidbody));
-            steering.Build(config, steeringBodyGo, "steering");
-            // steering joint is attached to the rigidbody for steering, connect joint to top-level rigidbody
-            if (steeringJoint != null) {
-                steeringJoint.Apply(config, steeringBodyGo);
-                var joiner = steeringBodyGo.GetComponent<Joiner>();
-                if (joiner != null) {
-                    joiner.Join(bodyGo.GetComponent<Rigidbody>());
+            var steeringGo = steering.Build(config, partsGo, "steering");
+            if (steeringGo != null) {
+                steeringBodyGo = PartUtil.GetBodyGo(steeringGo);
+                // steering joint is attached to the rigidbody for steering, connect joint to top-level rigidbody
+                if (steeringJoint != null) {
+                    steeringJoint.Apply(config, steeringBodyGo);
+                    var joiner = steeringBodyGo.GetComponent<Joiner>();
+                    if (joiner != null) {
+                        joiner.Join(bodyGo.GetComponent<Rigidbody>());
+                    }
                 }
             }
         }
 
         // hub/wheel goes next under parts
         if (hub != null && hubJoint != null) {
-            hubBodyGo = PartUtil.BuildGo(config, partsGo, "hub.body", typeof(Rigidbody));
-            hub.Build(config, hubBodyGo, "hub");
+            var hubGo = hub.Build(config, partsGo, "hub");
+            // if hub part isn't specified, build dummy hub rigidbody for wheel
+            if (hubGo == null) {
+                hubBodyGo = PartUtil.BuildGo(config, partsGo, "hub.body", typeof(Rigidbody));
+            } else {
+                hubBodyGo = PartUtil.GetBodyGo(hubGo);
+            }
             if (wheel != null) {
                 wheel.Build(config, hubBodyGo, "wheel");
             }

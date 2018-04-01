@@ -7,6 +7,9 @@ using System.Collections.Generic;
 [CustomEditor(typeof(Part)), CanEditMultipleObjects]
 public class PartEditor : Editor {
 
+    SerializedProperty massProp;
+    SerializedProperty dragProp;
+    SerializedProperty angularDragProp;
     SerializedProperty modelsProp;
     SerializedProperty applicatorsProp;
     SerializedProperty connectedPartsProp;
@@ -46,6 +49,9 @@ public class PartEditor : Editor {
 
     protected virtual void OnEnable() {
         // Setup the SerializedProperties.
+        massProp = serializedObject.FindProperty("mass");
+        dragProp = serializedObject.FindProperty("drag");
+        angularDragProp = serializedObject.FindProperty("angularDrag");
         modelsProp = serializedObject.FindProperty("models");
         applicatorsProp = serializedObject.FindProperty("applicators");
         connectedPartsProp = serializedObject.FindProperty("connectedParts");
@@ -57,6 +63,9 @@ public class PartEditor : Editor {
             ClearModel();
         }
         serializedObject.Update();
+        EditorGUILayout.PropertyField(massProp);
+        EditorGUILayout.PropertyField(dragProp);
+        EditorGUILayout.PropertyField(angularDragProp);
         EditorGUILayout.PropertyField(modelsProp, true);
         EditorGUILayout.PropertyField(applicatorsProp, true);
         EditorGUILayout.PropertyField(connectedPartsProp, true);

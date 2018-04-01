@@ -6,7 +6,7 @@ using System.Collections;
 public class SpinnerWeaponModule: Part {
     public ModelReference frame;
     public SpinnerJointApplicator spinnerJoint;
-    public ModelReference spinner;
+    public PartReference spinner;
 
     public override GameObject Build(
         PartConfig config,
@@ -27,13 +27,16 @@ public class SpinnerWeaponModule: Part {
 
         // spinner goes next (if specified) under parts
         if (spinnerJoint != null && spinner != null) {
-            var spinnerBodyGo = PartUtil.BuildGo(config, partsGo, "spinner.body", typeof(Rigidbody));
-            spinner.Build(config, spinnerBodyGo, "spinner");
-            // steering joint is attached to the rigidbody for steering, connect joint to top-level rigidbody
-            spinnerJoint.Apply(config, spinnerBodyGo);
-            var joiner = spinnerBodyGo.GetComponent<Joiner>();
-            if (joiner != null) {
-                joiner.Join(bodyGo.GetComponent<Rigidbody>());
+            var spinnerGo = spinner.Build(config, partsGo, "spinner");
+            if (spinnerGo != null) {
+                var spinnerBodyGo = PartUtil.GetBodyGo(spinnerGo);
+                if (spinnerBodyGo != null) {
+                    spinnerJoint.Apply(config, spinnerBodyGo);
+                    var joiner = spinnerBodyGo.GetComponent<Joiner>();
+                    if (joiner != null) {
+                        joiner.Join(bodyGo.GetComponent<Rigidbody>());
+                    }
+                }
             }
         }
 

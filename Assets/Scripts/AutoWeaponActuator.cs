@@ -32,6 +32,7 @@ public class AutoWeaponActuator : MonoBehaviour, IActuator {
             Discover();
             runDiscovery = false;
         }
+        if (actuators == null) return;
         // don't spam updates if controller is zero'd
         bool send = false;
         if (!Mathf.Approximately(_actuate, 0f) || !sentLastUpdate) {

@@ -32,9 +32,9 @@ public static class PartUtil {
         // create empty game object w/ rigidbody component
         var go = new GameObject(label, components);
         if (root != null) {
-            // FIXME: make sure translation isn't happening here
             go.transform.parent = root.transform;
             go.transform.localPosition = Vector3.zero;
+            go.transform.localRotation = Quaternion.identity;
         }
 
         // look in config to determine if we are in display or build mode
@@ -63,5 +63,25 @@ public static class PartUtil {
             }
         }
         return bodyGo;
+    }
+
+    public static void ApplyRigidBodyProperties(
+        GameObject rigidbodyGo,
+        FloatVariable mass,
+        FloatVariable drag,
+        FloatVariable angularDrag
+    ) {
+        if (rigidbodyGo == null) return;
+        var rigidbody = rigidbodyGo.GetComponent<Rigidbody>();
+        if (rigidbody == null) return;
+        if (mass != null) {
+            rigidbody.mass = mass.Value;
+        }
+        if (drag != null) {
+            rigidbody.drag = drag.Value;
+        }
+        if (angularDrag != null) {
+            rigidbody.angularDrag = angularDrag.Value;
+        }
     }
 }

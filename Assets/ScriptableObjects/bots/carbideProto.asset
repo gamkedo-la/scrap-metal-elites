@@ -11,6 +11,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e751a7e88dda48628b9b3bb820e61b9, type: 3}
   m_Name: carbideProto
   m_EditorClassIdentifier: 
+  mass: {fileID: 11400000, guid: f6a8adac9318e481484c4c18e5efbf0f, type: 2}
+  drag: {fileID: 0}
+  angularDrag: {fileID: 0}
   models: []
   applicators: []
   connectedParts: []
