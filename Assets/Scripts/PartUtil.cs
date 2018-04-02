@@ -1,4 +1,6 @@
 using System;
+using System.Linq;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
@@ -86,10 +88,22 @@ public static class PartUtil {
     }
 
     // FIXME: come back to this
-    /*
     // want to hook Joiner mechanism into filling out a connected list in the part... need to research if non-serialized field can be used in scriptable object w/out data being saved
-    public static T[] GetComponentInConnected<T>(GameObject root) {
+    public static T[] GetComponentsInChildren<T>(GameObject rootPartGo) {
+        var allComponents = new List<T>();
+        // find component of specified type in root's tree
+        T[] components = rootPartGo.GetComponentsInChildren<T>();
+        allComponents.AddRange(components);
+
+        // find any part siblings components in root
+        var siblings = rootPartGo.GetComponentsInChildren<Sibling>();
+        for (var i=0; i<siblings.Length; i++) {
+            // if part has external parts reference
+            if (siblings[i].siblingGo != null) {
+                allComponents.AddRange(PartUtil.GetComponentsInChildren<T>(siblings[i].siblingGo));
+            }
+        }
+        return allComponents.ToArray();
     }
-    */
 
 }

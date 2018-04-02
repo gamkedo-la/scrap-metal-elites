@@ -31,9 +31,6 @@ public class BotModule: Part {
         }
 
         // for a bot, we want to attach rigidbody for frame directly to root
-        // FIXME: not ready for this yet... if parts are children, the way the auto scripts search (by hierarchy)
-        // breaks
-        /*
         if (root != null) {
             if (!root.GetComponent<Rigidbody>() != null) {
                 root.AddComponent<Rigidbody>();
@@ -41,18 +38,20 @@ public class BotModule: Part {
             bodyGo = root;
             // empty parts object to parent the rest of the bot
             partsGo = PartUtil.BuildGo(config, null, label + ".parts");
+            partsGo.transform.position = root.transform.position;
+            partsGo.transform.rotation = root.transform.rotation;
+            // keep track of sibling
+            var sibling = root.AddComponent<Sibling>();
+            sibling.siblingGo = partsGo;
 
         // otherwise, instantiate rigidbody/parts as a normal part
         } else {
-        */
             // build out frame model first
             partsGo = base.Build(config, root, label);
             // set local position to match that of root
             bodyGo = partsGo.transform.Find(partsGo.name + ".body").gameObject;
-            /*
             // FIXME
         }
-        */
 
         // frame is instantiated under parts.body
         if (frame != null) {

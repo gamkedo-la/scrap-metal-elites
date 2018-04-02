@@ -22,7 +22,7 @@ public class AutoWeaponActuator : MonoBehaviour, IActuator {
     private IActuator[] actuators;
 
     void Discover() {
-        actuators = GetComponentsInChildren<IActuator>();
+        actuators = PartUtil.GetComponentsInChildren<IActuator>(gameObject);
         Debug.Log("# actuators: " + actuators.Length);
     }
 

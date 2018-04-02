@@ -33,8 +33,8 @@ public class AutoWheeledMovement : MonoBehaviour, IMovement {
     private ISteeringActuator[] steeringScripts;
 
     void Discover() {
-        motorScripts = GetComponentsInChildren<IMotorActuator>();
-        steeringScripts = GetComponentsInChildren<ISteeringActuator>();
+        motorScripts = PartUtil.GetComponentsInChildren<IMotorActuator>(gameObject);
+        steeringScripts = PartUtil.GetComponentsInChildren<ISteeringActuator>(gameObject);
         Debug.Log("# motorSripts: " + motorScripts.Length + " steeringScripts: " + steeringScripts.Length);
     }
 

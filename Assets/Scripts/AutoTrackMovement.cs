@@ -29,16 +29,16 @@ public class AutoTrackMovement : MonoBehaviour, IMovement {
     private float _forwardDrive = 0.0f;
     // NOT USED
     private float _rotateDrive = 0.0f;
-    private bool firstUpdate = true;
+    private bool runDiscovery = true;
     private bool leftSentLastUpdate;
     private bool rightSentLastUpdate;
     private List<IMotorActuator> leftScripts;
     private List<IMotorActuator> rightScripts;
 
-    void Setup() {
+    void Discover() {
         leftScripts = new List<IMotorActuator>();
         rightScripts = new List<IMotorActuator>();
-        var scripts = GetComponentsInChildren<IMotorActuator>();
+        var scripts = PartUtil.GetComponentsInChildren<IMotorActuator>(gameObject);
         for (var i=0; i<scripts.Length; i++) {
             if (scripts[i].left) {
                 leftScripts.Add(scripts[i]);
@@ -50,9 +50,9 @@ public class AutoTrackMovement : MonoBehaviour, IMovement {
     }
 
     void Update() {
-        if (firstUpdate) {
-            Setup();
-            firstUpdate = false;
+        if (runDiscovery) {
+            Discover();
+            runDiscovery = false;
         }
     }
 
