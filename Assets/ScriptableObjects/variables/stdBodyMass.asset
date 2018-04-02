@@ -9,7 +9,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2e2daf8680fef4d4c887ae25097693b4, type: 3}
-  m_Name: stdMotorSpeed
+  m_Name: stdBodyMass
   m_EditorClassIdentifier: 
   DeveloperDescription: 
-  Value: 20
+  Value: 5

@@ -20,10 +20,8 @@ public class HealthApplicator : ComponentApplicator {
         if (rigidbodyGo == null) return;
 
         // add fixed joint component to target
-        if (maxHealth != null) {
-            var health = rigidbodyGo.AddComponent<Health>();
-            health.maxHealth = (int) maxHealth;
-        }
+        var health = rigidbodyGo.AddComponent<Health>();
+        health.maxHealth = (int) maxHealth;
 
         if (impactApplyDamage) {
             var applicator = rigidbodyGo.AddComponent<ImpactDamageApplicator>();

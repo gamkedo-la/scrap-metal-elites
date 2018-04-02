@@ -9,7 +9,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c0a0580469dcb4bc2b6c6612d3f69af0, type: 3}
-  m_Name: carbideWheelModule
+  m_Name: fixedWheel
   m_EditorClassIdentifier: 
   mass: {fileID: 0}
   drag: {fileID: 0}
@@ -17,12 +17,13 @@ MonoBehaviour:
   models: []
   applicators:
   - {fileID: 11400000, guid: 40b16337435db439e9894ed44a6ae7d4, type: 2}
+  - {fileID: 11400000, guid: 41c447bb5245a414bb8288422a150e20, type: 2}
   connectedParts: []
   frame:
     label: 
     offset: {x: 0, y: 0, z: 0}
     rotation: {x: 0, y: 0, z: 0}
-    model: {fileID: 0}
+    model: {fileID: 1808414059628808, guid: a8f8dea8eb2fc460794ca5436ecac4f2, type: 2}
   steering:
     label: 
     offset: {x: 0, y: 0, z: 0}
@@ -31,12 +32,12 @@ MonoBehaviour:
   steeringJoint: {fileID: 0}
   hub:
     label: 
-    offset: {x: 0, y: 0, z: 0}
+    offset: {x: 0.5, y: 0, z: 0}
     rotation: {x: 0, y: 0, z: 0}
-    part: {fileID: 0}
-  hubJoint: {fileID: 11400000, guid: 08e5242d2a04a4863aa852bb00719144, type: 2}
+    part: {fileID: 11400000, guid: 43af56fd188db4ca281b6056689d98b7, type: 2}
+  hubJoint: {fileID: 11400000, guid: c7a54a083d03d438d8bdacc7096e6160, type: 2}
   wheel:
     label: 
     offset: {x: 0, y: 0, z: 0}
     rotation: {x: 0, y: 90, z: 0}
-    model: {fileID: 1708872625811878, guid: 414191280e7be430db7d17e102832aa2, type: 2}
+    model: {fileID: 1865947958468748, guid: 5e6b403887bf948a69b41fe42fdd86ec, type: 2}

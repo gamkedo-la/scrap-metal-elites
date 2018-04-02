@@ -10,7 +10,7 @@ public class PartBuilder : MonoBehaviour {
 
     void Start() {
         if (part != null) {
-            part.Build(null, gameObject, null);
+            part.Build(null, gameObject, name);
         }
     }
 

@@ -22,7 +22,7 @@ public class SpinnerActuator : MonoBehaviour, IActuator {
     }
 
     void rbMotor() {
-        if (rb == null || maxTorque == null || maxSpeed == null) return;
+        if (rb == null) return;
         if (Mathf.Approximately(_actuate, 0)) return;
         var f = maxTorque * _actuate;
         rb.maxAngularVelocity = maxSpeed;

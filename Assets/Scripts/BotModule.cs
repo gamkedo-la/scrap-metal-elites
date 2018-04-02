@@ -21,8 +21,6 @@ public class BotModule: Part {
     ) {
         GameObject partsGo = null;
         GameObject bodyGo = null;
-        GameObject steeringBodyGo = null;
-        GameObject hubBodyGo = null;
         Vector3 rotation = Vector3.zero;
         Vector3 offset = Vector3.zero;
 
@@ -32,10 +30,11 @@ public class BotModule: Part {
 
         // for a bot, we want to attach rigidbody for frame directly to root
         if (root != null) {
-            if (!root.GetComponent<Rigidbody>() != null) {
+            if (root.GetComponent<Rigidbody>() == null) {
                 root.AddComponent<Rigidbody>();
             }
             bodyGo = root;
+            PartUtil.ApplyRigidBodyProperties(bodyGo, mass, drag, angularDrag);
             // empty parts object to parent the rest of the bot
             partsGo = PartUtil.BuildGo(config, null, label + ".parts");
             partsGo.transform.position = root.transform.position;
