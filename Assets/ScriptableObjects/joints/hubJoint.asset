@@ -21,6 +21,9 @@ MonoBehaviour:
     UseConstant: 0
     ConstantValue: 0
     Variable: {fileID: 11400000, guid: 779069272847e4643bef368e0cb0a29a, type: 2}
+  applyDamageToForce: 1
+  applyDamageToTorque: 1
+  motor: 1
   motorMaxTorque:
     UseConstant: 0
     ConstantValue: 0

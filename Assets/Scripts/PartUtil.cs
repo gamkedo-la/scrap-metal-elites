@@ -84,4 +84,12 @@ public static class PartUtil {
             rigidbody.angularDrag = angularDrag.Value;
         }
     }
+
+    // FIXME: come back to this
+    /*
+    // want to hook Joiner mechanism into filling out a connected list in the part... need to research if non-serialized field can be used in scriptable object w/out data being saved
+    public static T[] GetComponentInConnected<T>(GameObject root) {
+    }
+    */
+
 }

@@ -9,7 +9,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c0a0580469dcb4bc2b6c6612d3f69af0, type: 3}
-  m_Name: wheelModule
+  m_Name: smallWheel
   m_EditorClassIdentifier: 
   mass: {fileID: 0}
   drag: {fileID: 0}
@@ -17,7 +17,6 @@ MonoBehaviour:
   models: []
   applicators:
   - {fileID: 11400000, guid: 40b16337435db439e9894ed44a6ae7d4, type: 2}
-  - {fileID: 11400000, guid: 41c447bb5245a414bb8288422a150e20, type: 2}
   connectedParts: []
   frame:
     label: 
@@ -38,6 +37,6 @@ MonoBehaviour:
   hubJoint: {fileID: 11400000, guid: c7a54a083d03d438d8bdacc7096e6160, type: 2}
   wheel:
     label: 
-    offset: {x: 0, y: 0, z: 0}
+    offset: {x: 0.15, y: 0, z: 0}
     rotation: {x: 0, y: 90, z: 0}
-    model: {fileID: 1865947958468748, guid: 5e6b403887bf948a69b41fe42fdd86ec, type: 2}
+    model: {fileID: 1142340980086648, guid: ae8f6e4fb166641819284405d1565b9c, type: 2}

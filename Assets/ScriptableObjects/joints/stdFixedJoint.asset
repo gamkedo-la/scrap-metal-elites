@@ -21,3 +21,5 @@ MonoBehaviour:
     UseConstant: 1
     ConstantValue: 10000
     Variable: {fileID: 0}
+  applyDamageToForce: 1
+  applyDamageToTorque: 1
