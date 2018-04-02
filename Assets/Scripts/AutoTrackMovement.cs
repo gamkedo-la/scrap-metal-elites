@@ -58,8 +58,8 @@ public class AutoTrackMovement : MonoBehaviour, IMovement {
 
     public void FixedUpdate() {
         if ((leftScripts == null) || (rightScripts == null)) return;
-        float leftDrive = (_forwardDrive + _rotateDrive)/2f;
-        float rightDrive = (_forwardDrive - _rotateDrive)/2f;
+        float leftDrive = Mathf.Clamp(_forwardDrive + (_rotateDrive*1.25f), -1f, 1f);
+        float rightDrive = Mathf.Clamp(_forwardDrive - (_rotateDrive*1.25f), -1f, 1f);
 
         // don't spam updates if controller is zero'd
         bool sendLeft = false;
@@ -76,7 +76,8 @@ public class AutoTrackMovement : MonoBehaviour, IMovement {
                 leftScripts[i].forwardDrive = leftDrive;
                 leftSentLastUpdate = true;
             }
-        } else {
+        }
+        if (!Mathf.Approximately(leftDrive, 0f)) {
             leftSentLastUpdate = false;
         }
 
@@ -85,7 +86,8 @@ public class AutoTrackMovement : MonoBehaviour, IMovement {
                 rightScripts[i].forwardDrive = rightDrive;
                 rightSentLastUpdate = true;
             }
-        } else {
+        }
+        if (!Mathf.Approximately(rightDrive, 0f)) {
             rightSentLastUpdate = false;
         }
 

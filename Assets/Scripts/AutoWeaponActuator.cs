@@ -44,7 +44,8 @@ public class AutoWeaponActuator : MonoBehaviour, IActuator {
                 actuators[i].actuate = _actuate;
                 sentLastUpdate = true;
             }
-        } else {
+        }
+        if (!Mathf.Approximately(_actuate, 0f)) {
             sentLastUpdate = false;
         }
     }

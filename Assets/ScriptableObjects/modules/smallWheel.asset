@@ -34,7 +34,7 @@ MonoBehaviour:
     offset: {x: 0.5, y: 0, z: 0}
     rotation: {x: 0, y: 0, z: 0}
     part: {fileID: 11400000, guid: 43af56fd188db4ca281b6056689d98b7, type: 2}
-  hubJoint: {fileID: 11400000, guid: c7a54a083d03d438d8bdacc7096e6160, type: 2}
+  hubJoint: {fileID: 11400000, guid: 8b9a36488954149568d4f4eadb45321f, type: 2}
   wheel:
     label: 
     offset: {x: 0.15, y: 0, z: 0}

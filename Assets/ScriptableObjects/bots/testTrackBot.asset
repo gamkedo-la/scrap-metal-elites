@@ -9,9 +9,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6e751a7e88dda48628b9b3bb820e61b9, type: 3}
-  m_Name: testbot2
+  m_Name: testTrackBot
   m_EditorClassIdentifier: 
-  mass: {fileID: 0}
+  mass: {fileID: 11400000, guid: 1e9dbc9b61d794800828ca6b91fbf420, type: 2}
   drag: {fileID: 0}
   angularDrag: {fileID: 0}
   models: []

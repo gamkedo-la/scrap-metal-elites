@@ -59,7 +59,8 @@ public class AutoWheeledMovement : MonoBehaviour, IMovement {
                 motorScripts[i].forwardDrive = _forwardDrive;
                 motorSentLastUpdate = true;
             }
-        } else {
+        }
+        if (!Mathf.Approximately(_forwardDrive, 0f)) {
             motorSentLastUpdate = false;
         }
 
@@ -68,7 +69,8 @@ public class AutoWheeledMovement : MonoBehaviour, IMovement {
                 steeringScripts[i].rotateDrive = _rotateDrive;
                 steeringSentLastUpdate = true;
             }
-        } else {
+        }
+        if (!Mathf.Approximately(_rotateDrive, 0f)) {
             steeringSentLastUpdate = false;
         }
 
