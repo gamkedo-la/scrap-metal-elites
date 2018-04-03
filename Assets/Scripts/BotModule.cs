@@ -29,7 +29,8 @@ public class BotModule: Part {
         }
 
         // for a bot, we want to attach rigidbody for frame directly to root
-        if (root != null) {
+        // only do this in-game, not for in-editor preview
+        if (root != null && Application.isPlaying) {
             if (root.GetComponent<Rigidbody>() == null) {
                 root.AddComponent<Rigidbody>();
             }
@@ -62,7 +63,7 @@ public class BotModule: Part {
             for (var i=0; i<modules.Length; i++) {
                 if (modules[i] != null && modules[i].part != null) {
                     // build the module under the top level parts
-                    var moduleGo = modules[i].part.Build(modules[i].config, partsGo, modules[i].label);
+                    var moduleGo = modules[i].part.Build(PartConfig.Merge(modules[i].config, config), partsGo, modules[i].label);
                     if (moduleGo != null) {
                         // connect module to the frame
                         var joiner = moduleGo.GetComponent<Joiner>();

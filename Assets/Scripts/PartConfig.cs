@@ -76,4 +76,36 @@ public class PartConfig {
         }
     }
 
+    // create new copy of config w/ merged values between one and other
+    // other overrides one
+    public static PartConfig Merge(PartConfig one, PartConfig other) {
+        var merged = new PartConfig();
+        // first copy other to merged
+        if (other != null) {
+            Array.Resize(ref merged.rows, other.rows.Length);
+            for (var i=0; i<other.rows.Length; i++) {
+                merged.rows[i] = other.rows[i];
+            }
+        }
+
+        // now copy one to merged, only if key not already in merged
+        if (one != null) {
+            for (var i=0; i<one.rows.Length; i++) {
+                bool found = false;
+                for (var j=0; j<merged.rows.Length; j++) {
+                    if (one.rows[i].key == merged.rows[j].key) {
+                        found = true;
+                        break;
+                    }
+                }
+                if (!found) {
+                    Array.Resize(ref merged.rows, merged.rows.Length+1);
+                    merged.rows[merged.rows.Length-1] = one.rows[i];
+                }
+            }
+        }
+
+        return merged;
+    }
+
 }

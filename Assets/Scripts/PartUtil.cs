@@ -8,8 +8,10 @@ public static class PartUtil {
 
     const string hideTagKey = "part.hide";
     const string dontsaveTagKey = "part.dontsave";
+    const string readonlyTagKey = "part.readonly";
     public static ConfigTag hideTag;
     public static ConfigTag dontsaveTag;
+    public static ConfigTag readonlyTag;
 
     // Static Initialization;
     static PartUtil() {
@@ -22,6 +24,11 @@ public static class PartUtil {
         if (guids.Length > 0) {
             var assetPath = AssetDatabase.GUIDToAssetPath(guids[0]);
             dontsaveTag = AssetDatabase.LoadAssetAtPath(assetPath, typeof(ConfigTag)) as ConfigTag;
+        }
+        guids = AssetDatabase.FindAssets("t:ConfigTag " + readonlyTagKey);
+        if (guids.Length > 0) {
+            var assetPath = AssetDatabase.GUIDToAssetPath(guids[0]);
+            readonlyTag = AssetDatabase.LoadAssetAtPath(assetPath, typeof(ConfigTag)) as ConfigTag;
         }
     }
 
@@ -45,6 +52,9 @@ public static class PartUtil {
         }
         if (dontsaveTag != null && config != null && config.Get<bool>(dontsaveTag)) {
             go.hideFlags |= HideFlags.DontSave;
+        }
+        if (readonlyTag != null && config != null && config.Get<bool>(readonlyTag)) {
+            go.hideFlags |= HideFlags.NotEditable;
         }
         return go;
     }
@@ -104,6 +114,22 @@ public static class PartUtil {
             }
         }
         return allComponents.ToArray();
+    }
+
+    public static void DestroyPartGo(GameObject partGo) {
+        // find any sibling relationship w/ object
+        var siblings = GetComponentsInChildren<Sibling>(partGo);
+        for (var i=0; i<siblings.Length; i++) {
+            DestroyPartGo(siblings[i].siblingGo);
+            siblings[i].siblingGo = null;
+        }
+        // destroy top-level gameobject tree
+        if (Application.isPlaying) {
+            UnityEngine.Object.Destroy(partGo);
+        } else {
+            UnityEngine.Object.DestroyImmediate(partGo);
+        }
+
     }
 
 }
