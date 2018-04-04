@@ -6,33 +6,47 @@ using System.Collections.Generic;
 [CustomEditor(typeof(WheelModule)), CanEditMultipleObjects]
 public class WheelModuleEditor : PartEditor {
 
-    SerializedProperty frameProp;
-    SerializedProperty steeringProp;
-    SerializedProperty steeringJointProp;
-    SerializedProperty hubProp;
-    SerializedProperty hubJointProp;
-    SerializedProperty wheelProp;
+    SerializedProperty mass;
+    SerializedProperty health;
+    SerializedProperty damage;
+    SerializedProperty applicators;
+    SerializedProperty frame;
+    SerializedProperty steering;
+    //SerializedProperty steeringJoint;
+    SerializedProperty hub;
+    //SerializedProperty hubJoint;
+    SerializedProperty wheel;
 
     protected override void OnEnable() {
         // Setup the SerializedProperties.
-        frameProp = serializedObject.FindProperty("frame");
-        steeringProp = serializedObject.FindProperty("steering");
-        steeringJointProp = serializedObject.FindProperty("steeringJoint");
-        hubProp = serializedObject.FindProperty("hub");
-        hubJointProp = serializedObject.FindProperty("hubJoint");
-        wheelProp = serializedObject.FindProperty("wheel");
+        // from base
+        mass = serializedObject.FindProperty("mass");
+        health = serializedObject.FindProperty("health");
+        damage = serializedObject.FindProperty("damage");
+        applicators = serializedObject.FindProperty("applicators");
+        // from wheel module
+        frame = serializedObject.FindProperty("frame");
+        steering = serializedObject.FindProperty("steering");
+        //steeringJoint = serializedObject.FindProperty("steeringJoint");
+        hub = serializedObject.FindProperty("hub");
+        //hubJoint = serializedObject.FindProperty("hubJoint");
+        wheel = serializedObject.FindProperty("wheel");
         base.OnEnable();
     }
 
     public override void OnInspectorGUI() {
-        base.OnInspectorGUI();
         serializedObject.Update();
-        EditorGUILayout.PropertyField(frameProp, true);
-        EditorGUILayout.PropertyField(steeringProp, true);
-        EditorGUILayout.PropertyField(steeringJointProp);
-        EditorGUILayout.PropertyField(hubProp, true);
-        EditorGUILayout.PropertyField(hubJointProp);
-        EditorGUILayout.PropertyField(wheelProp, true);
+        EditorGUIUtility.labelWidth = 60f;
+        EditorGUILayout.PropertyField(frame, true);
+        EditorGUILayout.PropertyField(mass, true);
+        EditorGUILayout.PropertyField(health, true);
+        EditorGUILayout.PropertyField(damage, true);
+        EditorList.Show(applicators, EditorListOption.ListLabel|EditorListOption.AddRemButtons);
+        EditorGUILayout.PropertyField(steering, true);
+        //EditorGUILayout.PropertyField(steeringJoint);
+        EditorGUILayout.PropertyField(hub, true);
+        //EditorGUILayout.PropertyField(hubJoint);
+        EditorGUILayout.PropertyField(wheel, true);
         if (serializedObject.ApplyModifiedProperties()) {
             DisplayModel();
         }

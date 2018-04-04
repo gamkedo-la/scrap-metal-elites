@@ -2,22 +2,24 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
-[System.Serializable]
-public class PartImport {
-    public string label;
-    public Vector3 modelOffset;
-    public Vector3 modelRotation;
-    public Part part;
-}
-
 [CreateAssetMenu(fileName = "part", menuName = "Parts/Part")]
 public class Part : ScriptableObject {
-    [Tooltip("Mass of the part model, not including connected parts")]
-    public FloatVariable mass;
-    public FloatVariable drag;
-    public FloatVariable angularDrag;
+    [Tooltip("Mass properties of the part model, not including connected parts, null means rigidbody defaults are used")]
+    public MassApplicator mass;
+
+    [Tooltip("Health associated with part, null means no health")]
+    public HealthApplicator health;
+
+    [Tooltip("How to apply damage to this part, null means no damage will be applied")]
+    public DamageApplicator damage;
+
+    [Tooltip("Models are the prefabs containing mesh and collider data for the main body of the part")]
     public ModelReference[] models;
+
+    [Tooltip("Additional applicators for the part (e.g.: extra joints or other properties to apply to the part)")]
     public ComponentApplicator[] applicators;
+
+    [Tooltip("References to other parts to be attached to this part")]
     public PartReference[] connectedParts;
 
     public virtual GameObject Build(
@@ -34,7 +36,18 @@ public class Part : ScriptableObject {
 
         // create new rigid body for this part, set parts container as parent
         var rigidbodyGo = PartUtil.BuildGo(config, partsGo, label + ".body", typeof(Rigidbody));
-        PartUtil.ApplyRigidBodyProperties(rigidbodyGo, mass, drag, angularDrag);
+        //PartUtil.ApplyRigidBodyProperties(rigidbodyGo, mass, drag, angularDrag);
+
+        // apply part properties
+        if (mass != null) {
+            mass.Apply(config, partsGo);
+        }
+        if (health != null) {
+            health.Apply(config, partsGo);
+        }
+        if (damage != null) {
+            damage.Apply(config, partsGo);
+        }
 
         // apply applicators to parts container
         if (applicators != null) {

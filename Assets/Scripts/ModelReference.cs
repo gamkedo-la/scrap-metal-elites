@@ -3,7 +3,6 @@ using UnityEditor;
 
 [System.Serializable]
 public class ModelReference {
-    public string label;
     public Vector3 offset;
     public Vector3 rotation;
     public GameObject model;

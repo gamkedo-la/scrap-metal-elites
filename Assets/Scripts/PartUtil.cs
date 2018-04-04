@@ -97,8 +97,6 @@ public static class PartUtil {
         }
     }
 
-    // FIXME: come back to this
-    // want to hook Joiner mechanism into filling out a connected list in the part... need to research if non-serialized field can be used in scriptable object w/out data being saved
     public static T[] GetComponentsInChildren<T>(GameObject rootPartGo) {
         var allComponents = new List<T>();
         // find component of specified type in root's tree

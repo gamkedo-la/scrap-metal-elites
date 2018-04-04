@@ -4,8 +4,9 @@ using System.Collections;
 
 [CreateAssetMenu(fileName = "spinner", menuName = "Modules/Spinner Weapon")]
 public class SpinnerWeaponModule: Part {
+    [Tooltip("Mesh/Collider model/prefab to be associated with module frame, null means no model will be displayed for module frame")]
     public ModelReference frame;
-    public SpinnerJointApplicator spinnerJoint;
+    [Tooltip("Rotating Spinner part")]
     public PartReference spinner;
 
     public override GameObject Build(
@@ -26,8 +27,9 @@ public class SpinnerWeaponModule: Part {
         }
 
         // spinner goes next (if specified) under parts
-        if (spinnerJoint != null && spinner != null) {
-            var spinnerGo = spinner.Build(config, partsGo, "spinner");
+        if (spinner != null) {
+            spinner.Build(config, partsGo, "spinner");
+            /*
             if (spinnerGo != null) {
                 var spinnerBodyGo = PartUtil.GetBodyGo(spinnerGo);
                 if (spinnerBodyGo != null) {
@@ -38,6 +40,7 @@ public class SpinnerWeaponModule: Part {
                     }
                 }
             }
+            */
         }
 
         return partsGo;

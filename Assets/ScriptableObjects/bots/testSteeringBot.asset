@@ -11,14 +11,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e751a7e88dda48628b9b3bb820e61b9, type: 3}
   m_Name: testSteeringBot
   m_EditorClassIdentifier: 
-  mass: {fileID: 11400000, guid: a475330367318474ab5dc80d4f9b9215, type: 2}
-  drag: {fileID: 0}
-  angularDrag: {fileID: 0}
+  mass: {fileID: 0}
+  health: {fileID: 0}
+  damage: {fileID: 0}
   models: []
   applicators: []
   connectedParts: []
   frame:
-    label: frame
     offset: {x: 0, y: 0, z: 0}
     rotation: {x: 0, y: 0, z: 0}
     model: {fileID: 1853439771169596, guid: ca4d8304e8a97463bac30c14e9a824ea, type: 2}
@@ -27,9 +26,9 @@ MonoBehaviour:
     config:
       rows: []
     part:
-      label: 
       offset: {x: 0.25, y: 0, z: 0.75}
       rotation: {x: 0, y: 0, z: 0}
+      joint: {fileID: 11400000, guid: 40b16337435db439e9894ed44a6ae7d4, type: 2}
       part: {fileID: 11400000, guid: 5dda41ee5bd0d47c9abf4528925e594c, type: 2}
   - label: leftFrontWheel
     config:
@@ -40,9 +39,9 @@ MonoBehaviour:
         stringValue: 
         floatValue: 0
     part:
-      label: 
       offset: {x: -0.25, y: 0, z: 0.75}
       rotation: {x: 0, y: 180, z: 0}
+      joint: {fileID: 11400000, guid: 40b16337435db439e9894ed44a6ae7d4, type: 2}
       part: {fileID: 11400000, guid: 5dda41ee5bd0d47c9abf4528925e594c, type: 2}
   - label: rightRearWheel
     config:
@@ -53,9 +52,9 @@ MonoBehaviour:
         stringValue: 
         floatValue: 0
     part:
-      label: rightFrontWheel
       offset: {x: 0.25, y: 0, z: -0.75}
       rotation: {x: 0, y: 0, z: 0}
+      joint: {fileID: 11400000, guid: 40b16337435db439e9894ed44a6ae7d4, type: 2}
       part: {fileID: 11400000, guid: 5dda41ee5bd0d47c9abf4528925e594c, type: 2}
   - label: leftRearWheel
     config:
@@ -71,7 +70,7 @@ MonoBehaviour:
         stringValue: 
         floatValue: 0
     part:
-      label: 
       offset: {x: -0.25, y: 0, z: -0.75}
       rotation: {x: 0, y: 180, z: 0}
+      joint: {fileID: 11400000, guid: 40b16337435db439e9894ed44a6ae7d4, type: 2}
       part: {fileID: 11400000, guid: 5dda41ee5bd0d47c9abf4528925e594c, type: 2}

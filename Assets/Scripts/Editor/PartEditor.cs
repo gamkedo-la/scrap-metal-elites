@@ -7,12 +7,12 @@ using System.Collections.Generic;
 [CustomEditor(typeof(Part)), CanEditMultipleObjects]
 public class PartEditor : Editor {
 
-    SerializedProperty massProp;
-    SerializedProperty dragProp;
-    SerializedProperty angularDragProp;
-    SerializedProperty modelsProp;
-    SerializedProperty applicatorsProp;
-    SerializedProperty connectedPartsProp;
+    SerializedProperty mass;
+    SerializedProperty health;
+    SerializedProperty damage;
+    SerializedProperty models;
+    SerializedProperty applicators;
+    SerializedProperty connectedParts;
     List<GameObject> displayedGos = null;
 
     void Awake() {
@@ -49,12 +49,12 @@ public class PartEditor : Editor {
 
     protected virtual void OnEnable() {
         // Setup the SerializedProperties.
-        massProp = serializedObject.FindProperty("mass");
-        dragProp = serializedObject.FindProperty("drag");
-        angularDragProp = serializedObject.FindProperty("angularDrag");
-        modelsProp = serializedObject.FindProperty("models");
-        applicatorsProp = serializedObject.FindProperty("applicators");
-        connectedPartsProp = serializedObject.FindProperty("connectedParts");
+        mass = serializedObject.FindProperty("mass");
+        health = serializedObject.FindProperty("health");
+        damage = serializedObject.FindProperty("damage");
+        models = serializedObject.FindProperty("models");
+        applicators = serializedObject.FindProperty("applicators");
+        connectedParts = serializedObject.FindProperty("connectedParts");
         DisplayModel();
     }
 
@@ -63,12 +63,12 @@ public class PartEditor : Editor {
             ClearModel();
         }
         serializedObject.Update();
-        EditorGUILayout.PropertyField(massProp);
-        EditorGUILayout.PropertyField(dragProp);
-        EditorGUILayout.PropertyField(angularDragProp);
-        EditorGUILayout.PropertyField(modelsProp, true);
-        EditorGUILayout.PropertyField(applicatorsProp, true);
-        EditorGUILayout.PropertyField(connectedPartsProp, true);
+        EditorGUILayout.PropertyField(mass);
+        EditorGUILayout.PropertyField(health);
+        EditorGUILayout.PropertyField(damage);
+        EditorList.Show(models, EditorListOption.ListLabel|EditorListOption.AddRemButtons);
+        EditorList.Show(applicators, EditorListOption.ListLabel|EditorListOption.AddRemButtons);
+        EditorList.Show(connectedParts, EditorListOption.ListLabel|EditorListOption.AddRemButtons);
         if (serializedObject.ApplyModifiedProperties()) {
             DisplayModel();
         }

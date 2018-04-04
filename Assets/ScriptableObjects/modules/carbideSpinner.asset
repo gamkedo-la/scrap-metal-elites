@@ -12,20 +12,17 @@ MonoBehaviour:
   m_Name: carbideSpinner
   m_EditorClassIdentifier: 
   mass: {fileID: 0}
-  drag: {fileID: 0}
-  angularDrag: {fileID: 0}
+  health: {fileID: 0}
+  damage: {fileID: 0}
   models: []
-  applicators:
-  - {fileID: 11400000, guid: 40b16337435db439e9894ed44a6ae7d4, type: 2}
+  applicators: []
   connectedParts: []
   frame:
-    label: 
     offset: {x: 0, y: 0, z: 0}
     rotation: {x: -90, y: 0, z: 0}
     model: {fileID: 1387682020934280, guid: 360e6bf3ff6984479be4edaa257ebc54, type: 2}
-  spinnerJoint: {fileID: 11400000, guid: 642f33a0f9319468388f9cabae554d53, type: 2}
   spinner:
-    label: 
     offset: {x: 0, y: 0.05, z: 0}
     rotation: {x: 0, y: 0, z: 0}
+    joint: {fileID: 11400000, guid: 642f33a0f9319468388f9cabae554d53, type: 2}
     part: {fileID: 11400000, guid: 7b25e8868da694123ad6b5d49c7d03ec, type: 2}

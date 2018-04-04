@@ -11,14 +11,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e751a7e88dda48628b9b3bb820e61b9, type: 3}
   m_Name: carbideProto
   m_EditorClassIdentifier: 
-  mass: {fileID: 11400000, guid: f6a8adac9318e481484c4c18e5efbf0f, type: 2}
-  drag: {fileID: 0}
-  angularDrag: {fileID: 0}
+  mass: {fileID: 11400000, guid: bbd7346e326434f86b098e52b95fba8d, type: 2}
+  health: {fileID: 0}
+  damage: {fileID: 0}
   models: []
   applicators: []
   connectedParts: []
   frame:
-    label: 
     offset: {x: 0, y: 0, z: 0}
     rotation: {x: 0, y: 0, z: 0}
     model: {fileID: 1779514873559192, guid: cd5181abb02284584a4fd10d3f26530a, type: 2}
@@ -32,23 +31,23 @@ MonoBehaviour:
         stringValue: 
         floatValue: 0
     part:
-      label: 
       offset: {x: -1.5, y: 0.22, z: -0.25}
       rotation: {x: 0, y: 180, z: 0}
+      joint: {fileID: 11400000, guid: 40b16337435db439e9894ed44a6ae7d4, type: 2}
       part: {fileID: 11400000, guid: b3de5662f9f3b4827aedebd40ae0df7c, type: 2}
   - label: rightWheel
     config:
       rows: []
     part:
-      label: 
       offset: {x: 1.5, y: 0.22, z: -0.25}
       rotation: {x: 0, y: 0, z: 0}
+      joint: {fileID: 11400000, guid: 40b16337435db439e9894ed44a6ae7d4, type: 2}
       part: {fileID: 11400000, guid: b3de5662f9f3b4827aedebd40ae0df7c, type: 2}
   - label: spinner
     config:
       rows: []
     part:
-      label: 
       offset: {x: 0, y: 0.07, z: 1.43}
       rotation: {x: 0, y: 0, z: 0}
+      joint: {fileID: 11400000, guid: 40b16337435db439e9894ed44a6ae7d4, type: 2}
       part: {fileID: 11400000, guid: 310419de03e5c4e2491787b4d7709694, type: 2}

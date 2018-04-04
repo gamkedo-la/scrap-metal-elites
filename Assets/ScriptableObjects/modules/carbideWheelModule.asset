@@ -12,31 +12,26 @@ MonoBehaviour:
   m_Name: carbideWheelModule
   m_EditorClassIdentifier: 
   mass: {fileID: 0}
-  drag: {fileID: 0}
-  angularDrag: {fileID: 0}
+  health: {fileID: 0}
+  damage: {fileID: 0}
   models: []
-  applicators:
-  - {fileID: 11400000, guid: 40b16337435db439e9894ed44a6ae7d4, type: 2}
+  applicators: []
   connectedParts: []
   frame:
-    label: 
     offset: {x: 0, y: 0, z: 0}
     rotation: {x: 0, y: 0, z: 0}
     model: {fileID: 0}
   steering:
-    label: 
     offset: {x: 0, y: 0, z: 0}
     rotation: {x: 0, y: 0, z: 0}
+    joint: {fileID: 0}
     part: {fileID: 0}
-  steeringJoint: {fileID: 0}
   hub:
-    label: 
     offset: {x: 0, y: 0, z: 0}
     rotation: {x: 0, y: 0, z: 0}
-    part: {fileID: 0}
-  hubJoint: {fileID: 11400000, guid: 08e5242d2a04a4863aa852bb00719144, type: 2}
+    joint: {fileID: 11400000, guid: 08e5242d2a04a4863aa852bb00719144, type: 2}
+    part: {fileID: 11400000, guid: e5032f5073dec4a01a07df069751ac22, type: 2}
   wheel:
-    label: 
     offset: {x: 0, y: 0, z: 0}
     rotation: {x: 0, y: 90, z: 0}
     model: {fileID: 1708872625811878, guid: 414191280e7be430db7d17e102832aa2, type: 2}

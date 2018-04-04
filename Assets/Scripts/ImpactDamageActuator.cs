@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class ImpactDamageApplicator : MonoBehaviour {
+public class ImpactDamageActuator : MonoBehaviour {
     public float damageModifier = 1f;
     // damage thresholds
     public float minDamage = 10f;

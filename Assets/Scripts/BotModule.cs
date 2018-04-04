@@ -11,7 +11,9 @@ public class PartConfigMap {
 
 [CreateAssetMenu(fileName = "bot", menuName = "Bot")]
 public class BotModule: Part {
+    [Tooltip("Mesh/Collider model/prefab to be associated with module frame, null means no model will be displayed for module frame")]
     public ModelReference frame;
+    [Tooltip("modules to add to the bot")]
     public PartConfigMap[] modules;
 
     public override GameObject Build(
@@ -35,7 +37,10 @@ public class BotModule: Part {
                 root.AddComponent<Rigidbody>();
             }
             bodyGo = root;
-            PartUtil.ApplyRigidBodyProperties(bodyGo, mass, drag, angularDrag);
+            if (mass != null) {
+                mass.Apply(config, partsGo);
+            }
+            //PartUtil.ApplyRigidBodyProperties(bodyGo, mass, drag, angularDrag);
             // empty parts object to parent the rest of the bot
             partsGo = PartUtil.BuildGo(config, null, label + ".parts");
             partsGo.transform.position = root.transform.position;
@@ -65,10 +70,13 @@ public class BotModule: Part {
                     // build the module under the top level parts
                     var moduleGo = modules[i].part.Build(PartConfig.Merge(modules[i].config, config), partsGo, modules[i].label);
                     if (moduleGo != null) {
-                        // connect module to the frame
-                        var joiner = moduleGo.GetComponent<Joiner>();
-                        if (joiner != null) {
-                            joiner.Join(bodyGo.GetComponent<Rigidbody>());
+                        var moduleBodyGo = PartUtil.GetBodyGo(moduleGo);
+                        if (moduleBodyGo != null) {
+                            // connect module to the
+                            var joiner = moduleBodyGo.GetComponent<Joiner>();
+                            if (joiner != null) {
+                                joiner.Join(bodyGo.GetComponent<Rigidbody>());
+                            }
                         }
                     }
                 }
