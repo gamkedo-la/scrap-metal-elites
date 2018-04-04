@@ -103,23 +103,23 @@ public static class PartUtil {
         T[] components = rootPartGo.GetComponentsInChildren<T>();
         allComponents.AddRange(components);
 
-        // find any part siblings components in root
-        var siblings = rootPartGo.GetComponentsInChildren<Sibling>();
-        for (var i=0; i<siblings.Length; i++) {
+        // find any part child link components in root
+        var childLinks = rootPartGo.GetComponentsInChildren<ChildLink>();
+        for (var i=0; i<childLinks.Length; i++) {
             // if part has external parts reference
-            if (siblings[i].siblingGo != null) {
-                allComponents.AddRange(PartUtil.GetComponentsInChildren<T>(siblings[i].siblingGo));
+            if (childLinks[i].childGo != null) {
+                allComponents.AddRange(PartUtil.GetComponentsInChildren<T>(childLinks[i].childGo));
             }
         }
         return allComponents.ToArray();
     }
 
     public static void DestroyPartGo(GameObject partGo) {
-        // find any sibling relationship w/ object
-        var siblings = GetComponentsInChildren<Sibling>(partGo);
-        for (var i=0; i<siblings.Length; i++) {
-            DestroyPartGo(siblings[i].siblingGo);
-            siblings[i].siblingGo = null;
+        // find any child relationship w/ object
+        var childLinks = GetComponentsInChildren<ChildLink>(partGo);
+        for (var i=0; i<childLinks.Length; i++) {
+            DestroyPartGo(childLinks[i].childGo);
+            childLinks[i].childGo = null;
         }
         // destroy top-level gameobject tree
         if (Application.isPlaying) {
@@ -128,6 +128,19 @@ public static class PartUtil {
             UnityEngine.Object.DestroyImmediate(partGo);
         }
 
+    }
+
+    public static GameObject GetRootGo(GameObject partGo) {
+        if (partGo != null) {
+            var rootGo = partGo.transform.root.gameObject;
+            var parentLink = rootGo.GetComponent<ParentLink>();
+            if (parentLink != null && parentLink.parentGo != null) {
+                return GetRootGo(parentLink.parentGo);
+            } else {
+                return rootGo;
+            }
+        }
+        return null;
     }
 
 }

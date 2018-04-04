@@ -45,9 +45,11 @@ public class BotModule: Part {
             partsGo = PartUtil.BuildGo(config, null, label + ".parts");
             partsGo.transform.position = root.transform.position;
             partsGo.transform.rotation = root.transform.rotation;
-            // keep track of sibling
-            var sibling = root.AddComponent<Sibling>();
-            sibling.siblingGo = partsGo;
+            // keep track of parent/child links
+            var childLink = root.AddComponent<ChildLink>();
+            childLink.childGo = partsGo;
+            var parentLink = partsGo.AddComponent<ParentLink>();
+            parentLink.parentGo = root;
 
         // otherwise, instantiate rigidbody/parts as a normal part
         } else {
