@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c67ee242ce2fb49508783a6378c9bc2a, type: 3}
+  m_Name: flipperJoint
+  m_EditorClassIdentifier: 
+  applyBreakForce: 1
+  breakForce:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: c4adba5c8d39e45b6a46c08c5e289dd7, type: 2}
+  applyBreakTorque: 1
+  breakTorque:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: 779069272847e4643bef368e0cb0a29a, type: 2}
+  applyDamageToForce: 1
+  applyDamageToTorque: 1
+  motor: 1
+  motorMaxTorque: 500
+  motorMaxSpeed: 75
+  impactForce: 400
+  axis: 0
+  anchor: {x: 0, y: 0, z: 0}
+  minAngle: -75
+  maxAngle: 0
+  useSpring: 1
+  springForce: 50
+  springDamper: 5
+  reverse: 1

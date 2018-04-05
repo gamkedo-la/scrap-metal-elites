@@ -11,15 +11,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c16a472c5a6b4cfcafc4959de97a920, type: 3}
   m_Name: module
   m_EditorClassIdentifier: 
+  mass: {fileID: 0}
+  health: {fileID: 0}
+  damage: {fileID: 0}
   models:
-  - label: 
-    offset: {x: 0, y: 0, z: 0}
+  - offset: {x: 0, y: 0, z: 0}
     rotation: {x: 0, y: 0, z: 0}
     model: {fileID: 1808414059628808, guid: a8f8dea8eb2fc460794ca5436ecac4f2, type: 2}
   applicators:
   - {fileID: 11400000, guid: cf560ac34a5574d049139a8a926e4ab6, type: 2}
   connectedParts:
-  - label: 
-    offset: {x: 0, y: 0, z: 0}
-    rotation: {x: 0, y: 0, z: 0}
+  - offset: {x: 0, y: 0, z: 0}
+    rotation: {x: -90, y: 0, z: 0}
+    joint: {fileID: 11400000, guid: 40b16337435db439e9894ed44a6ae7d4, type: 2}
     part: {fileID: 11400000, guid: 55f998e0acfc64d059abf075a3b28453, type: 2}

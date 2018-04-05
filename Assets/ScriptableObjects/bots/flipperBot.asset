@@ -1,0 +1,113 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e751a7e88dda48628b9b3bb820e61b9, type: 3}
+  m_Name: flipperBot
+  m_EditorClassIdentifier: 
+  mass: {fileID: 0}
+  health: {fileID: 0}
+  damage: {fileID: 0}
+  models: []
+  applicators: []
+  connectedParts: []
+  frame:
+    offset: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0}
+    model: {fileID: 1703081056446930, guid: a3d08aee6c2d14e129e7a32ed37057a2, type: 2}
+  modules:
+  - label: flipper
+    config:
+      rows: []
+    part:
+      offset: {x: 0, y: 0, z: 0.5}
+      rotation: {x: 0, y: 0, z: 0}
+      joint: {fileID: 11400000, guid: 40b16337435db439e9894ed44a6ae7d4, type: 2}
+      part: {fileID: 11400000, guid: cbde1cbbb2c6e4ca8af3297c357b16a3, type: 2}
+  - label: rightFront
+    config:
+      rows: []
+    part:
+      offset: {x: 0.5, y: 0, z: 0.5}
+      rotation: {x: 0, y: 0, z: 0}
+      joint: {fileID: 11400000, guid: 40b16337435db439e9894ed44a6ae7d4, type: 2}
+      part: {fileID: 11400000, guid: 05b59265376f34914a0d6f33bbdcdbcf, type: 2}
+  - label: rightRear
+    config:
+      rows: []
+    part:
+      offset: {x: 0.5, y: 0, z: -0.5}
+      rotation: {x: 0, y: 0, z: 0}
+      joint: {fileID: 11400000, guid: 40b16337435db439e9894ed44a6ae7d4, type: 2}
+      part: {fileID: 11400000, guid: 05b59265376f34914a0d6f33bbdcdbcf, type: 2}
+  - label: leftFront
+    config:
+      rows:
+      - key: {fileID: 11400000, guid: 07a0e812ec009431098054dc25010019, type: 2}
+        valueType: 0
+        boolValue: 1
+        stringValue: 
+        floatValue: 0
+    part:
+      offset: {x: -0.5, y: 0, z: 0.5}
+      rotation: {x: 0, y: 180, z: 0}
+      joint: {fileID: 11400000, guid: 40b16337435db439e9894ed44a6ae7d4, type: 2}
+      part: {fileID: 11400000, guid: 05b59265376f34914a0d6f33bbdcdbcf, type: 2}
+  - label: leftRear
+    config:
+      rows:
+      - key: {fileID: 11400000, guid: 07a0e812ec009431098054dc25010019, type: 2}
+        valueType: 0
+        boolValue: 1
+        stringValue: 
+        floatValue: 0
+    part:
+      offset: {x: -0.5, y: 0, z: -0.5}
+      rotation: {x: 0, y: 180, z: 0}
+      joint: {fileID: 11400000, guid: 40b16337435db439e9894ed44a6ae7d4, type: 2}
+      part: {fileID: 11400000, guid: 05b59265376f34914a0d6f33bbdcdbcf, type: 2}
+  - label: leftEmpty
+    config:
+      rows:
+      - key: {fileID: 11400000, guid: 07a0e812ec009431098054dc25010019, type: 2}
+        valueType: 0
+        boolValue: 1
+        stringValue: 
+        floatValue: 0
+    part:
+      offset: {x: -0.5, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0}
+      joint: {fileID: 11400000, guid: 40b16337435db439e9894ed44a6ae7d4, type: 2}
+      part: {fileID: 11400000, guid: f24042d5079214a7da6d7c2f512bebab, type: 2}
+  - label: rightEmpty
+    config:
+      rows:
+      - key: {fileID: 11400000, guid: 07a0e812ec009431098054dc25010019, type: 2}
+        valueType: 0
+        boolValue: 1
+        stringValue: 
+        floatValue: 0
+    part:
+      offset: {x: 0.5, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0}
+      joint: {fileID: 11400000, guid: 40b16337435db439e9894ed44a6ae7d4, type: 2}
+      part: {fileID: 11400000, guid: f24042d5079214a7da6d7c2f512bebab, type: 2}
+  - label: rearEmpty
+    config:
+      rows:
+      - key: {fileID: 11400000, guid: 07a0e812ec009431098054dc25010019, type: 2}
+        valueType: 0
+        boolValue: 1
+        stringValue: 
+        floatValue: 0
+    part:
+      offset: {x: 0, y: 0, z: -0.5}
+      rotation: {x: 0, y: 0, z: 0}
+      joint: {fileID: 11400000, guid: 40b16337435db439e9894ed44a6ae7d4, type: 2}
+      part: {fileID: 11400000, guid: f24042d5079214a7da6d7c2f512bebab, type: 2}

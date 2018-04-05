@@ -9,7 +9,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0c16a472c5a6b4cfcafc4959de97a920, type: 3}
-  m_Name: panel
+  m_Name: scoop
   m_EditorClassIdentifier: 
   mass: {fileID: 0}
   health: {fileID: 0}
@@ -17,6 +17,6 @@ MonoBehaviour:
   models:
   - offset: {x: 0, y: 0, z: 0}
     rotation: {x: 0, y: 0, z: 0}
-    model: {fileID: 1375570567107832, guid: c33d7bcd497364cae94cbfed89acb1ed, type: 2}
+    model: {fileID: 1748397651516212, guid: 545e348bf63d8418e84028b556816eaf, type: 2}
   applicators: []
   connectedParts: []

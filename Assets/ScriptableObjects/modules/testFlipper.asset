@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2faa6b03c9fb040d7b53dafae483c03a, type: 3}
+  m_Name: testFlipper
+  m_EditorClassIdentifier: 
+  mass: {fileID: 0}
+  health: {fileID: 0}
+  damage: {fileID: 0}
+  models: []
+  applicators: []
+  connectedParts: []
+  frame:
+    offset: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0}
+    model: {fileID: 1808414059628808, guid: a8f8dea8eb2fc460794ca5436ecac4f2, type: 2}
+  flipper:
+    offset: {x: 0, y: 0, z: 0.5}
+    rotation: {x: 0, y: 0, z: 0}
+    joint: {fileID: 11400000, guid: f6faee13700b04144bdabc5c22ef64ba, type: 2}
+    part: {fileID: 11400000, guid: da3b4be0b3ca344d7afc274055be1f8c, type: 2}

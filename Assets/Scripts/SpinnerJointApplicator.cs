@@ -19,7 +19,7 @@ public class SpinnerJointApplicator : JointApplicator {
         joint.axis = new Vector3(0,1,0);
 
         // add motor
-        var applyMotor = motor && (motorMaxTorque != null) && (motorMaxSpeed != null);
+        var applyMotor = motor && (motorMaxTorque > 0) && (motorMaxSpeed > 0);
         if (applyMotor) {
             var actuator = rigidbodyGo.AddComponent<SpinnerActuator>();
             actuator.maxTorque = motorMaxTorque;
