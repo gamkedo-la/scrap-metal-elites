@@ -22,16 +22,16 @@ MonoBehaviour:
     rotation: {x: 0, y: 0, z: 0}
     model: {fileID: 1808414059628808, guid: a8f8dea8eb2fc460794ca5436ecac4f2, type: 2}
   steering:
-    offset: {x: 0.4, y: 0, z: 0}
-    rotation: {x: 0, y: 0, z: 0}
-    joint: {fileID: 11400000, guid: ec0c947b4a18a411199252ec5f1a76dd, type: 2}
-    part: {fileID: 11400000, guid: 489405a06d7c947118e7ca549362c6a3, type: 2}
-  hub:
     offset: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0}
+    joint: {fileID: 0}
+    part: {fileID: 0}
+  hub:
+    offset: {x: 0.4, y: 0, z: 0}
     rotation: {x: 0, y: 0, z: 0}
     joint: {fileID: 11400000, guid: c7a54a083d03d438d8bdacc7096e6160, type: 2}
     part: {fileID: 11400000, guid: 43af56fd188db4ca281b6056689d98b7, type: 2}
   wheel:
-    offset: {x: 0.15, y: 0, z: 0}
+    offset: {x: 0.1, y: 0, z: 0}
     rotation: {x: 0, y: 90, z: 0}
     model: {fileID: 1142340980086648, guid: ae8f6e4fb166641819284405d1565b9c, type: 2}
