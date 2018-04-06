@@ -15,82 +15,48 @@ public class FlipperActuator : MonoBehaviour, IActuator {
     public float power {
         get {
             if (rb != null && maxSpeed > 0) {
-                return rb.angularVelocity.magnitude/maxSpeed;
+                return rb.angularVelocity.magnitude*impactForceVelocityMultiplier;
             } else {
                 return 0f;
             }
         }
     }
 
-    public float currentAngle {
-        get {
-            if (axis == 2) {
-                return transform.localEulerAngles.z;
-            } else if (axis == 1) {
-                return transform.localEulerAngles.y;
-            } else {
-                return transform.localEulerAngles.x;
-            }
-        }
-    }
-
-    public float targetAngle {
-        get {
-            if (reverse) {
-                return maxAngle;
-            } else {
-                return minAngle;
-            }
-        }
-    }
-
     private Rigidbody rb;
+    private HingeJoint joint;
     private float _actuate = 0.0f;
-    private Vector3 torqueVector;
 
-    public float maxTorque;
     public float maxSpeed;
 	public float impactForce;
-    public int axis;
-    public bool useSpring;
+	public float impactForceVelocityMultiplier;
     public float minAngle;
     public float maxAngle;
     public bool reverse;
 
     void Start() {
         rb = GetComponent<Rigidbody>();
-        if (axis == 2) {
-            torqueVector = transform.forward;
-        } else if (axis == 1) {
-            torqueVector = transform.up;
-        } else {
-            torqueVector = transform.right;
-        }
+        joint = GetComponent<HingeJoint>();
     }
 
-    void rbMotor() {
-        if (rb == null) return;
-        // if we use spring to return body to rest, and zero actuate return
-        if (Mathf.Approximately(_actuate, 0) && useSpring) return;
-        // if we don't use spring, and we are already at rest position w/ zero actuate return
-        if (Mathf.Approximately(_actuate, 0) && (!useSpring && Mathf.Approximately(currentAngle, targetAngle))) return;
+    void hingeMotor() {
+        if (joint == null) return;
 
-        // if at zero actuate (not using spring), reverse force
-        float f;
-        if (Mathf.Approximately(_actuate, 0)) {
-            f = -maxTorque;
+        // activate
+        if (!Mathf.Approximately(_actuate, 0)) {
+            var hingeSpring = joint.spring;
+            hingeSpring.targetPosition = (reverse) ? minAngle : maxAngle;
+            joint.spring=hingeSpring;
+
+        // deactivate
         } else {
-            f = maxTorque * _actuate;
+            var hingeSpring = joint.spring;
+            hingeSpring.targetPosition = (reverse) ? maxAngle : minAngle;
+            joint.spring=hingeSpring;
         }
-        if (reverse) {
-            f = -f;
-        }
-        rb.maxAngularVelocity = maxSpeed;
-        rb.AddRelativeTorque(torqueVector * f);
     }
 
     public void FixedUpdate() {
-        rbMotor();
+        hingeMotor();
     }
 
 	void OnCollisionEnter(Collision coll) {

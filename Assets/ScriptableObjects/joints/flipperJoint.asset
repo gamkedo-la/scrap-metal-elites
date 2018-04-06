@@ -23,15 +23,12 @@ MonoBehaviour:
     Variable: {fileID: 11400000, guid: 779069272847e4643bef368e0cb0a29a, type: 2}
   applyDamageToForce: 1
   applyDamageToTorque: 1
-  motor: 1
-  motorMaxTorque: 500
-  motorMaxSpeed: 75
+  springForce: 500
+  springDamper: 5
   impactForce: 400
+  impactForceVelocityMultiplier: 1
   axis: 0
   anchor: {x: 0, y: 0, z: 0}
   minAngle: -75
   maxAngle: 0
-  useSpring: 1
-  springForce: 50
-  springDamper: 5
   reverse: 1
