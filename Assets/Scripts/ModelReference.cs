@@ -1,5 +1,7 @@
 using UnityEngine;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 
 [System.Serializable]
 public class ModelReference {
@@ -16,12 +18,14 @@ public class ModelReference {
         if (model != null) {
             if (Application.isPlaying) {
                 modelGo = Object.Instantiate(model, (root != null) ? root.transform : null) as GameObject;
+#if UNITY_EDITOR
             } else {
                 modelGo = PrefabUtility.InstantiatePrefab(model) as GameObject;
                 modelGo.hideFlags = HideFlags.HideAndDontSave;
                 if (root != null) {
                     modelGo.transform.parent = root.transform;
                 }
+#endif
             }
             // preserve model's original rotation (prior to parenting)
             modelGo.transform.localRotation = Quaternion.identity;

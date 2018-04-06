@@ -86,7 +86,7 @@ public class FlipperActuator : MonoBehaviour, IActuator {
             f = -f;
         }
         rb.maxAngularVelocity = maxSpeed;
-        rb.AddTorque(torqueVector * f);
+        rb.AddRelativeTorque(torqueVector * f);
     }
 
     public void FixedUpdate() {

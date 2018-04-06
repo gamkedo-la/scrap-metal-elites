@@ -27,8 +27,8 @@ public class PartEditor : Editor {
         if (Application.isPlaying) return;
         // build display config to hide built objects and not save
         var displayConfig = new PartConfig();
-        displayConfig.Save<bool>(PartUtil.hideTag, true);
-        displayConfig.Save<bool>(PartUtil.dontsaveTag, true);
+        displayConfig.Save<bool>(ConfigTag.PartHide, true);
+        displayConfig.Save<bool>(ConfigTag.PartDontSave, true);
 
         // build the part
         for (var i=0; i<targets.Length; i++) {

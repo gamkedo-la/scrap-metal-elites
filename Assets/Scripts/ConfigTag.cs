@@ -1,4 +1,10 @@
 using UnityEngine;
 
-[CreateAssetMenu]
-public class ConfigTag: ScriptableObject {}
+public enum ConfigTag {
+    PartHide,
+    PartDontSave,
+    PartReadOnly,
+    MotorLeft,
+    MotorEnable,
+    SteeringReverse
+}

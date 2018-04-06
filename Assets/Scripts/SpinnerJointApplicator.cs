@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEditor;
 using System.Collections;
 
 [CreateAssetMenu(fileName = "spinnerJoint", menuName = "Joints/Spinner")]

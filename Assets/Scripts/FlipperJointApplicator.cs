@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEditor;
 using System.Collections;
 
 [CreateAssetMenu(fileName = "flipperJoint", menuName = "Joints/Flipper")]

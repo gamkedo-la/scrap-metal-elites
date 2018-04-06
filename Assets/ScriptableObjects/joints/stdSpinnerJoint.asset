@@ -24,11 +24,7 @@ MonoBehaviour:
   applyDamageToForce: 0
   applyDamageToTorque: 0
   motor: 1
-  motorMaxTorque:
-    UseConstant: 1
-    ConstantValue: 500
-    Variable: {fileID: 0}
-  motorMaxSpeed:
-    UseConstant: 1
-    ConstantValue: 50
-    Variable: {fileID: 0}
+  motorMaxTorque: 500
+  motorMaxSpeed: 50
+  throwForceLateral: 400
+  throwForceUpward: 400

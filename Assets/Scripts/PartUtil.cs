@@ -2,35 +2,8 @@ using System;
 using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor;
 
 public static class PartUtil {
-
-    const string hideTagKey = "part.hide";
-    const string dontsaveTagKey = "part.dontsave";
-    const string readonlyTagKey = "part.readonly";
-    public static ConfigTag hideTag;
-    public static ConfigTag dontsaveTag;
-    public static ConfigTag readonlyTag;
-
-    // Static Initialization;
-    static PartUtil() {
-        var guids = AssetDatabase.FindAssets("t:ConfigTag " + hideTagKey);
-        if (guids.Length > 0) {
-            var assetPath = AssetDatabase.GUIDToAssetPath(guids[0]);
-            hideTag = AssetDatabase.LoadAssetAtPath(assetPath, typeof(ConfigTag)) as ConfigTag;
-        }
-        guids = AssetDatabase.FindAssets("t:ConfigTag " + dontsaveTagKey);
-        if (guids.Length > 0) {
-            var assetPath = AssetDatabase.GUIDToAssetPath(guids[0]);
-            dontsaveTag = AssetDatabase.LoadAssetAtPath(assetPath, typeof(ConfigTag)) as ConfigTag;
-        }
-        guids = AssetDatabase.FindAssets("t:ConfigTag " + readonlyTagKey);
-        if (guids.Length > 0) {
-            var assetPath = AssetDatabase.GUIDToAssetPath(guids[0]);
-            readonlyTag = AssetDatabase.LoadAssetAtPath(assetPath, typeof(ConfigTag)) as ConfigTag;
-        }
-    }
 
     public static GameObject BuildGo(
         PartConfig config,
@@ -47,13 +20,13 @@ public static class PartUtil {
         }
 
         // look in config to determine if we are in display or build mode
-        if (hideTag != null && config != null && config.Get<bool>(hideTag)) {
+        if (config != null && config.Get<bool>(ConfigTag.PartHide)) {
             go.hideFlags |= HideFlags.HideInHierarchy;
         }
-        if (dontsaveTag != null && config != null && config.Get<bool>(dontsaveTag)) {
+        if (config != null && config.Get<bool>(ConfigTag.PartDontSave)) {
             go.hideFlags |= HideFlags.DontSave;
         }
-        if (readonlyTag != null && config != null && config.Get<bool>(readonlyTag)) {
+        if (config != null && config.Get<bool>(ConfigTag.PartReadOnly)) {
             go.hideFlags |= HideFlags.NotEditable;
         }
         return go;

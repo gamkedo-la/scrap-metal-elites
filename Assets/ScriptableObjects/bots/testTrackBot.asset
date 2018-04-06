@@ -33,7 +33,7 @@ MonoBehaviour:
   - label: rightRearWheel
     config:
       rows:
-      - key: {fileID: 11400000, guid: 20843fa35adad43aaaad4d2f1a01faed, type: 2}
+      - key: 5
         valueType: 0
         boolValue: 1
         stringValue: 
@@ -46,7 +46,7 @@ MonoBehaviour:
   - label: leftFrontWheel
     config:
       rows:
-      - key: {fileID: 11400000, guid: 07a0e812ec009431098054dc25010019, type: 2}
+      - key: 3
         valueType: 0
         boolValue: 1
         stringValue: 
@@ -59,12 +59,12 @@ MonoBehaviour:
   - label: leftRearWheel
     config:
       rows:
-      - key: {fileID: 11400000, guid: 07a0e812ec009431098054dc25010019, type: 2}
+      - key: 3
         valueType: 0
         boolValue: 1
         stringValue: 
         floatValue: 0
-      - key: {fileID: 11400000, guid: 20843fa35adad43aaaad4d2f1a01faed, type: 2}
+      - key: 5
         valueType: 0
         boolValue: 1
         stringValue: 

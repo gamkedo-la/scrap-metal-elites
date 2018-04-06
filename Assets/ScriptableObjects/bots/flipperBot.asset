@@ -49,7 +49,7 @@ MonoBehaviour:
   - label: leftFront
     config:
       rows:
-      - key: {fileID: 11400000, guid: 07a0e812ec009431098054dc25010019, type: 2}
+      - key: 3
         valueType: 0
         boolValue: 1
         stringValue: 
@@ -62,7 +62,7 @@ MonoBehaviour:
   - label: leftRear
     config:
       rows:
-      - key: {fileID: 11400000, guid: 07a0e812ec009431098054dc25010019, type: 2}
+      - key: 3
         valueType: 0
         boolValue: 1
         stringValue: 
@@ -75,7 +75,7 @@ MonoBehaviour:
   - label: leftEmpty
     config:
       rows:
-      - key: {fileID: 11400000, guid: 07a0e812ec009431098054dc25010019, type: 2}
+      - key: 0
         valueType: 0
         boolValue: 1
         stringValue: 
@@ -88,7 +88,7 @@ MonoBehaviour:
   - label: rightEmpty
     config:
       rows:
-      - key: {fileID: 11400000, guid: 07a0e812ec009431098054dc25010019, type: 2}
+      - key: 0
         valueType: 0
         boolValue: 1
         stringValue: 
@@ -101,7 +101,7 @@ MonoBehaviour:
   - label: rearEmpty
     config:
       rows:
-      - key: {fileID: 11400000, guid: 07a0e812ec009431098054dc25010019, type: 2}
+      - key: 0
         valueType: 0
         boolValue: 1
         stringValue: 
