@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6ef55654b50e4b20bba6c03ab22c0bc, type: 3}
+  m_Name: dmgImpactFire
+  m_EditorClassIdentifier: 
+  impactApplyDamage: 1
+  impactMinDamage: 10
+  impactMaxDamage: 50
+  impactDamageModifier: 1
+  fireApplyDamage: 1
+  burntMaterial: {fileID: 2100000, guid: a6101176eb433e5428a507d02a363ab3, type: 2}
+  burnThreshold: 50
+  explodeThreshold: 10
+  explodeForce: 1000
+  debug: 1

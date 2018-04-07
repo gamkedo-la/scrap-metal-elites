@@ -5,29 +5,37 @@ using UnityEngine;
 public class FlameDamageActuator : MonoBehaviour {
 
     public float fireRate = 0.6f;
-    public ParticleSystem plume;
-    public ParticleSystem sparks;
+    //public ParticleSystem plume;
     public Material burntMaterial;
     public int burnThreshold = 50;
     public int explodeThreshold = 10;
     public float explodeForce = 1000f;
     public bool debug;
 
+    private GameObject sparksPrefab;
+    private ParticleSystem sparks;
     private Rigidbody rb;
     private Health health;
     private Material unburntMaterial;
     private Transform emitlocation;
-    private bool is_burnt;
-    private bool is_exploded;
+    private Renderer[] renderers;
+    private bool is_burnt = false;
+    private bool is_exploded = false;
 
     void Start () {
+		sparksPrefab = (GameObject)Resources.Load("Sparks");
         // link health to our on percent change handler
         health = GetComponent<Health>();
         if (health != null) {
             health.onChangePercent.AddListener(OnHealthPercentChange);
         }
-        unburntMaterial = GetComponent<Renderer>().material;
+        // FIXME: renderers can exist at this object level or lower
+        renderers = PartUtil.GetComponentsInChildren<Renderer>(gameObject);
+        //if (renderer != null) {
+            //unburntMaterial = renderer.material;
+        //}
         rb = GetComponent<Rigidbody>();
+        // FIXME: remove
         emitlocation = gameObject.transform;
 	}
 
@@ -56,8 +64,12 @@ public class FlameDamageActuator : MonoBehaviour {
             Debug.Log(gameObject.name + " burning");
         }
         is_burnt = true;
-        if (unburntMaterial != null && burntMaterial != null) {
-            unburntMaterial.CopyPropertiesFromMaterial(burntMaterial);
+        if (renderers != null) {
+            for (var i=0; i<renderers.Length; i++) {
+                if (renderers[i].material != null) {
+                    renderers[i].material.CopyPropertiesFromMaterial(burntMaterial);
+                }
+            }
         }
     }
 
@@ -66,8 +78,16 @@ public class FlameDamageActuator : MonoBehaviour {
             Debug.Log(gameObject.name + " exploding");
         }
         is_exploded = true;
+        // apply explosion force to rigidbody
         if (rb != null) {
             rb.AddForce(transform.up * explodeForce);
+        }
+        // instantiate sparks prefab
+        if (sparksPrefab != null) {
+			var sparksGo = GameObject.Instantiate(sparksPrefab, transform);
+            if (sparksGo != null) {
+                sparks = sparksGo.GetComponent<ParticleSystem>();
+            }
         }
     }
 
@@ -85,10 +105,9 @@ public class FlameDamageActuator : MonoBehaviour {
     }
 
     void Update () {
-        if (is_exploded)
+        if (is_exploded && sparks != null)
         {
-            sparks.transform.position = emitlocation.position;
-            sparks.Emit(5);
+            sparks.Emit(1);
         }
     }
 }

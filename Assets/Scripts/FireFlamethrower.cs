@@ -19,9 +19,24 @@ public class FireFlamethrower : MonoBehaviour, IActuator {
     public ParticleSystem Smoke;
     public ParticleSystem Plume;
     public AudioSource Roar;
+    public Vector3 kickBackVector;
+    public float kickBackForce;
     private float _actuate = 0.0f;
+    private Rigidbody rb;
+    private bool runDiscovery = true;
+
+    void Discover() {
+        rb = GetComponent<Rigidbody>();
+        if (rb == null) {
+            rb = GetComponentInParent<Rigidbody>();
+        }
+    }
 
 	void Update () {
+        if (runDiscovery) {
+            Discover();
+            runDiscovery = false;
+        }
 
         if (actuate > 0f)
         {
@@ -34,9 +49,13 @@ public class FireFlamethrower : MonoBehaviour, IActuator {
             else {
                 Roar.Play();
             }
+
+            if (rb != null && kickBackForce > 0f && kickBackVector.magnitude > 0f) {
+                var f = kickBackVector * kickBackForce;
+                rb.AddRelativeForce(f);
+            }
         } else {
             Roar.Stop();
         }
-
 	}
 }

@@ -343,6 +343,8 @@ MonoBehaviour:
   Smoke: {fileID: 198868597659948848}
   Plume: {fileID: 198666488519000710}
   Roar: {fileID: 82478560671070660}
+  kickBackVector: {x: 0, y: 0, z: -1}
+  kickBackForce: 250
 --- !u!198 &198633694115342418
 ParticleSystem:
   m_ObjectHideFlags: 1
