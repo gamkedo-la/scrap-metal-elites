@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 198976188599262930}
   - component: {fileID: 199711815134621986}
   m_Layer: 0
-  m_Name: Sparks_trail
+  m_Name: Sparks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
