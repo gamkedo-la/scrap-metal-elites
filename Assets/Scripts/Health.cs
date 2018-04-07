@@ -35,11 +35,10 @@ public class Health : MonoBehaviour {
             Debug.Log("Taking damage: " + amount + " from: " + from);
         }
         // if health is already zero (or zero damage), can't take more damage
-        if (health == 0 || amount == 0) return;
+        if (health == 0 || amount <= 0) return;
 
         // apply damage
         health -= amount;
-        Debug.Log("new health: " + health);
 
         // check for death
         if (health <= 0) {
@@ -53,7 +52,6 @@ public class Health : MonoBehaviour {
         // communicate health change
         onChange.Invoke(health);
         var percent = (health*100)/maxHealth;
-        Debug.Log("percent: " + percent);
         onChangePercent.Invoke(percent);
     }
 

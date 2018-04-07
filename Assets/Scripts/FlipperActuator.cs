@@ -14,7 +14,7 @@ public class FlipperActuator : MonoBehaviour, IActuator {
 
     public float power {
         get {
-            if (rb != null && maxSpeed > 0) {
+            if (rb != null) {
                 return rb.angularVelocity.magnitude*impactForceVelocityMultiplier;
             } else {
                 return 0f;
@@ -26,7 +26,6 @@ public class FlipperActuator : MonoBehaviour, IActuator {
     private HingeJoint joint;
     private float _actuate = 0.0f;
 
-    public float maxSpeed;
 	public float impactForce;
 	public float impactForceVelocityMultiplier;
     public float minAngle;

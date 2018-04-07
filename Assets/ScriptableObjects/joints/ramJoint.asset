@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcb880cbbb12e4e6a81e5329988b884a, type: 3}
+  m_Name: ramJoint
+  m_EditorClassIdentifier: 
+  applyBreakForce: 1
+  breakForce:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: c4adba5c8d39e45b6a46c08c5e289dd7, type: 2}
+  applyBreakTorque: 1
+  breakTorque:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: 779069272847e4643bef368e0cb0a29a, type: 2}
+  applyDamageToForce: 1
+  applyDamageToTorque: 1
+  springForce: 5000
+  springDamper: 5
+  motorForce: 1000
+  motorDamper: 0.5
+  impactForce: 400
+  maxRamSpeed: 10
+  axis: 2
+  maxTraverse: 0.5
+  debug: 0

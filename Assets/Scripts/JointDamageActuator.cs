@@ -31,7 +31,6 @@ public class JointDamageActuator : MonoBehaviour {
     }
 
     void OnHealthPercentChange(int newValue) {
-        Debug.Log("OnHealthPercentChange: " + newValue);
         if (joints == null) return;
         if (applyDamageToForce) {
             for (var i=0; i<joints.Length; i++) {

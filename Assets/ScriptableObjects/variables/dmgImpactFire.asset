@@ -20,4 +20,4 @@ MonoBehaviour:
   burnThreshold: 50
   explodeThreshold: 10
   explodeForce: 1000
-  debug: 1
+  debug: 0
