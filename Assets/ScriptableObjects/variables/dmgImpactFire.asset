@@ -15,9 +15,11 @@ MonoBehaviour:
   impactMinDamage: 10
   impactMaxDamage: 50
   impactDamageModifier: 1
+  impactScrews: 1
+  impactScrewDamage: 5
   fireApplyDamage: 1
   burntMaterial: {fileID: 2100000, guid: a6101176eb433e5428a507d02a363ab3, type: 2}
   burnThreshold: 50
   explodeThreshold: 10
   explodeForce: 1000
-  debug: 0
+  debug: 1
