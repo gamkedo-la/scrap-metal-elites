@@ -5,6 +5,19 @@ using UnityEngine;
 
 public static class PartUtil {
 
+    public static bool PartInParent(
+        GameObject parentGo,
+        Part part
+    ) {
+        if (parentGo != null) {
+            var parentParts = parentGo.GetComponentsInParent<PartId>();
+            for (var i=0; i<parentParts.Length; i++) {
+                if (parentParts[i].partId == part.GetInstanceID()) return true;
+            }
+        }
+        return false;
+    }
+
     public static GameObject BuildGo(
         PartConfig config,
         GameObject root,

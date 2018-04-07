@@ -31,8 +31,16 @@ public class Part : ScriptableObject {
             label = name;
         }
 
+        // creation check -- ensure part we are about to build is not a direct parent already in tree
+        if (PartUtil.PartInParent(root, this)) {
+            Debug.Log("detected part loop/invalid part chain, part: " + name + " already instantiated in parent");
+            return null;
+        }
+
         // create empty parts container
         var partsGo = PartUtil.BuildGo(config, root, label);
+        var partId = partsGo.AddComponent<PartId>();
+        partId.partId = this.GetInstanceID();
 
         // create new rigid body for this part, set parts container as parent
         var rigidbodyGo = PartUtil.BuildGo(config, partsGo, label + ".body", typeof(Rigidbody));
@@ -66,6 +74,7 @@ public class Part : ScriptableObject {
         // instantiate connected parts
         if (connectedParts != null && connectedParts.Length > 0) {
             for (var i=0; i<connectedParts.Length; i++) {
+                // check for self-references
                 var childGo = connectedParts[i].Build(config, partsGo, label + ".part");
                 if (childGo != null) {
                     // join child part to current rigidbody

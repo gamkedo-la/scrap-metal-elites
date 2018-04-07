@@ -18,6 +18,7 @@ public class PartReference {
         // instantiate part
         if (part != null) {
             partGo = part.Build(config, root, label != null ? label : part.name);
+            if (partGo == null) return null;
             partGo.transform.localPosition = offset;
             partGo.transform.localEulerAngles = rotation;
         }
