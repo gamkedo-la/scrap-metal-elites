@@ -12,6 +12,10 @@ public class DamageApplicator : ComponentApplicator {
     public float impactMaxDamage;
     [Tooltip("Scale factor for incoming damage, lower value means less damage")]
     public float impactDamageModifier;
+    [Tooltip("Emit screws on damage")]
+    public bool impactScrews;
+    [Tooltip("Amount of damage required to emit screws")]
+    public float impactScrewDamage;
 
     [Tooltip("Should this part react to fire damage")]
     public bool fireApplyDamage;
@@ -40,6 +44,8 @@ public class DamageApplicator : ComponentApplicator {
             actuator.minDamage = impactMinDamage;
             actuator.maxDamage = impactMaxDamage;
             actuator.damageModifier = impactDamageModifier;
+            actuator.emitScrews = impactScrews;
+            actuator.minScrewDamage = impactScrewDamage;
             actuator.debug = debug;
         }
 

@@ -7,9 +7,12 @@ public class ImpactDamageActuator : MonoBehaviour {
     public float minDamage = 10f;
     public float maxDamage = 1000f;
     public bool debug = false;
+    public float minScrewDamage = 30f;
+    public bool emitScrews = false;
 
     //AudioSource audioSource;
     private Health health;
+    private GameObject screwBurstPrefab;
 
     void Start() {
         //audioSource = GetComponent<AudioSource>();
@@ -18,6 +21,10 @@ public class ImpactDamageActuator : MonoBehaviour {
         if (maxDamage < minDamage) {
             maxDamage = minDamage;
         }
+        if (emitScrews) {
+            screwBurstPrefab = (GameObject)Resources.Load("ScrewBurst");
+        }
+
     }
 
     void DebugCollision(Collision collision) {
@@ -56,6 +63,15 @@ public class ImpactDamageActuator : MonoBehaviour {
         if (health != null) {
             health.TakeDamage(Mathf.RoundToInt(damage), collision.gameObject);
         }
+
+        // emit screws if damage was enough
+        if (emitScrews && damage>minScrewDamage && screwBurstPrefab != null) {
+            var position = collision.contacts[0].point;
+            var rotation = Quaternion.LookRotation(collision.contacts[0].normal);
+
+			GameObject.Instantiate(screwBurstPrefab, position, rotation);
+        }
+
 
         /*
         // Play a sound if the colliding objects had a big impact.
