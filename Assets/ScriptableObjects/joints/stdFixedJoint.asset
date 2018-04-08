@@ -12,14 +12,8 @@ MonoBehaviour:
   m_Name: stdFixedJoint
   m_EditorClassIdentifier: 
   applyBreakForce: 1
-  breakForce:
-    UseConstant: 1
-    ConstantValue: 10000
-    Variable: {fileID: 0}
+  breakForce: 10000
   applyBreakTorque: 1
-  breakTorque:
-    UseConstant: 1
-    ConstantValue: 10000
-    Variable: {fileID: 0}
+  breakTorque: 10000
   applyDamageToForce: 1
   applyDamageToTorque: 1

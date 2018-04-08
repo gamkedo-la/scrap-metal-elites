@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 114688829072226826}
   - component: {fileID: 114585801485203074}
   m_Layer: 0
-  m_Name: testbotBuilder
+  m_Name: steeringBotBuilder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

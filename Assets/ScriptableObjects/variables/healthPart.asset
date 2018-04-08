@@ -8,8 +8,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e2daf8680fef4d4c887ae25097693b4, type: 3}
-  m_Name: carbideSpeed
+  m_Script: {fileID: 11500000, guid: 678d1a90dc9804132be45601126e32d1, type: 3}
+  m_Name: healthPart
   m_EditorClassIdentifier: 
-  DeveloperDescription: 
-  Value: 40
+  maxHealth: 100
+  debug: 0

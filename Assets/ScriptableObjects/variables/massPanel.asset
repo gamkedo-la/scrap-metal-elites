@@ -8,8 +8,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e2daf8680fef4d4c887ae25097693b4, type: 3}
-  m_Name: stdMotorTorque
+  m_Script: {fileID: 11500000, guid: bd60d1e9d95f94d418296f6fe1bdd0e9, type: 3}
+  m_Name: massPanel
   m_EditorClassIdentifier: 
-  DeveloperDescription: 
-  Value: 50
+  mass: 0.05
+  drag: 0
+  angularDrag: 0

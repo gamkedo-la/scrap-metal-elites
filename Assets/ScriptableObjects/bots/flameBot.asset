@@ -26,8 +26,8 @@ MonoBehaviour:
     config:
       rows: []
     part:
-      offset: {x: 0.45, y: 0.9, z: 0.75}
-      rotation: {x: 0, y: 0, z: 0}
+      offset: {x: 0.45, y: 0.8, z: 0.75}
+      rotation: {x: 5, y: 0, z: 0}
       joint: {fileID: 11400000, guid: 40b16337435db439e9894ed44a6ae7d4, type: 2}
       part: {fileID: 11400000, guid: 9a5843d3286e24654b1baaba3b66417a, type: 2}
   - label: rightFrontWheel

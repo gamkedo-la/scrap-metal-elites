@@ -3,14 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MassCalculator : MonoBehaviour {
-    void Start() {
+    private bool runDiscover = true;
+    void Discover() {
         float totalMass = 0;
-        var rbs = GetComponentsInChildren<Rigidbody>();
+        var rbs = PartUtil.GetComponentsInChildren<Rigidbody>(gameObject);
         for (var i=0; i<rbs.Length; i++) {
             //Debug.Log(rbs[i].gameObject.name + " mass " + rbs[i].mass);
             totalMass += rbs[i].mass;
         }
-
         Debug.Log(gameObject.name + " # rbs: " + rbs.Length + " totalMass: " + totalMass);
+    }
+
+    void Update() {
+        if (runDiscover) {
+            Discover();
+            runDiscover = false;
+        }
     }
 }

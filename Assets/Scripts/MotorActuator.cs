@@ -20,23 +20,23 @@ public class MotorActuator : MonoBehaviour, IMotorActuator {
     private Rigidbody rb;
     private float _forwardDrive = 0.0f;
     public bool isLeft = false;
-    public FloatReference maxTorque;
-    public FloatReference maxSpeed;
+    public float maxTorque;
+    public float maxSpeed;
 
     void Start() {
         rb = GetComponent<Rigidbody>();
     }
 
     void rbMotor() {
-        if (rb == null || maxTorque == null || maxSpeed == null) return;
+        if (rb == null) return;
         if (Mathf.Approximately(_forwardDrive, 0)) {
             return;
         }
-        var f = maxTorque.Value * _forwardDrive;
+        var f = maxTorque * _forwardDrive;
         if (isLeft) {
             f = -f;
         }
-        rb.maxAngularVelocity = maxSpeed.Value;
+        rb.maxAngularVelocity = maxSpeed;
         rb.AddTorque(transform.right * f);
     }
 

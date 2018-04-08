@@ -12,15 +12,11 @@ MonoBehaviour:
   m_Name: steeringJoint
   m_EditorClassIdentifier: 
   applyBreakForce: 1
-  breakForce:
-    UseConstant: 0
-    ConstantValue: 10
-    Variable: {fileID: 11400000, guid: c4adba5c8d39e45b6a46c08c5e289dd7, type: 2}
+  breakForce: 10000
   applyBreakTorque: 1
-  breakTorque:
-    UseConstant: 0
-    ConstantValue: 0
-    Variable: {fileID: 11400000, guid: 779069272847e4643bef368e0cb0a29a, type: 2}
+  breakTorque: 10000
+  applyDamageToForce: 0
+  applyDamageToTorque: 0
   steeringTorque: 500
   steeringDamper: 50
   maxTurnAngle: 30

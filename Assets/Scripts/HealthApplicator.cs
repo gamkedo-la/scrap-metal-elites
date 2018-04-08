@@ -3,7 +3,8 @@ using System.Collections;
 
 [CreateAssetMenu(fileName = "health", menuName = "Variable/Health")]
 public class HealthApplicator : ComponentApplicator {
-    public float maxHealth;
+    public float maxHealth = 100;
+    public bool debug = false;
 
     public override void Apply(PartConfig config, GameObject target) {
         if (target == null) return;
@@ -15,5 +16,6 @@ public class HealthApplicator : ComponentApplicator {
         // add health component
         var health = rigidbodyGo.AddComponent<Health>();
         health.maxHealth = (int) maxHealth;
+        health.debug = debug;
     }
 }

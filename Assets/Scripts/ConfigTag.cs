@@ -6,5 +6,11 @@ public enum ConfigTag {
     PartReadOnly,
     MotorLeft,
     MotorEnable,
-    SteeringReverse
+    SteeringReverse,
+    PanelTop,
+    PanelBottom,
+    PanelLeft,
+    PanelRight,
+    PanelFront,
+    PanelBack,
 }

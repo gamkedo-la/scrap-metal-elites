@@ -4,8 +4,8 @@ using System.Collections;
 [CreateAssetMenu(fileName = "hubJoint", menuName = "Joints/Hub")]
 public class HubJointApplicator : JointApplicator {
     public bool motor = true;
-    public FloatReference motorMaxTorque;
-    public FloatReference motorMaxSpeed;
+    public float motorMaxTorque;
+    public float motorMaxSpeed;
 
     protected override Joint ApplyJoint(GameObject rigidbodyGo, PartConfig config, GameObject target) {
         var joint = rigidbodyGo.AddComponent<HingeJoint>();

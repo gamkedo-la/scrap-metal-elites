@@ -19,9 +19,5 @@ MonoBehaviour:
     rotation: {x: 0, y: 0, z: 0}
     model: {fileID: 1808414059628808, guid: a8f8dea8eb2fc460794ca5436ecac4f2, type: 2}
   applicators:
-  - {fileID: 11400000, guid: cf560ac34a5574d049139a8a926e4ab6, type: 2}
-  connectedParts:
-  - offset: {x: 0, y: 0, z: 0}
-    rotation: {x: -90, y: 0, z: 0}
-    joint: {fileID: 11400000, guid: 40b16337435db439e9894ed44a6ae7d4, type: 2}
-    part: {fileID: 11400000, guid: 55f998e0acfc64d059abf075a3b28453, type: 2}
+  - {fileID: 11400000, guid: 551bbb5f7df274ebd8a1286359ca07ed, type: 2}
+  connectedParts: []

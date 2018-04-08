@@ -9,14 +9,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e6ef55654b50e4b20bba6c03ab22c0bc, type: 3}
-  m_Name: dmgImpactFire
+  m_Name: dmgPanel
   m_EditorClassIdentifier: 
   impactApplyDamage: 1
-  impactMinDamage: 10
+  impactMinDamage: 0
   impactMaxDamage: 50
   impactDamageModifier: 1
   impactScrews: 1
-  impactScrewDamage: 5
+  impactScrewDamage: 10
   fireApplyDamage: 1
   burntMaterial: {fileID: 2100000, guid: a6101176eb433e5428a507d02a363ab3, type: 2}
   burnThreshold: 50

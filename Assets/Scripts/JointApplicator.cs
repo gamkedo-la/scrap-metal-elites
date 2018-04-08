@@ -3,9 +3,9 @@ using System.Collections;
 
 public abstract class JointApplicator : ComponentApplicator {
     public bool applyBreakForce;
-    public FloatReference breakForce;
+    public float breakForce;
     public bool applyBreakTorque;
-    public FloatReference breakTorque;
+    public float breakTorque;
     // allow joint to be damaged?
     public bool applyDamageToForce;
     public bool applyDamageToTorque;
@@ -24,11 +24,11 @@ public abstract class JointApplicator : ComponentApplicator {
         if (joint == null) return;
 
         // apply break limits, as specified
-        if (applyBreakForce && breakForce != null) {
-            joint.breakForce = breakForce.Value;
+        if (applyBreakForce) {
+            joint.breakForce = breakForce;
         }
-        if (applyBreakTorque && breakTorque != null) {
-            joint.breakTorque = breakTorque.Value;
+        if (applyBreakTorque) {
+            joint.breakTorque = breakTorque;
         }
 
         // add damage actuator to joint rigidbody if joint can be damaged

@@ -12,23 +12,11 @@ MonoBehaviour:
   m_Name: carbideHub
   m_EditorClassIdentifier: 
   applyBreakForce: 1
-  breakForce:
-    UseConstant: 0
-    ConstantValue: 0
-    Variable: {fileID: 11400000, guid: c4adba5c8d39e45b6a46c08c5e289dd7, type: 2}
+  breakForce: 10000
   applyBreakTorque: 1
-  breakTorque:
-    UseConstant: 0
-    ConstantValue: 0
-    Variable: {fileID: 11400000, guid: 779069272847e4643bef368e0cb0a29a, type: 2}
+  breakTorque: 10000
   applyDamageToForce: 1
   applyDamageToTorque: 1
   motor: 1
-  motorMaxTorque:
-    UseConstant: 0
-    ConstantValue: 0
-    Variable: {fileID: 11400000, guid: 7430a56f38e9e4f97861f4b1cd36467a, type: 2}
-  motorMaxSpeed:
-    UseConstant: 0
-    ConstantValue: 40
-    Variable: {fileID: 11400000, guid: 6d7e7dd9c8e994d15be85b0be3a30b4a, type: 2}
+  motorMaxTorque: 50
+  motorMaxSpeed: 40

@@ -38,7 +38,7 @@ public class BotModule: Part {
             }
             bodyGo = root;
             if (mass != null) {
-                mass.Apply(config, partsGo);
+                mass.Apply(config, root);
             }
             //PartUtil.ApplyRigidBodyProperties(bodyGo, mass, drag, angularDrag);
             // empty parts object to parent the rest of the bot

@@ -23,6 +23,8 @@ public class Health : MonoBehaviour {
         onChange = new OnHealthValueEvent();
         onChangePercent = new OnHealthValueEvent();
         onDeath = new OnDeathEvent();
+    }
+    void Start() {
         health = maxHealth;
         // cannot have zero or negative max health
         if (maxHealth < 1) {
@@ -32,7 +34,7 @@ public class Health : MonoBehaviour {
 
     public void TakeDamage(int amount, GameObject from) {
         if (debug) {
-            Debug.Log("Taking damage: " + amount + " from: " + from);
+            Debug.Log(name + " taking damage: " + amount + " from: " + from);
         }
         // if health is already zero (or zero damage), can't take more damage
         if (health == 0 || amount <= 0) return;
