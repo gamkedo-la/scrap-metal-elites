@@ -13,6 +13,8 @@ public class RamJointApplicator : JointApplicator {
     public float motorDamper = .5f;
     [Tooltip("How much additional force to apply to target on collision")]
 	public float impactForce = 400.0f;
+    [Tooltip("multiply computed damage")]
+	public float impactDamageMultiplier = 1f;
     [Tooltip("Expected max ram speed")]
 	public float maxRamSpeed = 400.0f;
     [Tooltip("Axis the ram will operate on X:0, Y:1, Z:2")]
@@ -61,6 +63,7 @@ public class RamJointApplicator : JointApplicator {
         var actuator = rigidbodyGo.AddComponent<RamActuator>();
         actuator.motorForce = motorForce;
         actuator.impactForce = impactForce;
+        actuator.impactDamageMultiplier = impactDamageMultiplier;
         actuator.maxRamSpeed = maxRamSpeed;
         actuator.axis = axis;
         actuator.maxTraverse = maxTraverse;

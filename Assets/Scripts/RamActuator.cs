@@ -2,13 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RamActuator : MonoBehaviour, IActuator {
+public class RamActuator : MonoBehaviour, IActuator, IImpactDamageModifier {
     public float actuate {
         get {
             return _actuate;
         }
         set {
             _actuate = value;
+        }
+    }
+
+    public float impactMultiplier {
+        get {
+            return impactDamageMultiplier;
         }
     }
 
@@ -30,6 +36,7 @@ public class RamActuator : MonoBehaviour, IActuator {
     public float maxTraverse;
     public float motorForce;
     public float impactForce;
+    public float impactDamageMultiplier = 1f;
     public float maxRamSpeed;
     public int axis;
     public bool debug;

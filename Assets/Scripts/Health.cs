@@ -13,6 +13,7 @@ public class Health : MonoBehaviour {
 
     public int maxHealth = 100;
     public bool debug;
+    public HealthTag healthTag = HealthTag.Part;
     public OnHealthValueEvent onChange;
     public OnHealthValueEvent onChangePercent;
     public OnDeathEvent onDeath;

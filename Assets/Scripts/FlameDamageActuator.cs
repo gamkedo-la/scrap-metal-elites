@@ -25,6 +25,9 @@ public class FlameDamageActuator : MonoBehaviour {
 		sparksPrefab = (GameObject)Resources.Load("Sparks");
         // link health to our on percent change handler
         health = GetComponent<Health>();
+        if (health == null) {
+            health = PartUtil.GetComponentInParentBody<Health>(gameObject);
+        }
         if (health != null) {
             health.onChangePercent.AddListener(OnHealthPercentChange);
         }

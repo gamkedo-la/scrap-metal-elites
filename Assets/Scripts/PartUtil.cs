@@ -100,6 +100,18 @@ public static class PartUtil {
         return allComponents.ToArray();
     }
 
+    public static T GetComponentInParentBody<T>(GameObject target) {
+        var parentGo = (target.transform.parent == null) ? null : target.transform.parent.gameObject;
+        while (parentGo != null) {
+            var bodyGo = GetBodyGo(parentGo);
+            if (bodyGo != null && bodyGo.GetComponent<T>() != null) {
+                return bodyGo.GetComponent<T>();
+            }
+            parentGo = (parentGo.transform.parent == null) ? null : parentGo.transform.parent.gameObject;
+        }
+        return default(T);
+    }
+
     public static void DestroyPartGo(GameObject partGo) {
         // find any child relationship w/ object
         var childLinks = GetComponentsInChildren<ChildLink>(partGo);

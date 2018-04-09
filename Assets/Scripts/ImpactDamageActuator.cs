@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using System.Collections;
 
@@ -17,6 +18,9 @@ public class ImpactDamageActuator : MonoBehaviour {
     void Start() {
         //audioSource = GetComponent<AudioSource>();
         health = GetComponent<Health>();
+        if (health == null) {
+            health = PartUtil.GetComponentInParentBody<Health>(gameObject);
+        }
         // enforce max damage > min damage
         if (maxDamage < minDamage) {
             maxDamage = minDamage;
@@ -35,24 +39,30 @@ public class ImpactDamageActuator : MonoBehaviour {
     }
 
     void OnCollisionEnter(Collision collision) {
-        var force = collision.impulse.magnitude / Time.fixedDeltaTime;
-        // compute damage (impulse * velocity * modifier)
-        var damage = collision.impulse.magnitude * damageModifier;
+        // compute damage multiplier
+        var multiplier = damageModifier;
+        var multipliers = collision.gameObject.GetComponents<IImpactDamageModifier>();
+        if (multipliers != null) {
+            for (var i=0; i<multipliers.Length; i++) {
+                multiplier *= multipliers[i].impactMultiplier;
+            }
+        }
+
+        // compute damage
+        var damage = collision.impulse.magnitude * multiplier;
 
         if (debug) {
-            Debug.Log(gameObject.name + " OnCollisionEnter\n impulse: " + collision.impulse.magnitude +
-                                        " velocity: " + collision.relativeVelocity.magnitude +
-                                        " force: " + force +
-                                        " times: " + (collision.impulse.magnitude * collision.relativeVelocity.magnitude) +
-                                        " computed damage: " + damage);
+            var dbgString = String.Format("{0} impact collision from {1}, impulse: {2}, multiplier: {3} damage {4}",
+                gameObject.name, collision.gameObject.name, collision.impulse.magnitude, multiplier, damage);
+            if (damage < minDamage) {
+                dbgString += String.Format(" -- does not meet minimum {0}", minDamage);
+            }
+            Debug.Log(dbgString);
             DebugCollision(collision);
         }
 
         // apply damage thresholds
         if (damage < minDamage) {
-            if (debug) {
-                Debug.Log("collision damage does not minimum");
-            }
             return;
         }
         if (damage > maxDamage) {

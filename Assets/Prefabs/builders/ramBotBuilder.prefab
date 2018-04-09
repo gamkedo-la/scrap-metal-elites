@@ -26,6 +26,7 @@ GameObject:
   - component: {fileID: 114908430457976720}
   - component: {fileID: 114427920309820088}
   - component: {fileID: 114743594557791010}
+  - component: {fileID: 114718123500488506}
   m_Layer: 0
   m_Name: ramBotBuilder
   m_TagString: Untagged
@@ -89,6 +90,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1b7b21c70ed2e4b2ca83483984b567e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114718123500488506
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1361578584959492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff03c6e41443f455dad8756862d55210, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &114743594557791010

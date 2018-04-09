@@ -23,6 +23,9 @@ public class JointDamageActuator : MonoBehaviour {
             maxBreakTorques[i] = joints[i].breakTorque;
         }
         health = GetComponent<Health>();
+        if (health == null) {
+            health = PartUtil.GetComponentInParentBody<Health>(gameObject);
+        }
         if (health != null) {
             if (applyDamageToForce || applyDamageToTorque) {
                 health.onChangePercent.AddListener(OnHealthPercentChange);

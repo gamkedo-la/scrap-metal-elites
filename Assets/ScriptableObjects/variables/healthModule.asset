@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Name: healthModule
   m_EditorClassIdentifier: 
   maxHealth: 500
+  healthTag: 1
   debug: 0

@@ -7,7 +7,7 @@ public class GroundCollisionPlaneCreateOrAttach : MonoBehaviour {
 	private ParticleSystem psScript;
 	void Start () {
 		psScript = GetComponent<ParticleSystem>();
-		Debug.Log(groundCollisionPlane);
+		//Debug.Log(groundCollisionPlane);
 		if(groundCollisionPlane == null) {
 			GameObject groundGO = new GameObject();
 			groundGO.name = "Ground for screws";

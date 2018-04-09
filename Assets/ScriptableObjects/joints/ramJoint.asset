@@ -22,6 +22,7 @@ MonoBehaviour:
   motorForce: 1000
   motorDamper: 0.5
   impactForce: 400
+  impactDamageMultiplier: 5
   maxRamSpeed: 10
   axis: 2
   maxTraverse: 0.5
