@@ -24,6 +24,8 @@ GameObject:
   - component: {fileID: 114010605327386660}
   - component: {fileID: 114422220024102428}
   - component: {fileID: 114908430457976720}
+  - component: {fileID: 114427920309820088}
+  - component: {fileID: 114743594557791010}
   m_Layer: 0
   m_Name: ramBotBuilder
   m_TagString: Untagged
@@ -38,7 +40,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1361578584959492}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -66,6 +68,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5454e5c28a9f49b0ac79b2f39f921bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114427920309820088
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1361578584959492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81a5f450ade0046ea90516ea77e668ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materialTag: 0
 --- !u!114 &114481454652714782
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -75,6 +89,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1b7b21c70ed2e4b2ca83483984b567e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114743594557791010
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1361578584959492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65841e0b2f1a9494096ad1296c7774b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &114774197670738436
@@ -88,7 +113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 585de4093d4434305a8a54f35efa4b87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  part: {fileID: 11400000, guid: fb22944f821d841109b3ae1ef36f7bda, type: 2}
+  part: {fileID: 11400000, guid: d0942cfe20a5a4623a30411e71e64834, type: 2}
 --- !u!114 &114908430457976720
 MonoBehaviour:
   m_ObjectHideFlags: 1

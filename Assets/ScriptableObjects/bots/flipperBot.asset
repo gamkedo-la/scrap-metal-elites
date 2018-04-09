@@ -24,7 +24,17 @@ MonoBehaviour:
   modules:
   - label: flipper
     config:
-      rows: []
+      rows:
+      - key: 6
+        valueType: 0
+        boolValue: 1
+        stringValue: 
+        floatValue: 0
+      - key: 7
+        valueType: 0
+        boolValue: 1
+        stringValue: 
+        floatValue: 0
     part:
       offset: {x: 0, y: 0, z: 0.5}
       rotation: {x: 0, y: 0, z: 0}
@@ -32,7 +42,22 @@ MonoBehaviour:
       part: {fileID: 11400000, guid: cbde1cbbb2c6e4ca8af3297c357b16a3, type: 2}
   - label: rightFront
     config:
-      rows: []
+      rows:
+      - key: 6
+        valueType: 0
+        boolValue: 1
+        stringValue: 
+        floatValue: 0
+      - key: 7
+        valueType: 0
+        boolValue: 1
+        stringValue: 
+        floatValue: 0
+      - key: 10
+        valueType: 0
+        boolValue: 1
+        stringValue: 
+        floatValue: 0
     part:
       offset: {x: 0.5, y: 0, z: 0.5}
       rotation: {x: 0, y: 0, z: 0}
@@ -40,7 +65,22 @@ MonoBehaviour:
       part: {fileID: 11400000, guid: 05b59265376f34914a0d6f33bbdcdbcf, type: 2}
   - label: rightRear
     config:
-      rows: []
+      rows:
+      - key: 6
+        valueType: 0
+        boolValue: 1
+        stringValue: 
+        floatValue: 0
+      - key: 7
+        valueType: 0
+        boolValue: 1
+        stringValue: 
+        floatValue: 0
+      - key: 11
+        valueType: 0
+        boolValue: 1
+        stringValue: 
+        floatValue: 0
     part:
       offset: {x: 0.5, y: 0, z: -0.5}
       rotation: {x: 0, y: 0, z: 0}
@@ -54,6 +94,21 @@ MonoBehaviour:
         boolValue: 1
         stringValue: 
         floatValue: 0
+      - key: 6
+        valueType: 0
+        boolValue: 1
+        stringValue: 
+        floatValue: 0
+      - key: 7
+        valueType: 0
+        boolValue: 1
+        stringValue: 
+        floatValue: 0
+      - key: 11
+        valueType: 0
+        boolValue: 1
+        stringValue: 
+        floatValue: 0
     part:
       offset: {x: -0.5, y: 0, z: 0.5}
       rotation: {x: 0, y: 180, z: 0}
@@ -62,6 +117,21 @@ MonoBehaviour:
   - label: leftRear
     config:
       rows:
+      - key: 6
+        valueType: 0
+        boolValue: 1
+        stringValue: 
+        floatValue: 0
+      - key: 7
+        valueType: 0
+        boolValue: 1
+        stringValue: 
+        floatValue: 0
+      - key: 10
+        valueType: 0
+        boolValue: 1
+        stringValue: 
+        floatValue: 0
       - key: 3
         valueType: 0
         boolValue: 1
@@ -75,7 +145,17 @@ MonoBehaviour:
   - label: leftEmpty
     config:
       rows:
-      - key: 0
+      - key: 6
+        valueType: 0
+        boolValue: 1
+        stringValue: 
+        floatValue: 0
+      - key: 7
+        valueType: 0
+        boolValue: 1
+        stringValue: 
+        floatValue: 0
+      - key: 8
         valueType: 0
         boolValue: 1
         stringValue: 
@@ -88,7 +168,17 @@ MonoBehaviour:
   - label: rightEmpty
     config:
       rows:
-      - key: 0
+      - key: 6
+        valueType: 0
+        boolValue: 1
+        stringValue: 
+        floatValue: 0
+      - key: 7
+        valueType: 0
+        boolValue: 1
+        stringValue: 
+        floatValue: 0
+      - key: 9
         valueType: 0
         boolValue: 1
         stringValue: 
@@ -101,7 +191,17 @@ MonoBehaviour:
   - label: rearEmpty
     config:
       rows:
-      - key: 0
+      - key: 6
+        valueType: 0
+        boolValue: 1
+        stringValue: 
+        floatValue: 0
+      - key: 7
+        valueType: 0
+        boolValue: 1
+        stringValue: 
+        floatValue: 0
+      - key: 11
         valueType: 0
         boolValue: 1
         stringValue: 

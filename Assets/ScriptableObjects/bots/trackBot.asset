@@ -24,7 +24,22 @@ MonoBehaviour:
   modules:
   - label: frontRightWheel
     config:
-      rows: []
+      rows:
+      - key: 6
+        valueType: 0
+        boolValue: 1
+        stringValue: 
+        floatValue: 0
+      - key: 7
+        valueType: 0
+        boolValue: 1
+        stringValue: 
+        floatValue: 0
+      - key: 10
+        valueType: 0
+        boolValue: 1
+        stringValue: 
+        floatValue: 0
     part:
       offset: {x: 0.25, y: 0, z: 0.75}
       rotation: {x: 0, y: 0, z: 0}
@@ -38,6 +53,21 @@ MonoBehaviour:
         boolValue: 1
         stringValue: 
         floatValue: 0
+      - key: 6
+        valueType: 0
+        boolValue: 1
+        stringValue: 
+        floatValue: 0
+      - key: 7
+        valueType: 0
+        boolValue: 1
+        stringValue: 
+        floatValue: 0
+      - key: 11
+        valueType: 0
+        boolValue: 1
+        stringValue: 
+        floatValue: 0
     part:
       offset: {x: 0.25, y: 0, z: -0.75}
       rotation: {x: 0, y: 0, z: 0}
@@ -47,6 +77,21 @@ MonoBehaviour:
     config:
       rows:
       - key: 3
+        valueType: 0
+        boolValue: 1
+        stringValue: 
+        floatValue: 0
+      - key: 6
+        valueType: 0
+        boolValue: 1
+        stringValue: 
+        floatValue: 0
+      - key: 7
+        valueType: 0
+        boolValue: 1
+        stringValue: 
+        floatValue: 0
+      - key: 11
         valueType: 0
         boolValue: 1
         stringValue: 
@@ -69,8 +114,115 @@ MonoBehaviour:
         boolValue: 1
         stringValue: 
         floatValue: 0
+      - key: 6
+        valueType: 0
+        boolValue: 1
+        stringValue: 
+        floatValue: 0
+      - key: 7
+        valueType: 0
+        boolValue: 1
+        stringValue: 
+        floatValue: 0
+      - key: 10
+        valueType: 0
+        boolValue: 1
+        stringValue: 
+        floatValue: 0
     part:
       offset: {x: -0.25, y: 0, z: -0.75}
       rotation: {x: 0, y: 180, z: 0}
       joint: {fileID: 11400000, guid: 40b16337435db439e9894ed44a6ae7d4, type: 2}
       part: {fileID: 11400000, guid: 05b59265376f34914a0d6f33bbdcdbcf, type: 2}
+  - label: leftEmpty1
+    config:
+      rows:
+      - key: 6
+        valueType: 0
+        boolValue: 1
+        stringValue: 
+        floatValue: 0
+      - key: 7
+        valueType: 0
+        boolValue: 1
+        stringValue: 
+        floatValue: 0
+      - key: 8
+        valueType: 0
+        boolValue: 1
+        stringValue: 
+        floatValue: 0
+    part:
+      offset: {x: -0.25, y: 0, z: 0.25}
+      rotation: {x: 0, y: 0, z: 0}
+      joint: {fileID: 11400000, guid: 40b16337435db439e9894ed44a6ae7d4, type: 2}
+      part: {fileID: 11400000, guid: f24042d5079214a7da6d7c2f512bebab, type: 2}
+  - label: leftEmpty2
+    config:
+      rows:
+      - key: 6
+        valueType: 0
+        boolValue: 1
+        stringValue: 
+        floatValue: 0
+      - key: 7
+        valueType: 0
+        boolValue: 1
+        stringValue: 
+        floatValue: 0
+      - key: 8
+        valueType: 0
+        boolValue: 1
+        stringValue: 
+        floatValue: 0
+    part:
+      offset: {x: -0.25, y: 0, z: -0.25}
+      rotation: {x: 0, y: 0, z: 0}
+      joint: {fileID: 11400000, guid: 40b16337435db439e9894ed44a6ae7d4, type: 2}
+      part: {fileID: 11400000, guid: f24042d5079214a7da6d7c2f512bebab, type: 2}
+  - label: rightEmpty1
+    config:
+      rows:
+      - key: 6
+        valueType: 0
+        boolValue: 1
+        stringValue: 
+        floatValue: 0
+      - key: 7
+        valueType: 0
+        boolValue: 1
+        stringValue: 
+        floatValue: 0
+      - key: 9
+        valueType: 0
+        boolValue: 1
+        stringValue: 
+        floatValue: 0
+    part:
+      offset: {x: 0.25, y: 0, z: 0.25}
+      rotation: {x: 0, y: 0, z: 0}
+      joint: {fileID: 11400000, guid: 40b16337435db439e9894ed44a6ae7d4, type: 2}
+      part: {fileID: 11400000, guid: f24042d5079214a7da6d7c2f512bebab, type: 2}
+  - label: rightEmpty2
+    config:
+      rows:
+      - key: 6
+        valueType: 0
+        boolValue: 1
+        stringValue: 
+        floatValue: 0
+      - key: 7
+        valueType: 0
+        boolValue: 1
+        stringValue: 
+        floatValue: 0
+      - key: 9
+        valueType: 0
+        boolValue: 1
+        stringValue: 
+        floatValue: 0
+    part:
+      offset: {x: 0.25, y: 0, z: -0.25}
+      rotation: {x: 0, y: 0, z: 0}
+      joint: {fileID: 11400000, guid: 40b16337435db439e9894ed44a6ae7d4, type: 2}
+      part: {fileID: 11400000, guid: f24042d5079214a7da6d7c2f512bebab, type: 2}

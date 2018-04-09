@@ -22,6 +22,7 @@ public abstract class JointApplicator : ComponentApplicator {
         // add fixed joint component to target
         var joint = ApplyJoint(rigidbodyGo, config, target);
         if (joint == null) return;
+        //joint.enablePreprocessing = false;
 
         // apply break limits, as specified
         if (applyBreakForce) {

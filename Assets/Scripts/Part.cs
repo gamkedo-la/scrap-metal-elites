@@ -60,7 +60,9 @@ public class Part : ScriptableObject {
         // apply applicators to parts container
         if (applicators != null) {
             for (var i=0; i<applicators.Length; i++) {
-                applicators[i].Apply(config, partsGo);
+                if (applicators[i] != null) {
+                    applicators[i].Apply(config, partsGo);
+                }
             }
         }
 

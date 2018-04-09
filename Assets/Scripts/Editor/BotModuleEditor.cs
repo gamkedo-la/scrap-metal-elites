@@ -29,6 +29,7 @@ public class BotModuleEditor : PartEditor {
     public override void OnInspectorGUI() {
         //base.OnInspectorGUI();
         serializedObject.Update();
+        Undo.RecordObject(target, "Modify Bot Properties");
         EditorGUILayout.PropertyField(frame, true);
         EditorGUILayout.PropertyField(mass, true);
         EditorGUILayout.PropertyField(health, true);

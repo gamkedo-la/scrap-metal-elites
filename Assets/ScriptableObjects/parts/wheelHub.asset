@@ -12,11 +12,10 @@ MonoBehaviour:
   m_Name: wheelHub
   m_EditorClassIdentifier: 
   mass: {fileID: 0}
-  drag: {fileID: 0}
-  angularDrag: {fileID: 0}
+  health: {fileID: 0}
+  damage: {fileID: 0}
   models:
-  - label: 
-    offset: {x: 0, y: 0, z: 0}
+  - offset: {x: 0, y: 0, z: 0}
     rotation: {x: 0, y: 0, z: 0}
     model: {fileID: 1486721200503198, guid: 1dba77d52ccfd4f8b99dacc0a051db50, type: 2}
   applicators: []

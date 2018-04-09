@@ -63,6 +63,7 @@ public class PartEditor : Editor {
             ClearModel();
         }
         serializedObject.Update();
+        Undo.RecordObject(target, "Modify Part Properties");
         EditorGUILayout.PropertyField(mass);
         EditorGUILayout.PropertyField(health);
         EditorGUILayout.PropertyField(damage);
