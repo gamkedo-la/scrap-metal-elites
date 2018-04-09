@@ -20,5 +20,5 @@ MonoBehaviour:
   motor: 1
   motorMaxTorque: 500
   motorMaxSpeed: 50
-  throwForceLateral: 400
+  throwForceLateral: 1000
   throwForceUpward: 400

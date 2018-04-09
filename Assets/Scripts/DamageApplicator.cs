@@ -20,7 +20,7 @@ public class DamageApplicator : ComponentApplicator {
     [Tooltip("Should this part react to fire damage")]
     public bool fireApplyDamage;
     [Tooltip("Damage to apply to health for each flame particle collision")]
-    private float fireRate = 1f;
+    public float fireRate = 1f;
     [Tooltip("New material to add once burnt")]
     public Material burntMaterial;
     [Tooltip("Percent of health to fall under before applying burn")]
