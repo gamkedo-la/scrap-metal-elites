@@ -154,7 +154,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1352949254947202, guid: 0900452d0b08345799f5aba3f5744324, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0900452d0b08345799f5aba3f5744324, type: 2}
@@ -246,7 +246,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1520203798844092, guid: bf2991beebd4b4b46b69d7ea89feff4a, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bf2991beebd4b4b46b69d7ea89feff4a, type: 2}
@@ -731,6 +731,7 @@ GameObject:
   - component: {fileID: 1188001559}
   - component: {fileID: 1188001558}
   - component: {fileID: 1188001564}
+  - component: {fileID: 1188001565}
   m_Layer: 0
   m_Name: testBotBuilder
   m_TagString: Untagged
@@ -757,7 +758,7 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1188001557}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a5454e5c28a9f49b0ac79b2f39f921bc, type: 3}
   m_Name: 
@@ -781,7 +782,7 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1188001557}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1b7b21c70ed2e4b2ca83483984b567e8, type: 3}
   m_Name: 
@@ -824,6 +825,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65841e0b2f1a9494096ad1296c7774b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1188001565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1188001557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81a5f450ade0046ea90516ea77e668ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materialTag: 1
 --- !u!1 &1233237385
 GameObject:
   m_ObjectHideFlags: 0
@@ -910,6 +923,23 @@ Transform:
   m_Father: {fileID: 262456780}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1372089628 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1520203798844092, guid: bf2991beebd4b4b46b69d7ea89feff4a,
+    type: 2}
+  m_PrefabInternal: {fileID: 192604175}
+--- !u!114 &1372089635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1372089628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81a5f450ade0046ea90516ea77e668ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materialTag: 0
 --- !u!1 &1419822060 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1361578584959492, guid: 1c9b95cf82ec14975b2305f7d8017efa,
