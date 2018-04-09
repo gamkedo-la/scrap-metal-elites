@@ -24,7 +24,6 @@ public class RamActuator : MonoBehaviour, IActuator {
 
     private Rigidbody rb;
     private float _actuate = 0.0f;
-    private Vector3 forceVector;
     private Vector3 minPosition;
     private Vector3 maxPosition;
     private ConfigurableJoint joint;
@@ -39,15 +38,12 @@ public class RamActuator : MonoBehaviour, IActuator {
         rb = GetComponent<Rigidbody>();
         joint = GetComponent<ConfigurableJoint>();
         if (axis == 2) {
-            forceVector = transform.forward;
             minPosition = new Vector3(0,0,-maxTraverse);
             maxPosition = new Vector3(0,0,maxTraverse);
         } else if (axis == 1) {
-            forceVector = transform.up;
             minPosition = new Vector3(0,-maxTraverse,0);
             maxPosition = new Vector3(0,maxTraverse,0);
         } else {
-            forceVector = transform.right;
             minPosition = new Vector3(-maxTraverse,0,0);
             maxPosition = new Vector3(maxTraverse,0,0);
         }

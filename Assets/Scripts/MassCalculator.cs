@@ -8,7 +8,6 @@ public class MassCalculator : MonoBehaviour {
         float totalMass = 0;
         var rbs = PartUtil.GetComponentsInChildren<Rigidbody>(gameObject);
         for (var i=0; i<rbs.Length; i++) {
-            //Debug.Log(rbs[i].gameObject.name + " mass " + rbs[i].mass);
             totalMass += rbs[i].mass;
         }
         Debug.Log(gameObject.name + " # rbs: " + rbs.Length + " totalMass: " + totalMass);

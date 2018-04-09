@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MeshMaterialApplicator : MonoBehaviour {
+public class MaterialChanger : MonoBehaviour {
     private Renderer[] renderers;
 
     public Material material {
         set {
             if (renderers != null) {
                 for (var i=0; i<renderers.Length; i++) {
-                    if (renderers[i] != null) renderers[i].material = value;
+                    renderers[i].material.CopyPropertiesFromMaterial(value);
                 }
             }
         }

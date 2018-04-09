@@ -11,7 +11,7 @@ public class HubJointApplicator : JointApplicator {
         var joint = rigidbodyGo.AddComponent<HingeJoint>();
 
         // add motor
-        var applyMotor = motor && (motorMaxTorque != null) && (motorMaxSpeed != null);
+        var applyMotor = motor;
         if (config != null && config.Has(ConfigTag.MotorEnable) && !config.Get<bool>(ConfigTag.MotorEnable)) {  // config override
             applyMotor = false;
         }

@@ -18,5 +18,6 @@ MonoBehaviour:
   - offset: {x: 0, y: 0, z: 0}
     rotation: {x: 0, y: 0, z: 0}
     model: {fileID: 1313783141273522, guid: 23125eb6b17ab41fb8af1882fa5b922e, type: 2}
-  applicators: []
+  applicators:
+  - {fileID: 11400000, guid: 199320462dace4f3f9520126a114b32b, type: 2}
   connectedParts: []

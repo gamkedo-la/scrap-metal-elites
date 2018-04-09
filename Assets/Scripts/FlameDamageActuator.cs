@@ -17,8 +17,7 @@ public class FlameDamageActuator : MonoBehaviour {
     private Rigidbody rb;
     private Health health;
     private Material unburntMaterial;
-    private Transform emitlocation;
-    private Renderer[] renderers;
+    private MaterialActuator[] materialActuators;
     private bool is_burnt = false;
     private bool is_exploded = false;
 
@@ -29,14 +28,8 @@ public class FlameDamageActuator : MonoBehaviour {
         if (health != null) {
             health.onChangePercent.AddListener(OnHealthPercentChange);
         }
-        // FIXME: renderers can exist at this object level or lower
-        renderers = PartUtil.GetComponentsInChildren<Renderer>(gameObject);
-        //if (renderer != null) {
-            //unburntMaterial = renderer.material;
-        //}
+        materialActuators = PartUtil.GetComponentsInChildren<MaterialActuator>(gameObject);
         rb = GetComponent<Rigidbody>();
-        // FIXME: remove
-        emitlocation = gameObject.transform;
 	}
 
     private void OnParticleCollision(GameObject other)
@@ -64,11 +57,9 @@ public class FlameDamageActuator : MonoBehaviour {
             Debug.Log(gameObject.name + " burning");
         }
         is_burnt = true;
-        if (renderers != null) {
-            for (var i=0; i<renderers.Length; i++) {
-                if (renderers[i].material != null) {
-                    renderers[i].material.CopyPropertiesFromMaterial(burntMaterial);
-                }
+        if (materialActuators != null) {
+            for (var i=0; i<materialActuators.Length; i++) {
+                materialActuators[i].Assign(MaterialTag.Burnt);
             }
         }
     }
