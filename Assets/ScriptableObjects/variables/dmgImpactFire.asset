@@ -22,5 +22,5 @@ MonoBehaviour:
   burntMaterial: {fileID: 2100000, guid: a6101176eb433e5428a507d02a363ab3, type: 2}
   burnThreshold: 50
   explodeThreshold: 10
-  explodeForce: 1000
+  explodeForce: 100
   debug: 0

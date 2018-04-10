@@ -43,7 +43,7 @@ public class Part : ScriptableObject {
         partId.partId = this.GetInstanceID();
 
         // create new rigid body for this part, set parts container as parent
-        var rigidbodyGo = PartUtil.BuildGo(config, partsGo, label + ".body", typeof(Rigidbody));
+        var rigidbodyGo = PartUtil.BuildGo(config, partsGo, label + ".body", typeof(Rigidbody), typeof(KeepInBounds));
         //PartUtil.ApplyRigidBodyProperties(rigidbodyGo, mass, drag, angularDrag);
 
         // apply part properties

@@ -36,6 +36,9 @@ public class BotModule: Part {
             if (root.GetComponent<Rigidbody>() == null) {
                 root.AddComponent<Rigidbody>();
             }
+            if (root.GetComponent<KeepInBounds>() == null) {
+                root.AddComponent<KeepInBounds>();
+            }
             bodyGo = root;
             if (mass != null) {
                 mass.Apply(config, root);

@@ -44,7 +44,7 @@ public class WheelModule: Part {
             var hubGo = hub.Build(config, (steeringGo != null) ? steeringGo : partsGo, "hub");
             // if hub part isn't specified, build dummy hub rigidbody for wheel
             if (hubGo == null) {
-                hubBodyGo = PartUtil.BuildGo(config, partsGo, "hub.body", typeof(Rigidbody));
+                hubBodyGo = PartUtil.BuildGo(config, partsGo, "hub.body", typeof(Rigidbody), typeof(KeepInBounds));
             } else {
                 hubBodyGo = PartUtil.GetBodyGo(hubGo);
             }
