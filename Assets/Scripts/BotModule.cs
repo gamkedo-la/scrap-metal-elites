@@ -55,9 +55,10 @@ public class BotModule: Part {
         } else {
             // build out frame model first
             partsGo = base.Build(config, root, label);
-            // set local position to match that of root
-            bodyGo = partsGo.transform.Find(partsGo.name + ".body").gameObject;
-            // FIXME
+            if (partsGo != null) {
+                // set local position to match that of root
+                bodyGo = partsGo.transform.Find(partsGo.name + ".body").gameObject;
+            }
         }
 
         // frame is instantiated under parts.body

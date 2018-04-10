@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcb880cbbb12e4e6a81e5329988b884a, type: 3}
+  m_Name: spikeJoint
+  m_EditorClassIdentifier: 
+  applyBreakForce: 1
+  breakForce: 10000
+  applyBreakTorque: 1
+  breakTorque: 10000
+  applyDamageToForce: 1
+  applyDamageToTorque: 1
+  springForce: 5000
+  springDamper: 5
+  motorForce: 3000
+  motorDamper: 0.5
+  impactForce: 400
+  impactDamageMultiplier: 5
+  maxRamSpeed: 10
+  axis: 2
+  maxTraverse: 0.18
+  debug: 0
