@@ -51,6 +51,7 @@ public class RamJointApplicator : JointApplicator {
         }
         drive.positionSpring = motorForce;
         drive.positionDamper = motorDamper;
+        drive.maximumForce = 10000;
         if (axis == 2) {
             joint.zDrive = drive;
         } else if (axis == 1) {

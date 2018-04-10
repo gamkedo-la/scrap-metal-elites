@@ -22,22 +22,6 @@ MonoBehaviour:
     rotation: {x: 0, y: 0, z: 0}
     model: {fileID: 1883716674634628, guid: 7091adc79ab1e468b8db4b5e94f963f0, type: 2}
   modules:
-  - label: leftSpike
-    config:
-      rows: []
-    part:
-      offset: {x: -0.26, y: 0, z: 0.5}
-      rotation: {x: 0, y: 0, z: 180}
-      joint: {fileID: 11400000, guid: 40b16337435db439e9894ed44a6ae7d4, type: 2}
-      part: {fileID: 11400000, guid: 1e59d998aeba747318ae7bf5a6c70840, type: 2}
-  - label: rightSpike
-    config:
-      rows: []
-    part:
-      offset: {x: 0.26, y: 0, z: 0.5}
-      rotation: {x: 0, y: 0, z: 0}
-      joint: {fileID: 11400000, guid: 40b16337435db439e9894ed44a6ae7d4, type: 2}
-      part: {fileID: 11400000, guid: 1e59d998aeba747318ae7bf5a6c70840, type: 2}
   - label: rightFrontWheel
     config:
       rows:
@@ -55,7 +39,7 @@ MonoBehaviour:
       offset: {x: 0.26, y: 0, z: 0.5}
       rotation: {x: 0, y: 0, z: 0}
       joint: {fileID: 11400000, guid: 40b16337435db439e9894ed44a6ae7d4, type: 2}
-      part: {fileID: 11400000, guid: 05b59265376f34914a0d6f33bbdcdbcf, type: 2}
+      part: {fileID: 11400000, guid: 5cd3257acbad540f1a24fbc5009b97cf, type: 2}
   - label: rightRearWheel
     config:
       rows:
@@ -99,9 +83,9 @@ MonoBehaviour:
         floatValue: 0
     part:
       offset: {x: -0.26, y: 0, z: 0.5}
-      rotation: {x: 0, y: 180, z: 0}
+      rotation: {x: 0, y: 0, z: 180}
       joint: {fileID: 11400000, guid: 40b16337435db439e9894ed44a6ae7d4, type: 2}
-      part: {fileID: 11400000, guid: 05b59265376f34914a0d6f33bbdcdbcf, type: 2}
+      part: {fileID: 11400000, guid: 5cd3257acbad540f1a24fbc5009b97cf, type: 2}
   - label: leftRearWheel
     config:
       rows:

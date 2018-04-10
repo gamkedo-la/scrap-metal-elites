@@ -9,7 +9,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0c16a472c5a6b4cfcafc4959de97a920, type: 3}
-  m_Name: module
+  m_Name: spikeWheelModule
   m_EditorClassIdentifier: 
   mass: {fileID: 0}
   health: {fileID: 11400000, guid: 17e592848fc6949c99141368cff12bbe, type: 2}
@@ -18,6 +18,18 @@ MonoBehaviour:
   - offset: {x: 0, y: 0, z: 0}
     rotation: {x: 0, y: 0, z: 0}
     model: {fileID: 1262779301030696, guid: 6838fb01728a345f78c5479b1b14e699, type: 2}
+  - offset: {x: 0.45, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 90}
+    model: {fileID: 1476883332220316, guid: 9af528aa697d94425a45823601578dbf, type: 2}
   applicators:
   - {fileID: 11400000, guid: 551bbb5f7df274ebd8a1286359ca07ed, type: 2}
-  connectedParts: []
+  - {fileID: 11400000, guid: 199320462dace4f3f9520126a114b32b, type: 2}
+  connectedParts:
+  - offset: {x: 0.125, y: 0, z: 0.5}
+    rotation: {x: 0, y: 0, z: 0}
+    joint: {fileID: 11400000, guid: 77b3f6a266c9747058c46dbafdba5203, type: 2}
+    part: {fileID: 11400000, guid: 2b02d7e8c68b44eceb6298e8674b5bba, type: 2}
+  - offset: {x: 0.5, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0}
+    joint: {fileID: 11400000, guid: c7a54a083d03d438d8bdacc7096e6160, type: 2}
+    part: {fileID: 11400000, guid: 342503b2c889540b4ae96f2d2161231f, type: 2}
