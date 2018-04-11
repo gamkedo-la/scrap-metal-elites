@@ -28,7 +28,7 @@ public class PartBuilder : MonoBehaviour {
         }
     }
 
-    void OnEnable() {
+    public virtual void OnEnable() {
         // catch case where enable is called when transitioning into play mode
 #if UNITY_EDITOR
         if (EditorApplication.isPlayingOrWillChangePlaymode && !Application.isPlaying) {
@@ -38,7 +38,7 @@ public class PartBuilder : MonoBehaviour {
         Build();
     }
 
-    void OnDisable() {
+    public virtual void OnDisable() {
         if (!Application.isPlaying) {
             Clear();
         }

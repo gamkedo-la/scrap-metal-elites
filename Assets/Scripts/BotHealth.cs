@@ -15,6 +15,7 @@ public class BotHealth : MonoBehaviour {
     private List<Health> healthModules;
     private int totalHealth = 0;
     private int minHealth;
+    private bool dead = false;
 
     // bot health is computed as the combined health of the bot modules
     private int health {
@@ -67,9 +68,10 @@ public class BotHealth : MonoBehaviour {
         Debug.Log("bot on health change, current health: " + health + " percent: " + healthPercent);
         onChange.Invoke(health);
         onChangePercent.Invoke(healthPercent);
-        if (healthPercent <= 0) {
-            onDeath.Invoke(null);
+        if (healthPercent <= 0 && !dead) {
+            onDeath.Invoke(gameObject);
             Debug.Log("death");
+            dead = true;
         }
     }
 

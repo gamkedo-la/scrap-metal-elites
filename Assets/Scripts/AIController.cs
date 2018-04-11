@@ -2,14 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum AIMood {
+    idle,
+    wander,
+    aggressive,
+    flee
+};
+
 public class AIController : MonoBehaviour {
 
     public Transform ownFrameTransform;
     public GameObject target;
     public float thinkSpeed = 1.0f;
     private IMovement moveScript;
-    public enum mood { idle, wander, aggressive, flee };
-    public mood moodNow;
+    public AIMood moodNow;
 
 	// Use this for initialization
 	void Start () {
@@ -47,13 +53,13 @@ public class AIController : MonoBehaviour {
             //Debug.Log("angle to target: " +angToFaceTarget);
         }
         switch (moodNow) {
-            case mood.idle:
+            case AIMood.idle:
                 break;
-            case mood.wander:
+            case AIMood.wander:
                 moveScript.forwardDrive = 1.0f;
                 moveScript.rotateDrive = -1.0f;
                 break;
-            case mood.aggressive:
+            case AIMood.aggressive:
                 moveScript.forwardDrive = 1.0f;
                 if (Mathf.Abs(angToFaceTarget) >= 10f) {
                     var targetDrive = (angToFaceTarget < 0.0f ? -1.0f : 1.0f);
@@ -62,7 +68,7 @@ public class AIController : MonoBehaviour {
                     moveScript.rotateDrive = 0f;
                 }
                 break;
-            case mood.flee:
+            case AIMood.flee:
                 moveScript.forwardDrive = -1.0f;
                 if (Mathf.Abs(angToFaceTarget) >= 10f) {
                     moveScript.rotateDrive = (angToFaceTarget < 0.0f ? -1.0f : 1.0f);
