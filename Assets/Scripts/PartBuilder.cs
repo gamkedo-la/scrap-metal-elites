@@ -42,6 +42,10 @@ public class PartBuilder : MonoBehaviour {
         if (!Application.isPlaying) {
             Clear();
         }
+        var child = GetComponent<ChildLink>();
+        if (child != null && child.childGo != null) {
+            child.childGo.SetActive(false);
+        }
     }
 
     void OnDestroy() {

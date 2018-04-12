@@ -20,4 +20,9 @@ public abstract class RuntimeSet<T> : ScriptableObject {
         if (Items.Contains(thing))
             Items.Remove(thing);
     }
+
+    public T PickRandom() {
+        var index = Random.Range(0, Items.Count);
+        return Items[index];
+    }
 }

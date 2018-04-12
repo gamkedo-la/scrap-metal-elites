@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Match : MonoBehaviour {
@@ -7,31 +8,39 @@ public class Match : MonoBehaviour {
 
     public GameObject playerBot;
     public GameObject enemyBot;
+    public int countdownTicks = 3;
+    public bool debug = false;
 
-    private bool prepared = false;
+    private bool matchStarted = false;
     private GameObject spawnedPlayer;
     private GameObject spawnedEnemy;
 
+    private bool winnerDeclared = false;
+    private GameObject winningBot;
+
     void OnBotDeath(GameObject bot) {
         if (bot != null) {
-            Debug.Log("Bot died: " + bot.name);
+            if (debug) Debug.Log("Bot died: " + bot.name);
         }
 
-        // FIXME: move to state engine
+        // declare a winner
         if (bot == playerBot) {
-            Debug.Log("Enemy wins ... Boo!!!");
+            winningBot = spawnedEnemy;
         } else {
-            Debug.Log("Player wins ... Yay!!!");
+            winningBot = spawnedPlayer;
         }
-        // disable bots
-        for (var i=allBots.Items.Count-1; i>=0; i--) {
-            allBots.Items[i].gameObject.SetActive(false);
-        }
+        winnerDeclared = true;
     }
 
-    GameObject SpawnBot(GameObject botPrefab, SpawnPoint spawnPoint, Vector3 lookAt) {
+    GameObject SpawnBot(
+        GameObject botPrefab,
+        SpawnPoint spawnPoint,
+        Vector3 lookAt,
+        string name
+    ) {
         var rotation = Quaternion.LookRotation(lookAt - spawnPoint.transform.position);
         var botGo = Object.Instantiate(botPrefab, spawnPoint.transform.position, rotation);
+        botGo.name = name;
         var health = botGo.GetComponent<BotHealth>();
         if (health != null) {
             health.onDeath.AddListener(OnBotDeath);
@@ -39,19 +48,46 @@ public class Match : MonoBehaviour {
         return botGo;
     }
 
-    SpawnPoint PickSpawn(SpawnPointRuntimeSet points) {
-        var index = Random.Range(0, points.Items.Count);
-        return points.Items[index];
-    }
-
-    void PrepareBots() {
+    IEnumerator StatePrepare() {
+        if (debug) Debug.Log("StatePrepare");
         // choose spawn points
-        var enemySpawnPoint = PickSpawn(enemySpawns);
-        var playerSpawnPoint = PickSpawn(playerSpawns);
+        var enemySpawnPoint = enemySpawns.PickRandom();
+        var playerSpawnPoint = playerSpawns.PickRandom();
 
         // spawn bots
-        spawnedPlayer = SpawnBot(playerBot, playerSpawnPoint, enemySpawnPoint.transform.position);
-        spawnedEnemy = SpawnBot(enemyBot, enemySpawnPoint, playerSpawnPoint.transform.position);
+        spawnedPlayer = SpawnBot(playerBot, playerSpawnPoint, enemySpawnPoint.transform.position, "player");
+        spawnedEnemy = SpawnBot(enemyBot, enemySpawnPoint, playerSpawnPoint.transform.position, "enemy");
+
+        // TRANSITION: Countdown
+        yield return StartCoroutine(StateCountdown());
+    }
+
+    IEnumerator StateCountdown() {
+        if (debug) Debug.Log("StateCountdown");
+        var startTime = Time.fixedTime;
+        var lastTick = countdownTicks;
+        if (debug) Debug.Log("Tick: " + lastTick);
+
+        var currentDelta = Time.fixedTime - startTime;
+        while (currentDelta < (float) countdownTicks) {
+            var currentTick = countdownTicks - Mathf.FloorToInt(currentDelta);
+            if (currentTick != lastTick) {
+                lastTick = currentTick;
+                if (debug) Debug.Log("Tick: " + lastTick);
+            }
+            // wait until next frame;
+            yield return null;
+            currentDelta = Time.fixedTime - startTime;
+        }
+        lastTick = 0;
+        if (debug) Debug.Log("Tick: " + lastTick);
+
+        // TRANSITION: Play
+        yield return StartCoroutine(StatePlay());
+    }
+
+    IEnumerator StatePlay() {
+        if (debug) Debug.Log("StatePlay");
 
         // FIXME: hack for now... manually apply control scripts/set targets/ai mode
         spawnedPlayer.AddComponent<BotDriveController>();
@@ -61,12 +97,32 @@ public class Match : MonoBehaviour {
         ai.target = spawnedPlayer;
         ai.moodNow = AIMood.aggressive;
 
+        while (!winnerDeclared) {
+            yield return null;
+        }
+
+        // TRANSITION: Finish
+        yield return StartCoroutine(StateFinish());
+    }
+
+    IEnumerator StateFinish() {
+        if (debug) Debug.Log("StateFinish");
+
+        // declare winner
+        if (debug) Debug.Log(winningBot.name + " wins ... Yay!!!");
+        yield return null;
+
+        // disable bots
+        for (var i=allBots.Items.Count-1; i>=0; i--) {
+            allBots.Items[i].gameObject.SetActive(false);
+        }
     }
 
     void Update() {
-        if (!prepared) {
-            PrepareBots();
-            prepared = true;
+        // start the state engine
+        if (!matchStarted) {
+            StartCoroutine(StatePrepare());
+            matchStarted = true;
         }
     }
 
