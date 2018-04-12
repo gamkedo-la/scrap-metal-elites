@@ -117,7 +117,9 @@ public class Match : MonoBehaviour {
         if (debug) Debug.Log("StateFinish");
 
         // declare winner
-        if (debug) Debug.Log(winningBot.name + " wins ... Yay!!!");
+        var msg = winningBot.name + " wins ... Yay!!!";
+        if (debug) Debug.Log(msg);
+        if (bannerMessage != null) bannerMessage.Raise(msg);
         yield return null;
 
         // disable bots
