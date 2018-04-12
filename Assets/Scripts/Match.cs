@@ -11,6 +11,10 @@ public class Match : MonoBehaviour {
     public int countdownTicks = 3;
     public bool debug = false;
 
+    public StringEvent bannerFade;
+    public StringEvent bannerMessage;
+    public GameEvent bannerClear;
+
     private bool matchStarted = false;
     private GameObject spawnedPlayer;
     private GameObject spawnedEnemy;
@@ -67,6 +71,7 @@ public class Match : MonoBehaviour {
         var startTime = Time.fixedTime;
         var lastTick = countdownTicks;
         if (debug) Debug.Log("Tick: " + lastTick);
+        if (bannerFade != null) bannerFade.Raise(lastTick.ToString());
 
         var currentDelta = Time.fixedTime - startTime;
         while (currentDelta < (float) countdownTicks) {
@@ -74,6 +79,7 @@ public class Match : MonoBehaviour {
             if (currentTick != lastTick) {
                 lastTick = currentTick;
                 if (debug) Debug.Log("Tick: " + lastTick);
+                if (bannerFade != null) bannerFade.Raise(lastTick.ToString());
             }
             // wait until next frame;
             yield return null;
@@ -81,6 +87,7 @@ public class Match : MonoBehaviour {
         }
         lastTick = 0;
         if (debug) Debug.Log("Tick: " + lastTick);
+        if (bannerFade != null) bannerFade.Raise("Start!");
 
         // TRANSITION: Play
         yield return StartCoroutine(StatePlay());
@@ -97,6 +104,7 @@ public class Match : MonoBehaviour {
         ai.target = spawnedPlayer;
         ai.moodNow = AIMood.aggressive;
 
+        // wait for a winner to be declared
         while (!winnerDeclared) {
             yield return null;
         }
