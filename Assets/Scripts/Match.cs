@@ -157,7 +157,7 @@ public class Match : MonoBehaviour {
 
         // disable bots
         for (var i=allBots.Items.Count-1; i>=0; i--) {
-            allBots.Items[i].gameObject.SetActive(false);
+            allBots.Items[i].GetComponent<BotBrain>().controlsActive = false;
         }
     }
 

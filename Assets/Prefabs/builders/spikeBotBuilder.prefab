@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4940563321548608}
-  - component: {fileID: 114900438442335006}
+  - component: {fileID: 114203122882484540}
   - component: {fileID: 114624795112191804}
   - component: {fileID: 114349695495516722}
   - component: {fileID: 114966735238736842}
@@ -71,6 +71,19 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: OnDeathEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+--- !u!114 &114203122882484540
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1611224051005754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6049ada6e33d4466780c607765f4c241, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  part: {fileID: 11400000, guid: 08b1817cc811f4c42a20275f0fca3b31, type: 2}
+  botList: {fileID: 11400000, guid: 0c8c0a9ec335541c59c634bad32ecf99, type: 2}
 --- !u!114 &114349695495516722
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -93,18 +106,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cb6281f834c242d5800dd479a965807, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114900438442335006
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1611224051005754}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 585de4093d4434305a8a54f35efa4b87, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  part: {fileID: 11400000, guid: 08b1817cc811f4c42a20275f0fca3b31, type: 2}
 --- !u!114 &114966735238736842
 MonoBehaviour:
   m_ObjectHideFlags: 1
