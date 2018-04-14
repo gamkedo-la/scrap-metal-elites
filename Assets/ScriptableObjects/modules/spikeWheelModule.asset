@@ -17,7 +17,7 @@ MonoBehaviour:
   models:
   - offset: {x: 0, y: 0, z: 0}
     rotation: {x: 0, y: 0, z: 0}
-    model: {fileID: 1262779301030696, guid: 6838fb01728a345f78c5479b1b14e699, type: 2}
+    model: {fileID: 1808414059628808, guid: a8f8dea8eb2fc460794ca5436ecac4f2, type: 2}
   - offset: {x: 0.45, y: 0, z: 0}
     rotation: {x: 0, y: 0, z: 90}
     model: {fileID: 1476883332220316, guid: 9af528aa697d94425a45823601578dbf, type: 2}

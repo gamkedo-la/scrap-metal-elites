@@ -7,6 +7,8 @@ public class BotHealth : MonoBehaviour {
     [Range(1,75)]
     public int deathHealthPercent = 50;
 
+    public GameRecordEvent gameEventChannel;
+
     public OnHealthValueEvent onChange;
     public OnHealthValueEvent onChangePercent;
     public OnDeathEvent onDeath;
@@ -50,7 +52,7 @@ public class BotHealth : MonoBehaviour {
             if (components[i].healthTag == HealthTag.Module) {
                 totalHealth += components[i].maxHealth;
                 healthModules.Add(components[i]);
-                components[i].onChange.AddListener(OnHealthChange);
+                components[i].onTakeDamage.AddListener(OnTakeDamage);
             }
         }
         minHealth = (totalHealth * deathHealthPercent)/100;
@@ -64,14 +66,21 @@ public class BotHealth : MonoBehaviour {
         }
     }
 
-    void OnHealthChange(int newValue) {
-        Debug.Log("bot on health change, current health: " + health + " percent: " + healthPercent);
+    void OnTakeDamage(GameObject from, int amount) {
+        Debug.Log("bot on takeDamage, current health: " + health + " percent: " + healthPercent);
         onChange.Invoke(health);
         onChangePercent.Invoke(healthPercent);
         if (healthPercent <= 0 && !dead) {
             onDeath.Invoke(gameObject);
             Debug.Log("death");
             dead = true;
+            if (gameEventChannel != null) {
+                gameEventChannel.Raise(GameRecord.BotDied(gameObject, from));
+            }
+        }
+        // notify channel
+        if (gameEventChannel != null) {
+            gameEventChannel.Raise(GameRecord.BotTookDamage(gameObject, from, amount));
         }
     }
 

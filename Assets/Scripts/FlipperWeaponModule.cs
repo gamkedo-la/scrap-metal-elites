@@ -20,6 +20,7 @@ public class FlipperWeaponModule: Part {
         // build out part model first
         partsGo = base.Build(config, root, label);
         bodyGo = partsGo.transform.Find(partsGo.name + ".body").gameObject;
+        bodyGo.GetComponent<Rigidbody>().centerOfMass = Vector3.zero;
 
         // now build out parts hierarchy - frame is instantiated under parts.body
         if (frame != null) {

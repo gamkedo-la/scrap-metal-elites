@@ -13,16 +13,19 @@ public class OnDeathEvent : UnityEvent<GameObject> { };
 public class Health : MonoBehaviour {
 
     [System.Serializable]
-    public class OnHealthValueEvent : UnityEvent<int> { };
+    public class IntValueEvent : UnityEvent<int> { };
     [System.Serializable]
-    public class OnDeathEvent : UnityEvent<GameObject> { };
+    public class GameObjectEvent : UnityEvent<GameObject> { };
+    [System.Serializable]
+    public class GameObjectIntEvent : UnityEvent<GameObject, int> { };
 
     public int maxHealth = 100;
     public bool debug;
     public HealthTag healthTag = HealthTag.Part;
-    public OnHealthValueEvent onChange;
-    public OnHealthValueEvent onChangePercent;
-    public OnDeathEvent onDeath;
+    public IntValueEvent onChange;
+    public IntValueEvent onChangePercent;
+    public GameObjectEvent onDeath;
+    public GameObjectIntEvent onTakeDamage;
 
     public int health {
         get {
@@ -33,9 +36,10 @@ public class Health : MonoBehaviour {
     private int _health;
 
     void Awake() {
-        onChange = new OnHealthValueEvent();
-        onChangePercent = new OnHealthValueEvent();
-        onDeath = new OnDeathEvent();
+        onChange = new IntValueEvent();
+        onChangePercent = new IntValueEvent();
+        onDeath = new GameObjectEvent();
+        onTakeDamage = new GameObjectIntEvent();
     }
     void Start() {
         _health = maxHealth;
@@ -68,6 +72,7 @@ public class Health : MonoBehaviour {
         onChange.Invoke(_health);
         var percent = (_health*100)/maxHealth;
         onChangePercent.Invoke(percent);
+        onTakeDamage.Invoke(from, amount);
     }
 
 }

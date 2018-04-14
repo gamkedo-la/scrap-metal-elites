@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2faa6b03c9fb040d7b53dafae483c03a, type: 3}
+  m_Name: hammerHazard
+  m_EditorClassIdentifier: 
+  mass: {fileID: 0}
+  health: {fileID: 0}
+  damage: {fileID: 0}
+  models: []
+  applicators:
+  - {fileID: 11400000, guid: 5f1db0b18cd454799848a1bf08addb2f, type: 2}
+  connectedParts: []
+  frame:
+    offset: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0}
+    model: {fileID: 1632453847150580, guid: c5a1963535bc14eae8c41090a9c39deb, type: 2}
+  flipper:
+    offset: {x: 0, y: 0.65, z: 0}
+    rotation: {x: 0, y: 0, z: 0}
+    joint: {fileID: 11400000, guid: 894bd307e6ca9482e8d85bdd0690448e, type: 2}
+    part: {fileID: 11400000, guid: 9271c9b4416f04b2ea05815bf1face58, type: 2}

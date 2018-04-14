@@ -14,6 +14,7 @@ public class Match : MonoBehaviour {
     public StringEvent bannerFade;
     public StringEvent bannerMessage;
     public GameEvent bannerClear;
+    public GameRecordEvent gameEventChannel;
 
     private bool matchStarted = false;
     private GameObject spawnedPlayer;
@@ -62,6 +63,11 @@ public class Match : MonoBehaviour {
         spawnedPlayer = SpawnBot(playerBot, playerSpawnPoint, enemySpawnPoint.transform.position, "player");
         spawnedEnemy = SpawnBot(enemyBot, enemySpawnPoint, playerSpawnPoint.transform.position, "enemy");
 
+        // notify channel
+        if (gameEventChannel != null) {
+            gameEventChannel.Raise(GameRecord.GamePrepared());
+        }
+
         // TRANSITION: Countdown
         yield return StartCoroutine(StateCountdown());
     }
@@ -96,6 +102,11 @@ public class Match : MonoBehaviour {
     IEnumerator StatePlay() {
         if (debug) Debug.Log("StatePlay");
 
+        // notify channel
+        if (gameEventChannel != null) {
+            gameEventChannel.Raise(GameRecord.GameStarted());
+        }
+
         // FIXME: hack for now... manually apply control scripts/set targets/ai mode
         spawnedPlayer.AddComponent<BotDriveController>();
         spawnedPlayer.AddComponent<ActuatorController>();
@@ -115,6 +126,11 @@ public class Match : MonoBehaviour {
 
     IEnumerator StateFinish() {
         if (debug) Debug.Log("StateFinish");
+
+        // notify channel
+        if (gameEventChannel != null) {
+            gameEventChannel.Raise(GameRecord.GameFinished());
+        }
 
         // declare winner
         var msg = winningBot.name + " wins ... Yay!!!";
