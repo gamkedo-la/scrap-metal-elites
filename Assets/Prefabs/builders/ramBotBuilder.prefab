@@ -9,24 +9,21 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1361578584959492}
+  m_RootGameObject: {fileID: 1747757598241954}
   m_IsPrefabParent: 1
---- !u!1 &1361578584959492
+--- !u!1 &1747757598241954
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4548414096466394}
-  - component: {fileID: 114774197670738436}
-  - component: {fileID: 114010605327386660}
-  - component: {fileID: 114422220024102428}
-  - component: {fileID: 114908430457976720}
-  - component: {fileID: 114427920309820088}
-  - component: {fileID: 114743594557791010}
-  - component: {fileID: 114718123500488506}
-  - component: {fileID: 114934769498112136}
+  - component: {fileID: 4983789058089354}
+  - component: {fileID: 114037054163892816}
+  - component: {fileID: 114459591592834864}
+  - component: {fileID: 114531813037927510}
+  - component: {fileID: 114037008124165978}
+  - component: {fileID: 114560553289127140}
   m_Layer: 0
   m_Name: ramBotBuilder
   m_TagString: Untagged
@@ -34,12 +31,12 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4548414096466394
+--- !u!4 &4983789058089354
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1361578584959492}
+  m_GameObject: {fileID: 1747757598241954}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 9.41, y: -4.33, z: -6.04}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -47,97 +44,77 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114010605327386660
+--- !u!114 &114037008124165978
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1361578584959492}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0cb6281f834c242d5800dd479a965807, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &114422220024102428
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1361578584959492}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5454e5c28a9f49b0ac79b2f39f921bc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &114427920309820088
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1361578584959492}
+  m_GameObject: {fileID: 1747757598241954}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 81a5f450ade0046ea90516ea77e668ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   materialTag: 0
---- !u!114 &114718123500488506
+--- !u!114 &114037054163892816
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1361578584959492}
+  m_GameObject: {fileID: 1747757598241954}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff03c6e41443f455dad8756862d55210, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &114743594557791010
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1361578584959492}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65841e0b2f1a9494096ad1296c7774b5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &114774197670738436
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1361578584959492}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 585de4093d4434305a8a54f35efa4b87, type: 3}
+  m_Script: {fileID: 11500000, guid: 6049ada6e33d4466780c607765f4c241, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   part: {fileID: 11400000, guid: d0942cfe20a5a4623a30411e71e64834, type: 2}
---- !u!114 &114908430457976720
+  botList: {fileID: 11400000, guid: 0c8c0a9ec335541c59c634bad32ecf99, type: 2}
+--- !u!114 &114459591592834864
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1361578584959492}
+  m_GameObject: {fileID: 1747757598241954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cb6281f834c242d5800dd479a965807, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114531813037927510
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1747757598241954}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f33193b595f848efbfaf0c2378108d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114934769498112136
+--- !u!114 &114560553289127140
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1361578584959492}
+  m_GameObject: {fileID: 1747757598241954}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1836fda98f101946a2cb209538ef06d, type: 3}
+  m_Script: {fileID: 11500000, guid: aa2804dd291f94944bc471711b3b2d4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ownFrameTransform: {fileID: 0}
-  target: {fileID: 0}
-  thinkSpeed: 1
-  moodNow: 2
+  deathHealthPercent: 50
+  gameEventChannel: {fileID: 11400000, guid: 7cdbdc64686ff4786ae1b73fdc14d54f, type: 2}
+  onChange:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OnHealthValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  onChangePercent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OnHealthValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  onDeath:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OnDeathEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null

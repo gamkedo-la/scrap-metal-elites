@@ -20,13 +20,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4940563321548608}
   - component: {fileID: 114900438442335006}
-  - component: {fileID: 114232066638873392}
   - component: {fileID: 114624795112191804}
-  - component: {fileID: 114990272313162986}
   - component: {fileID: 114349695495516722}
   - component: {fileID: 114966735238736842}
-  - component: {fileID: 114103486794124296}
-  - component: {fileID: 114153609004446822}
+  - component: {fileID: 114117565156796808}
   m_Layer: 0
   m_Name: spikeBotBuilder
   m_TagString: Untagged
@@ -47,7 +44,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114103486794124296
+--- !u!114 &114117565156796808
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -55,31 +52,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 1611224051005754}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65841e0b2f1a9494096ad1296c7774b5, type: 3}
+  m_Script: {fileID: 11500000, guid: aa2804dd291f94944bc471711b3b2d4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114153609004446822
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1611224051005754}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff03c6e41443f455dad8756862d55210, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &114232066638873392
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1611224051005754}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b7b21c70ed2e4b2ca83483984b567e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  deathHealthPercent: 50
+  gameEventChannel: {fileID: 11400000, guid: 7cdbdc64686ff4786ae1b73fdc14d54f, type: 2}
+  onChange:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OnHealthValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  onChangePercent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OnHealthValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  onDeath:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OnDeathEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
 --- !u!114 &114349695495516722
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -126,14 +117,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   materialTag: 0
---- !u!114 &114990272313162986
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1611224051005754}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5454e5c28a9f49b0ac79b2f39f921bc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

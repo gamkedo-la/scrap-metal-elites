@@ -20,10 +20,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4081739086458478}
   - component: {fileID: 114454678224052894}
-  - component: {fileID: 114182996929022596}
   - component: {fileID: 114645977295630122}
-  - component: {fileID: 114414764084227154}
   - component: {fileID: 114043535853079420}
+  - component: {fileID: 114940909610843414}
+  - component: {fileID: 114154302059368762}
   m_Layer: 0
   m_Name: carbideBuilder
   m_TagString: Untagged
@@ -55,7 +55,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cb6281f834c242d5800dd479a965807, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114182996929022596
+--- !u!114 &114154302059368762
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -63,20 +63,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 1531212166475178}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b7b21c70ed2e4b2ca83483984b567e8, type: 3}
+  m_Script: {fileID: 11500000, guid: aa2804dd291f94944bc471711b3b2d4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114414764084227154
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1531212166475178}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5454e5c28a9f49b0ac79b2f39f921bc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  deathHealthPercent: 50
+  gameEventChannel: {fileID: 11400000, guid: 7cdbdc64686ff4786ae1b73fdc14d54f, type: 2}
+  onChange:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OnHealthValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  onChangePercent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OnHealthValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  onDeath:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OnDeathEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
 --- !u!114 &114454678224052894
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -100,3 +105,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f33193b595f848efbfaf0c2378108d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114940909610843414
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1531212166475178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81a5f450ade0046ea90516ea77e668ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materialTag: 0

@@ -113,53 +113,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &3850545
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4548414096466394, guid: 1c9b95cf82ec14975b2305f7d8017efa, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 9.41
-      objectReference: {fileID: 0}
-    - target: {fileID: 4548414096466394, guid: 1c9b95cf82ec14975b2305f7d8017efa, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -4.33
-      objectReference: {fileID: 0}
-    - target: {fileID: 4548414096466394, guid: 1c9b95cf82ec14975b2305f7d8017efa, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -6.04
-      objectReference: {fileID: 0}
-    - target: {fileID: 4548414096466394, guid: 1c9b95cf82ec14975b2305f7d8017efa, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4548414096466394, guid: 1c9b95cf82ec14975b2305f7d8017efa, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4548414096466394, guid: 1c9b95cf82ec14975b2305f7d8017efa, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4548414096466394, guid: 1c9b95cf82ec14975b2305f7d8017efa, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4548414096466394, guid: 1c9b95cf82ec14975b2305f7d8017efa, type: 2}
-      propertyPath: m_RootOrder
-      value: 13
-      objectReference: {fileID: 0}
-    - target: {fileID: 114934769498112136, guid: 1c9b95cf82ec14975b2305f7d8017efa,
-        type: 2}
-      propertyPath: target
-      value: 
-      objectReference: {fileID: 1099617968}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 1c9b95cf82ec14975b2305f7d8017efa, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &56055816
 GameObject:
   m_ObjectHideFlags: 0
@@ -408,7 +361,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1836fda98f101946a2cb209538ef06d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ownFrameTransform: {fileID: 0}
+  controlsActive: 1
   target: {fileID: 1305964442}
   thinkSpeed: 1
   moodNow: 2
@@ -542,6 +495,18 @@ GameObject:
   m_PrefabParentObject: {fileID: 1531212166475178, guid: c94ec211cf6b54b2784aa784127ad4c2,
     type: 2}
   m_PrefabInternal: {fileID: 1587338895}
+--- !u!114 &1305964449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1305964442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8865cde02b261426799847af6b55ddc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controlsActive: 1
 --- !u!1 &1549043337 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1611224051005754, guid: 3cd03019a769e4363b40abbf0bb6c854,
@@ -558,7 +523,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1836fda98f101946a2cb209538ef06d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ownFrameTransform: {fileID: 0}
+  controlsActive: 1
   target: {fileID: 1305964442}
   thinkSpeed: 1
   moodNow: 2
@@ -993,7 +958,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1836fda98f101946a2cb209538ef06d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ownFrameTransform: {fileID: 0}
+  controlsActive: 1
   target: {fileID: 1990999475}
   thinkSpeed: 1
   moodNow: 2
@@ -1060,7 +1025,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1836fda98f101946a2cb209538ef06d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ownFrameTransform: {fileID: 0}
+  controlsActive: 1
   target: {fileID: 1305964442}
   thinkSpeed: 1
   moodNow: 2
@@ -1101,7 +1066,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4940563321548608, guid: 3cd03019a769e4363b40abbf0bb6c854, type: 2}
       propertyPath: m_RootOrder
-      value: 14
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114232066638873392, guid: 3cd03019a769e4363b40abbf0bb6c854, type: 2}

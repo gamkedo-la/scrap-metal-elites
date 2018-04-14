@@ -60,8 +60,29 @@ public class Match : MonoBehaviour {
         var playerSpawnPoint = playerSpawns.PickRandom();
 
         // spawn bots
-        spawnedPlayer = SpawnBot(playerBot, playerSpawnPoint, enemySpawnPoint.transform.position, "player");
-        spawnedEnemy = SpawnBot(enemyBot, enemySpawnPoint, playerSpawnPoint.transform.position, "enemy");
+        // FIXME: hack for now... manually apply control scripts/set targets/ai mode
+        spawnedPlayer = SpawnBot(playerBot, playerSpawnPoint, enemySpawnPoint.transform.position, "Player");
+        yield return null;
+        if (spawnedPlayer != null) {
+            var brain = spawnedPlayer.AddComponent<HumanController>();
+            brain.controlsActive = false;
+            var materialDistributor = spawnedPlayer.GetComponent<MaterialDistributor>();
+            if (materialDistributor != null) {
+                materialDistributor.SetMaterials(MaterialTag.Player);
+            }
+        }
+        spawnedEnemy = SpawnBot(enemyBot, enemySpawnPoint, playerSpawnPoint.transform.position, "Enemy");
+        yield return null;
+        if (spawnedEnemy != null) {
+            var brain = spawnedEnemy.AddComponent<AIController>();
+            brain.target = spawnedPlayer;
+            brain.moodNow = AIMood.aggressive;
+            brain.controlsActive = false;
+            var materialDistributor = spawnedEnemy.GetComponent<MaterialDistributor>();
+            if (materialDistributor != null) {
+                materialDistributor.SetMaterials(MaterialTag.Enemy);
+            }
+        }
 
         // notify channel
         if (gameEventChannel != null) {
@@ -107,13 +128,9 @@ public class Match : MonoBehaviour {
             gameEventChannel.Raise(GameRecord.GameStarted());
         }
 
-        // FIXME: hack for now... manually apply control scripts/set targets/ai mode
-        spawnedPlayer.AddComponent<BotDriveController>();
-        spawnedPlayer.AddComponent<ActuatorController>();
-
-        var ai = spawnedEnemy.AddComponent<AIController>();
-        ai.target = spawnedPlayer;
-        ai.moodNow = AIMood.aggressive;
+        // enable bot controls
+        spawnedPlayer.GetComponent<BotBrain>().controlsActive = true;
+        spawnedEnemy.GetComponent<BotBrain>().controlsActive = true;
 
         // wait for a winner to be declared
         while (!winnerDeclared) {

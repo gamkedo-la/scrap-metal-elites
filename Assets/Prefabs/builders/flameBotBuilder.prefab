@@ -20,11 +20,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4777160689212272}
   - component: {fileID: 114229095281371970}
-  - component: {fileID: 114895454845968254}
   - component: {fileID: 114351943336023628}
-  - component: {fileID: 114525973744484350}
   - component: {fileID: 114224817991911602}
   - component: {fileID: 114525332611838676}
+  - component: {fileID: 114634429348889110}
   m_Layer: 0
   m_Name: flameBotBuilder
   m_TagString: Untagged
@@ -91,7 +90,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   materialTag: 0
---- !u!114 &114525973744484350
+--- !u!114 &114634429348889110
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -99,17 +98,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 1520203798844092}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5454e5c28a9f49b0ac79b2f39f921bc, type: 3}
+  m_Script: {fileID: 11500000, guid: aa2804dd291f94944bc471711b3b2d4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114895454845968254
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1520203798844092}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b7b21c70ed2e4b2ca83483984b567e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  deathHealthPercent: 50
+  gameEventChannel: {fileID: 11400000, guid: 7cdbdc64686ff4786ae1b73fdc14d54f, type: 2}
+  onChange:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OnHealthValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  onChangePercent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OnHealthValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  onDeath:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OnDeathEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null

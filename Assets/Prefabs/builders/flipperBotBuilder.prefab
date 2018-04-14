@@ -20,11 +20,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4581149799970874}
   - component: {fileID: 114019884223129686}
-  - component: {fileID: 114671745585461724}
   - component: {fileID: 114228979204656316}
-  - component: {fileID: 114694098333403750}
   - component: {fileID: 114319929372994418}
   - component: {fileID: 114598582220248348}
+  - component: {fileID: 114052299145273364}
   m_Layer: 0
   m_Name: flipperBotBuilder
   m_TagString: Untagged
@@ -57,6 +56,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   part: {fileID: 11400000, guid: 6bd77d812245d47569f03942e1241b08, type: 2}
+--- !u!114 &114052299145273364
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1723417441784214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa2804dd291f94944bc471711b3b2d4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deathHealthPercent: 50
+  gameEventChannel: {fileID: 11400000, guid: 7cdbdc64686ff4786ae1b73fdc14d54f, type: 2}
+  onChange:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OnHealthValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  onChangePercent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OnHealthValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  onDeath:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OnDeathEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
 --- !u!114 &114228979204656316
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -91,25 +117,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   materialTag: 0
---- !u!114 &114671745585461724
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1723417441784214}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b7b21c70ed2e4b2ca83483984b567e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &114694098333403750
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1723417441784214}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5454e5c28a9f49b0ac79b2f39f921bc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

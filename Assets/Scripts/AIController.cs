@@ -9,25 +9,12 @@ public enum AIMood {
     flee
 };
 
-public class AIController : MonoBehaviour {
-
-    public Transform ownFrameTransform;
+public class AIController : BotBrain {
     public GameObject target;
     public float thinkSpeed = 1.0f;
-    private IMovement moveScript;
     public AIMood moodNow;
 
 	// Use this for initialization
-	void Start () {
-        moveScript = gameObject.GetComponent<IMovement>();
-        // attempts to find main bot frame in bot, otherwise uses gameobject attached to script
-        ownFrameTransform = transform.Find("frame");
-        if (ownFrameTransform != null) {
-            Debug.Log("found own frame");
-        } else {
-            ownFrameTransform = transform;
-        }
-	}
     public static float AngleAroundAxis(Vector3 dirA, Vector3 dirB, Vector3 axis)
     {
         // Project A and B onto the plane orthogonal to axis
@@ -45,35 +32,37 @@ public class AIController : MonoBehaviour {
     // Update is called once per frame
     void Update ()
     {
+        // are controls active?
+        if (!controlsActive) return;
         float angToFaceTarget = 0.0f;
         if (target) {
-			float angToTarget = Mathf.Atan2(target.transform.position.x - ownFrameTransform.position.x,
-				target.transform.position.z - ownFrameTransform.position.z);
-            angToFaceTarget = AngleAroundAxis(ownFrameTransform.forward, Quaternion.AngleAxis(angToTarget * Mathf.Rad2Deg, Vector3.up) * Vector3.forward, Vector3.up);
+			float angToTarget = Mathf.Atan2(target.transform.position.x - transform.position.x,
+				target.transform.position.z - transform.position.z);
+            angToFaceTarget = AngleAroundAxis(transform.forward, Quaternion.AngleAxis(angToTarget * Mathf.Rad2Deg, Vector3.up) * Vector3.forward, Vector3.up);
             //Debug.Log("angle to target: " +angToFaceTarget);
         }
         switch (moodNow) {
             case AIMood.idle:
                 break;
             case AIMood.wander:
-                moveScript.forwardDrive = 1.0f;
-                moveScript.rotateDrive = -1.0f;
+                mover.forwardDrive = 1.0f;
+                mover.rotateDrive = -1.0f;
                 break;
             case AIMood.aggressive:
-                moveScript.forwardDrive = 1.0f;
+                mover.forwardDrive = 1.0f;
                 if (Mathf.Abs(angToFaceTarget) >= 10f) {
                     var targetDrive = (angToFaceTarget < 0.0f ? -1.0f : 1.0f);
-                    moveScript.rotateDrive = targetDrive;
+                    mover.rotateDrive = targetDrive;
                 } else {
-                    moveScript.rotateDrive = 0f;
+                    mover.rotateDrive = 0f;
                 }
                 break;
             case AIMood.flee:
-                moveScript.forwardDrive = -1.0f;
+                mover.forwardDrive = -1.0f;
                 if (Mathf.Abs(angToFaceTarget) >= 10f) {
-                    moveScript.rotateDrive = (angToFaceTarget < 0.0f ? -1.0f : 1.0f);
+                    mover.rotateDrive = (angToFaceTarget < 0.0f ? -1.0f : 1.0f);
                 } else {
-                    moveScript.rotateDrive = 0f;
+                    mover.rotateDrive = 0f;
                 }
                 break;
         }

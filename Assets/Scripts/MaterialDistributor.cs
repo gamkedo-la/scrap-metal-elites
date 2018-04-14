@@ -10,7 +10,7 @@ public class MaterialDistributor : MonoBehaviour {
 
     void Start() {
         actuators = PartUtil.GetComponentsInChildren<MaterialActuator>(gameObject);
-        Debug.Log("# material actuators: " + actuators.Length);
+        //Debug.Log("# material actuators: " + actuators.Length);
     }
 
     public void SetMaterials(MaterialTag tag) {
