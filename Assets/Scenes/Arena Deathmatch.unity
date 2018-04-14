@@ -357,7 +357,7 @@ MonoBehaviour:
   playerSpawns: {fileID: 11400000, guid: 7c030720892e24c3c842e28cbeff5b21, type: 2}
   enemySpawns: {fileID: 11400000, guid: e6ed11c5cc09041b8943ffe805590809, type: 2}
   allBots: {fileID: 11400000, guid: 0c8c0a9ec335541c59c634bad32ecf99, type: 2}
-  playerBot: {fileID: 1611224051005754, guid: 3cd03019a769e4363b40abbf0bb6c854, type: 2}
+  playerBot: {fileID: 1747757598241954, guid: 38bb754395b7c4f92be06a38923df58d, type: 2}
   enemyBot: {fileID: 1747757598241954, guid: 38bb754395b7c4f92be06a38923df58d, type: 2}
   countdownTicks: 3
   debug: 1
@@ -403,7 +403,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4954784468842516, guid: 8e837ead78813445696130b313b6ff7b, type: 2}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 4954784468842516, guid: 8e837ead78813445696130b313b6ff7b, type: 2}
       propertyPath: m_LocalRotation.z
@@ -411,11 +411,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4954784468842516, guid: 8e837ead78813445696130b313b6ff7b, type: 2}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 4954784468842516, guid: 8e837ead78813445696130b313b6ff7b, type: 2}
       propertyPath: m_RootOrder
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4954784468842516, guid: 8e837ead78813445696130b313b6ff7b, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8e837ead78813445696130b313b6ff7b, type: 2}
