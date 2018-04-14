@@ -30,7 +30,7 @@ public class GameRecord {
         this.intValue = intValue;
     }
 
-    public string ToString() {
+    public override string ToString() {
         var str = "";
         str += String.Format("{0} - ", tag);
         if (actor != null) {

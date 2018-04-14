@@ -21,8 +21,10 @@ MonoBehaviour:
   springDamper: 5
   impactForce: 400
   impactForceVelocityMultiplier: 1
+  impactDamageMultiplier: 1
   axis: 0
   anchor: {x: 0, y: 0, z: 0}
   minAngle: -75
   maxAngle: 0
   reverse: 1
+  debug: 0

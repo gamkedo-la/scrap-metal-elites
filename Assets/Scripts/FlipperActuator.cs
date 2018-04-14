@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FlipperActuator : MonoBehaviour, IActuator {
+public class FlipperActuator : MonoBehaviour, IActuator, IImpactDamageModifier {
     public float actuate {
         get {
             return _actuate;
@@ -22,15 +22,24 @@ public class FlipperActuator : MonoBehaviour, IActuator {
         }
     }
 
+
+    public float impactMultiplier {
+        get {
+            return impactDamageMultiplier;
+        }
+    }
+
     private Rigidbody rb;
     private HingeJoint joint;
     private float _actuate = 0.0f;
 
 	public float impactForce;
 	public float impactForceVelocityMultiplier;
+    public float impactDamageMultiplier;
     public float minAngle;
     public float maxAngle;
     public bool reverse;
+    public bool debug;
 
     void Start() {
         rb = GetComponent<Rigidbody>();
@@ -66,6 +75,12 @@ public class FlipperActuator : MonoBehaviour, IActuator {
                 // don't apply collision force to self
                 if (PartUtil.GetRootGo(gameObject) != PartUtil.GetRootGo(coll.gameObject)) {
                     var f = -coll.contacts[0].normal * impactForce * power;
+                    if (debug) {
+                        Debug.Log("Flipper Collision" +
+                                  "\napplying f: " + f + "(" + f.magnitude + ")" +
+                                  "\npower: " + power +
+                                  "\ncollided with: " + rbColl.gameObject.name);
+                    }
     				rbColl.AddForceAtPosition(f, coll.contacts[0].point);
                 }
             }

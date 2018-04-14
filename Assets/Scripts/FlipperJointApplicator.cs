@@ -7,11 +7,14 @@ public class FlipperJointApplicator : JointApplicator {
     public float springDamper = 5f;
 	public float impactForce = 400.0f;
     public float impactForceVelocityMultiplier = 1f;
+    [Tooltip("multiply computed damage")]
+	public float impactDamageMultiplier = 1f;
     public int axis = 0; // 0 => x, 1 => y, 2 => z
     public Vector3 anchor = Vector3.zero;
     public float minAngle = 0f;
     public float maxAngle = 180f;
     public bool reverse;
+    public bool debug;
 
     protected override Joint ApplyJoint(GameObject rigidbodyGo, PartConfig config, GameObject target) {
 
@@ -46,6 +49,8 @@ public class FlipperJointApplicator : JointApplicator {
         actuator.reverse = reverse;
         actuator.impactForce = impactForce;
         actuator.impactForceVelocityMultiplier = impactForceVelocityMultiplier;
+        actuator.impactDamageMultiplier = impactDamageMultiplier;
+        actuator.debug = debug;
         return joint;
 
     }
