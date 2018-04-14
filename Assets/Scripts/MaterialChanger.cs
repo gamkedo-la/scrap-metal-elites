@@ -9,7 +9,8 @@ public class MaterialChanger : MonoBehaviour {
         set {
             if (renderers != null) {
                 for (var i=0; i<renderers.Length; i++) {
-                    renderers[i].material.CopyPropertiesFromMaterial(value);
+                    renderers[i].material = value;
+                    //renderers[i].material.CopyPropertiesFromMaterial(value);
                 }
             }
         }

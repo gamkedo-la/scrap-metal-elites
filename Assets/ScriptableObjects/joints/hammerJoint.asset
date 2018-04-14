@@ -20,7 +20,7 @@ MonoBehaviour:
   springForce: 250
   springDamper: 15
   impactForce: 400
-  impactForceVelocityMultiplier: 10
+  impactForceVelocityMultiplier: 4
   impactDamageMultiplier: 10
   axis: 0
   anchor: {x: 0, y: 0, z: 0}
