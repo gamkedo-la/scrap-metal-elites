@@ -1708,15 +1708,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   debug: 0
+  healthTag: 0
   onChange:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: Health+OnHealthValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+    m_TypeName: Health+IntValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
   onChangePercent:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: Health+OnHealthValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+    m_TypeName: Health+IntValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  onDeath:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: Health+GameObjectEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  onTakeDamage:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: Health+GameObjectIntEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
 --- !u!114 &114119088648481826
 MonoBehaviour:
@@ -1757,15 +1768,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   debug: 0
+  healthTag: 0
   onChange:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: Health+OnHealthValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+    m_TypeName: Health+IntValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
   onChangePercent:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: Health+OnHealthValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+    m_TypeName: Health+IntValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  onDeath:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: Health+GameObjectEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  onTakeDamage:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: Health+GameObjectIntEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
 --- !u!114 &114172433831520428
 MonoBehaviour:
@@ -1780,15 +1802,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   debug: 0
+  healthTag: 0
   onChange:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: Health+OnHealthValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+    m_TypeName: Health+IntValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
   onChangePercent:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: Health+OnHealthValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+    m_TypeName: Health+IntValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  onDeath:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: Health+GameObjectEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  onTakeDamage:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: Health+GameObjectIntEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
 --- !u!114 &114182932847945916
 MonoBehaviour:
@@ -1874,15 +1907,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   debug: 0
+  healthTag: 0
   onChange:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: Health+OnHealthValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+    m_TypeName: Health+IntValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
   onChangePercent:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: Health+OnHealthValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+    m_TypeName: Health+IntValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  onDeath:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: Health+GameObjectEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  onTakeDamage:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: Health+GameObjectIntEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
 --- !u!114 &114327399981807038
 MonoBehaviour:
@@ -1992,15 +2036,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   debug: 0
+  healthTag: 0
   onChange:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: Health+OnHealthValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+    m_TypeName: Health+IntValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
   onChangePercent:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: Health+OnHealthValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+    m_TypeName: Health+IntValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  onDeath:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: Health+GameObjectEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  onTakeDamage:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: Health+GameObjectIntEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
 --- !u!114 &114618725461176400
 MonoBehaviour:
@@ -2048,15 +2103,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   debug: 0
+  healthTag: 0
   onChange:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: Health+OnHealthValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+    m_TypeName: Health+IntValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
   onChangePercent:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: Health+OnHealthValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+    m_TypeName: Health+IntValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  onDeath:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: Health+GameObjectEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  onTakeDamage:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: Health+GameObjectIntEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
 --- !u!114 &114806928825784068
 MonoBehaviour:
@@ -2100,15 +2166,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   debug: 0
+  healthTag: 0
   onChange:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: Health+OnHealthValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+    m_TypeName: Health+IntValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
   onChangePercent:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: Health+OnHealthValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+    m_TypeName: Health+IntValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  onDeath:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: Health+GameObjectEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  onTakeDamage:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: Health+GameObjectIntEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
 --- !u!114 &114859101549717352
 MonoBehaviour:
@@ -2141,15 +2218,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   debug: 0
+  healthTag: 0
   onChange:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: Health+OnHealthValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+    m_TypeName: Health+IntValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
   onChangePercent:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: Health+OnHealthValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+    m_TypeName: Health+IntValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  onDeath:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: Health+GameObjectEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  onTakeDamage:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: Health+GameObjectIntEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
 --- !u!114 &114962120945677900
 MonoBehaviour:

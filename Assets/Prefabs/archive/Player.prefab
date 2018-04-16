@@ -139,5 +139,3 @@ MonoBehaviour:
   turnSpeed: 25
   accelSpeed: 30
   friction: 0.1
-  forwardDrive: 0
-  rotateDrive: 0

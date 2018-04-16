@@ -1606,7 +1606,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   steer: 1
   motor: 1
-  left: 1
+  motorLeft: 1
   reverseSteering: 1
   maxSpeed: 500
   steeringSpring: 300
@@ -1628,7 +1628,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   steer: 1
   motor: 1
-  left: 1
+  motorLeft: 1
   reverseSteering: 0
   maxSpeed: 500
   steeringSpring: 300
@@ -1650,7 +1650,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   steer: 1
   motor: 1
-  left: 0
+  motorLeft: 1
   reverseSteering: 0
   maxSpeed: 500
   steeringSpring: 300
@@ -1672,7 +1672,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   steer: 1
   motor: 1
-  left: 0
+  motorLeft: 1
   reverseSteering: 1
   maxSpeed: 500
   steeringSpring: 300
