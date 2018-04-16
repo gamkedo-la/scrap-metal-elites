@@ -29,7 +29,7 @@ public class Match : MonoBehaviour {
         }
 
         // declare a winner
-        if (bot == playerBot) {
+        if (bot == spawnedPlayer) {
             winningBot = spawnedEnemy;
         } else {
             winningBot = spawnedPlayer;
