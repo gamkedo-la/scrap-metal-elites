@@ -1,6 +1,18 @@
 using System.Collections;
 using UnityEngine;
 
+[System.Serializable]
+public class MatchInfo {
+    public NamedPrefab playerPrefab;
+    public NamedPrefab[] enemyPrefabs;
+    // FIXME: todo
+    // player/enemy spawn points
+    // # of enemies at a time
+    // list of hazards
+    // hazard spawn points
+    // arena choice
+}
+
 public class Match : MonoBehaviour {
     public SpawnPointRuntimeSet playerSpawns;
     public SpawnPointRuntimeSet enemySpawns;
