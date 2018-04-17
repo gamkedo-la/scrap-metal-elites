@@ -8,14 +8,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d845cf009548c497c8a1dafd5d730572, type: 3}
+  m_Script: {fileID: 11500000, guid: d84dab39df7414d659d5d8f09a63e838, type: 3}
   m_Name: availableBots
   m_EditorClassIdentifier: 
   Items:
-  - {fileID: 1531212166475178, guid: c94ec211cf6b54b2784aa784127ad4c2, type: 2}
-  - {fileID: 1520203798844092, guid: bf2991beebd4b4b46b69d7ea89feff4a, type: 2}
-  - {fileID: 1723417441784214, guid: b0e77aeb58ba441619e98e71fee9e6ca, type: 2}
-  - {fileID: 1747757598241954, guid: 38bb754395b7c4f92be06a38923df58d, type: 2}
-  - {fileID: 1611224051005754, guid: 3cd03019a769e4363b40abbf0bb6c854, type: 2}
-  - {fileID: 1352949254947202, guid: 0900452d0b08345799f5aba3f5744324, type: 2}
-  - {fileID: 1354931224165476, guid: 8ecd3d66049b04a0fbc16aeda9eeaea5, type: 2}
+  - name: Modified Carbonite
+    prefab: {fileID: 1531212166475178, guid: c94ec211cf6b54b2784aa784127ad4c2, type: 2}
+  - name: Pushy
+    prefab: {fileID: 1747757598241954, guid: 38bb754395b7c4f92be06a38923df58d, type: 2}
+  - name: Don't Get Flippy With Me
+    prefab: {fileID: 1723417441784214, guid: b0e77aeb58ba441619e98e71fee9e6ca, type: 2}
+  - name: Lil' Smokey
+    prefab: {fileID: 1520203798844092, guid: bf2991beebd4b4b46b69d7ea89feff4a, type: 2}
+  - name: Pokey
+    prefab: {fileID: 1611224051005754, guid: 3cd03019a769e4363b40abbf0bb6c854, type: 2}
+  - name: Big Wheels
+    prefab: {fileID: 1352949254947202, guid: 0900452d0b08345799f5aba3f5744324, type: 2}
+  - name: Don't Tread On Me
+    prefab: {fileID: 1354931224165476, guid: 8ecd3d66049b04a0fbc16aeda9eeaea5, type: 2}
