@@ -18,8 +18,6 @@ public class Match : MonoBehaviour {
     public SpawnPointRuntimeSet enemySpawns;
     public BotRuntimeSet allBots;
 
-    public GameObject playerBot;
-    public GameObject enemyBot;
     public int countdownTicks = 3;
     public bool debug = false;
 
@@ -29,11 +27,12 @@ public class Match : MonoBehaviour {
     public GameRecordEvent gameEventChannel;
 
     private bool matchStarted = false;
-    private GameObject spawnedPlayer;
-    private GameObject spawnedEnemy;
+    public GameObject spawnedPlayer;
+    public GameObject spawnedEnemy;
 
     private bool winnerDeclared = false;
     private GameObject winningBot;
+    private MatchInfo matchInfo;
 
     void OnBotDeath(GameObject bot) {
         if (bot != null) {
@@ -73,7 +72,11 @@ public class Match : MonoBehaviour {
 
         // spawn bots
         // FIXME: hack for now... manually apply control scripts/set targets/ai mode
-        spawnedPlayer = SpawnBot(playerBot, playerSpawnPoint, enemySpawnPoint.transform.position, "Player");
+        spawnedPlayer = SpawnBot(
+            matchInfo.playerPrefab.prefab,
+            playerSpawnPoint,
+            enemySpawnPoint.transform.position,
+            matchInfo.playerPrefab.name);
         yield return null;
         if (spawnedPlayer != null) {
             var brain = spawnedPlayer.AddComponent<HumanController>();
@@ -83,7 +86,11 @@ public class Match : MonoBehaviour {
                 materialDistributor.SetMaterials(MaterialTag.Player);
             }
         }
-        spawnedEnemy = SpawnBot(enemyBot, enemySpawnPoint, playerSpawnPoint.transform.position, "Enemy");
+        spawnedEnemy = SpawnBot(
+            matchInfo.enemyPrefabs[0].prefab,
+            enemySpawnPoint,
+            playerSpawnPoint.transform.position,
+            matchInfo.enemyPrefabs[0].name);
         yield return null;
         if (spawnedEnemy != null) {
             var brain = spawnedEnemy.AddComponent<AIController>();
@@ -173,12 +180,11 @@ public class Match : MonoBehaviour {
         }
     }
 
-    void Update() {
-        // start the state engine
-        if (!matchStarted) {
-            StartCoroutine(StatePrepare());
-            matchStarted = true;
-        }
+    public void StartMatch(
+        MatchInfo matchInfo
+    ) {
+        this.matchInfo = matchInfo;
+        StartCoroutine(StatePrepare());
     }
 
 }

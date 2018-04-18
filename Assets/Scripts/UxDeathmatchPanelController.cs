@@ -10,6 +10,10 @@ public class UxDeathmatchPanelController : MonoBehaviour {
     public InputField enemyNameInput;
     public Dropdown enemyBotDropdown;
 
+    public UxSandboxController playerSandbox;
+    public UxSandboxController enemySandbox;
+    public Match match;
+
     private bool customPlayerName = false;
     private bool customEnemyName = false;
     private MatchInfo matchInfo;
@@ -20,7 +24,9 @@ public class UxDeathmatchPanelController : MonoBehaviour {
             playerNameInput == null ||
             enemyBotDropdown == null ||
             enemyNameInput == null ||
-            availableBots == null) {
+            availableBots == null ||
+            playerSandbox == null ||
+            enemySandbox == null) {
             return;
         }
 
@@ -59,30 +65,47 @@ public class UxDeathmatchPanelController : MonoBehaviour {
         matchInfo.enemyPrefabs[0] = new NamedPrefab();
         matchInfo.enemyPrefabs[0].name = enemyNameInput.text;
         matchInfo.enemyPrefabs[0].prefab = availableBots.Items[enemyBotDropdown.value].prefab;
+
+        // initialize sandboxes
+        playerSandbox.ShowBot(matchInfo.playerPrefab.prefab);
+        enemySandbox.ShowBot(matchInfo.enemyPrefabs[0].prefab);
     }
 
-    void OnDropdownChange(Dropdown dropdown) {
+    public void OnDropdownChange(Dropdown dropdown) {
         var index = dropdown.value;
         if (dropdown == playerBotDropdown) {
             if (!customPlayerName) {
                 playerNameInput.text = availableBots.Items[index].name;
-                matchInfo.playerPrefab.prefab = availableBots.Items[dropdown.value].prefab;
+                matchInfo.playerPrefab.name = playerNameInput.text;
             }
+            matchInfo.playerPrefab.prefab = availableBots.Items[dropdown.value].prefab;
+            playerSandbox.ShowBot(matchInfo.playerPrefab.prefab);
         } else {
             if (!customEnemyName) {
                 enemyNameInput.text = availableBots.Items[index].name;
-                matchInfo.enemyPrefabs[0].prefab = availableBots.Items[dropdown.value].prefab;
+                matchInfo.enemyPrefabs[0].name = enemyNameInput.text;
             }
+            matchInfo.enemyPrefabs[0].prefab = availableBots.Items[dropdown.value].prefab;
+            enemySandbox.ShowBot(matchInfo.enemyPrefabs[0].prefab);
         }
     }
 
-    void OnNameChange(InputField input) {
+    public void OnNameChange(InputField input) {
         if (input == playerNameInput) {
             customPlayerName = true;
             matchInfo.playerPrefab.name = input.text;
         } else {
             customEnemyName = true;
             matchInfo.enemyPrefabs[0].name = input.text;
+        }
+    }
+
+    public void OnReady() {
+        if (match != null) {
+            // disable the setup panel
+            gameObject.SetActive(false);
+            // start the match
+            match.StartMatch(matchInfo);
         }
     }
 
