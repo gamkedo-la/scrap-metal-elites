@@ -47,7 +47,7 @@ public class UxSandboxController : MonoBehaviour {
         }
     }
 
-    void Clear() {
+    public void Clear() {
         if (spawnedBot != null) {
             // clean up child parts
             var childLink = spawnedBot.GetComponent<ChildLink>();

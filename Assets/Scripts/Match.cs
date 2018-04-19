@@ -14,20 +14,28 @@ public class MatchInfo {
 }
 
 public class Match : MonoBehaviour {
+    [Header("External Component References")]
+    public CameraController cameraController;
+
+    [Header("State Variables")]
     public SpawnPointRuntimeSet playerSpawns;
     public SpawnPointRuntimeSet enemySpawns;
     public BotRuntimeSet allBots;
 
-    public int countdownTicks = 3;
-    public bool debug = false;
-
+    [Header("Events")]
     public StringEvent bannerFade;
     public StringEvent bannerMessage;
     public GameEvent bannerClear;
     public GameRecordEvent gameEventChannel;
 
+    [Header("Match Config")]
+    public int countdownTicks = 3;
+    public bool debug = false;
+
     private bool matchStarted = false;
+    [HideInInspector]
     public GameObject spawnedPlayer;
+    [HideInInspector]
     public GameObject spawnedEnemy;
 
     private bool winnerDeclared = false;
@@ -62,6 +70,30 @@ public class Match : MonoBehaviour {
             health.onDeath.AddListener(OnBotDeath);
         }
         return botGo;
+    }
+
+    IEnumerator RunTimer(
+        int timeout,
+        StringEvent bannerFade
+    ) {
+        var startTime = Time.fixedTime;
+        var lastTick = timeout;
+        if (debug) Debug.Log("Tick: " + lastTick);
+        if (bannerFade != null) bannerFade.Raise(lastTick.ToString());
+        var currentDelta = Time.fixedTime - startTime;
+        while ((currentDelta < (float) timeout) && !Input.GetKeyUp(KeyCode.Escape)) {
+            var currentTick = timeout - Mathf.FloorToInt(currentDelta);
+            if (currentTick != lastTick) {
+                lastTick = currentTick;
+                if (debug) Debug.Log("Tick: " + lastTick);
+                if (bannerFade != null) bannerFade.Raise(lastTick.ToString());
+            }
+            // wait until next frame;
+            yield return null;
+            currentDelta = Time.fixedTime - startTime;
+        }
+        lastTick = 0;
+        if (debug) Debug.Log("Tick: " + lastTick);
     }
 
     IEnumerator StatePrepare() {
@@ -109,30 +141,39 @@ public class Match : MonoBehaviour {
         }
 
         // TRANSITION: Countdown
+        yield return StartCoroutine(StateAnnouncer());
+    }
+
+    IEnumerator StateAnnouncer() {
+        if (debug) Debug.Log("StateAnnouncer");
+
+        // enable announcer camera mode
+        if (cameraController != null) {
+            cameraController.WatchAnnouncer();
+        }
+
+        if (bannerFade != null) bannerMessage.Raise("ANNOUNCER INTRO - ESC TO EXIT");
+
+        // FIXME: remove announcer timer
+        yield return StartCoroutine(RunTimer(5, null));
+
+        // TODO: add announcer voiceover mechanics/state
+
+        // TRANSITION: Countdown
         yield return StartCoroutine(StateCountdown());
     }
 
     IEnumerator StateCountdown() {
         if (debug) Debug.Log("StateCountdown");
-        var startTime = Time.fixedTime;
-        var lastTick = countdownTicks;
-        if (debug) Debug.Log("Tick: " + lastTick);
-        if (bannerFade != null) bannerFade.Raise(lastTick.ToString());
+        yield return null;
 
-        var currentDelta = Time.fixedTime - startTime;
-        while (currentDelta < (float) countdownTicks) {
-            var currentTick = countdownTicks - Mathf.FloorToInt(currentDelta);
-            if (currentTick != lastTick) {
-                lastTick = currentTick;
-                if (debug) Debug.Log("Tick: " + lastTick);
-                if (bannerFade != null) bannerFade.Raise(lastTick.ToString());
-            }
-            // wait until next frame;
-            yield return null;
-            currentDelta = Time.fixedTime - startTime;
+        // enable overview camera mode
+        if (cameraController != null) {
+            cameraController.WatchOverview();
         }
-        lastTick = 0;
-        if (debug) Debug.Log("Tick: " + lastTick);
+
+        // wait for countdown timer
+        yield return StartCoroutine(RunTimer(countdownTicks, bannerFade));
         if (bannerFade != null) bannerFade.Raise("Start!");
 
         // TRANSITION: Play
@@ -145,6 +186,11 @@ public class Match : MonoBehaviour {
         // notify channel
         if (gameEventChannel != null) {
             gameEventChannel.Raise(GameRecord.GameStarted());
+        }
+
+        // enable bot camera mode
+        if (cameraController != null) {
+            cameraController.WatchBots();
         }
 
         // enable bot controls

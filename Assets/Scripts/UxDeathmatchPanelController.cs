@@ -102,6 +102,15 @@ public class UxDeathmatchPanelController : MonoBehaviour {
 
     public void OnReady() {
         if (match != null) {
+            // disable sandboxes
+            if (playerSandbox != null) {
+                playerSandbox.Clear();
+                playerSandbox.gameObject.SetActive(false);
+            }
+            if (enemySandbox != null) {
+                enemySandbox.Clear();
+                enemySandbox.gameObject.SetActive(false);
+            }
             // disable the setup panel
             gameObject.SetActive(false);
             // start the match

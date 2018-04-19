@@ -729,15 +729,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ffa50cc939b74aaea987cf0e24f312b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cameraController: {fileID: 1017095277}
   playerSpawns: {fileID: 11400000, guid: 7c030720892e24c3c842e28cbeff5b21, type: 2}
   enemySpawns: {fileID: 11400000, guid: e6ed11c5cc09041b8943ffe805590809, type: 2}
   allBots: {fileID: 11400000, guid: 0c8c0a9ec335541c59c634bad32ecf99, type: 2}
-  countdownTicks: 3
-  debug: 1
   bannerFade: {fileID: 11400000, guid: ae3334bc53cec4545ac91cdf18936217, type: 2}
   bannerMessage: {fileID: 11400000, guid: 6f0afbd9f6bca47d7bfa5ed07149c44b, type: 2}
   bannerClear: {fileID: 11400000, guid: da9b2d9d0660a43e3ab3400624527b8c, type: 2}
   gameEventChannel: {fileID: 11400000, guid: 7cdbdc64686ff4786ae1b73fdc14d54f, type: 2}
+  countdownTicks: 3
+  debug: 1
   spawnedPlayer: {fileID: 0}
   spawnedEnemy: {fileID: 0}
 --- !u!4 &129228127
@@ -2051,6 +2052,7 @@ GameObject:
   - component: {fileID: 1017095275}
   - component: {fileID: 1017095274}
   - component: {fileID: 1017095273}
+  - component: {fileID: 1017095277}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2120,6 +2122,24 @@ Transform:
   m_Father: {fileID: 2058427640}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 55.859, y: 0, z: 0}
+--- !u!114 &1017095277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1017095272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7387ef517ab145b9a1bfa50ee07908c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minCameraHeight: 15
+  camera: {fileID: 0}
+  dampTime: 0.2
+  arenaCenter: {x: 0, y: 0, z: 0}
+  cameraOffset: 20
+  overviewPosition: {x: 0, y: 40, z: -30}
+  currentBots: {fileID: 11400000, guid: 0c8c0a9ec335541c59c634bad32ecf99, type: 2}
 --- !u!1 &1020857215
 GameObject:
   m_ObjectHideFlags: 0
