@@ -141,7 +141,7 @@ public class Match : MonoBehaviour {
         }
 
         // TRANSITION: Countdown
-        yield return StartCoroutine(StateAnnouncer());
+        StartCoroutine(StateAnnouncer());
     }
 
     IEnumerator StateAnnouncer() {
@@ -160,7 +160,7 @@ public class Match : MonoBehaviour {
         // TODO: add announcer voiceover mechanics/state
 
         // TRANSITION: Countdown
-        yield return StartCoroutine(StateCountdown());
+        StartCoroutine(StateCountdown());
     }
 
     IEnumerator StateCountdown() {
@@ -177,7 +177,7 @@ public class Match : MonoBehaviour {
         if (bannerFade != null) bannerFade.Raise("Start!");
 
         // TRANSITION: Play
-        yield return StartCoroutine(StatePlay());
+        StartCoroutine(StatePlay());
     }
 
     IEnumerator StatePlay() {
@@ -203,7 +203,7 @@ public class Match : MonoBehaviour {
         }
 
         // TRANSITION: Finish
-        yield return StartCoroutine(StateFinish());
+        StartCoroutine(StateFinish());
     }
 
     IEnumerator StateFinish() {
