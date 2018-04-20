@@ -91,8 +91,6 @@ public class CameraController: MonoBehaviour {
                     bounds.Encapsulate(currentBots.Items[i].transform.position);
                 }
                 average /= currentBots.Items.Count;
-                Debug.Log("average: " + average);
-                Debug.Log("bounds: " + bounds);
                 // calculate overhead position
                 var boundsMax = Mathf.Max(bounds.extents.x, bounds.extents.y, bounds.extents.z);
                 var overheadPosition = new Vector3(average.x, bounds.center.y + (boundsMax*3f), average.z);
@@ -113,7 +111,6 @@ public class CameraController: MonoBehaviour {
 
                 // desired position is overhead - offset
                 desiredPosition = overheadPosition - offset;
-
                 // set desired rotation: focus to center of battle
                 desiredRotation = Quaternion.LookRotation(average - transform.position);
             }
