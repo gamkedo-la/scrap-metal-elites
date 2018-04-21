@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Name: availableBots
   m_EditorClassIdentifier: 
   Items:
-  - name: Modified Carbonite
-    prefab: {fileID: 1531212166475178, guid: c94ec211cf6b54b2784aa784127ad4c2, type: 2}
   - name: Pushy
     prefab: {fileID: 1747757598241954, guid: 38bb754395b7c4f92be06a38923df58d, type: 2}
+  - name: Modified Carbide
+    prefab: {fileID: 1531212166475178, guid: c94ec211cf6b54b2784aa784127ad4c2, type: 2}
   - name: Don't Get Flippy With Me
     prefab: {fileID: 1723417441784214, guid: b0e77aeb58ba441619e98e71fee9e6ca, type: 2}
   - name: Lil' Smokey

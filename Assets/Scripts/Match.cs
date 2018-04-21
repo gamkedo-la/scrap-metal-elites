@@ -114,9 +114,12 @@ public class Match : MonoBehaviour {
             yield return null;
             currentDelta = Time.fixedTime - startTime;
         }
-        lastTick = 0;
-        if (bannerEvent != null) bannerEvent.Raise(fmtTimerMsg(showTimeSplit, lastTick));
-        if (debug) Debug.Log("Tick: " + lastTick);
+        // don't show last tick if condition was hit
+        if (conditionPredicate()) {
+            lastTick = 0;
+            if (bannerEvent != null) bannerEvent.Raise(fmtTimerMsg(showTimeSplit, lastTick));
+            if (debug) Debug.Log("Tick: " + lastTick);
+        }
     }
 
     IEnumerator StatePrepare() {
