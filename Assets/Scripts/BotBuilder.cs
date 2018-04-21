@@ -6,7 +6,9 @@ using System.Collections;
 
 [ExecuteInEditMode]
 public class BotBuilder : PartBuilder {
+    [Header("State Variables")]
     public BotRuntimeSet botList;
+    public GameRecordEvent eventChannel;
 
     public override void OnEnable() {
         base.OnEnable();

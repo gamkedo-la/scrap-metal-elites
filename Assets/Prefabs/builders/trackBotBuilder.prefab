@@ -56,6 +56,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   part: {fileID: 11400000, guid: 8dc4a477911ac4dceb96e882c5408cb0, type: 2}
   botList: {fileID: 11400000, guid: 0c8c0a9ec335541c59c634bad32ecf99, type: 2}
+  eventChannel: {fileID: 11400000, guid: 7cdbdc64686ff4786ae1b73fdc14d54f, type: 2}
 --- !u!114 &114325042791281724
 MonoBehaviour:
   m_ObjectHideFlags: 1

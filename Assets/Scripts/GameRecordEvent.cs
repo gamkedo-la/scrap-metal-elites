@@ -9,6 +9,7 @@ public enum GameRecordTag {
     BotTookDamage,
     BotJointBroke,
     BotDied,
+    BotFlipped,
 }
 
 [System.Serializable]
@@ -71,6 +72,11 @@ public class GameRecord {
         GameObject actor                // who/what caused death
     ) {
         return new GameRecord(GameRecordTag.BotDied, actor, target, 0);
+    }
+    public static GameRecord BotFlipped(
+        GameObject target               // the bot that flipped
+    ) {
+        return new GameRecord(GameRecordTag.BotFlipped, null, target, 0);
     }
 
 }

@@ -163,4 +163,18 @@ public static class PartUtil {
         return null;
     }
 
+
+    public static GameRecordEvent GetEventChannel(
+        GameObject gameObject
+    ) {
+        var rootGo = PartUtil.GetRootGo(gameObject);
+        if (rootGo != null) {
+            var botComp = rootGo.GetComponent<BotBuilder>();
+            if (botComp != null) {
+                return botComp.eventChannel;
+            }
+        }
+        return null;
+    }
+
 }

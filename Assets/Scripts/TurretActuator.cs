@@ -14,7 +14,6 @@ public class TurretActuator : MonoBehaviour, ISteeringActuator {
 
     private Rigidbody rb;
     private HingeJoint joint;
-    private float _actuate = 0.0f;
     private float _rotateDrive;
 
     public float turnSpeed = 10f;

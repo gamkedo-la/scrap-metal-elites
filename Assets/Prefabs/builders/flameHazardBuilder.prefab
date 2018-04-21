@@ -22,7 +22,6 @@ GameObject:
   - component: {fileID: 114698728067057712}
   - component: {fileID: 114670107242666990}
   - component: {fileID: 114787869684174784}
-  - component: {fileID: 114516848917126620}
   - component: {fileID: 114555843758858534}
   m_Layer: 0
   m_Name: flameHazardBuilder
@@ -44,18 +43,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114516848917126620
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1632048421643816}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8865cde02b261426799847af6b55ddc9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  controlsActive: 1
 --- !u!114 &114555843758858534
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -68,6 +55,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controlsActive: 1
+  botList: {fileID: 0}
+  eventChannel: {fileID: 0}
   fireDuration: 1
   fireCooldown: 2
   targetRange: 15

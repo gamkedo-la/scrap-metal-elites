@@ -60,7 +60,7 @@ public class TurretAIController : BotBrain {
 
     IEnumerator Aim() {
         while (controlsActive) {
-            if (target != null && turretGo != null) {
+            if (mover != null && target != null && turretGo != null) {
                 // compute angle to target
                 angleToTarget = AIController.AngleAroundAxis(turretGo.transform.forward, target.transform.position-turretGo.transform.position, turretGo.transform.up);
                 // scale drive, if within min angle scale drive down
@@ -74,7 +74,7 @@ public class TurretAIController : BotBrain {
 
     IEnumerator Fire() {
         while (controlsActive) {
-            if (target != null && Mathf.Abs(angleToTarget) < aimMinAngle) {
+            if (weapon != null && target != null && Mathf.Abs(angleToTarget) < aimMinAngle) {
                 // fire at target
                 weapon.actuate = 1f;
                 yield return new WaitForSeconds(fireDuration);
