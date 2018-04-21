@@ -32,7 +32,7 @@ public class BotHealth : MonoBehaviour {
         }
     }
 
-    private int healthPercent {
+    public int healthPercent {
         get {
             var currentHealth = health;
             if (currentHealth > minHealth) {

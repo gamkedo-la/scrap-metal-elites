@@ -1,3 +1,4 @@
+//using System;
 using System.Collections;
 using UnityEngine;
 
@@ -23,6 +24,7 @@ public class Match : MonoBehaviour {
     public BotRuntimeSet allBots;
 
     [Header("Events")]
+    public StringEvent timerMessage;
     public StringEvent bannerFade;
     public StringEvent bannerMessage;
     public GameEvent bannerClear;
@@ -30,6 +32,7 @@ public class Match : MonoBehaviour {
 
     [Header("Match Config")]
     public int countdownTicks = 3;
+    public int matchTime = 180;
     public bool debug = false;
 
     private bool matchStarted = false;
@@ -72,27 +75,47 @@ public class Match : MonoBehaviour {
         return botGo;
     }
 
+    static string fmtTimerMsg(bool showTimeSplit, int tick) {
+        if (showTimeSplit) {
+            var min = tick/60;
+            var sec = tick%60;
+            return min.ToString() + ":" + sec.ToString("00");
+        } else {
+            return tick.ToString();
+        }
+    }
+
     IEnumerator RunTimer(
         int timeout,
-        StringEvent bannerFade
+        StringEvent bannerEvent
     ) {
+        yield return RunTimer(timeout, bannerEvent, ()=>true);
+    }
+
+    IEnumerator RunTimer(
+        int timeout,
+        StringEvent bannerEvent,
+        System.Func<bool> conditionPredicate
+    ) {
+        bool showTimeSplit = (timeout > 60);
         var startTime = Time.fixedTime;
         var lastTick = timeout;
         if (debug) Debug.Log("Tick: " + lastTick);
-        if (bannerFade != null) bannerFade.Raise(lastTick.ToString());
+        if (bannerEvent != null) bannerEvent.Raise(fmtTimerMsg(showTimeSplit, lastTick));
         var currentDelta = Time.fixedTime - startTime;
-        while ((currentDelta < (float) timeout) && !Input.GetKeyUp(KeyCode.Escape)) {
+        while (conditionPredicate() && (currentDelta < (float) timeout) && !Input.GetKeyUp(KeyCode.Escape)) {
             var currentTick = timeout - Mathf.FloorToInt(currentDelta);
             if (currentTick != lastTick) {
                 lastTick = currentTick;
                 if (debug) Debug.Log("Tick: " + lastTick);
-                if (bannerFade != null) bannerFade.Raise(lastTick.ToString());
+                if (bannerEvent != null) bannerEvent.Raise(fmtTimerMsg(showTimeSplit, lastTick));
             }
             // wait until next frame;
             yield return null;
             currentDelta = Time.fixedTime - startTime;
         }
         lastTick = 0;
+        if (bannerEvent != null) bannerEvent.Raise(fmtTimerMsg(showTimeSplit, lastTick));
         if (debug) Debug.Log("Tick: " + lastTick);
     }
 
@@ -182,6 +205,7 @@ public class Match : MonoBehaviour {
 
     IEnumerator StatePlay() {
         if (debug) Debug.Log("StatePlay");
+        StartCoroutine(StateMatchTimer());
 
         // notify channel
         if (gameEventChannel != null) {
@@ -204,6 +228,33 @@ public class Match : MonoBehaviour {
 
         // TRANSITION: Finish
         StartCoroutine(StateFinish());
+    }
+
+    IEnumerator StateMatchTimer() {
+        if (debug) Debug.Log("StateMatchTimer");
+        yield return null;
+
+        // start match timer
+        yield return StartCoroutine(RunTimer(matchTime, timerMessage, ()=>(!winnerDeclared)));
+
+        // if winner is not already declared, declare winner based on remaining health
+        if (!winnerDeclared) {
+            var playerHealth = spawnedPlayer.GetComponent<BotHealth>();
+            var enemyHealth = spawnedEnemy.GetComponent<BotHealth>();
+            if (playerHealth != null && enemyHealth != null) {
+                winnerDeclared = true;
+                if (playerHealth.healthPercent > enemyHealth.healthPercent) {
+                    winningBot = spawnedPlayer;
+                } else {
+                    winningBot = spawnedEnemy;
+                }
+
+            // shouldn't happen: declare enemy winner
+            } else {
+                winnerDeclared = true;
+                winningBot = spawnedEnemy;
+            }
+        }
     }
 
     IEnumerator StateFinish() {
