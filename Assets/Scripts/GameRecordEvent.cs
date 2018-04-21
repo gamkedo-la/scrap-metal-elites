@@ -62,7 +62,7 @@ public class GameRecord {
         return new GameRecord(GameRecordTag.BotTookDamage, actor, target, damageAmount);
     }
     public static GameRecord BotJointBroke(
-        GameObject target
+        GameObject target               // the gameobject associated w/ the joint that broke
     ) {
         return new GameRecord(GameRecordTag.BotJointBroke, null, target, 0);
     }

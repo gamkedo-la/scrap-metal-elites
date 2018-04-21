@@ -2,13 +2,19 @@ using UnityEngine;
 using System.Collections;
 
 public abstract class JointApplicator : ComponentApplicator {
+    [Header("Joint Damage Config")]
+    [Tooltip("allow the joint to break based on impact force")]
     public bool applyBreakForce;
     public float breakForce;
+    [Tooltip("allow the joint to break based on torque force")]
     public bool applyBreakTorque;
     public float breakTorque;
-    // allow joint to be damaged?
+    [Tooltip("allow damage to joint, weakening joint")]
     public bool applyDamageToForce;
     public bool applyDamageToTorque;
+
+    [Header("Event Channels")]
+    public GameRecordEvent gameEventChannel;
 
     protected abstract Joint ApplyJoint(GameObject rigidbodyGo, PartConfig config, GameObject target);
 
@@ -37,6 +43,7 @@ public abstract class JointApplicator : ComponentApplicator {
             var actuator = rigidbodyGo.AddComponent<JointDamageActuator>();
             actuator.applyDamageToForce = applyDamageToForce;
             actuator.applyDamageToTorque = applyDamageToTorque;
+            actuator.gameEventChannel = gameEventChannel;
         }
 
         // add simple joiner script to target, allowing quick joint join

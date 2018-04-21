@@ -17,3 +17,4 @@ MonoBehaviour:
   breakTorque: 0
   applyDamageToForce: 0
   applyDamageToTorque: 0
+  gameEventChannel: {fileID: 11400000, guid: 7cdbdc64686ff4786ae1b73fdc14d54f, type: 2}

@@ -17,6 +17,7 @@ MonoBehaviour:
   breakTorque: 10000
   applyDamageToForce: 1
   applyDamageToTorque: 1
+  gameEventChannel: {fileID: 11400000, guid: 7cdbdc64686ff4786ae1b73fdc14d54f, type: 2}
   springForce: 5000
   springDamper: 5
   motorForce: 3000

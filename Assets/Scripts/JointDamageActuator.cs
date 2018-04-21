@@ -7,6 +7,7 @@ public class JointDamageActuator : MonoBehaviour {
     public bool applyDamageToForce = true;
     public bool applyDamageToTorque = true;
     public bool debug = false;
+    public GameRecordEvent gameEventChannel;
 
     private Health health;
     private Joint[] joints;
@@ -30,6 +31,12 @@ public class JointDamageActuator : MonoBehaviour {
             if (applyDamageToForce || applyDamageToTorque) {
                 health.onChangePercent.AddListener(OnHealthPercentChange);
             }
+        }
+    }
+
+    void OnJointBreak() {
+        if (gameEventChannel != null) {
+            gameEventChannel.Raise(GameRecord.BotJointBroke(gameObject));
         }
     }
 
