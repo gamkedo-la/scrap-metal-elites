@@ -1,0 +1,111 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1632048421643816}
+  m_IsPrefabParent: 1
+--- !u!1 &1632048421643816
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4269926705160890}
+  - component: {fileID: 114698728067057712}
+  - component: {fileID: 114670107242666990}
+  - component: {fileID: 114787869684174784}
+  - component: {fileID: 114516848917126620}
+  - component: {fileID: 114555843758858534}
+  m_Layer: 0
+  m_Name: flameHazardBuilder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4269926705160890
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1632048421643816}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.219058, y: -4.47, z: 1.2151989}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114516848917126620
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1632048421643816}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8865cde02b261426799847af6b55ddc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controlsActive: 1
+--- !u!114 &114555843758858534
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1632048421643816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29eb7ce4848dd4013827bd063fe50b23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controlsActive: 1
+  fireDuration: 1
+  fireCooldown: 2
+  targetRange: 15
+  aimMinAngle: 5
+  retargetInterval: 1
+  debug: 1
+  currentBots: {fileID: 11400000, guid: 0c8c0a9ec335541c59c634bad32ecf99, type: 2}
+--- !u!114 &114670107242666990
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1632048421643816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1ef942c3719b4bce8c144e680e3d97d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114698728067057712
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1632048421643816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 585de4093d4434305a8a54f35efa4b87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  part: {fileID: 11400000, guid: 6d8d3585f9e504ee08228040099d2a15, type: 2}
+--- !u!114 &114787869684174784
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1632048421643816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cb6281f834c242d5800dd479a965807, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

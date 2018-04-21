@@ -83,6 +83,28 @@ public static class PartUtil {
         }
     }
 
+    // find the first component in children of part, following child link if necessary
+    public static T GetComponentInChildren<T>(GameObject rootPartGo) {
+        // find component of specified type in root's tree
+        var component = rootPartGo.GetComponentInChildren<T>();
+        if (component != null) {
+            return component;
+        }
+
+        // find any part child link components in root
+        var childLinks = rootPartGo.GetComponentsInChildren<ChildLink>();
+        for (var i=0; i<childLinks.Length; i++) {
+            // if part has external parts reference
+            if (childLinks[i].childGo != null) {
+                component = PartUtil.GetComponentInChildren<T>(childLinks[i].childGo);
+                if (component != null) {
+                    return component;
+                }
+            }
+        }
+        return default(T);
+    }
+
     public static T[] GetComponentsInChildren<T>(GameObject rootPartGo) {
         var allComponents = new List<T>();
         // find component of specified type in root's tree
