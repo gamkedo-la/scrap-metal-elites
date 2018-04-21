@@ -15,6 +15,14 @@ public class AIController : BotBrain {
     public AIMood moodNow;
 
 	// Use this for initialization
+	void Awake() {
+		// assign player tag
+		var rootGo = PartUtil.GetRootGo(gameObject);
+		if (rootGo != null) {
+			rootGo.tag = "enemy";
+		}
+	}
+
     public static float AngleAroundAxis(Vector3 dirA, Vector3 dirB, Vector3 axis)
     {
         // Project A and B onto the plane orthogonal to axis
