@@ -103,7 +103,7 @@ public class Match : MonoBehaviour {
         if (debug) Debug.Log("Tick: " + lastTick);
         if (bannerEvent != null) bannerEvent.Raise(fmtTimerMsg(showTimeSplit, lastTick));
         var currentDelta = Time.fixedTime - startTime;
-        while (conditionPredicate() && (currentDelta < (float) timeout) && !Input.GetKeyUp(KeyCode.Escape)) {
+        while (conditionPredicate() && (currentDelta < (float) timeout)) {
             var currentTick = timeout - Mathf.FloorToInt(currentDelta);
             if (currentTick != lastTick) {
                 lastTick = currentTick;
@@ -181,7 +181,7 @@ public class Match : MonoBehaviour {
         if (bannerFade != null) bannerMessage.Raise("ANNOUNCER INTRO - ESC TO EXIT");
 
         // FIXME: remove announcer timer
-        yield return StartCoroutine(RunTimer(5, null));
+        yield return StartCoroutine(RunTimer(5, null, ()=>(!Input.GetKeyUp(KeyCode.Escape))));
 
         // TODO: add announcer voiceover mechanics/state
 
@@ -199,7 +199,7 @@ public class Match : MonoBehaviour {
         }
 
         // wait for countdown timer
-        yield return StartCoroutine(RunTimer(countdownTicks, bannerFade));
+        yield return StartCoroutine(RunTimer(countdownTicks, bannerFade, ()=>(!Input.GetKeyUp(KeyCode.Escape))));
         if (bannerFade != null) bannerFade.Raise("Start!");
 
         // TRANSITION: Play
