@@ -11,3 +11,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Main.unity
     guid: bd33eafa05e034f4f9a21e8d6a68dd1c
+  - enabled: 1
+    path: Assets/Scenes/Arena Deathmatch.unity
+    guid: aba4a4f879eb44376b8f2ab312b592e5
