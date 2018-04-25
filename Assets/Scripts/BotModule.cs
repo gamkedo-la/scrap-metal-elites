@@ -11,6 +11,8 @@ public class PartConfigMap {
 
 [CreateAssetMenu(fileName = "bot", menuName = "Bot")]
 public class BotModule: Part {
+    [Tooltip("config for the top level bot part")]
+    public PartConfig config;
     [Tooltip("Mesh/Collider model/prefab to be associated with module frame, null means no model will be displayed for module frame")]
     public ModelReference frame;
     [Tooltip("modules to add to the bot")]
@@ -30,6 +32,9 @@ public class BotModule: Part {
             label = name;
         }
 
+        // compute merged config for root
+        var mergedConfig = PartConfig.Merge(this.config, config);
+
         // for a bot, we want to attach rigidbody for frame directly to root
         // only do this in-game, not for in-editor preview
         if (root != null && Application.isPlaying) {
@@ -40,12 +45,29 @@ public class BotModule: Part {
                 root.AddComponent<KeepInBounds>();
             }
             bodyGo = root;
+            // apply part properties
             if (mass != null) {
-                mass.Apply(config, root);
+                mass.Apply(mergedConfig, root);
             }
+            if (health != null) {
+                health.Apply(mergedConfig, root);
+            }
+            if (damage != null) {
+                damage.Apply(mergedConfig, root);
+            }
+
+            // apply applicators to parts container
+            if (applicators != null) {
+                for (var i=0; i<applicators.Length; i++) {
+                    if (applicators[i] != null) {
+                        applicators[i].Apply(mergedConfig, root);
+                    }
+                }
+            }
+
             //PartUtil.ApplyRigidBodyProperties(bodyGo, mass, drag, angularDrag);
             // empty parts object to parent the rest of the bot
-            partsGo = PartUtil.BuildGo(config, null, label + ".parts");
+            partsGo = PartUtil.BuildGo(mergedConfig, null, label + ".parts");
             partsGo.transform.position = root.transform.position;
             partsGo.transform.rotation = root.transform.rotation;
             // keep track of parent/child links
@@ -57,7 +79,7 @@ public class BotModule: Part {
         // otherwise, instantiate rigidbody/parts as a normal part
         } else {
             // build out frame model first
-            partsGo = base.Build(config, root, label);
+            partsGo = base.Build(mergedConfig, root, label);
             if (partsGo != null) {
                 // set local position to match that of root
                 bodyGo = partsGo.transform.Find(partsGo.name + ".body").gameObject;
@@ -66,7 +88,7 @@ public class BotModule: Part {
 
         // frame is instantiated under parts.body
         if (frame != null) {
-            frame.Build(config, bodyGo, "frame");
+            frame.Build(mergedConfig, bodyGo, "frame");
         }
 
         // now build out modules

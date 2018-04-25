@@ -1,25 +1,102 @@
 fileFormatVersion: 2
-guid: 35a7e4042e92e46658808c7b5c0082d2
-timeCreated: 1523623795
+guid: f3375626d3318471381b6bbe4a98f5bd
+timeCreated: 1524540470
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: //RootNode
-    400000: //RootNode
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: Cylinder
+    100000: Body
+    100002: //RootNode
+    100004: Frame
+    100006: Saw_blade
+    100008: Weapon_frame
+    100010: Wheels
+    100012: Body_bottom
+    100014: Body_front
+    100016: Body_rear
+    100018: Body_side
+    100020: Body_top
+    100022: Body_wheel_attachment
+    100024: Saw_blade_left
+    100026: Saw_blade_right
+    100028: Wheel_left
+    100030: Wheel_right
+    400000: Body
+    400002: //RootNode
+    400004: Frame
+    400006: Saw_blade
+    400008: Weapon_frame
+    400010: Wheels
+    400012: Body_bottom
+    400014: Body_front
+    400016: Body_rear
+    400018: Body_side
+    400020: Body_top
+    400022: Body_wheel_attachment
+    400024: Saw_blade_left
+    400026: Saw_blade_right
+    400028: Wheel_left
+    400030: Wheel_right
+    2300000: Body
+    2300002: Frame
+    2300004: Saw_blade
+    2300006: Weapon_frame
+    2300008: Wheels
+    2300010: Body_bottom
+    2300012: Body_front
+    2300014: Body_rear
+    2300016: Body_side
+    2300018: Body_top
+    2300020: Body_wheel_attachment
+    2300022: Saw_blade_left
+    2300024: Saw_blade_right
+    2300026: Wheel_left
+    2300028: Wheel_right
+    3300000: Body
+    3300002: Frame
+    3300004: Saw_blade
+    3300006: Weapon_frame
+    3300008: Wheels
+    3300010: Body_bottom
+    3300012: Body_front
+    3300014: Body_rear
+    3300016: Body_side
+    3300018: Body_top
+    3300020: Body_wheel_attachment
+    3300022: Saw_blade_left
+    3300024: Saw_blade_right
+    3300026: Wheel_left
+    3300028: Wheel_right
+    4300000: Weapon_frame
+    4300002: Frame
+    4300004: Wheels
+    4300006: Body
+    4300008: Saw_blade
+    4300010: Saw_blade_right
+    4300012: Body_bottom
+    4300014: Body_top
+    4300016: Body_rear
+    4300018: Body_side
+    4300020: Body_front
+    4300022: Wheel_right
+    4300024: Body_wheel_attachment
+    4300026: Saw_blade_left
+    4300028: Wheel_left
     7400000: Default Take
     9500000: //RootNode
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Material
+    second: {fileID: 2100000, guid: 5e91eabf5b3fb7b4ba6223aff00d75cb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: unnamed
     second: {fileID: 2100000, guid: f9c0cdf680e872a4d87a7dcf676b4705, type: 2}
   materials:
-    importMaterials: 0
+    importMaterials: 1
     materialName: 0
     materialSearch: 1
     materialLocation: 0
@@ -86,7 +163,7 @@ ModelImporter:
     rootMotionBoneName: 
     rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
-    hasExtraRoot: 0
+    hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   animationType: 0

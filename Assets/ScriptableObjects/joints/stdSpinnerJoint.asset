@@ -15,8 +15,8 @@ MonoBehaviour:
   breakForce: 10000
   applyBreakTorque: 1
   breakTorque: 10000
-  applyDamageToForce: 0
-  applyDamageToTorque: 0
+  applyDamageToForce: 1
+  applyDamageToTorque: 1
   gameEventChannel: {fileID: 11400000, guid: 7cdbdc64686ff4786ae1b73fdc14d54f, type: 2}
   motor: 1
   motorMaxTorque: 500

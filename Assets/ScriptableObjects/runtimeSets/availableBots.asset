@@ -26,3 +26,5 @@ MonoBehaviour:
     prefab: {fileID: 1352949254947202, guid: 0900452d0b08345799f5aba3f5744324, type: 2}
   - name: Don't Tread On Me
     prefab: {fileID: 1354931224165476, guid: 8ecd3d66049b04a0fbc16aeda9eeaea5, type: 2}
+  - name: Buggy
+    prefab: {fileID: 1297436841330656, guid: 7e7d1fe8bddda4053a2ff37aaa1e4b81, type: 2}

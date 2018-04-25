@@ -9,11 +9,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0c16a472c5a6b4cfcafc4959de97a920, type: 3}
-  m_Name: emptyHub
+  m_Name: bugPanelsModule
   m_EditorClassIdentifier: 
   mass: {fileID: 0}
-  health: {fileID: 11400000, guid: 17e592848fc6949c99141368cff12bbe, type: 2}
-  damage: {fileID: 11400000, guid: cda84aac2152c483db6ceed8d498c2a3, type: 2}
+  health: {fileID: 0}
+  damage: {fileID: 0}
   models: []
-  applicators: []
+  applicators:
+  - {fileID: 11400000, guid: 7b0e60d4eb41c4fe29ec96908e4a511a, type: 2}
   connectedParts: []

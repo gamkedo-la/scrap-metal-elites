@@ -9,11 +9,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0c16a472c5a6b4cfcafc4959de97a920, type: 3}
-  m_Name: emptyHub
+  m_Name: bugCounterWeight
   m_EditorClassIdentifier: 
-  mass: {fileID: 0}
+  mass: {fileID: 11400000, guid: fe3af226e208744bd97611dcae7a5609, type: 2}
   health: {fileID: 11400000, guid: 17e592848fc6949c99141368cff12bbe, type: 2}
-  damage: {fileID: 11400000, guid: cda84aac2152c483db6ceed8d498c2a3, type: 2}
-  models: []
+  damage: {fileID: 11400000, guid: 7e7be862284084a98a428249151e83f5, type: 2}
+  models:
+  - offset: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0}
+    model: {fileID: 1698499513401394, guid: 47c9163bc1fcb4fda94601bca56e6534, type: 2}
   applicators: []
   connectedParts: []
