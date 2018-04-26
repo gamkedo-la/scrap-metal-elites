@@ -23,6 +23,10 @@ public class HubJointApplicator : JointApplicator {
             if (config != null && config.Get<bool>(ConfigTag.MotorLeft)) {
                 motorActuator.isLeft = true;
             }
+            // apply motor.left from config
+            if (config != null && config.Get<bool>(ConfigTag.MotorReverse)) {
+                motorActuator.reverse = true;
+            }
         }
         return joint;
     }

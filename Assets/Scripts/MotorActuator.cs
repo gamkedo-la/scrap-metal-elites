@@ -22,6 +22,7 @@ public class MotorActuator : MonoBehaviour, IMotorActuator {
     public bool isLeft = false;
     public float maxTorque;
     public float maxSpeed;
+    public bool reverse = false;
 
     void Start() {
         rb = GetComponent<Rigidbody>();
@@ -33,7 +34,7 @@ public class MotorActuator : MonoBehaviour, IMotorActuator {
             return;
         }
         var f = maxTorque * _forwardDrive;
-        if (isLeft) {
+        if (reverse) {
             f = -f;
         }
         rb.maxAngularVelocity = maxSpeed;

@@ -28,7 +28,7 @@ MonoBehaviour:
     config:
       rows: []
     part:
-      offset: {x: 1.25, y: 0, z: 0}
+      offset: {x: 0, y: 0, z: 0}
       rotation: {x: 0, y: 0, z: 0}
       joint: {fileID: 11400000, guid: 40b16337435db439e9894ed44a6ae7d4, type: 2}
       part: {fileID: 11400000, guid: 9b593dedcfe394171aee3dbce5375d28, type: 2}
@@ -41,31 +41,31 @@ MonoBehaviour:
         stringValue: 
         floatValue: 0
     part:
-      offset: {x: -1.25, y: 0, z: 0}
-      rotation: {x: 0, y: 180, z: 0}
+      offset: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0}
       joint: {fileID: 11400000, guid: 40b16337435db439e9894ed44a6ae7d4, type: 2}
-      part: {fileID: 11400000, guid: 9b593dedcfe394171aee3dbce5375d28, type: 2}
+      part: {fileID: 11400000, guid: c91e7f224f7ca417aaf4d95285eef04e, type: 2}
   - label: weapon
     config:
       rows: []
     part:
-      offset: {x: 0, y: 0.24, z: 1.12}
+      offset: {x: 0, y: 0.2270017, z: 1.062956}
       rotation: {x: 0, y: 0, z: 0}
       joint: {fileID: 11400000, guid: 40b16337435db439e9894ed44a6ae7d4, type: 2}
       part: {fileID: 11400000, guid: d66f9fd607d7a4fd6b2e2e12eb2ba12b, type: 2}
-  - label: counterWeight
+  - label: tail
     config:
       rows: []
     part:
-      offset: {x: 0, y: 0, z: -1.7}
+      offset: {x: 0, y: 0, z: -1.558839}
       rotation: {x: 0, y: 0, z: 0}
       joint: {fileID: 11400000, guid: 40b16337435db439e9894ed44a6ae7d4, type: 2}
-      part: {fileID: 11400000, guid: 900616e589d3a476b802e9aaa950ccbf, type: 2}
+      part: {fileID: 11400000, guid: 61b0588799fb14811808574fafef45cf, type: 2}
   - label: topPanel
     config:
       rows: []
     part:
-      offset: {x: 0, y: 0.05, z: 0}
+      offset: {x: 0, y: 0, z: 0}
       rotation: {x: 0, y: 0, z: 0}
       joint: {fileID: 11400000, guid: cf560ac34a5574d049139a8a926e4ab6, type: 2}
       part: {fileID: 11400000, guid: 982d4ef1c09c640b691a95a4206c8e51, type: 2}
@@ -73,7 +73,7 @@ MonoBehaviour:
     config:
       rows: []
     part:
-      offset: {x: 0, y: -0.65, z: 0}
+      offset: {x: 0, y: 0, z: 0}
       rotation: {x: 0, y: 0, z: 0}
       joint: {fileID: 11400000, guid: cf560ac34a5574d049139a8a926e4ab6, type: 2}
       part: {fileID: 11400000, guid: 57f623c9ea6aa49dba1367b7544fbe67, type: 2}
@@ -81,15 +81,23 @@ MonoBehaviour:
     config:
       rows: []
     part:
-      offset: {x: 0, y: 0, z: 0.37}
+      offset: {x: 0, y: 0, z: 0}
       rotation: {x: 0, y: 0, z: 0}
       joint: {fileID: 11400000, guid: cf560ac34a5574d049139a8a926e4ab6, type: 2}
       part: {fileID: 11400000, guid: 3586e75c298164edaaa89ff16a8040ba, type: 2}
-  - label: rearPanel
+  - label: rearRightPanel
     config:
       rows: []
     part:
-      offset: {x: 0, y: 0, z: 0.26}
+      offset: {x: 0, y: 0, z: 0}
       rotation: {x: 0, y: 0, z: 0}
       joint: {fileID: 11400000, guid: cf560ac34a5574d049139a8a926e4ab6, type: 2}
       part: {fileID: 11400000, guid: 527cad480c927480483f2fdddf3f01dc, type: 2}
+  - label: rearLeftPanel
+    config:
+      rows: []
+    part:
+      offset: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0}
+      joint: {fileID: 11400000, guid: cf560ac34a5574d049139a8a926e4ab6, type: 2}
+      part: {fileID: 11400000, guid: 01bbec887c2ab4830b525fffae76e670, type: 2}

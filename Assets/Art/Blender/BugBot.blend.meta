@@ -21,6 +21,13 @@ ModelImporter:
     100026: Saw_blade_right
     100028: Wheel_left
     100030: Wheel_right
+    100032: Body_rear_left
+    100034: Body_rear_right
+    100036: Body_side_left
+    100038: Body_side_right
+    100040: Body_wheel_attachment_left
+    100042: Body_wheel_attachment_right
+    100044: Cone
     400000: Body
     400002: //RootNode
     400004: Frame
@@ -37,6 +44,13 @@ ModelImporter:
     400026: Saw_blade_right
     400028: Wheel_left
     400030: Wheel_right
+    400032: Body_rear_left
+    400034: Body_rear_right
+    400036: Body_side_left
+    400038: Body_side_right
+    400040: Body_wheel_attachment_left
+    400042: Body_wheel_attachment_right
+    400044: Cone
     2300000: Body
     2300002: Frame
     2300004: Saw_blade
@@ -52,6 +66,13 @@ ModelImporter:
     2300024: Saw_blade_right
     2300026: Wheel_left
     2300028: Wheel_right
+    2300030: Body_rear_left
+    2300032: Body_rear_right
+    2300034: Body_side_left
+    2300036: Body_side_right
+    2300038: Body_wheel_attachment_left
+    2300040: Body_wheel_attachment_right
+    2300042: Cone
     3300000: Body
     3300002: Frame
     3300004: Saw_blade
@@ -67,6 +88,13 @@ ModelImporter:
     3300024: Saw_blade_right
     3300026: Wheel_left
     3300028: Wheel_right
+    3300030: Body_rear_left
+    3300032: Body_rear_right
+    3300034: Body_side_left
+    3300036: Body_side_right
+    3300038: Body_wheel_attachment_left
+    3300040: Body_wheel_attachment_right
+    3300042: Cone
     4300000: Weapon_frame
     4300002: Frame
     4300004: Wheels
@@ -82,6 +110,13 @@ ModelImporter:
     4300024: Body_wheel_attachment
     4300026: Saw_blade_left
     4300028: Wheel_left
+    4300030: Cone
+    4300032: Body_wheel_attachment_left
+    4300034: Body_rear_right
+    4300036: Body_side_right
+    4300038: Body_rear_left
+    4300040: Body_side_left
+    4300042: Body_wheel_attachment_right
     7400000: Default Take
     9500000: //RootNode
   externalObjects:

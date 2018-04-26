@@ -17,6 +17,8 @@ MonoBehaviour:
   models: []
   applicators: []
   connectedParts: []
+  config:
+    rows: []
   frame:
     offset: {x: 0, y: 0, z: 0}
     rotation: {x: 0, y: 0, z: 0}
@@ -64,6 +66,11 @@ MonoBehaviour:
         stringValue: 
         floatValue: 0
       - key: 11
+        valueType: 0
+        boolValue: 1
+        stringValue: 
+        floatValue: 0
+      - key: 12
         valueType: 0
         boolValue: 1
         stringValue: 
@@ -125,6 +132,11 @@ MonoBehaviour:
         stringValue: 
         floatValue: 0
       - key: 10
+        valueType: 0
+        boolValue: 1
+        stringValue: 
+        floatValue: 0
+      - key: 12
         valueType: 0
         boolValue: 1
         stringValue: 

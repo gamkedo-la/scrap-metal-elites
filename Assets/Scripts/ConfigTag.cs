@@ -13,4 +13,5 @@ public enum ConfigTag {
     PanelRight,
     PanelFront,
     PanelBack,
+    MotorReverse,
 }
