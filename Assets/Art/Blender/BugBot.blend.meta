@@ -28,6 +28,10 @@ ModelImporter:
     100040: Body_wheel_attachment_left
     100042: Body_wheel_attachment_right
     100044: Cone
+    100046: Rear_frame
+    100048: Sphere
+    100050: Spike_left
+    100052: Spike_right
     400000: Body
     400002: //RootNode
     400004: Frame
@@ -51,6 +55,10 @@ ModelImporter:
     400040: Body_wheel_attachment_left
     400042: Body_wheel_attachment_right
     400044: Cone
+    400046: Rear_frame
+    400048: Sphere
+    400050: Spike_left
+    400052: Spike_right
     2300000: Body
     2300002: Frame
     2300004: Saw_blade
@@ -73,6 +81,10 @@ ModelImporter:
     2300038: Body_wheel_attachment_left
     2300040: Body_wheel_attachment_right
     2300042: Cone
+    2300044: Rear_frame
+    2300046: Sphere
+    2300048: Spike_left
+    2300050: Spike_right
     3300000: Body
     3300002: Frame
     3300004: Saw_blade
@@ -95,6 +107,10 @@ ModelImporter:
     3300038: Body_wheel_attachment_left
     3300040: Body_wheel_attachment_right
     3300042: Cone
+    3300044: Rear_frame
+    3300046: Sphere
+    3300048: Spike_left
+    3300050: Spike_right
     4300000: Weapon_frame
     4300002: Frame
     4300004: Wheels
@@ -117,6 +133,10 @@ ModelImporter:
     4300038: Body_rear_left
     4300040: Body_side_left
     4300042: Body_wheel_attachment_right
+    4300044: Spike_right
+    4300046: Spike_left
+    4300048: Rear_frame
+    4300050: Sphere
     7400000: Default Take
     9500000: //RootNode
   externalObjects:

@@ -57,10 +57,10 @@ MonoBehaviour:
     config:
       rows: []
     part:
-      offset: {x: 0, y: 0, z: -1.558839}
+      offset: {x: 0, y: 0, z: 0}
       rotation: {x: 0, y: 0, z: 0}
       joint: {fileID: 11400000, guid: 40b16337435db439e9894ed44a6ae7d4, type: 2}
-      part: {fileID: 11400000, guid: 61b0588799fb14811808574fafef45cf, type: 2}
+      part: {fileID: 11400000, guid: 559c216405fde456a8155e8c3e150868, type: 2}
   - label: topPanel
     config:
       rows: []

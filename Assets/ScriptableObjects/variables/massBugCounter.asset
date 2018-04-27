@@ -11,6 +11,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd60d1e9d95f94d418296f6fe1bdd0e9, type: 3}
   m_Name: massBugCounter
   m_EditorClassIdentifier: 
-  mass: 5
+  mass: 3
   drag: 0
   angularDrag: 0
