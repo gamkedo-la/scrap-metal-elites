@@ -22,7 +22,7 @@ MonoBehaviour:
     rotation: {x: -90, y: 0, z: 0}
     model: {fileID: 1387682020934280, guid: 360e6bf3ff6984479be4edaa257ebc54, type: 2}
   spinner:
-    offset: {x: 0, y: 0.05, z: 0}
+    offset: {x: 0, y: 0.2, z: 0}
     rotation: {x: 0, y: 0, z: 0}
     joint: {fileID: 11400000, guid: 642f33a0f9319468388f9cabae554d53, type: 2}
     part: {fileID: 11400000, guid: 7b25e8868da694123ad6b5d49c7d03ec, type: 2}
