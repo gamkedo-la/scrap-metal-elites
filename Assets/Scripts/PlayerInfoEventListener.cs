@@ -1,31 +1,24 @@
-﻿// ----------------------------------------------------------------------------
-// Unite 2017 - Game Architecture with Scriptable Objects
-//
-// Author: Ryan Hipple
-// Date:   10/04/17
-// ----------------------------------------------------------------------------
-
 using UnityEngine;
 using UnityEngine.Events;
 
 [System.Serializable]
-public class UnityStringEvent : UnityEvent<string> {};
+public class UnityPlayerInfoEvent : UnityEvent<PlayerInfo> {};
 
-public class StringEventListener : MonoBehaviour
+public class PlayerInfoEventListener : MonoBehaviour
 {
     [Tooltip("Event to register with.")]
-    public StringEvent Event;
+    public PlayerInfoEvent Event;
 
     [Tooltip("Response to invoke when Event is raised.")]
-    public UnityStringEvent Response;
+    public UnityPlayerInfoEvent Response;
 
     public void Awake() {
         if (Response == null) {
-            Response = new UnityStringEvent();
+            Response = new UnityPlayerInfoEvent();
         }
     }
 
-    public void SetEvent(StringEvent newEvent) {
+    public void SetEvent(PlayerInfoEvent newEvent) {
         // unregister current event
         if (this.Event != null) {
             this.Event.UnregisterListener(this);
@@ -49,7 +42,7 @@ public class StringEventListener : MonoBehaviour
         }
     }
 
-    public void OnEventRaised(string message)
+    public void OnEventRaised(PlayerInfo message)
     {
         Response.Invoke(message);
     }

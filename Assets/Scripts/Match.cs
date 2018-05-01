@@ -44,6 +44,7 @@ public class Match : MonoBehaviour {
     private bool winnerDeclared = false;
     private GameObject winningBot;
     private MatchInfo matchInfo;
+    private PlayerInfo playerInfo;
 
     void OnBotDeath(GameObject bot) {
         if (bot != null) {
@@ -166,7 +167,7 @@ public class Match : MonoBehaviour {
             gameEventChannel.Raise(GameRecord.GamePrepared());
         }
 
-        // TRANSITION: Countdown
+        // TRANSITION: Announcer
         StartCoroutine(StateAnnouncer());
     }
 
@@ -280,9 +281,11 @@ public class Match : MonoBehaviour {
         }
     }
 
-    public void StartMatch(
+    public void PlayMatch(
+        PlayerInfo playerInfo,
         MatchInfo matchInfo
     ) {
+        this.playerInfo = playerInfo;
         this.matchInfo = matchInfo;
         StartCoroutine(StatePrepare());
     }

@@ -2,33 +2,44 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class UxDeathmatchPanelController : MonoBehaviour {
-    public NamedPrefabRuntimeSet availableBots;
+    [Header("Events")]
+    public MatchInfoEvent matchSelected;            // used to notify of selected match
 
     [Header("UI Reference")]
     public InputField playerNameInput;
     public Dropdown playerBotDropdown;
     public InputField enemyNameInput;
     public Dropdown enemyBotDropdown;
+    public CanvasGroup canvasGroup;
 
+    [Header("Config")]
+    public NamedPrefabRuntimeSet availableBots;
     public UxSandboxController playerSandbox;
     public UxSandboxController enemySandbox;
-    public Match match;
 
-    private bool customPlayerName = false;
-    private bool customEnemyName = false;
     private MatchInfo matchInfo;
 
-    public void Start() {
-        // input validation
-        if (playerBotDropdown == null ||
-            playerNameInput == null ||
-            enemyBotDropdown == null ||
-            enemyNameInput == null ||
-            availableBots == null ||
-            playerSandbox == null ||
-            enemySandbox == null) {
-            return;
-        }
+    void Awake() {
+        // start w/ panel hidden
+        Hide();
+    }
+
+    void Display() {
+        canvasGroup.alpha = 1f; //this makes everything transparent
+        canvasGroup.blocksRaycasts = true; //this prevents the UI element to receive input events
+        canvasGroup.interactable = true;
+    }
+
+    void Hide() {
+        canvasGroup.alpha = 0f; //this makes everything transparent
+        canvasGroup.blocksRaycasts = false; //this prevents the UI element to receive input events
+        canvasGroup.interactable = false;
+    }
+
+    // callback triggered to start match/bot selection
+    public void OnWantMatch(PlayerInfo playerInfo) {
+        // awake display
+        Display();
 
         // clear current dropdown options
         playerBotDropdown.ClearOptions();
@@ -47,14 +58,14 @@ public class UxDeathmatchPanelController : MonoBehaviour {
         enemyBotDropdown.RefreshShownValue();
 
         // setup initial bot names based on current selection
-        playerNameInput.text = availableBots.Items[0].name;
+        playerNameInput.text = playerInfo.name;
+        playerNameInput.interactable = false;
         enemyNameInput.text = availableBots.Items[0].name;
+        enemyNameInput.interactable = false;
 
         // setup event handlers
         playerBotDropdown.onValueChanged.AddListener(delegate {OnDropdownChange(playerBotDropdown);});
-        playerNameInput.onEndEdit.AddListener(delegate {OnNameChange(playerNameInput);});
         enemyBotDropdown.onValueChanged.AddListener(delegate {OnDropdownChange(enemyBotDropdown);});
-        enemyNameInput.onEndEdit.AddListener(delegate {OnNameChange(enemyNameInput);});
 
         // initialize match info
         matchInfo = new MatchInfo();
@@ -74,48 +85,31 @@ public class UxDeathmatchPanelController : MonoBehaviour {
     public void OnDropdownChange(Dropdown dropdown) {
         var index = dropdown.value;
         if (dropdown == playerBotDropdown) {
-            if (!customPlayerName) {
-                playerNameInput.text = availableBots.Items[index].name;
-                matchInfo.playerPrefab.name = playerNameInput.text;
-            }
             matchInfo.playerPrefab.prefab = availableBots.Items[dropdown.value].prefab;
             playerSandbox.ShowBot(matchInfo.playerPrefab.prefab);
         } else {
-            if (!customEnemyName) {
-                enemyNameInput.text = availableBots.Items[index].name;
-                matchInfo.enemyPrefabs[0].name = enemyNameInput.text;
-            }
+            enemyNameInput.text = availableBots.Items[index].name;
+            matchInfo.enemyPrefabs[0].name = enemyNameInput.text;
             matchInfo.enemyPrefabs[0].prefab = availableBots.Items[dropdown.value].prefab;
             enemySandbox.ShowBot(matchInfo.enemyPrefabs[0].prefab);
         }
     }
 
-    public void OnNameChange(InputField input) {
-        if (input == playerNameInput) {
-            customPlayerName = true;
-            matchInfo.playerPrefab.name = input.text;
-        } else {
-            customEnemyName = true;
-            matchInfo.enemyPrefabs[0].name = input.text;
-        }
-    }
-
     public void OnReady() {
-        if (match != null) {
-            // disable sandboxes
-            if (playerSandbox != null) {
-                playerSandbox.Clear();
-                playerSandbox.gameObject.SetActive(false);
-            }
-            if (enemySandbox != null) {
-                enemySandbox.Clear();
-                enemySandbox.gameObject.SetActive(false);
-            }
-            // disable the setup panel
-            gameObject.SetActive(false);
-            // start the match
-            match.StartMatch(matchInfo);
+        // disable sandboxes
+        if (playerSandbox != null) {
+            playerSandbox.Clear();
+            playerSandbox.gameObject.SetActive(false);
         }
+        if (enemySandbox != null) {
+            enemySandbox.Clear();
+            enemySandbox.gameObject.SetActive(false);
+        }
+        // disable the setup panel
+        Hide();
+
+        // send match select notification
+        matchSelected.Raise(matchInfo);
     }
 
 }

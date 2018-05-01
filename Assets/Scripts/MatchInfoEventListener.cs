@@ -9,23 +9,23 @@ using UnityEngine;
 using UnityEngine.Events;
 
 [System.Serializable]
-public class UnityStringEvent : UnityEvent<string> {};
+public class UnityMatchInfoEvent : UnityEvent<MatchInfo> {};
 
-public class StringEventListener : MonoBehaviour
+public class MatchInfoEventListener : MonoBehaviour
 {
     [Tooltip("Event to register with.")]
-    public StringEvent Event;
+    public MatchInfoEvent Event;
 
     [Tooltip("Response to invoke when Event is raised.")]
-    public UnityStringEvent Response;
+    public UnityMatchInfoEvent Response;
 
     public void Awake() {
         if (Response == null) {
-            Response = new UnityStringEvent();
+            Response = new UnityMatchInfoEvent();
         }
     }
 
-    public void SetEvent(StringEvent newEvent) {
+    public void SetEvent(MatchInfoEvent newEvent) {
         // unregister current event
         if (this.Event != null) {
             this.Event.UnregisterListener(this);
@@ -49,7 +49,7 @@ public class StringEventListener : MonoBehaviour
         }
     }
 
-    public void OnEventRaised(string message)
+    public void OnEventRaised(MatchInfo message)
     {
         Response.Invoke(message);
     }

@@ -37,6 +37,7 @@ public class UxPlayerSelect : MonoBehaviour {
     }
 
     public void OnPlayerList(string message) {
+        Debug.Log("UxPlayerSelect.OnPlayerList: " + message);
         // display the modal
         Display();
 

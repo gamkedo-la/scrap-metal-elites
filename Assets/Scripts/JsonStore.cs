@@ -26,7 +26,6 @@ public static class JsonStore {
     public static void Save(SaveTag saveTag, string name, string json) {
         var filename = saveTag.ToString() + "_" + name + ".json";
         var path = Path.Combine(Application.persistentDataPath, filename);
-        Debug.Log("path: " + path);
         File.WriteAllText(path, json);
     }
 
