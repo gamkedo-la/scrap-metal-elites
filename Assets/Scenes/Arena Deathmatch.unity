@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1630980753}
-  m_IndirectSpecularColor: {r: 0.09479401, g: 0.11528746, b: 0.21346262, a: 1}
+  m_IndirectSpecularColor: {r: 0.094793744, g: 0.11528733, b: 0.21346214, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -5751,7 +5751,6 @@ GameObject:
   - component: {fileID: 1838164054}
   - component: {fileID: 1838164057}
   - component: {fileID: 1838164056}
-  - component: {fileID: 1838164055}
   m_Layer: 0
   m_Name: CameraJumbotron
   m_TagString: Untagged
@@ -5772,13 +5771,6 @@ Transform:
   m_Father: {fileID: 2058427640}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!81 &1838164055
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1838164053}
-  m_Enabled: 1
 --- !u!124 &1838164056
 Behaviour:
   m_ObjectHideFlags: 0

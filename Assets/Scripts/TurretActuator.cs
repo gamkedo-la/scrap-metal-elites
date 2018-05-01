@@ -12,7 +12,6 @@ public class TurretActuator : MonoBehaviour, ISteeringActuator {
         }
     }
 
-    private Rigidbody rb;
     private HingeJoint joint;
     private float _rotateDrive;
 
@@ -21,7 +20,6 @@ public class TurretActuator : MonoBehaviour, ISteeringActuator {
     public bool debug;
 
     void Start() {
-        rb = GetComponent<Rigidbody>();
         joint = GetComponent<HingeJoint>();
         if (joint != null) {
             joint.useMotor = true;

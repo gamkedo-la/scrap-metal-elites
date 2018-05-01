@@ -18,8 +18,9 @@ public class StringEvent : GameEvent {
 
     public void Raise(string message)
     {
-        for(int i = eventListeners.Count -1; i >= 0; i--)
+        for(int i = eventListeners.Count -1; i >= 0; i--) {
             eventListeners[i].OnEventRaised(message);
+        }
     }
 
     public void RegisterListener(StringEventListener listener)
