@@ -1,4 +1,3 @@
-//using System;
 using System.Collections;
 using UnityEngine;
 
@@ -30,7 +29,9 @@ public class Match : MonoBehaviour {
     public StringEvent bannerMessage;
     public GameEvent bannerClear;
     public GameRecordEvent gameEventChannel;
-    public GameEvent matchFinished;
+    public StringEvent wantDoneConfirm;     // event used to trigger match complete modal for player confirmation
+    public GameEvent doneConfirmed;         // event used by player confirmation modal when player clears modal
+    public GameEvent matchFinished;         // event raised when match is complete
 
     [Header("Match Config")]
     public int countdownTicks = 3;
@@ -275,10 +276,8 @@ public class Match : MonoBehaviour {
             gameEventChannel.Raise(GameRecord.GameFinished());
         }
 
-        // declare winner
-        var msg = winningBot.name + " wins ... Yay!!!";
-        if (debug) Debug.Log(msg);
-        if (bannerMessage != null) bannerMessage.Raise(msg);
+        // declare game over
+        if (bannerMessage != null) bannerMessage.Raise("Game Over!!!");
         yield return null;
 
         // disable bots
@@ -298,6 +297,23 @@ public class Match : MonoBehaviour {
         } else {
             playerInfo.AddLoss();
         }
+
+        // setup listener for doneConfirmed event
+        var confirmed = false;
+        var listener = gameObject.AddComponent<GameEventListener>();
+        listener.SetEvent(doneConfirmed);
+        listener.Response.AddListener(()=>{confirmed = true;});
+
+        // trigger event to notify player that match is complete,
+        // causes confirmation modal to display message and wait for player to click ok
+        var msg = System.String.Format("{0}:{1}", (winningBot == spawnedPlayer) ? "win" : "loss", playerInfo.name);
+        wantDoneConfirm.Raise(msg);
+
+        // wait for match info to be selected
+        yield return new WaitUntil(() => confirmed);
+
+        // clean up, remove listener
+        Destroy(listener);
 
         // signal that the match is done
         if (matchFinished != null) {
