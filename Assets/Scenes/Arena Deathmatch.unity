@@ -489,6 +489,7 @@ MonoBehaviour:
   bannerMessage: {fileID: 11400000, guid: 6f0afbd9f6bca47d7bfa5ed07149c44b, type: 2}
   bannerClear: {fileID: 11400000, guid: da9b2d9d0660a43e3ab3400624527b8c, type: 2}
   gameEventChannel: {fileID: 11400000, guid: 7cdbdc64686ff4786ae1b73fdc14d54f, type: 2}
+  matchFinished: {fileID: 0}
   countdownTicks: 3
   matchTime: 180
   debug: 1

@@ -4,6 +4,7 @@ using UnityEngine;
 
 [System.Serializable]
 public class MatchInfo {
+    public string id;
     public NamedPrefab playerPrefab;
     public NamedPrefab[] enemyPrefabs;
     // FIXME: todo
@@ -29,6 +30,7 @@ public class Match : MonoBehaviour {
     public StringEvent bannerMessage;
     public GameEvent bannerClear;
     public GameRecordEvent gameEventChannel;
+    public GameEvent matchFinished;
 
     [Header("Match Config")]
     public int countdownTicks = 3;
@@ -45,6 +47,7 @@ public class Match : MonoBehaviour {
     private GameObject winningBot;
     private MatchInfo matchInfo;
     private PlayerInfo playerInfo;
+    private int timerTick = 0;
 
     void OnBotDeath(GameObject bot) {
         if (bot != null) {
@@ -101,6 +104,7 @@ public class Match : MonoBehaviour {
         bool showTimeSplit = (timeout > 60);
         var startTime = Time.fixedTime;
         var lastTick = timeout;
+        timerTick = lastTick;
         if (debug) Debug.Log("Tick: " + lastTick);
         if (bannerEvent != null) bannerEvent.Raise(fmtTimerMsg(showTimeSplit, lastTick));
         var currentDelta = Time.fixedTime - startTime;
@@ -108,6 +112,7 @@ public class Match : MonoBehaviour {
             var currentTick = timeout - Mathf.FloorToInt(currentDelta);
             if (currentTick != lastTick) {
                 lastTick = currentTick;
+                timerTick = lastTick;
                 if (debug) Debug.Log("Tick: " + lastTick);
                 if (bannerEvent != null) bannerEvent.Raise(fmtTimerMsg(showTimeSplit, lastTick));
             }
@@ -118,6 +123,7 @@ public class Match : MonoBehaviour {
         // don't show last tick if condition was hit
         if (conditionPredicate()) {
             lastTick = 0;
+            timerTick = lastTick;
             if (bannerEvent != null) bannerEvent.Raise(fmtTimerMsg(showTimeSplit, lastTick));
             if (debug) Debug.Log("Tick: " + lastTick);
         }
@@ -278,6 +284,24 @@ public class Match : MonoBehaviour {
         // disable bots
         for (var i=allBots.Items.Count-1; i>=0; i--) {
             allBots.Items[i].GetComponent<BotBrain>().controlsActive = false;
+        }
+
+        // add win/loss for player
+        if (winningBot == spawnedPlayer) {
+            // create score for win
+            var scoreInfo = new MatchScoreInfo();
+            scoreInfo.matchID = matchInfo.id;
+            scoreInfo.time = timerTick;
+            // FIXME: score
+            playerInfo.AddWin(scoreInfo);
+
+        } else {
+            playerInfo.AddLoss();
+        }
+
+        // signal that the match is done
+        if (matchFinished != null) {
+            matchFinished.Raise();
         }
     }
 

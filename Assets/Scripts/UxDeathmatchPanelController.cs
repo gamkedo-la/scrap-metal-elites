@@ -69,6 +69,7 @@ public class UxDeathmatchPanelController : MonoBehaviour {
 
         // initialize match info
         matchInfo = new MatchInfo();
+        matchInfo.id = "deathmatch";
         matchInfo.playerPrefab = new NamedPrefab();
         matchInfo.playerPrefab.name = playerNameInput.text;
         matchInfo.playerPrefab.prefab = availableBots.Items[playerBotDropdown.value].prefab;
