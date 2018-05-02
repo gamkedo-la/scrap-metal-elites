@@ -20,13 +20,38 @@ public class UxMatchFinished : MonoBehaviour {
         "{0} was in the base, killing the d00dz",
         "In life, there are no winners or losers...\r\nbut {0} totally won",
         "#{0}\r\n#Winning",
-        "{0} was too legit to quit",
+        "{0} was 2 legit 2 quit",
         "{0} was the winner we deserved",
+		"Way to go, {0}",
+		"Three cheers for {0}!",
+		"The day is won, by {0}",
+		"W I N N E R : {0}",
+		"Wowie zowie {0} you did good",
+		"{0} is unstoppable",
+		"{0} earned the prize",
+		"{0} came out on top",
+		"{0} takes home the trophy",
+		"A remarkable finish by {0}",
+		"Our new champion: {0}"
     };
 
     private string[] losingStrings = {
         "{0}, you really need to try harder!",
-        "I'm sorry {0}, you lose."
+        "I'm sorry {0}, you lose",
+		"Ouch, {0}, that did not go well",
+		"Better luck next time {0}",
+		"{0} needs to visit a RadioShack",
+		"Holy smoly got {0} turned into cannoli",
+		"{0} wound up all over the arena",
+		"Oh no, {0}",
+		"Clean up, aisle {0}",
+		"Yikes! What a disaster for {0}",
+		"{0} got absolutely pummeled",
+		"Devestating loss by {0}",
+		"Is {0} a meme? Because what a loss",
+		"{0} now has some assembly required",
+		"May pieces of {0} be recycled\r\nto construct a winning bot",
+		"2 bots entered, but {0} did not exit"
     };
 
     public void OnWantFinishConfirmation(string msg) {
