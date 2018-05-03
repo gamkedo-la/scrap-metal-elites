@@ -200,8 +200,8 @@ MonoBehaviour:
   playerSelected: {fileID: 11400000, guid: 0fecdd842a62c4c9e9c754773b0fb289, type: 2}
   wantMatchSelect: {fileID: 11400000, guid: cb3f52fac14cf478ab5ef02312efbf45, type: 2}
   matchSelected: {fileID: 11400000, guid: ff881e7043af942e7ac6b262a24c24d6, type: 2}
+  gameInfo: {fileID: 11400000, guid: 1054ae867b4e44415b3ff3918a0f3351, type: 2}
   debug: 1
-  gameMode: 0
   match: {fileID: 129228126}
 --- !u!4 &45340541
 Transform:

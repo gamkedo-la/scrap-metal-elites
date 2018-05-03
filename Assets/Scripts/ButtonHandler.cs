@@ -5,13 +5,30 @@ using UnityEngine.SceneManagement;
 
 public class ButtonHandler : MonoBehaviour
 {
-    public void NewGameBtn(string startNewGame)
+    [Header("State Variables")]
+    public GameInfo gameInfo;
+
+    public string deathMatchScene = "Arena DeathMatch";
+    public string championshipScene = "Arena DeathMatch";
+
+    public void OnDeathMatchClick()
     {
-        SceneManager.LoadScene(startNewGame);
+        gameInfo.gameMode = GameMode.DeathMatch;
+        SceneManager.LoadScene(deathMatchScene);
     }
 
-    public void QuitGame()
+    public void OnChampionshipClick()
+    {
+        gameInfo.gameMode = GameMode.Championship;
+        SceneManager.LoadScene(championshipScene);
+    }
+
+    public void OnQuitGameClick()
     {
         Application.Quit();
+    }
+
+    public void OnCreditsClick()
+    {
     }
 }

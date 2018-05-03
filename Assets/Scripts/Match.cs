@@ -1,19 +1,6 @@
 using System.Collections;
 using UnityEngine;
 
-[System.Serializable]
-public class MatchInfo {
-    public string id;
-    public NamedPrefab playerPrefab;
-    public NamedPrefab[] enemyPrefabs;
-    // FIXME: todo
-    // player/enemy spawn points
-    // # of enemies at a time
-    // list of hazards
-    // hazard spawn points
-    // arena choice
-}
-
 public class Match : MonoBehaviour {
     [Header("External Component References")]
     public CameraController cameraController;
@@ -80,7 +67,7 @@ public class Match : MonoBehaviour {
         return botGo;
     }
 
-    static string fmtTimerMsg(bool showTimeSplit, int tick) {
+    public static string FmtTimerMsg(bool showTimeSplit, int tick) {
         if (showTimeSplit) {
             var min = tick/60;
             var sec = tick%60;
@@ -107,7 +94,7 @@ public class Match : MonoBehaviour {
         var lastTick = timeout;
         timerTick = lastTick;
         if (debug) Debug.Log("Tick: " + lastTick);
-        if (bannerEvent != null) bannerEvent.Raise(fmtTimerMsg(showTimeSplit, lastTick));
+        if (bannerEvent != null) bannerEvent.Raise(FmtTimerMsg(showTimeSplit, lastTick));
         var currentDelta = Time.fixedTime - startTime;
         while (conditionPredicate() && (currentDelta < (float) timeout)) {
             var currentTick = timeout - Mathf.FloorToInt(currentDelta);
@@ -115,7 +102,7 @@ public class Match : MonoBehaviour {
                 lastTick = currentTick;
                 timerTick = lastTick;
                 if (debug) Debug.Log("Tick: " + lastTick);
-                if (bannerEvent != null) bannerEvent.Raise(fmtTimerMsg(showTimeSplit, lastTick));
+                if (bannerEvent != null) bannerEvent.Raise(FmtTimerMsg(showTimeSplit, lastTick));
             }
             // wait until next frame;
             yield return null;
@@ -125,7 +112,7 @@ public class Match : MonoBehaviour {
         if (conditionPredicate()) {
             lastTick = 0;
             timerTick = lastTick;
-            if (bannerEvent != null) bannerEvent.Raise(fmtTimerMsg(showTimeSplit, lastTick));
+            if (bannerEvent != null) bannerEvent.Raise(FmtTimerMsg(showTimeSplit, lastTick));
             if (debug) Debug.Log("Tick: " + lastTick);
         }
     }

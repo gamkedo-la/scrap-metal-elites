@@ -4,6 +4,7 @@ using UnityEngine;
 [System.Serializable]
 public class NamedPrefab {
     public string name;
+    public Vector3 spawnPoint;  // overrides default spawn points
     public GameObject prefab;
 }
 

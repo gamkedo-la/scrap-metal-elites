@@ -3,10 +3,6 @@ using System.Linq;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour {
-    public enum GameMode {
-        DeathMatch,
-        Championship
-    }
 
     [Header("Events")]
     public StringEvent wantPlayerSelect;            // used to notify player select modal to ask for player
@@ -14,9 +10,11 @@ public class GameManager : MonoBehaviour {
     public PlayerInfoEvent wantMatchSelect;         // used to notify match select modal to ask for match info
     public MatchInfoEvent matchSelected;            // used to receive selected match
 
+    [Header("State Variables")]
+    public GameInfo gameInfo;
+
     [Header("Game Config")]
     public bool debug = false;
-    public GameMode gameMode = GameMode.DeathMatch;
     public Match match;
 
     private bool started = false;
@@ -60,7 +58,7 @@ public class GameManager : MonoBehaviour {
         Destroy(listener);
 
         // transition to match select
-        if (gameMode == GameMode.DeathMatch) {
+        if (gameInfo.gameMode == GameMode.DeathMatch) {
             StartCoroutine(StateBotSelect());
         } else {
             StartCoroutine(StateMatchSelect());
