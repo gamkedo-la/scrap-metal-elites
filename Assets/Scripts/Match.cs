@@ -37,6 +37,12 @@ public class Match : MonoBehaviour {
     private PlayerInfo playerInfo;
     private int timerTick = 0;
 
+	// FIXME - disable this in production - debug only
+	// in order to skip the main menu while iterating
+	void Start() {
+		OnStartMatch();
+	}
+
     void OnBotDeath(GameObject bot) {
         if (bot != null) {
             if (debug) Debug.Log("Bot died: " + bot.name);
