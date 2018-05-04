@@ -39,9 +39,11 @@ public class Match : MonoBehaviour {
 
 	// FIXME - disable this in production - debug only
 	// in order to skip the main menu while iterating
+	/*
 	void Start() {
 		OnStartMatch();
 	}
+	*/
 
     void OnBotDeath(GameObject bot) {
         if (bot != null) {

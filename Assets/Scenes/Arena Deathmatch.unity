@@ -894,21 +894,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 9
       objectReference: {fileID: 0}
-    - target: {fileID: 82769248225517968, guid: 95e2b94e8e2a5a0438d734b951484374,
-        type: 2}
-      propertyPath: m_Volume
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114964672692864442, guid: 95e2b94e8e2a5a0438d734b951484374,
-        type: 2}
-      propertyPath: crowdVolume
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114964672692864442, guid: 95e2b94e8e2a5a0438d734b951484374,
-        type: 2}
-      propertyPath: announcerVolume
-      value: 0.7
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 95e2b94e8e2a5a0438d734b951484374, type: 2}
   m_IsPrefabParent: 0
