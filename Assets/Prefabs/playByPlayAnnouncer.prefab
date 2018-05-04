@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 114458667856668282}
   - component: {fileID: 114964672692864442}
   - component: {fileID: 82739698174589432}
+  - component: {fileID: 82769248225517968}
   m_Layer: 0
   m_Name: playByPlayAnnouncer
   m_TagString: Untagged
@@ -56,6 +57,86 @@ AudioSource:
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+--- !u!82 &82769248225517968
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1775659129999778}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 42b2658d5e9da304683b1536ca6c0b65, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.3
+  m_Pitch: 1
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -161,9 +242,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9e73c9e1505eb045badfef6ec460fa4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  announcerVolume: 0.5
-  idleTimeUntilRandom: 2
+  announcerVolume: 0.75
+  crowdVolume: 0.25
+  idleTimeUntilRandom: 1
   audio: {fileID: 0}
+  crowdClips:
+  - {fileID: 8300000, guid: 3d9b73e48cc15a0488a3964cc548a12c, type: 3}
   introClips:
   - {fileID: 8300000, guid: fc2ca733b7501184999a498e58747275, type: 3}
   - {fileID: 8300000, guid: 510c56af7e503b44984e1fbe151f38a5, type: 3}
