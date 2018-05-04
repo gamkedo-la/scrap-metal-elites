@@ -9,6 +9,7 @@ public class Match : MonoBehaviour {
     public SpawnPointRuntimeSet playerSpawns;
     public SpawnPointRuntimeSet enemySpawns;
     public BotRuntimeSet allBots;
+    public GameInfo gameInfo;
 
     [Header("Events")]
     public StringEvent timerMessage;
@@ -25,7 +26,6 @@ public class Match : MonoBehaviour {
     public int matchTime = 180;
     public bool debug = false;
 
-    private bool matchStarted = false;
     [HideInInspector]
     public GameObject spawnedPlayer;
     [HideInInspector]
@@ -126,10 +126,10 @@ public class Match : MonoBehaviour {
         // spawn bots
         // FIXME: hack for now... manually apply control scripts/set targets/ai mode
         spawnedPlayer = SpawnBot(
-            matchInfo.playerPrefab.prefab,
+            gameInfo.matchInfo.playerPrefab.prefab,
             playerSpawnPoint,
             enemySpawnPoint.transform.position,
-            matchInfo.playerPrefab.name);
+            gameInfo.matchInfo.playerPrefab.name);
         yield return null;
         if (spawnedPlayer != null) {
             var brain = spawnedPlayer.AddComponent<HumanController>();
@@ -140,10 +140,10 @@ public class Match : MonoBehaviour {
             }
         }
         spawnedEnemy = SpawnBot(
-            matchInfo.enemyPrefabs[0].prefab,
+            gameInfo.matchInfo.enemyPrefabs[0].prefab,
             enemySpawnPoint,
             playerSpawnPoint.transform.position,
-            matchInfo.enemyPrefabs[0].name);
+            gameInfo.matchInfo.enemyPrefabs[0].name);
         yield return null;
         if (spawnedEnemy != null) {
             var brain = spawnedEnemy.AddComponent<AIController>();
@@ -276,13 +276,12 @@ public class Match : MonoBehaviour {
         if (winningBot == spawnedPlayer) {
             // create score for win
             var scoreInfo = new MatchScoreInfo();
-            scoreInfo.matchID = matchInfo.id;
+            scoreInfo.matchID = gameInfo.matchInfo.id;
             scoreInfo.time = timerTick;
-            // FIXME: score
-            playerInfo.AddWin(scoreInfo);
+            gameInfo.playerInfo.AddWin(scoreInfo);
 
         } else {
-            playerInfo.AddLoss();
+            gameInfo.playerInfo.AddLoss();
         }
 
         // setup listener for doneConfirmed event
@@ -293,7 +292,7 @@ public class Match : MonoBehaviour {
 
         // trigger event to notify player that match is complete,
         // causes confirmation modal to display message and wait for player to click ok
-        var msg = System.String.Format("{0}:{1}", (winningBot == spawnedPlayer) ? "win" : "loss", playerInfo.name);
+        var msg = System.String.Format("{0}:{1}", (winningBot == spawnedPlayer) ? "win" : "loss", gameInfo.playerInfo.name);
         wantDoneConfirm.Raise(msg);
 
         // wait for match info to be selected
@@ -306,6 +305,11 @@ public class Match : MonoBehaviour {
         if (matchFinished != null) {
             matchFinished.Raise();
         }
+    }
+
+    public void OnStartMatch() {
+        Debug.Log("OnStartMatch");
+        StartCoroutine(StatePrepare());
     }
 
     public void PlayMatch(

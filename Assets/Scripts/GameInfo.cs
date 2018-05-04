@@ -8,4 +8,6 @@ public enum GameMode {
 [CreateAssetMenu(fileName = "gameInfo", menuName = "Variable/GameInfo")]
 public class GameInfo : ScriptableObject {
     public GameMode gameMode;
+    public PlayerInfo playerInfo;
+    public MatchInfo matchInfo;
 }

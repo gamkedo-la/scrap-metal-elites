@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 225214123995320552}
   - component: {fileID: 114511607590813342}
   m_Layer: 5
-  m_Name: MatchSetupPanel
+  m_Name: DeathMatchBotSelectPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1760,12 +1760,14 @@ MonoBehaviour:
   matchSelected: {fileID: 11400000, guid: ff881e7043af942e7ac6b262a24c24d6, type: 2}
   playerNameInput: {fileID: 114584717958271234}
   playerBotDropdown: {fileID: 114635519861446952}
+  playerBotViewPanel: {fileID: 224607938818531794}
   enemyNameInput: {fileID: 114477610725222436}
   enemyBotDropdown: {fileID: 114656075521448538}
+  enemyBotViewPanel: {fileID: 224786124013716294}
   canvasGroup: {fileID: 225214123995320552}
+  sandboxPrefab: {fileID: 1643981519012756, guid: 2346d249a64584711b1535a4652ccf55,
+    type: 2}
   availableBots: {fileID: 11400000, guid: 40f18f0a5064c4c17b81c45e0382af59, type: 2}
-  playerSandbox: {fileID: 0}
-  enemySandbox: {fileID: 0}
 --- !u!114 &114584717958271234
 MonoBehaviour:
   m_ObjectHideFlags: 1

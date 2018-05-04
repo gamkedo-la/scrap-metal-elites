@@ -59,6 +59,7 @@ GameObject:
   - component: {fileID: 114357097306371586}
   - component: {fileID: 225476882124813272}
   - component: {fileID: 114835704453696184}
+  - component: {fileID: 114567102881169474}
   m_Layer: 5
   m_Name: TitleMatchPanel
   m_TagString: Untagged
@@ -291,6 +292,34 @@ MonoBehaviour:
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 1
   m_ChildControlHeight: 0
+--- !u!114 &114567102881169474
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1406463390264606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e385f9c07825b444c93f0d63c36011cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: cb3f52fac14cf478ab5ef02312efbf45, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 114835704453696184}
+        m_MethodName: OnWantMatchSelect
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityPlayerInfoEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!114 &114632004551773866
 MonoBehaviour:
   m_ObjectHideFlags: 1

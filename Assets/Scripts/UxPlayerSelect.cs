@@ -2,38 +2,23 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-public class UxPlayerSelect : MonoBehaviour {
+public class UxPlayerSelect : UxPanel {
     [Header("UI Reference")]
     public InputField playerNameInput;
     public Dropdown playerDropdown;
     public Button playerCreateButton;
     public Button playerSelectButton;
-    public CanvasGroup canvasGroup;
+    public Button backButton;
 
     [Header("Game Events")]
-    public StringEvent onPlayerSelect;
+    public StringEvent playerSelected;
+    public GameEvent selectCancelled;               // used to notify of cancel
 
     private string[] existingPlayers;
 
     void Start() {
         // start out w/ modal hidden
         Hide();
-    }
-
-    void Display() {
-        if (canvasGroup != null) {
-            canvasGroup.alpha = 1f; //this makes everything transparent
-            canvasGroup.blocksRaycasts = true; //this prevents the UI element to receive input events
-            canvasGroup.interactable = true;
-        }
-    }
-
-    void Hide() {
-        if (canvasGroup != null) {
-            canvasGroup.alpha = 0f; //this makes everything transparent
-            canvasGroup.blocksRaycasts = false; //this prevents the UI element to receive input events
-            canvasGroup.interactable = false;
-        }
     }
 
     public void OnPlayerList(string message) {
@@ -66,17 +51,14 @@ public class UxPlayerSelect : MonoBehaviour {
         }
 
         // setup button callbacks
-        if (playerCreateButton != null) {
-            playerCreateButton.onClick.AddListener(OnPlayerCreate);
+        playerCreateButton.onClick.AddListener(OnPlayerCreate);
+        if (existingPlayers.Length > 0) {
+            playerSelectButton.interactable = true;
+            playerSelectButton.onClick.AddListener(OnPlayerSelect);
+        } else {
+            playerSelectButton.interactable = false;
         }
-        if (playerSelectButton != null) {
-            if (existingPlayers.Length > 0) {
-                playerSelectButton.interactable = true;
-                playerSelectButton.onClick.AddListener(OnPlayerSelect);
-            } else {
-                playerSelectButton.interactable = false;
-            }
-        }
+        backButton.onClick.AddListener(OnBackClick);
     }
 
     public void OnPlayerCreate() {
@@ -87,8 +69,8 @@ public class UxPlayerSelect : MonoBehaviour {
             Hide();
             // raise event for player selected
             var name = playerNameInput.text;
-            if (onPlayerSelect != null) {
-                onPlayerSelect.Raise(name);
+            if (playerSelected != null) {
+                playerSelected.Raise(name);
             }
         }
     }
@@ -98,8 +80,16 @@ public class UxPlayerSelect : MonoBehaviour {
         Hide();
         // raise event for player selected
         var name = existingPlayers[playerDropdown.value];
-        if (onPlayerSelect != null) {
-            onPlayerSelect.Raise(name);
+        if (playerSelected != null) {
+            playerSelected.Raise(name);
         }
     }
+
+    public void OnBackClick() {
+        // Hide panel
+        Hide();
+        // raise event for cancel
+        selectCancelled.Raise();
+    }
+
 }

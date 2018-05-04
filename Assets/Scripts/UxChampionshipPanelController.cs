@@ -31,7 +31,7 @@ public class UxChampionshipPanelController : UxPanel {
         this.playerInfo = playerInfo;
 
         // rebuild match list
-        bool lastRoundWon = false;
+        bool lastRoundWon = true;
         selectedMatchIndex = -1;
         for (var i=0; i<matchConfig.Length; i++) {
             string title, score, enemyTitle;
@@ -106,8 +106,10 @@ public class UxChampionshipPanelController : UxPanel {
         Hide();
     }
 
+    /*
     public void Start() {
         var json = "{\"name\":\"joe\",\"wins\":1,\"losses\":0,\"scoreboard\":[{\"matchID\":\"champ1\",\"score\":1400,\"time\":133}]}";
         OnWantMatchSelect(PlayerInfo.FromJson(json));
     }
+    */
 }

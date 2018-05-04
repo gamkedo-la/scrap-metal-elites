@@ -8,16 +8,21 @@ public class UxDeathmatchPanelController : MonoBehaviour {
     [Header("UI Reference")]
     public InputField playerNameInput;
     public Dropdown playerBotDropdown;
+    public RectTransform playerBotViewPanel;
     public InputField enemyNameInput;
     public Dropdown enemyBotDropdown;
+    public RectTransform enemyBotViewPanel;
     public CanvasGroup canvasGroup;
+
+    [Header("Prefabs")]
+    public GameObject sandboxPrefab;
 
     [Header("Config")]
     public NamedPrefabRuntimeSet availableBots;
-    public UxSandboxController playerSandbox;
-    public UxSandboxController enemySandbox;
 
     private MatchInfo matchInfo;
+    private UxSandboxController playerSandbox;
+    private UxSandboxController enemySandbox;
 
     void Awake() {
         // start w/ panel hidden
@@ -79,7 +84,13 @@ public class UxDeathmatchPanelController : MonoBehaviour {
         matchInfo.enemyPrefabs[0].prefab = availableBots.Items[enemyBotDropdown.value].prefab;
 
         // initialize sandboxes
+        var sandboxGo = Instantiate(sandboxPrefab, new Vector3(100,0,0), Quaternion.identity);
+        playerSandbox = sandboxGo.GetComponent<UxSandboxController>();
+        playerSandbox.externalPanel = playerBotViewPanel;
         playerSandbox.ShowBot(matchInfo.playerPrefab.prefab);
+        sandboxGo = Instantiate(sandboxPrefab, new Vector3(-100,0,0), Quaternion.identity);
+        enemySandbox = sandboxGo.GetComponent<UxSandboxController>();
+        enemySandbox.externalPanel = enemyBotViewPanel;
         enemySandbox.ShowBot(matchInfo.enemyPrefabs[0].prefab);
     }
 
@@ -112,5 +123,12 @@ public class UxDeathmatchPanelController : MonoBehaviour {
         // send match select notification
         matchSelected.Raise(matchInfo);
     }
+
+    /*
+    public void Start() {
+        var json = "{\"name\":\"joe\",\"wins\":1,\"losses\":0,\"scoreboard\":[{\"matchID\":\"champ1\",\"score\":1400,\"time\":133}]}";
+        OnWantMatch(PlayerInfo.FromJson(json));
+    }
+    */
 
 }
