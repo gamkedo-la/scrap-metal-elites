@@ -11,4 +11,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6f878a31b30a4ce7a1896b13e1b054b, type: 3}
   m_Name: gameInfo
   m_EditorClassIdentifier: 
-  gameMode: 0
+  gameMode: 1
+  playerInfo:
+    name: bob
+    wins: 6
+    losses: 1
+    scoreboard:
+    - matchID: deathmatch
+      score: 0
+      time: 129
+    - matchID: champ1
+      score: 0
+      time: 147
+  matchInfo:
+    id: champ1
+    playerPrefab:
+      name: bob
+      spawnPoint: {x: 0, y: 0, z: 0}
+      prefab: {fileID: 1747757598241954, guid: 38bb754395b7c4f92be06a38923df58d, type: 2}
+    enemyTitle: The Gimp
+    enemyPrefabs:
+    - name: leroy
+      spawnPoint: {x: 0, y: 0, z: 0}
+      prefab: {fileID: 1747757598241954, guid: 38bb754395b7c4f92be06a38923df58d, type: 2}
