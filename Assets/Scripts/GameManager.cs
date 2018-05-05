@@ -5,9 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
 
-    [Header("UI Reference")]
-    public Canvas canvas;                           // the top-level canvas
-
     [Header("Prefabs")]
     public GameObject mainMenuPrefab;
     public GameObject playerSelectPanelPrefab;
@@ -60,7 +57,7 @@ public class GameManager : MonoBehaviour {
     IEnumerator StateMainMenu() {
         if (debug) Debug.Log("StateMainMenu");
         // instantiate main menu prefab (under canvas)
-        var panelGo = Instantiate(mainMenuPrefab, canvas.gameObject.transform);
+        var panelGo = Instantiate(mainMenuPrefab, GetCanvas().gameObject.transform);
         yield return null;      // wait a frame for panel initialization
 
         // create listener for gameModeSelected event
@@ -85,7 +82,7 @@ public class GameManager : MonoBehaviour {
         if (debug) Debug.Log("StatePlayerSelect");
 
         // load panel
-        var panelGo = Instantiate(playerSelectPanelPrefab, canvas.gameObject.transform);
+        var panelGo = Instantiate(playerSelectPanelPrefab, GetCanvas().gameObject.transform);
         yield return null;      // wait a frame for panel initialization
         string selectedPlayer = "";
         bool cancelled = false;
@@ -140,13 +137,14 @@ public class GameManager : MonoBehaviour {
     // Death match bot selection
     IEnumerator StateMatchSelect() {
         if (debug) Debug.Log("StateMatchSelect");
+        matchInfo = null;
 
         // load panel
         GameObject panelGo;
         if (gameInfo.gameMode == GameMode.DeathMatch) {
-            panelGo = Instantiate(deathMatchBotSelectPanelPrefab, canvas.gameObject.transform);
+            panelGo = Instantiate(deathMatchBotSelectPanelPrefab, GetCanvas().gameObject.transform);
         } else {
-            panelGo = Instantiate(titleMatchPanelPrefab, canvas.gameObject.transform);
+            panelGo = Instantiate(titleMatchPanelPrefab, GetCanvas().gameObject.transform);
         }
         yield return null;      // wait a frame for panel initialization
         bool cancelled = false;
@@ -188,19 +186,31 @@ public class GameManager : MonoBehaviour {
         SceneManager.LoadScene(arenaScene);
         yield return null;
 
-        // wait for arena to signal it is ready
-        /*
-        var arenaReady = false;
-        var listener = gameObject.AddComponent<GameEventListener>();
-        listener.SetEvent(arenaPrepared);
-        listener.Response.AddListener(()=>{arenaReady = true;});
-        */
-
         // Start the match
         wantMatchStart.Raise();
-        //match.PlayMatch(playerInfo, matchInfo);
-        // FIXME: add event for match complete
+
+        // wait for match to finish
+        var done = false;
+        var listener = gameObject.AddComponent<GameEventListener>();
+        listener.SetEvent(matchFinished);
+        listener.Response.AddListener(() => {done = true;});
+        yield return new WaitUntil(() => done);
+
+        // stop the match scene, reload main menu scene
+        SceneManager.LoadScene(mainScene);
         yield return null;
+
+        // transition back to match select
+        StartCoroutine(StateMatchSelect());
+    }
+
+    Canvas GetCanvas() {
+        // canvas should always be tagged
+        var canvasGo = GameObject.FindWithTag("canvas");
+        if (canvasGo != null) {
+            return canvasGo.GetComponent<Canvas>();
+        }
+        return null;
     }
 
 }

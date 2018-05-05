@@ -5,6 +5,10 @@ public class Match : MonoBehaviour {
     [Header("External Component References")]
     public CameraController cameraController;
 
+    [Header("Prefabs")]
+    public GameObject pausePanelPrefab;
+    public GameObject donePanelPrefab;
+
     [Header("State Variables")]
     public SpawnPointRuntimeSet playerSpawns;
     public SpawnPointRuntimeSet enemySpawns;
@@ -20,6 +24,7 @@ public class Match : MonoBehaviour {
     public StringEvent wantDoneConfirm;     // event used to trigger match complete modal for player confirmation
     public GameEvent doneConfirmed;         // event used by player confirmation modal when player clears modal
     public GameEvent matchFinished;         // event raised when match is complete
+    public StringEvent pauseActionSelected; // event used by pause modal to identify action selected
 
     [Header("Match Config")]
     public int countdownTicks = 3;
@@ -31,19 +36,12 @@ public class Match : MonoBehaviour {
     [HideInInspector]
     public GameObject spawnedEnemy;
 
+    private bool matchStarted = false;
     private bool winnerDeclared = false;
     private GameObject winningBot;
     private MatchInfo matchInfo;
     private PlayerInfo playerInfo;
     private int timerTick = 0;
-
-	// FIXME - disable this in production - debug only
-	// in order to skip the main menu while iterating
-	/*
-	void Start() {
-		OnStartMatch();
-	}
-	*/
 
     void OnBotDeath(GameObject bot) {
         if (bot != null) {
@@ -51,11 +49,11 @@ public class Match : MonoBehaviour {
         }
 
         // declare a winner
-        if (bot == spawnedPlayer) {
-            winningBot = spawnedEnemy;
-        } else {
-            winningBot = spawnedPlayer;
-        }
+        DeclareWinner((bot == spawnedPlayer) ? spawnedEnemy : spawnedPlayer);
+    }
+
+    void DeclareWinner(GameObject winner) {
+        winningBot = winner;
         winnerDeclared = true;
     }
 
@@ -212,6 +210,8 @@ public class Match : MonoBehaviour {
     IEnumerator StatePlay() {
         if (debug) Debug.Log("StatePlay");
         StartCoroutine(StateMatchTimer());
+        yield return null;      // if match timer was skipped (escape pressed), eat the escape by waiting a frame
+        StartCoroutine(PauseHandler());
 
         // notify channel
         if (gameEventChannel != null) {
@@ -236,6 +236,75 @@ public class Match : MonoBehaviour {
         StartCoroutine(StateFinish());
     }
 
+    IEnumerator PauseHandler() {
+        bool paused = false;
+        StringEventListener listener = null;
+        GameObject panelGo = null;
+        string pauseAction = "";
+        while (!winnerDeclared) {
+            bool startPause = false;
+            bool stopPause = false;
+            bool concede = false;
+
+            // handle escape key
+            if (Input.GetKeyUp(KeyCode.Escape)) {
+                if (paused) {
+                    stopPause = true;
+                } else {
+                    startPause = true;
+                }
+            }
+
+            // handle event listener response
+            if (pauseAction == "continue") {
+                stopPause = true;
+            } else if (pauseAction == "concede") {
+                stopPause = true;
+                concede = true;
+            }
+
+            // handle start pause
+            if (startPause) {
+                // instantiate pause modal
+                panelGo = Instantiate(pausePanelPrefab, GetCanvas().gameObject.transform);
+                yield return null;      // wait a frame for panel initialization
+
+                // add listener to panel
+                pauseAction = "";
+                listener = panelGo.AddComponent<StringEventListener>();
+                listener.SetEvent(pauseActionSelected);
+                listener.Response.AddListener((msg)=>{pauseAction = msg;});
+
+                // actually pause
+                Time.timeScale = 0f;
+                paused = true;
+            }
+
+            // handle stop pause
+            if (stopPause) {
+                pauseAction = "";
+                // tear down modal
+                if (panelGo != null) {
+                    Destroy(panelGo);
+                }
+
+                // continue
+                Time.timeScale = 1f;
+                paused = false;
+            }
+
+            // handle concede action
+            if (concede) {
+                pauseAction = "";
+                // declaring a winner should cause pause manager to finish
+                DeclareWinner(spawnedEnemy);
+            }
+
+            // wait til next frame
+            yield return null;
+        }
+    }
+
     IEnumerator StateMatchTimer() {
         if (debug) Debug.Log("StateMatchTimer");
         yield return null;
@@ -248,17 +317,11 @@ public class Match : MonoBehaviour {
             var playerHealth = spawnedPlayer.GetComponent<BotHealth>();
             var enemyHealth = spawnedEnemy.GetComponent<BotHealth>();
             if (playerHealth != null && enemyHealth != null) {
-                winnerDeclared = true;
-                if (playerHealth.healthPercent > enemyHealth.healthPercent) {
-                    winningBot = spawnedPlayer;
-                } else {
-                    winningBot = spawnedEnemy;
-                }
+                DeclareWinner((playerHealth.healthPercent > enemyHealth.healthPercent) ? spawnedPlayer :  spawnedEnemy);
 
             // shouldn't happen: declare enemy winner
             } else {
-                winnerDeclared = true;
-                winningBot = spawnedEnemy;
+                DeclareWinner(spawnedEnemy);
             }
         }
     }
@@ -298,6 +361,10 @@ public class Match : MonoBehaviour {
         listener.SetEvent(doneConfirmed);
         listener.Response.AddListener(()=>{confirmed = true;});
 
+        // instantiate modal for confirmation
+        var panelGo = Instantiate(donePanelPrefab, GetCanvas().gameObject.transform);
+        yield return null;      // wait a frame for panel initialization
+
         // trigger event to notify player that match is complete,
         // causes confirmation modal to display message and wait for player to click ok
         var msg = System.String.Format("{0}:{1}", (winningBot == spawnedPlayer) ? "win" : "loss", gameInfo.playerInfo.name);
@@ -307,6 +374,7 @@ public class Match : MonoBehaviour {
         yield return new WaitUntil(() => confirmed);
 
         // clean up, remove listener
+        Destroy(panelGo);
         Destroy(listener);
 
         // signal that the match is done
@@ -316,8 +384,10 @@ public class Match : MonoBehaviour {
     }
 
     public void OnStartMatch() {
-        Debug.Log("OnStartMatch");
-        StartCoroutine(StatePrepare());
+        if (!matchStarted) {
+            StartCoroutine(StatePrepare());
+            matchStarted = true;
+        }
     }
 
     public void PlayMatch(
@@ -327,6 +397,15 @@ public class Match : MonoBehaviour {
         this.playerInfo = playerInfo;
         this.matchInfo = matchInfo;
         StartCoroutine(StatePrepare());
+    }
+
+    Canvas GetCanvas() {
+        // canvas should always be tagged
+        var canvasGo = GameObject.FindWithTag("canvas");
+        if (canvasGo != null) {
+            return canvasGo.GetComponent<Canvas>();
+        }
+        return null;
     }
 
 }

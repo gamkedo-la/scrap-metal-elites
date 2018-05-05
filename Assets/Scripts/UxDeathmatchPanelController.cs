@@ -4,6 +4,7 @@ using UnityEngine.UI;
 public class UxDeathmatchPanelController : MonoBehaviour {
     [Header("Events")]
     public MatchInfoEvent matchSelected;            // used to notify of selected match
+    public GameEvent selectCancelled;               // used to notify of cancel
 
     [Header("UI Reference")]
     public InputField playerNameInput;
@@ -23,6 +24,7 @@ public class UxDeathmatchPanelController : MonoBehaviour {
     private MatchInfo matchInfo;
     private UxSandboxController playerSandbox;
     private UxSandboxController enemySandbox;
+    private bool cancelled = false;
 
     void Awake() {
         // start w/ panel hidden
@@ -122,6 +124,11 @@ public class UxDeathmatchPanelController : MonoBehaviour {
 
         // send match select notification
         matchSelected.Raise(matchInfo);
+    }
+
+    public void OnCancel() {
+        Hide();
+        selectCancelled.Raise();
     }
 
     /*
