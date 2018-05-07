@@ -65,7 +65,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1203292246393410}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0.459, y: 0, z: -0.063}
+  m_LocalPosition: {x: 0.459, y: 0, z: -0.063}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4106055063551640}
@@ -125,4 +125,4 @@ MeshCollider:
   m_Convex: 1
   m_InflateMesh: 0
   m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300026, guid: f3375626d3318471381b6bbe4a98f5bd, type: 3}
+  m_Mesh: {fileID: 4300010, guid: f3375626d3318471381b6bbe4a98f5bd, type: 3}
