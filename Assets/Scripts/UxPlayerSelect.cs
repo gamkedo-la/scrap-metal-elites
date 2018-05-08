@@ -16,10 +16,12 @@ public class UxPlayerSelect : UxPanel {
 
     private string[] existingPlayers;
 
+    /*
     void Start() {
         // start out w/ modal hidden
         Hide();
     }
+    */
 
     public void OnPlayerList(string message) {
         Debug.Log("UxPlayerSelect.OnPlayerList: " + message);

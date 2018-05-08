@@ -354,7 +354,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainMenuPrefab: {fileID: 1497987298496896, guid: deacdd7444fc044eea36b4c38db094ad,
     type: 2}
-  playerSelectPanelPrefab: {fileID: 1554400972917660, guid: 4c49ff3a404ab449e9e9e64f8cfe53cd,
+  playerSelectPanelPrefab: {fileID: 1141974151847616, guid: 81f2658d011bb494d9b61aade43c7627,
     type: 2}
   deathMatchBotSelectPanelPrefab: {fileID: 1242552847162548, guid: 59277e92dfd8e46dcba32c8b51e1a497,
     type: 2}
