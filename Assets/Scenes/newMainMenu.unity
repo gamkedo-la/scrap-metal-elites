@@ -295,10 +295,10 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1024, y: 768}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -352,12 +352,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec25786ea89cd420bb1ae66b72f8bf72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 864710999}
-  mainMenuPrefab: {fileID: 1802978446410738, guid: deacdd7444fc044eea36b4c38db094ad,
+  mainMenuPrefab: {fileID: 1497987298496896, guid: deacdd7444fc044eea36b4c38db094ad,
     type: 2}
   playerSelectPanelPrefab: {fileID: 1554400972917660, guid: 4c49ff3a404ab449e9e9e64f8cfe53cd,
     type: 2}
-  deathMatchBotSelectPanelPrefab: {fileID: 1057797550099032, guid: 8b160c930afc14e89aae90f7eba61bca,
+  deathMatchBotSelectPanelPrefab: {fileID: 1242552847162548, guid: 59277e92dfd8e46dcba32c8b51e1a497,
     type: 2}
   titleMatchPanelPrefab: {fileID: 1406463390264606, guid: c8b2217a1c2b14e4c9853f79009f8638,
     type: 2}

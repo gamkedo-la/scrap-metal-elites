@@ -5,6 +5,7 @@ public class UxMainMenu : UxPanel {
     [Header("UI Reference")]
     public Button deathMatchButton;
     public Button titleMatchButton;
+    public Button optionsButton;
     public Button creditsButton;
     public Button quitButton;
 
@@ -24,11 +25,13 @@ public class UxMainMenu : UxPanel {
         // setup button callbacks
         deathMatchButton.onClick.AddListener(()=>{ OnGameModeClick(GameMode.DeathMatch); });
         titleMatchButton.onClick.AddListener(()=>{ OnGameModeClick(GameMode.Championship); });
+        optionsButton.onClick.AddListener(OnOptionsClick);
         creditsButton.onClick.AddListener(OnCreditsClick);
         quitButton.onClick.AddListener(OnQuitClick);
     }
 
     public void OnGameModeClick(GameMode gameMode) {
+        Debug.Log("OnGameModeClick");
         // game mode is stored in ScriptableObject for GameInfo, shared across scripts and scenes
         gameInfo.gameMode = gameMode;
         // raise notification that game mode has been selected
@@ -41,6 +44,10 @@ public class UxMainMenu : UxPanel {
         Application.Quit();
     }
 
+    public void OnOptionsClick() {
+    }
+
     public void OnCreditsClick() {
     }
+
 }
