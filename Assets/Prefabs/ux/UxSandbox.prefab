@@ -71,7 +71,7 @@ GameObject:
   - component: {fileID: 4574721340939610}
   - component: {fileID: 114237946588701884}
   m_Layer: 8
-  m_Name: sandbox
+  m_Name: UxSandbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -431,6 +431,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   externalPanel: {fileID: 0}
+  botMaterial: 0
   cameraBoom: {fileID: 1991078854600064}
   sandboxCamera: {fileID: 20160074071185986}
   rotateSpeed: 25
