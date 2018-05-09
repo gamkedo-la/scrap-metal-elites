@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1630980753}
-  m_IndirectSpecularColor: {r: 0.094793655, g: 0.11528721, b: 0.21346194, a: 1}
+  m_IndirectSpecularColor: {r: 0.094793744, g: 0.11528733, b: 0.21346214, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -650,7 +650,7 @@ Light:
   serializedVersion: 8
   m_Type: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 10
+  m_Intensity: 5
   m_Range: 50
   m_SpotAngle: 15
   m_CookieSize: 10
@@ -919,6 +919,35 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 449464588}
   m_Mesh: {fileID: 4300006, guid: e406903395f80f14bb329878b3ed2c1d, type: 3}
+--- !u!1 &464536407 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1334990885429048, guid: 0e2f89b7c9b581f41bc410043edb675a,
+    type: 2}
+  m_PrefabInternal: {fileID: 1097992693}
+--- !u!114 &464536410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 464536407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0ff81a528a69487e911b9e6b933fa40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  yoke: {fileID: 464536407}
+  targetRange: 25
+  retargetInterval: 1
+  followDampTime: 0.1
+  ballyhooDampTime: 0.005
+  ballyhooArea: 25
+  ballyhooFloor: -4
+  ballyhooRandom: 0
+  startingMode: 2
+  debug: 0
+  currentBots: {fileID: 0}
+  controlsActive: 1
+  dampTime: 0.1
 --- !u!1001 &466902390
 Prefab:
   m_ObjectHideFlags: 0
@@ -1245,6 +1274,35 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityStringEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
+--- !u!1 &587926132 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1334990885429048, guid: 0e2f89b7c9b581f41bc410043edb675a,
+    type: 2}
+  m_PrefabInternal: {fileID: 665717930}
+--- !u!114 &587926135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 587926132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0ff81a528a69487e911b9e6b933fa40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  yoke: {fileID: 587926132}
+  targetRange: 25
+  retargetInterval: 1
+  followDampTime: 0.1
+  ballyhooDampTime: 0.005
+  ballyhooArea: 25
+  ballyhooFloor: -4
+  ballyhooRandom: 0
+  startingMode: 2
+  debug: 0
+  currentBots: {fileID: 0}
+  controlsActive: 1
+  dampTime: 0.1
 --- !u!1001 &600612505
 Prefab:
   m_ObjectHideFlags: 0
@@ -1535,6 +1593,64 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 681970918}
   m_Mesh: {fileID: 4300006, guid: e406903395f80f14bb329878b3ed2c1d, type: 3}
+--- !u!1 &683897220 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1334990885429048, guid: 0e2f89b7c9b581f41bc410043edb675a,
+    type: 2}
+  m_PrefabInternal: {fileID: 629945657}
+--- !u!114 &683897222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 683897220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0ff81a528a69487e911b9e6b933fa40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  yoke: {fileID: 683897220}
+  targetRange: 25
+  retargetInterval: 1
+  followDampTime: 0.1
+  ballyhooDampTime: 0.005
+  ballyhooArea: 25
+  ballyhooFloor: -4
+  ballyhooRandom: 1
+  startingMode: 2
+  debug: 0
+  currentBots: {fileID: 0}
+  controlsActive: 1
+  dampTime: 0.1
+--- !u!1 &874695725 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1334990885429048, guid: 0e2f89b7c9b581f41bc410043edb675a,
+    type: 2}
+  m_PrefabInternal: {fileID: 466902390}
+--- !u!114 &874695728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 874695725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0ff81a528a69487e911b9e6b933fa40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  yoke: {fileID: 874695725}
+  targetRange: 25
+  retargetInterval: 1
+  followDampTime: 0.1
+  ballyhooDampTime: 0.005
+  ballyhooArea: 25
+  ballyhooFloor: -4
+  ballyhooRandom: 0
+  startingMode: 2
+  debug: 0
+  currentBots: {fileID: 0}
+  controlsActive: 1
+  dampTime: 0.1
 --- !u!1 &896170304
 GameObject:
   m_ObjectHideFlags: 0
@@ -1672,7 +1788,7 @@ Light:
   serializedVersion: 8
   m_Type: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 10
+  m_Intensity: 5
   m_Range: 50
   m_SpotAngle: 15
   m_CookieSize: 10
@@ -2757,7 +2873,7 @@ Light:
   serializedVersion: 8
   m_Type: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 10
+  m_Intensity: 5
   m_Range: 50
   m_SpotAngle: 15
   m_CookieSize: 10
@@ -3564,7 +3680,7 @@ Light:
   serializedVersion: 8
   m_Type: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 10
+  m_Intensity: 5
   m_Range: 50
   m_SpotAngle: 15
   m_CookieSize: 10
