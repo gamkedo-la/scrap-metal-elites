@@ -373,9 +373,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraController: {fileID: 1017095277}
-  pausePanelPrefab: {fileID: 1783284631766084, guid: 9d64f69c376b9467e9d74d5bc840b29a,
+  pausePanelPrefab: {fileID: 1360049687614220, guid: 0f726849645264970a09168333ee2375,
     type: 2}
-  donePanelPrefab: {fileID: 1092096089757304, guid: 9baf99f2fd49943cfaeecd47ee30cd82,
+  donePanelPrefab: {fileID: 1393223583428474, guid: db9b01d98828d40bda08d183f1047164,
     type: 2}
   playerSpawns: {fileID: 11400000, guid: 7c030720892e24c3c842e28cbeff5b21, type: 2}
   enemySpawns: {fileID: 11400000, guid: e6ed11c5cc09041b8943ffe805590809, type: 2}

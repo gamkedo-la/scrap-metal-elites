@@ -40,7 +40,7 @@ public class UxChampionshipPanelController : UxPanel {
             if (i != matchConfig.Length-1) {
                 title = System.String.Format("Challenger Match #{0}", i+1);
             } else {
-                title = "SME Championship Round";
+                title = "SME Championship";
             }
             if (playerScore != null) {
                 score = playerScore.ToString();
@@ -107,6 +107,7 @@ public class UxChampionshipPanelController : UxPanel {
     }
 
     /*
+    // DEBUG ONLY CODE
     public void Start() {
         var json = "{\"name\":\"joe\",\"wins\":1,\"losses\":0,\"scoreboard\":[{\"matchID\":\"champ1\",\"score\":1400,\"time\":133}]}";
         OnWantMatchSelect(PlayerInfo.FromJson(json));

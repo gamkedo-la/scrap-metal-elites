@@ -108,11 +108,6 @@ public class UxMatchFinished : MonoBehaviour {
 
     }
 
-    void Start() {
-        // start out w/ modal hidden
-        Hide();
-    }
-
     void Display() {
         if (canvasGroup != null) {
             canvasGroup.alpha = 1f; //this makes everything transparent

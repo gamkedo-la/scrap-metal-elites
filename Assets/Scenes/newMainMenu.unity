@@ -358,7 +358,7 @@ MonoBehaviour:
     type: 2}
   deathMatchBotSelectPanelPrefab: {fileID: 1242552847162548, guid: 59277e92dfd8e46dcba32c8b51e1a497,
     type: 2}
-  titleMatchPanelPrefab: {fileID: 1406463390264606, guid: c8b2217a1c2b14e4c9853f79009f8638,
+  titleMatchPanelPrefab: {fileID: 1349880369181950, guid: 9a0438018ff454d04988790516f623a2,
     type: 2}
   cancelSelected: {fileID: 11400000, guid: 06c41f8b4ad0843a3b7935fcc2cebe8f, type: 2}
   gameModeSelected: {fileID: 11400000, guid: fe07d74defd4e49beb078e0e1e995cdb, type: 2}
