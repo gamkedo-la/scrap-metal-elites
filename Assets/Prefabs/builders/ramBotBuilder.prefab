@@ -70,6 +70,7 @@ MonoBehaviour:
   part: {fileID: 11400000, guid: d0942cfe20a5a4623a30411e71e64834, type: 2}
   botList: {fileID: 11400000, guid: 0c8c0a9ec335541c59c634bad32ecf99, type: 2}
   eventChannel: {fileID: 11400000, guid: 7cdbdc64686ff4786ae1b73fdc14d54f, type: 2}
+  aiConfig: {fileID: 11400000, guid: 9ced5a50b27ca432686961cbaaef96a8, type: 2}
 --- !u!114 &114459591592834864
 MonoBehaviour:
   m_ObjectHideFlags: 1

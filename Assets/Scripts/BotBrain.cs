@@ -8,17 +8,24 @@ public class BotBrain : MonoBehaviour {
     protected IMovement mover;
     protected IActuator weapon;
 
-    public bool controlsActive = true;
 
     [Header("State Variables")]
     public BotRuntimeSet botList;
     public GameRecordEvent eventChannel;
 
-    private bool botAlive = true;
-    private bool flipped = false;
+    protected bool botAlive = true;
+    protected bool flipped = false;
+    protected bool controlsActive = false;
 
     void OnBotDeath(GameObject from) {
         botAlive = false;
+    }
+
+    public virtual void EnableControls() {
+        controlsActive = true;
+    }
+    public virtual void DisableControls() {
+        controlsActive = false;
     }
 
 	// Use this for initialization

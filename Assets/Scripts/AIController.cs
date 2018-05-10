@@ -10,9 +10,114 @@ public enum AIMood {
 };
 
 public class AIController : BotBrain {
-    public GameObject target;
-    public float thinkSpeed = 1.0f;
-    public AIMood moodNow;
+    public AIConfig config;
+
+    private TargetMode targetMode = TargetMode.Manual;
+    private AIMode currentMode;
+    private float angleToTarget = 0f;
+    private float distanceToTarget = 0f;
+    private GameObject target;
+
+    public void AssignConfig(AIConfig defaultConfig) {
+        // look up config, attached to bot
+        var builder = GetComponent<BotBuilder>();
+        if (builder != null && builder.aiConfig != null) {
+            config = builder.aiConfig;
+            Debug.Log("builder config: " + config);
+        } else {
+            config = defaultConfig;
+            Debug.Log("default config: " + config);
+        }
+    }
+
+    //------------------------------------------------------------------------------
+    // Target modes
+    //------------------------------------------------------------------------------
+    public void TargetManual(GameObject target) {
+        this.target = target;
+        if (controlsActive) {
+            targetMode = TargetMode.Manual;
+        } else {
+            config.startingTargetMode = TargetMode.Manual;
+        }
+    }
+
+    public void TargetClosest() {
+        if (controlsActive) {
+            targetMode = TargetMode.Closest;
+            StartCoroutine(StateTargetClosest());
+        } else {
+            config.startingTargetMode = TargetMode.Closest;
+        }
+    }
+
+    public void TargetPlayer() {
+        this.target = GameObject.FindWithTag("player");
+        if (controlsActive) {
+            targetMode = TargetMode.Player;
+        } else {
+            config.startingTargetMode = TargetMode.Player;
+        }
+    }
+
+    IEnumerator Move() {
+        while (controlsActive) {
+            if (target != null) {
+                distanceToTarget = (target.transform.position-transform.position).magnitude;
+                // scale drive based on distance to target and min driveRange
+                var drive = distanceToTarget/config.driveRange - 1f;
+                if (flipped) {
+                    drive = -drive;
+                }
+                mover.forwardDrive = Mathf.Clamp(drive, -1f, 1f);
+            }
+            yield return null;  // wait until next frame
+        }
+    }
+
+    IEnumerator Steer() {
+        while (controlsActive) {
+            if (mover != null && target != null) {
+                // compute angle to target
+                angleToTarget = AIController.AngleAroundAxis(transform.forward, target.transform.position-transform.position, transform.up);
+                // scale drive, if within min angle scale drive down
+                var drive = angleToTarget/config.aimMinAngle;
+                // flip controls if bot is flipped
+                if (flipped) {
+                    drive = -drive;
+                }
+                // rotate towards target
+                mover.rotateDrive = Mathf.Clamp(drive, -1f, 1f);
+            }
+            yield return null;  // wait until next frame
+        }
+    }
+
+    IEnumerator Fire() {
+        while (controlsActive) {
+            if (weapon != null && target != null && Mathf.Abs(angleToTarget) < config.aimMinAngle && distanceToTarget<config.fireRange) {
+                // fire at target
+                weapon.actuate = 1f;
+                yield return new WaitForSeconds(config.fireDuration);
+                weapon.actuate = 0f;
+                // cooldown
+                yield return new WaitForSeconds(config.fireCooldown);
+            }
+            yield return null;  // wait until next frame
+        }
+    }
+
+    public override void EnableControls() {
+        base.EnableControls();
+        if (config.startingTargetMode == TargetMode.Closest) {
+            TargetClosest();
+        } else if (config.startingTargetMode == TargetMode.Player) {
+            TargetPlayer();
+        }
+        StartCoroutine(Fire());
+        StartCoroutine(Steer());
+        StartCoroutine(Move());
+    }
 
 	// Use this for initialization
 	void Awake() {
@@ -36,8 +141,9 @@ public class AIController : BotBrain {
         return angle * (Vector3.Dot(axis, Vector3.Cross(dirA, dirB)) < 0 ? -1 : 1);
     } // via https://forum.unity.com/threads/turn-left-or-right-to-face-a-point.22235/
 
-
     // Update is called once per frame
+    // FIXME: integrate modes into new steer/drive/fire routines
+    /*
     void Update ()
     {
         // are controls active?
@@ -75,6 +181,38 @@ public class AIController : BotBrain {
                 break;
         }
 
+    }
+        */
+
+    IEnumerator StateTargetClosest() {
+        while (controlsActive && targetMode == TargetMode.Closest) {
+            GameObject closest = null;
+            float distance = 0f;
+            // iterator through current bots, find the closest
+            if (config.currentBots != null) {
+                for (var i=0; i<config.currentBots.Items.Count; i++)  {
+                    // skip self
+                    if (config.currentBots.Items[i].gameObject == gameObject) continue;
+                    // evaluate for closest
+                    if (closest == null || (config.currentBots.Items[i].gameObject.transform.position-transform.position).magnitude < distance) {
+                        closest = config.currentBots.Items[i].gameObject;
+                        distance = (closest.transform.position-transform.position).magnitude;
+                    }
+                }
+            }
+            // if closest is within range, set as target
+            if (closest != null && distance < config.targetRange) {
+                if (target != closest) {
+                    target = closest;
+                    if (config.debug) Debug.Log(gameObject.name + " setting target to: " + target.name);
+                }
+            } else {
+                target = null;
+                if (config.debug) Debug.Log(gameObject.name + " clearing target");
+            }
+            // attempt to retarget on given retarget interval
+            yield return new WaitForSeconds(config.retargetInterval);
+        }
     }
 
 }

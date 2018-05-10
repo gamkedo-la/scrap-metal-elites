@@ -14,6 +14,7 @@ public class Match : MonoBehaviour {
     public SpawnPointRuntimeSet enemySpawns;
     public BotRuntimeSet allBots;
     public GameInfo gameInfo;
+    public AIConfig defaultAIConfig;
 
     [Header("Events")]
     public StringEvent timerMessage;
@@ -139,7 +140,7 @@ public class Match : MonoBehaviour {
         yield return null;
         if (spawnedPlayer != null) {
             var brain = spawnedPlayer.AddComponent<HumanController>();
-            brain.controlsActive = false;
+            brain.DisableControls();
             var materialDistributor = spawnedPlayer.GetComponent<MaterialDistributor>();
             if (materialDistributor != null) {
                 materialDistributor.SetMaterials(MaterialTag.Player);
@@ -153,9 +154,11 @@ public class Match : MonoBehaviour {
         yield return null;
         if (spawnedEnemy != null) {
             var brain = spawnedEnemy.AddComponent<AIController>();
-            brain.target = spawnedPlayer;
-            brain.moodNow = AIMood.aggressive;
-            brain.controlsActive = false;
+            brain.AssignConfig(defaultAIConfig);
+            //brain.target = spawnedPlayer;
+            //brain.moodNow = AIMood.aggressive;
+            brain.DisableControls();
+            brain.TargetPlayer();
             var materialDistributor = spawnedEnemy.GetComponent<MaterialDistributor>();
             if (materialDistributor != null) {
                 materialDistributor.SetMaterials(MaterialTag.Enemy);
@@ -224,8 +227,8 @@ public class Match : MonoBehaviour {
         }
 
         // enable bot controls
-        spawnedPlayer.GetComponent<BotBrain>().controlsActive = true;
-        spawnedEnemy.GetComponent<BotBrain>().controlsActive = true;
+        spawnedPlayer.GetComponent<BotBrain>().EnableControls();
+        spawnedEnemy.GetComponent<BotBrain>().EnableControls();
 
         // wait for a winner to be declared
         while (!winnerDeclared) {
@@ -340,7 +343,7 @@ public class Match : MonoBehaviour {
 
         // disable bots
         for (var i=allBots.Items.Count-1; i>=0; i--) {
-            allBots.Items[i].GetComponent<BotBrain>().controlsActive = false;
+            allBots.Items[i].GetComponent<BotBrain>().DisableControls();
         }
 
         // add win/loss for player

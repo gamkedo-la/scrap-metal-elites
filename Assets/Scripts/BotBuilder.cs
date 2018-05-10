@@ -9,6 +9,7 @@ public class BotBuilder : PartBuilder {
     [Header("State Variables")]
     public BotRuntimeSet botList;
     public GameRecordEvent eventChannel;
+    public AIConfig aiConfig;
 
     public override void OnEnable() {
         base.OnEnable();
