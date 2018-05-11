@@ -53,6 +53,7 @@ GameObject:
   - component: {fileID: 4232752926669728}
   - component: {fileID: 33573945330520408}
   - component: {fileID: 23000183737315286}
+  - component: {fileID: 64836615642253724}
   m_Layer: 0
   m_Name: Blade_Cylinder
   m_TagString: Untagged
@@ -327,3 +328,17 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1947308407977070}
   m_Mesh: {fileID: 4300002, guid: 816baa50f19f8a240bbf4cc4ef57b517, type: 3}
+--- !u!64 &64836615642253724
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1566771078630738}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 1
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: 816baa50f19f8a240bbf4cc4ef57b517, type: 3}
