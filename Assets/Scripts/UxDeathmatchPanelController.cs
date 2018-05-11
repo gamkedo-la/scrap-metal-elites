@@ -24,14 +24,6 @@ public class UxDeathmatchPanelController : MonoBehaviour {
     private MatchInfo matchInfo;
     private UxSandboxController playerSandbox;
     private UxSandboxController enemySandbox;
-    private bool cancelled = false;
-
-    /*
-    void Awake() {
-        // start w/ panel hidden
-        Hide();
-    }
-    */
 
     void Display() {
         canvasGroup.alpha = 1f; //this makes everything transparent

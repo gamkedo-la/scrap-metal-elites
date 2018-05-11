@@ -487,53 +487,64 @@ MonoBehaviour:
   - id: champ1
     playerPrefab:
       name: Bob
-      spawnPoint: {x: 0, y: 0, z: 0}
+      offset: {x: 0, y: 0, z: 0}
       prefab: {fileID: 1747757598241954, guid: 38bb754395b7c4f92be06a38923df58d, type: 2}
     enemyTitle: The Gimp
     enemyPrefabs:
     - name: 
-      spawnPoint: {x: 0, y: 0, z: 0}
+      offset: {x: 0, y: 0, z: 0}
       prefab: {fileID: 1354931224165476, guid: 8ecd3d66049b04a0fbc16aeda9eeaea5, type: 2}
+    hazardPrefabs:
+    - name: flame1
+      offset: {x: 0, y: 0, z: 0}
+      prefab: {fileID: 1632048421643816, guid: 4534888667a2444918bd649513704008, type: 2}
+    - name: hammer1
+      offset: {x: 0, y: 0.25, z: 0}
+      prefab: {fileID: 1166039732656108, guid: 8e837ead78813445696130b313b6ff7b, type: 2}
   - id: champ2
     playerPrefab:
       name: Bob
-      spawnPoint: {x: 0, y: 0, z: 0}
+      offset: {x: 0, y: 0, z: 0}
       prefab: {fileID: 1747757598241954, guid: 38bb754395b7c4f92be06a38923df58d, type: 2}
     enemyTitle: The Chump
     enemyPrefabs:
     - name: 
-      spawnPoint: {x: 0, y: 0, z: 0}
+      offset: {x: 0, y: 0, z: 0}
       prefab: {fileID: 1354931224165476, guid: 8ecd3d66049b04a0fbc16aeda9eeaea5, type: 2}
+    hazardPrefabs: []
   - id: champ3
     playerPrefab:
       name: Bob
-      spawnPoint: {x: 0, y: 0, z: 0}
+      offset: {x: 0, y: 0, z: 0}
       prefab: {fileID: 1747757598241954, guid: 38bb754395b7c4f92be06a38923df58d, type: 2}
     enemyTitle: The Contender
     enemyPrefabs:
     - name: 
-      spawnPoint: {x: 0, y: 0, z: 0}
+      offset: {x: 0, y: 0, z: 0}
       prefab: {fileID: 1354931224165476, guid: 8ecd3d66049b04a0fbc16aeda9eeaea5, type: 2}
+    hazardPrefabs: []
   - id: champ4
     playerPrefab:
       name: Bob
-      spawnPoint: {x: 0, y: 0, z: 0}
+      offset: {x: 0, y: 0, z: 0}
       prefab: {fileID: 1747757598241954, guid: 38bb754395b7c4f92be06a38923df58d, type: 2}
     enemyTitle: The Wannabe
     enemyPrefabs:
     - name: 
-      spawnPoint: {x: 0, y: 0, z: 0}
+      offset: {x: 0, y: 0, z: 0}
       prefab: {fileID: 1354931224165476, guid: 8ecd3d66049b04a0fbc16aeda9eeaea5, type: 2}
+    hazardPrefabs: []
   - id: champ5
     playerPrefab:
       name: Bob
-      spawnPoint: {x: 0, y: 0, z: 0}
+      offset: {x: 0, y: 0, z: 0}
       prefab: {fileID: 1747757598241954, guid: 38bb754395b7c4f92be06a38923df58d, type: 2}
     enemyTitle: The Champ
     enemyPrefabs:
     - name: 
-      spawnPoint: {x: 0, y: 0, z: 0}
+      offset: {x: 0, y: 0, z: 0}
       prefab: {fileID: 1354931224165476, guid: 8ecd3d66049b04a0fbc16aeda9eeaea5, type: 2}
+    hazardPrefabs: []
 --- !u!114 &114881185246938358
 MonoBehaviour:
   m_ObjectHideFlags: 1

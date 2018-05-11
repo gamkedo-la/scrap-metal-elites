@@ -81,8 +81,8 @@ public class SpotlightAIController : MonoBehaviour {
                     if (debug) Debug.Log(gameObject.name + " setting target to: " + target.name);
                 }
             } else {
+                if (debug && target != null) Debug.Log(gameObject.name + " clearing target");
                 target = null;
-                if (debug) Debug.Log(gameObject.name + " clearing target");
             }
 
             // attempt to retarget on given retarget interval
@@ -94,7 +94,6 @@ public class SpotlightAIController : MonoBehaviour {
         while (spotlightMode == SpotlightMode.Follow) {
             if (target != null) {
                 desiredRotation = Quaternion.LookRotation(target.transform.position - transform.position);
-                //Debug.Log("desiredRotation: " + desiredRotation)
             }
             yield return null;  // wait until next frame
         }

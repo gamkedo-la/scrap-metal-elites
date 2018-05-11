@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c67ee242ce2fb49508783a6378c9bc2a, type: 3}
+  m_Name: hammerJoint2
+  m_EditorClassIdentifier: 
+  applyBreakForce: 0
+  breakForce: 0
+  applyBreakTorque: 0
+  breakTorque: 0
+  applyDamageToForce: 0
+  applyDamageToTorque: 0
+  gameEventChannel: {fileID: 11400000, guid: 7cdbdc64686ff4786ae1b73fdc14d54f, type: 2}
+  springForce: 250
+  springDamper: 15
+  impactForce: 400
+  impactForceVelocityMultiplier: 4
+  impactDamageMultiplier: 10
+  axis: 0
+  anchor: {x: 0, y: 0, z: 0}
+  minAngle: -89
+  maxAngle: 89
+  reverse: 1
+  debug: 1

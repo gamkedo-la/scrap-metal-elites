@@ -14,8 +14,8 @@ public class CameraController: MonoBehaviour {
     [Header("Camera Config")]
     [Tooltip("minimum height of camera from arena floor")]
     public float minCameraHeight = 15f;
-    [Tooltip("attached camera, leave null for autodiscovery")]
-    public Camera camera;
+    [Tooltip("max height of camera from arena floor")]
+    public float maxCameraHeight = 60f;
     [Tooltip("approximate time for the camera to refocus")]
     public float dampTime = 0.075f;
     [Tooltip("approximate center of the arena")]
@@ -36,11 +36,6 @@ public class CameraController: MonoBehaviour {
     void Start() {
         desiredPosition = transform.position;
         desiredRotation = transform.rotation;
-
-        // if camera has not been assigned in editor, find attached camera
-        if (camera == null) {
-            camera = GetComponentInChildren<Camera>();
-        }
     }
     public void WatchStop() {
         cameraMode = CameraMode.None;
@@ -82,7 +77,12 @@ public class CameraController: MonoBehaviour {
     IEnumerator WatchBotsLoop() {
         while (cameraMode == CameraMode.Bots) {
             if (currentBots != null) {
-                Bounds bounds = new Bounds(Vector3.zero, Vector3.zero);
+                Bounds bounds;
+                if (currentBots.Items.Count > 0) {
+                    bounds = new Bounds(currentBots.Items[0].transform.position, Vector3.zero);
+                } else {
+                    bounds = new Bounds(Vector3.zero, Vector3.zero);
+                }
                 Vector3 average = Vector3.zero;
                 // determine min/max/average positions of bots
                 for (var i=0; i<currentBots.Items.Count; i++) {
@@ -122,7 +122,7 @@ public class CameraController: MonoBehaviour {
     void Move() {
         Vector3 moveVelocity = Vector3.zero;
         // clamp height
-        desiredPosition.y = Mathf.Max(desiredPosition.y, minCameraHeight);
+        desiredPosition.y = Mathf.Clamp(desiredPosition.y, minCameraHeight, maxCameraHeight);
         transform.position = Vector3.SmoothDamp(transform.position, desiredPosition, ref moveVelocity, dampTime);
     }
 

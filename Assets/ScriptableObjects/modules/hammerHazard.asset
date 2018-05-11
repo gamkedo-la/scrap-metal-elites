@@ -24,6 +24,6 @@ MonoBehaviour:
     model: {fileID: 1632453847150580, guid: c5a1963535bc14eae8c41090a9c39deb, type: 2}
   flipper:
     offset: {x: 0, y: 0.65, z: 0}
-    rotation: {x: 0, y: 0, z: 0}
-    joint: {fileID: 11400000, guid: 894bd307e6ca9482e8d85bdd0690448e, type: 2}
+    rotation: {x: -90, y: 0, z: 0}
+    joint: {fileID: 11400000, guid: 7eb3e966659da4fa2afb1ba5bdeed545, type: 2}
     part: {fileID: 11400000, guid: 9271c9b4416f04b2ea05815bf1face58, type: 2}

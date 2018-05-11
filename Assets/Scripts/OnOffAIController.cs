@@ -12,6 +12,8 @@ public class OnOffAIController : BotBrain {
 
     void Awake() {
         currentDelay = delay;
+        // FIXME: remove
+        EnableControls();
     }
 
     void Update () {

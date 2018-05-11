@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Match : MonoBehaviour {
@@ -12,6 +13,7 @@ public class Match : MonoBehaviour {
     [Header("State Variables")]
     public SpawnPointRuntimeSet playerSpawns;
     public SpawnPointRuntimeSet enemySpawns;
+    public SpawnPointRuntimeSet hazardSpawns;
     public BotRuntimeSet allBots;
     public GameInfo gameInfo;
     public AIConfig defaultAIConfig;
@@ -36,12 +38,12 @@ public class Match : MonoBehaviour {
     public GameObject spawnedPlayer;
     [HideInInspector]
     public GameObject spawnedEnemy;
+    [HideInInspector]
+    public List<GameObject> spawnedHazards = new List<GameObject>();
 
     private bool matchStarted = false;
     private bool winnerDeclared = false;
     private GameObject winningBot;
-    private MatchInfo matchInfo;
-    private PlayerInfo playerInfo;
     private int timerTick = 0;
 
     void OnBotDeath(GameObject bot) {
@@ -56,6 +58,20 @@ public class Match : MonoBehaviour {
     void DeclareWinner(GameObject winner) {
         winningBot = winner;
         winnerDeclared = true;
+    }
+
+    GameObject SpawnHazard(
+        SpawnPointRuntimeSet spawns,
+        NamedPrefab namedPrefab
+    ) {
+        var spawnPoint = spawns.PickRandom();
+        if (namedPrefab.prefab != null) {
+            var hazardGo = Object.Instantiate(namedPrefab.prefab, spawnPoint.transform.position + namedPrefab.offset, Quaternion.identity);
+            hazardGo.name = namedPrefab.name;
+            return hazardGo;
+        } else {
+            return null;
+        }
     }
 
     GameObject SpawnBot(
@@ -131,7 +147,6 @@ public class Match : MonoBehaviour {
         var playerSpawnPoint = playerSpawns.PickRandom();
 
         // spawn bots
-        // FIXME: hack for now... manually apply control scripts/set targets/ai mode
         spawnedPlayer = SpawnBot(
             gameInfo.matchInfo.playerPrefab.prefab,
             playerSpawnPoint,
@@ -155,13 +170,21 @@ public class Match : MonoBehaviour {
         if (spawnedEnemy != null) {
             var brain = spawnedEnemy.AddComponent<AIController>();
             brain.AssignConfig(defaultAIConfig);
-            //brain.target = spawnedPlayer;
-            //brain.moodNow = AIMood.aggressive;
             brain.DisableControls();
             brain.TargetPlayer();
             var materialDistributor = spawnedEnemy.GetComponent<MaterialDistributor>();
             if (materialDistributor != null) {
                 materialDistributor.SetMaterials(MaterialTag.Enemy);
+            }
+        }
+
+        // spawn hazards
+        if (gameInfo.matchInfo.hazardPrefabs != null) {
+            Debug.Log("hazard prefabs len: " + gameInfo.matchInfo.hazardPrefabs.Length);
+            Debug.Log("hazard spawns len: " + hazardSpawns.Items.Count);
+            for (var i=0; i<Mathf.Min(gameInfo.matchInfo.hazardPrefabs.Length, hazardSpawns.Items.Count); i++) {
+                Debug.Log("spawning hazard: " + gameInfo.matchInfo.hazardPrefabs[i].prefab);
+                spawnedHazards.Add(SpawnHazard(hazardSpawns, gameInfo.matchInfo.hazardPrefabs[i]));
             }
         }
 
@@ -229,6 +252,10 @@ public class Match : MonoBehaviour {
         // enable bot controls
         spawnedPlayer.GetComponent<BotBrain>().EnableControls();
         spawnedEnemy.GetComponent<BotBrain>().EnableControls();
+        for (var i=0; i<spawnedHazards.Count; i++) {
+            var brain = spawnedHazards[i].GetComponent<BotBrain>();
+            if (brain != null) brain.EnableControls();
+        }
 
         // wait for a winner to be declared
         while (!winnerDeclared) {
@@ -391,15 +418,6 @@ public class Match : MonoBehaviour {
             StartCoroutine(StatePrepare());
             matchStarted = true;
         }
-    }
-
-    public void PlayMatch(
-        PlayerInfo playerInfo,
-        MatchInfo matchInfo
-    ) {
-        this.playerInfo = playerInfo;
-        this.matchInfo = matchInfo;
-        StartCoroutine(StatePrepare());
     }
 
     Canvas GetCanvas() {

@@ -86,7 +86,8 @@ public class TurretAIController : BotBrain {
         }
     }
 
-    void Awake() {
+    public override void EnableControls() {
+        base.EnableControls();
         StartCoroutine(Target());
         StartCoroutine(Aim());
         StartCoroutine(Fire());
