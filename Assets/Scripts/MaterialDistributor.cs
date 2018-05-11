@@ -14,6 +14,7 @@ public class MaterialDistributor : MonoBehaviour {
     }
 
     public void SetMaterials(MaterialTag tag) {
+        materialTag = tag;
         if (actuators == null) return;
         for (var i=0; i<actuators.Length; i++) {
             actuators[i].Assign(tag);

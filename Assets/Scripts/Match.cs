@@ -33,6 +33,7 @@ public class Match : MonoBehaviour {
     public int countdownTicks = 3;
     public int matchTime = 180;
     public bool debug = false;
+    public Vector3 centerOfArena = new Vector3(0,-4,0);
 
     [HideInInspector]
     public GameObject spawnedPlayer;
@@ -45,6 +46,7 @@ public class Match : MonoBehaviour {
     private bool winnerDeclared = false;
     private GameObject winningBot;
     private int timerTick = 0;
+    private List<BotBrain> aiControllers = new List<BotBrain>();
 
     void OnBotDeath(GameObject bot) {
         if (bot != null) {
@@ -68,6 +70,11 @@ public class Match : MonoBehaviour {
         if (namedPrefab.prefab != null) {
             var hazardGo = Object.Instantiate(namedPrefab.prefab, spawnPoint.transform.position + namedPrefab.offset, Quaternion.identity);
             hazardGo.name = namedPrefab.name;
+            var brain = hazardGo.GetComponent<BotBrain>();
+            if (brain != null) {
+                brain.DisableControls();
+                aiControllers.Add(brain);
+            }
             return hazardGo;
         } else {
             return null;
@@ -75,19 +82,40 @@ public class Match : MonoBehaviour {
     }
 
     GameObject SpawnBot(
-        GameObject botPrefab,
-        SpawnPoint spawnPoint,
+        SpawnPointRuntimeSet spawns,
+        NamedPrefab namedPrefab,
         Vector3 lookAt,
-        string name
+        bool player
     ) {
+        var spawnPoint = spawns.PickRandom();
         var rotation = Quaternion.LookRotation(lookAt - spawnPoint.transform.position);
-        var botGo = Object.Instantiate(botPrefab, spawnPoint.transform.position, rotation);
-        botGo.name = name;
+        var botGo = Object.Instantiate(namedPrefab.prefab, spawnPoint.transform.position + namedPrefab.offset, rotation);
+        botGo.name = namedPrefab.name;
         var health = botGo.GetComponent<BotHealth>();
         if (health != null) {
             health.onDeath.AddListener(OnBotDeath);
         }
+
+        // add AI script, disable controls
+        BotBrain brain;
+        if (player) {
+            brain = botGo.AddComponent<HumanController>();
+        } else {
+            brain = botGo.AddComponent<AIController>();
+            ((AIController) brain).AssignConfig(defaultAIConfig);
+            ((AIController) brain).TargetPlayer();
+        }
+        aiControllers.Add(brain);
+        brain.DisableControls();
+
+        // change color of bot
+        var materialDistributor = botGo.GetComponent<MaterialDistributor>();
+        if (materialDistributor != null) {
+            materialDistributor.SetMaterials((player) ? MaterialTag.Player : MaterialTag.Enemy);
+        }
+
         return botGo;
+
     }
 
     public static string FmtTimerMsg(bool showTimeSplit, int tick) {
@@ -147,43 +175,17 @@ public class Match : MonoBehaviour {
         var playerSpawnPoint = playerSpawns.PickRandom();
 
         // spawn bots
-        spawnedPlayer = SpawnBot(
-            gameInfo.matchInfo.playerPrefab.prefab,
-            playerSpawnPoint,
-            enemySpawnPoint.transform.position,
-            gameInfo.matchInfo.playerPrefab.name);
-        yield return null;
-        if (spawnedPlayer != null) {
-            var brain = spawnedPlayer.AddComponent<HumanController>();
-            brain.DisableControls();
-            var materialDistributor = spawnedPlayer.GetComponent<MaterialDistributor>();
-            if (materialDistributor != null) {
-                materialDistributor.SetMaterials(MaterialTag.Player);
-            }
-        }
-        spawnedEnemy = SpawnBot(
-            gameInfo.matchInfo.enemyPrefabs[0].prefab,
-            enemySpawnPoint,
-            playerSpawnPoint.transform.position,
-            gameInfo.matchInfo.enemyPrefabs[0].name);
-        yield return null;
-        if (spawnedEnemy != null) {
-            var brain = spawnedEnemy.AddComponent<AIController>();
-            brain.AssignConfig(defaultAIConfig);
-            brain.DisableControls();
-            brain.TargetPlayer();
-            var materialDistributor = spawnedEnemy.GetComponent<MaterialDistributor>();
-            if (materialDistributor != null) {
-                materialDistributor.SetMaterials(MaterialTag.Enemy);
+        spawnedPlayer = SpawnBot(playerSpawns, gameInfo.matchInfo.playerPrefab, centerOfArena, true);
+        if (gameInfo.matchInfo.enemyPrefabs != null) {
+            for (var i=0; i<Mathf.Min(gameInfo.matchInfo.enemyPrefabs.Length, enemySpawns.Items.Count); i++) {
+                // FIXME: maintain list of spawned enemies... need to rework logic for declaring winner to handle this
+                spawnedEnemy = SpawnBot(enemySpawns, gameInfo.matchInfo.enemyPrefabs[i], centerOfArena, false);
             }
         }
 
         // spawn hazards
         if (gameInfo.matchInfo.hazardPrefabs != null) {
-            Debug.Log("hazard prefabs len: " + gameInfo.matchInfo.hazardPrefabs.Length);
-            Debug.Log("hazard spawns len: " + hazardSpawns.Items.Count);
             for (var i=0; i<Mathf.Min(gameInfo.matchInfo.hazardPrefabs.Length, hazardSpawns.Items.Count); i++) {
-                Debug.Log("spawning hazard: " + gameInfo.matchInfo.hazardPrefabs[i].prefab);
                 spawnedHazards.Add(SpawnHazard(hazardSpawns, gameInfo.matchInfo.hazardPrefabs[i]));
             }
         }
@@ -192,6 +194,8 @@ public class Match : MonoBehaviour {
         if (gameEventChannel != null) {
             gameEventChannel.Raise(GameRecord.GamePrepared());
         }
+
+        yield return null; // wait a frame
 
         // TRANSITION: Announcer
         StartCoroutine(StateAnnouncer());
@@ -249,12 +253,9 @@ public class Match : MonoBehaviour {
             cameraController.WatchBots();
         }
 
-        // enable bot controls
-        spawnedPlayer.GetComponent<BotBrain>().EnableControls();
-        spawnedEnemy.GetComponent<BotBrain>().EnableControls();
-        for (var i=0; i<spawnedHazards.Count; i++) {
-            var brain = spawnedHazards[i].GetComponent<BotBrain>();
-            if (brain != null) brain.EnableControls();
+        // enable brain controls
+        for (var i=0; i<aiControllers.Count; i++) {
+            aiControllers[i].EnableControls();
         }
 
         // wait for a winner to be declared
