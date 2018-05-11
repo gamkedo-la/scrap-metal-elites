@@ -84,4 +84,15 @@ public class BotHealth : MonoBehaviour {
         }
     }
 
+    void OnDestroy() {
+        dead = true;
+        if (onDeath != null) {
+            onDeath.Invoke(gameObject);
+            Debug.Log("death");
+        }
+        if (gameEventChannel != null) {
+            gameEventChannel.Raise(GameRecord.BotDied(gameObject, null));
+        }
+    }
+
 }
