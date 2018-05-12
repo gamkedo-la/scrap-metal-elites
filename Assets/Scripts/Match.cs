@@ -38,7 +38,7 @@ public class Match : MonoBehaviour {
     [HideInInspector]
     public GameObject spawnedPlayer;
     [HideInInspector]
-    public GameObject spawnedEnemy;
+    public List<GameObject> spawnedEnemies = new List<GameObject>();
     [HideInInspector]
     public List<GameObject> spawnedHazards = new List<GameObject>();
 
@@ -53,8 +53,24 @@ public class Match : MonoBehaviour {
             if (debug) Debug.Log("Bot died: " + bot.name);
         }
 
-        // declare a winner
-        DeclareWinner((bot == spawnedPlayer) ? spawnedEnemy : spawnedPlayer);
+        // disable controls on dead bot
+        var brain = bot.GetComponent<BotBrain>();
+        if (brain != null) {
+            brain.DisableControls();
+        }
+
+        // determine if we have a winner
+        if (bot == spawnedPlayer) {
+            // if player dies, just declare the first enemy as winner
+            DeclareWinner(spawnedEnemies[0]);
+
+        } else {
+            // otherwise... an enemy died
+            spawnedEnemies.Remove(bot);         // remove from list of active enemies
+            if (spawnedEnemies.Count == 0) {    // if result list is zero length, player wins
+                DeclareWinner(spawnedPlayer);
+            }
+        }
     }
 
     void DeclareWinner(GameObject winner) {
@@ -174,12 +190,13 @@ public class Match : MonoBehaviour {
         var enemySpawnPoint = enemySpawns.PickRandom();
         var playerSpawnPoint = playerSpawns.PickRandom();
 
-        // spawn bots
+        // spawn player
         spawnedPlayer = SpawnBot(playerSpawns, gameInfo.matchInfo.playerPrefab, centerOfArena, true);
+
+        // spawn enemies
         if (gameInfo.matchInfo.enemyPrefabs != null) {
             for (var i=0; i<Mathf.Min(gameInfo.matchInfo.enemyPrefabs.Length, enemySpawns.Items.Count); i++) {
-                // FIXME: maintain list of spawned enemies... need to rework logic for declaring winner to handle this
-                spawnedEnemy = SpawnBot(enemySpawns, gameInfo.matchInfo.enemyPrefabs[i], centerOfArena, false);
+                spawnedEnemies.Add(SpawnBot(enemySpawns, gameInfo.matchInfo.enemyPrefabs[i], centerOfArena, false));
             }
         }
 
@@ -328,7 +345,7 @@ public class Match : MonoBehaviour {
             if (concede) {
                 pauseAction = "";
                 // declaring a winner should cause pause manager to finish
-                DeclareWinner(spawnedEnemy);
+                DeclareWinner(spawnedEnemies[0]);
             }
 
             // wait til next frame
@@ -345,15 +362,17 @@ public class Match : MonoBehaviour {
 
         // if winner is not already declared, declare winner based on remaining health
         if (!winnerDeclared) {
-            var playerHealth = spawnedPlayer.GetComponent<BotHealth>();
-            var enemyHealth = spawnedEnemy.GetComponent<BotHealth>();
-            if (playerHealth != null && enemyHealth != null) {
-                DeclareWinner((playerHealth.healthPercent > enemyHealth.healthPercent) ? spawnedPlayer :  spawnedEnemy);
-
-            // shouldn't happen: declare enemy winner
-            } else {
-                DeclareWinner(spawnedEnemy);
+            // find bot w/ most health
+            var bestHealth = spawnedPlayer.GetComponent<BotHealth>();
+            var bestBotGo = spawnedPlayer;
+            for (var i=allBots.Items.Count-1; i>=0; i--) {
+                var health = allBots.Items[i].GetComponent<BotHealth>();
+                if (health.healthPercent > bestHealth.healthPercent) {
+                    bestHealth = health;
+                    bestBotGo = allBots.Items[i].gameObject;
+                }
             }
+            DeclareWinner(bestBotGo);
         }
     }
 

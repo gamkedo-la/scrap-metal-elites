@@ -494,6 +494,9 @@ MonoBehaviour:
     - name: 
       offset: {x: 0, y: 0, z: 0}
       prefab: {fileID: 1354931224165476, guid: 8ecd3d66049b04a0fbc16aeda9eeaea5, type: 2}
+    - name: 
+      offset: {x: 0, y: 0, z: 0}
+      prefab: {fileID: 1354931224165476, guid: 8ecd3d66049b04a0fbc16aeda9eeaea5, type: 2}
     hazardPrefabs:
     - name: flame1
       offset: {x: 0, y: 0, z: 0}
