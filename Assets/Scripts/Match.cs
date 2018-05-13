@@ -116,8 +116,10 @@ public class Match : MonoBehaviour {
         BotBrain brain;
         if (player) {
             brain = botGo.AddComponent<HumanController>();
+            gameEventChannel.Raise(GameRecord.GamePlayerDeclared(botGo));
         } else {
             brain = botGo.AddComponent<AIController>();
+            gameEventChannel.Raise(GameRecord.GameEnemyDeclared(botGo));
             ((AIController) brain).AssignConfig(defaultAIConfig);
             ((AIController) brain).TargetPlayer();
         }
@@ -186,10 +188,6 @@ public class Match : MonoBehaviour {
 
     IEnumerator StatePrepare() {
         if (debug) Debug.Log("StatePrepare");
-        // choose spawn points
-        var enemySpawnPoint = enemySpawns.PickRandom();
-        var playerSpawnPoint = playerSpawns.PickRandom();
-
         // spawn player
         spawnedPlayer = SpawnBot(playerSpawns, gameInfo.matchInfo.playerPrefab, centerOfArena, true);
 

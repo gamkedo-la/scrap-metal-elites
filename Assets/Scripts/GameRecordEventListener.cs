@@ -19,14 +19,36 @@ public class GameRecordEventListener : MonoBehaviour
     [Tooltip("Response to invoke when Event is raised.")]
     public UnityGameRecordEvent Response;
 
+    public void Awake() {
+        if (Response == null) {
+            Response = new UnityGameRecordEvent();
+        }
+    }
+
+    public void SetEvent(GameRecordEvent newEvent) {
+        // unregister current event
+        if (this.Event != null) {
+            this.Event.UnregisterListener(this);
+        }
+        // register new
+        if (newEvent != null) {
+            this.Event = newEvent;
+            this.Event.RegisterListener(this);
+        }
+    }
+
     private void OnEnable()
     {
-        Event.RegisterListener(this);
+        if (Event != null) {
+            Event.RegisterListener(this);
+        }
     }
 
     private void OnDisable()
     {
-        Event.UnregisterListener(this);
+        if (Event != null) {
+            Event.UnregisterListener(this);
+        }
     }
 
     public void OnEventRaised(GameRecord record)

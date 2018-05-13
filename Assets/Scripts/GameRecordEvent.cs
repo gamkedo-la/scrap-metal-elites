@@ -6,6 +6,8 @@ public enum GameRecordTag {
     GamePrepared,
     GameStarted,
     GameFinished,
+    GamePlayerDeclared,
+    GameEnemyDeclared,
     BotTookDamage,
     BotJointBroke,
     BotDied,
@@ -35,10 +37,10 @@ public class GameRecord {
         var str = "";
         str += String.Format("{0} - ", tag);
         if (actor != null) {
-            str += String.Format("actor: {0} ", actor);
+            str += String.Format("actor: {0} ", actor.name);
         }
         if (target != null) {
-            str += String.Format("target: {0} ", target);
+            str += String.Format("target: {0} ", target.name);
         }
         if (intValue != 0) {
             str += String.Format("value: {0} ", intValue);
@@ -54,6 +56,12 @@ public class GameRecord {
     }
     public static GameRecord GameFinished() {
         return new GameRecord(GameRecordTag.GameFinished, null, null, 0);
+    }
+    public static GameRecord GamePlayerDeclared(GameObject botGo) {
+        return new GameRecord(GameRecordTag.GamePlayerDeclared, null, botGo, 0);
+    }
+    public static GameRecord GameEnemyDeclared(GameObject botGo) {
+        return new GameRecord(GameRecordTag.GameEnemyDeclared, null, botGo, 0);
     }
     public static GameRecord BotTookDamage(
         GameObject target,              // who took the damage
