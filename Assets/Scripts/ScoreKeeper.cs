@@ -25,6 +25,9 @@ public class ScoreKeeper : MonoBehaviour {
         }
     }
 
+    public int GetScore() {
+        return score;
+    }
 
     void Awake() {
         var listener = gameObject.AddComponent<GameRecordEventListener>();

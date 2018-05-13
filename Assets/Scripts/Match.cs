@@ -5,6 +5,7 @@ using UnityEngine;
 public class Match : MonoBehaviour {
     [Header("External Component References")]
     public CameraController cameraController;
+    public ScoreKeeper scoreKeeper;
 
     [Header("Prefabs")]
     public GameObject pausePanelPrefab;
@@ -397,6 +398,7 @@ public class Match : MonoBehaviour {
             var scoreInfo = new MatchScoreInfo();
             scoreInfo.matchID = gameInfo.matchInfo.id;
             scoreInfo.time = timerTick;
+            scoreInfo.score = scoreKeeper.GetScore();
             gameInfo.playerInfo.AddWin(scoreInfo);
 
         } else {
