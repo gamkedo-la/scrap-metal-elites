@@ -491,10 +491,10 @@ MonoBehaviour:
       prefab: {fileID: 1747757598241954, guid: 38bb754395b7c4f92be06a38923df58d, type: 2}
     enemyTitle: The Gimp
     enemyPrefabs:
-    - name: 
+    - name: track1
       offset: {x: 0, y: 0, z: 0}
       prefab: {fileID: 1354931224165476, guid: 8ecd3d66049b04a0fbc16aeda9eeaea5, type: 2}
-    - name: 
+    - name: track2
       offset: {x: 0, y: 0, z: 0}
       prefab: {fileID: 1354931224165476, guid: 8ecd3d66049b04a0fbc16aeda9eeaea5, type: 2}
     hazardPrefabs:
@@ -511,9 +511,9 @@ MonoBehaviour:
       prefab: {fileID: 1747757598241954, guid: 38bb754395b7c4f92be06a38923df58d, type: 2}
     enemyTitle: The Chump
     enemyPrefabs:
-    - name: 
+    - name: bug1
       offset: {x: 0, y: 0, z: 0}
-      prefab: {fileID: 1354931224165476, guid: 8ecd3d66049b04a0fbc16aeda9eeaea5, type: 2}
+      prefab: {fileID: 1297436841330656, guid: 7e7d1fe8bddda4053a2ff37aaa1e4b81, type: 2}
     hazardPrefabs: []
   - id: champ3
     playerPrefab:
