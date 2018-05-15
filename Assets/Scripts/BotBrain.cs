@@ -15,7 +15,7 @@ public class BotBrain : MonoBehaviour {
 
     protected bool botAlive = true;
     protected bool flipped = false;
-    protected bool controlsActive = false;
+    protected bool controlsActive = true;
 
     void OnBotDeath(GameObject from) {
         botAlive = false;
