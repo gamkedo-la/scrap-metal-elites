@@ -401,6 +401,14 @@ public class Match : MonoBehaviour {
             scoreInfo.score = scoreKeeper.GetScore();
             gameInfo.playerInfo.AddWin(scoreInfo);
 
+            // update scoreboard
+            var json = JsonStore.Load(JsonStore.SaveTag.Score, gameInfo.matchInfo.id);
+            var scoreboard = MatchScoreboard.FromJson(json);
+            if (scoreboard == null) {
+                scoreboard = new MatchScoreboard(gameInfo.matchInfo.id);
+            }
+            scoreboard.AddScore(gameInfo.playerInfo.name, scoreInfo.score, scoreInfo.time);
+
         } else {
             gameInfo.playerInfo.AddLoss();
         }

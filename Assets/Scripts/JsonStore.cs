@@ -32,8 +32,12 @@ public static class JsonStore {
     public static string Load(SaveTag saveTag, string name) {
         var filename = saveTag.ToString() + "_" + name + ".json";
         var path = Path.Combine(Application.persistentDataPath, filename);
-        var readText = File.ReadAllText(path);
-        return readText;
+        if (File.Exists(path)) {
+            var readText = File.ReadAllText(path);
+            return readText;
+        } else {
+            return "";
+        }
     }
 
 }
