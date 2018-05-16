@@ -6,7 +6,6 @@ public class UxHudController : UxPanel {
     public UxListController uxEnemyList;
     public Text playerNameText;
     public UxHealthBar playerHealth;
-    public Button menuButton;
 
     [Header("Events")]
     public GameRecordEvent eventChannel;

@@ -6,7 +6,13 @@ using System.Collections;
 public class UxMatchPaused : UxPanel {
     [Header("UI Reference")]
     public Button concedeButton;
+    public Button optionsButton;
+    public Button helpButton;
     public Button continueButton;
+
+    [Header("Prefabs")]
+    public GameObject optionsPanelPrefab;
+    public GameObject helpPanelPrefab;
 
     [Header("Game Events")]
     public StringEvent onSelection;     // callback event to trigger when player clicks OK
@@ -18,27 +24,31 @@ public class UxMatchPaused : UxPanel {
     void Start() {
         // display the modal
         Display();
-        // wait for OK button to be clicked
-        StartCoroutine(StateWait());
-    }
-
-    IEnumerator StateWait() {
-        if (debug) Debug.Log("StateWait");
-        string selection = "";
 
         // hookup button callbacks
-        concedeButton.onClick.AddListener(() => {selection = "concede";});
-        continueButton.onClick.AddListener(() => {selection = "continue";});
+        concedeButton.onClick.AddListener(OnConcedeClick);
+        optionsButton.onClick.AddListener(OnOptionsClick);
+        helpButton.onClick.AddListener(OnHelpClick);
+        continueButton.onClick.AddListener(OnContinueClick);
+    }
 
-        // wait for button to be clicked
-        yield return new WaitUntil(() => selection != "");
+    public void OnConcedeClick() {
+        onSelection.Raise("concede");
+        Hide();
+    }
 
-        // trigger confirmed
-        onSelection.Raise(selection);
+    public void OnOptionsClick() {
+        // instantiate scores prefab (under canvas)
+        var panelGo = Instantiate(optionsPanelPrefab, UxUtil.GetCanvas().gameObject.transform);
+    }
 
-        // clean up event handler for button
-        concedeButton.onClick.RemoveAllListeners();
-        continueButton.onClick.RemoveAllListeners();
+    public void OnHelpClick() {
+        // instantiate scores prefab (under canvas)
+        var panelGo = Instantiate(helpPanelPrefab, UxUtil.GetCanvas().gameObject.transform);
+    }
+
+    public void OnContinueClick() {
+        onSelection.Raise("continue");
         Hide();
     }
 

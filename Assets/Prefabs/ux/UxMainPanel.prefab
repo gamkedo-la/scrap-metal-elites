@@ -542,9 +542,11 @@ MonoBehaviour:
   quitButton: {fileID: 114270305625235624}
   scoresPrefab: {fileID: 1334813554104236, guid: 1bc3d60746f6a4f94b09f98164f7e99d,
     type: 2}
+  optionsPrefab: {fileID: 1641078393177010, guid: f4c04fc5ec4ae49889d079960aefa242,
+    type: 2}
   gameInfo: {fileID: 11400000, guid: 1054ae867b4e44415b3ff3918a0f3351, type: 2}
   modeSelected: {fileID: 11400000, guid: fe07d74defd4e49beb078e0e1e995cdb, type: 2}
-  onScoreBack: {fileID: 0}
+  onScoreBack: {fileID: 11400000, guid: 57cc429b447a6474881a96cbf3843250, type: 2}
 --- !u!114 &114095219147854950
 MonoBehaviour:
   m_ObjectHideFlags: 1

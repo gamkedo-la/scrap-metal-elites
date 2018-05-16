@@ -13,6 +13,7 @@ public class UxMainMenu : UxPanel {
 
     [Header("Prefabs")]
     public GameObject scoresPrefab;
+    public GameObject optionsPrefab;
 
     [Header("State Variables")]
     public GameInfo gameInfo;
@@ -38,7 +39,6 @@ public class UxMainMenu : UxPanel {
     }
 
     public void OnGameModeClick(GameMode gameMode) {
-        Debug.Log("OnGameModeClick");
         // game mode is stored in ScriptableObject for GameInfo, shared across scripts and scenes
         gameInfo.gameMode = gameMode;
         // raise notification that game mode has been selected
@@ -57,7 +57,7 @@ public class UxMainMenu : UxPanel {
 
     IEnumerator StateWaitScores() {
         // instantiate scores prefab (under canvas)
-        var panelGo = Instantiate(scoresPrefab, GetCanvas().gameObject.transform);
+        var panelGo = Instantiate(scoresPrefab, UxUtil.GetCanvas().gameObject.transform);
         yield return null;      // wait a frame for panel initialization
 
         // create listener for back event
@@ -74,18 +74,11 @@ public class UxMainMenu : UxPanel {
     }
 
     public void OnOptionsClick() {
+        // instantiate options prefab (under canvas)
+        var panelGo = Instantiate(optionsPrefab, UxUtil.GetCanvas().gameObject.transform);
     }
 
     public void OnCreditsClick() {
-    }
-
-    Canvas GetCanvas() {
-        // canvas should always be tagged
-        var canvasGo = GameObject.FindWithTag("canvas");
-        if (canvasGo != null) {
-            return canvasGo.GetComponent<Canvas>();
-        }
-        return null;
     }
 
 }

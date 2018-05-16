@@ -45,6 +45,7 @@ public class Match : MonoBehaviour {
 
     private bool matchStarted = false;
     private bool winnerDeclared = false;
+    private bool wantPause = false;
     private GameObject winningBot;
     private int timerTick = 0;
     private List<BotBrain> aiControllers = new List<BotBrain>();
@@ -283,6 +284,10 @@ public class Match : MonoBehaviour {
         StartCoroutine(StateFinish());
     }
 
+    public void OnMenuClick() {
+        wantPause = true;
+    }
+
     IEnumerator PauseHandler() {
         bool paused = false;
         StringEventListener listener = null;
@@ -293,8 +298,9 @@ public class Match : MonoBehaviour {
             bool stopPause = false;
             bool concede = false;
 
-            // handle escape key
-            if (Input.GetKeyUp(KeyCode.Escape)) {
+            // handle escape key or menu click
+            if (Input.GetKeyUp(KeyCode.Escape) || wantPause) {
+                wantPause = false;
                 if (paused) {
                     stopPause = true;
                 } else {
