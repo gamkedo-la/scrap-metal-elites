@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Name: ram
   m_EditorClassIdentifier: 
   mass: {fileID: 11400000, guid: 5fd91b8663f624caca388c2ac58a6313, type: 2}
-  health: {fileID: 0}
-  damage: {fileID: 0}
+  health: {fileID: 11400000, guid: 41c447bb5245a414bb8288422a150e20, type: 2}
+  damage: {fileID: 11400000, guid: 00082fbf97f6143c7973a43c78a28c08, type: 2}
   models:
   - offset: {x: 0, y: 0, z: 0}
     rotation: {x: 0, y: 0, z: 0}

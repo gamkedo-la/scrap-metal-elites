@@ -10,13 +10,20 @@ public class ImpactDamageActuator : MonoBehaviour {
     public bool debug = false;
     public float minScrewDamage = 30f;
     public bool emitScrews = false;
+    public float smallImpactSfxThreshold;
+    public AudioEvent smallImpactSfx;
+    public float mediumImpactSfxThreshold;
+    public AudioEvent mediumImpactSfx;
+    public float largeImpactSfxThreshold;
+    public AudioEvent largeImpactSfx;
 
     //AudioSource audioSource;
     private Health health;
+    private AudioSource audio;
     private GameObject screwBurstPrefab;
 
     void Start() {
-        //audioSource = GetComponent<AudioSource>();
+        audio = GetComponent<AudioSource>();
         health = GetComponent<Health>();
         if (health == null) {
             health = PartUtil.GetComponentInParentBody<Health>(gameObject);
@@ -82,12 +89,14 @@ public class ImpactDamageActuator : MonoBehaviour {
 			GameObject.Instantiate(screwBurstPrefab, position, rotation);
         }
 
-
-        /*
         // Play a sound if the colliding objects had a big impact.
-        if (collision.relativeVelocity.magnitude > 2) {
-            audioSource.Play();
+        if (smallImpactSfx != null && damage>smallImpactSfxThreshold && damage<mediumImpactSfxThreshold) {
+            smallImpactSfx.Play(audio);
+        } else if (mediumImpactSfx != null && damage>mediumImpactSfxThreshold && damage<largeImpactSfxThreshold) {
+            mediumImpactSfx.Play(audio);
+        } else if (largeImpactSfx != null && damage>largeImpactSfxThreshold) {
+            largeImpactSfx.Play(audio);
         }
-        */
+
     }
 }

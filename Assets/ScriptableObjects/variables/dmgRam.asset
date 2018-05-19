@@ -9,23 +9,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e6ef55654b50e4b20bba6c03ab22c0bc, type: 3}
-  m_Name: dmgImpactFire
+  m_Name: dmgRam
   m_EditorClassIdentifier: 
   impactApplyDamage: 1
-  impactMinDamage: 10
-  impactMaxDamage: 50
+  impactMinDamage: 20
+  impactMaxDamage: 100
   impactDamageModifier: 1
   impactScrews: 1
-  impactScrewDamage: 5
+  impactScrewDamage: 10
   smallImpactSfxThreshold: 1
-  smallImpactSfx: {fileID: 11400000, guid: c410e8e5466404fc08d84f31f7607324, type: 2}
-  mediumImpactSfxThreshold: 20
-  mediumImpactSfx: {fileID: 11400000, guid: 40a7959668d3b41c6a6e1095d43d683d, type: 2}
-  largeImpactSfxThreshold: 50
-  largeImpactSfx: {fileID: 11400000, guid: 462f9254ab7f1411cbee326d47169b70, type: 2}
+  smallImpactSfx: {fileID: 11400000, guid: 4cdd6df8d56c1400cbe3fca4978c31d0, type: 2}
+  mediumImpactSfxThreshold: 500
+  mediumImpactSfx: {fileID: 0}
+  largeImpactSfxThreshold: 30
+  largeImpactSfx: {fileID: 0}
   fireApplyDamage: 1
   fireRate: 1
-  burntMaterial: {fileID: 2100000, guid: a6101176eb433e5428a507d02a363ab3, type: 2}
+  burntMaterial: {fileID: 0}
   burnThreshold: 50
   explodeThreshold: 10
   explodeForce: 100

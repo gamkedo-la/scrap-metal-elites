@@ -6,6 +6,7 @@ public class HubJointApplicator : JointApplicator {
     public bool motor = true;
     public float motorMaxTorque;
     public float motorMaxSpeed;
+    public AudioEvent motorSfx;
 
     protected override Joint ApplyJoint(GameObject rigidbodyGo, PartConfig config, GameObject target) {
         var joint = rigidbodyGo.AddComponent<HingeJoint>();
@@ -16,9 +17,13 @@ public class HubJointApplicator : JointApplicator {
             applyMotor = false;
         }
         if (applyMotor) {
+            if (motorSfx != null) {
+                rigidbodyGo.AddComponent<AudioSource>();
+            }
             var motorActuator = rigidbodyGo.AddComponent<MotorActuator>();
             motorActuator.maxTorque = motorMaxTorque;
             motorActuator.maxSpeed = motorMaxSpeed;
+            motorActuator.motorSfx = motorSfx;
             // apply motor.left from config
             if (config != null && config.Get<bool>(ConfigTag.MotorLeft)) {
                 motorActuator.isLeft = true;

@@ -18,21 +18,33 @@ public class MotorActuator : MonoBehaviour, IMotorActuator {
     }
 
     private Rigidbody rb;
+    private AudioSource audio;
     private float _forwardDrive = 0.0f;
     public bool isLeft = false;
     public float maxTorque;
     public float maxSpeed;
     public bool reverse = false;
+    public bool motorOn = false;
+    public AudioEvent motorSfx;
 
     void Start() {
         rb = GetComponent<Rigidbody>();
+        audio = GetComponent<AudioSource>();
     }
 
     void rbMotor() {
         if (rb == null) return;
         if (Mathf.Approximately(_forwardDrive, 0)) {
+            if (motorOn && motorSfx != null) {
+                motorSfx.Stop(audio);
+            }
+            motorOn = false;
             return;
         }
+        if (!motorOn && motorSfx != null) {
+            motorSfx.Play(audio);
+        }
+        motorOn = true;
         var f = maxTorque * _forwardDrive;
         if (reverse) {
             f = -f;

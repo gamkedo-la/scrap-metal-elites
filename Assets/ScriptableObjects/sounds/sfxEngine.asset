@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0abbe3a6173a54e7baa413dd1541c185, type: 3}
+  m_Name: sfxEngine
+  m_EditorClassIdentifier: 
+  fadeInClip: {fileID: 0}
+  loopClip: {fileID: 8300000, guid: 1225f403efa3147e1b8272565581c378, type: 3}
+  fadeOutClip: {fileID: 0}
+  pitch:
+    minValue: 0.87458247
+    maxValue: 0.87458247
+  volume:
+    minValue: 0.21864557
+    maxValue: 0.38262945

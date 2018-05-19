@@ -17,6 +17,13 @@ public class DamageApplicator : ComponentApplicator {
     [Tooltip("Amount of damage required to emit screws")]
     public float impactScrewDamage;
 
+    public float smallImpactSfxThreshold;
+    public AudioEvent smallImpactSfx;
+    public float mediumImpactSfxThreshold;
+    public AudioEvent mediumImpactSfx;
+    public float largeImpactSfxThreshold;
+    public AudioEvent largeImpactSfx;
+
     [Tooltip("Should this part react to fire damage")]
     public bool fireApplyDamage;
     [Tooltip("Damage to apply to health for each flame particle collision")]
@@ -46,7 +53,17 @@ public class DamageApplicator : ComponentApplicator {
             actuator.damageModifier = impactDamageModifier;
             actuator.emitScrews = impactScrews;
             actuator.minScrewDamage = impactScrewDamage;
+            actuator.smallImpactSfx = smallImpactSfx;
+            actuator.smallImpactSfxThreshold = smallImpactSfxThreshold;
+            actuator.mediumImpactSfx = mediumImpactSfx;
+            actuator.mediumImpactSfxThreshold = mediumImpactSfxThreshold;
+            actuator.largeImpactSfx = largeImpactSfx;
+            actuator.largeImpactSfxThreshold = largeImpactSfxThreshold;
             actuator.debug = debug;
+
+            if (smallImpactSfx != null || mediumImpactSfx != null || largeImpactSfxThreshold != null) {
+                rigidbodyGo.AddComponent<AudioSource>();
+            }
         }
 
         // apply fire damage applicator
