@@ -60,10 +60,6 @@ public class DamageApplicator : ComponentApplicator {
             actuator.largeImpactSfx = largeImpactSfx;
             actuator.largeImpactSfxThreshold = largeImpactSfxThreshold;
             actuator.debug = debug;
-
-            if (smallImpactSfx != null || mediumImpactSfx != null || largeImpactSfxThreshold != null) {
-                rigidbodyGo.AddComponent<AudioSource>();
-            }
         }
 
         // apply fire damage applicator

@@ -17,9 +17,6 @@ public class HubJointApplicator : JointApplicator {
             applyMotor = false;
         }
         if (applyMotor) {
-            if (motorSfx != null) {
-                rigidbodyGo.AddComponent<AudioSource>();
-            }
             var motorActuator = rigidbodyGo.AddComponent<MotorActuator>();
             motorActuator.maxTorque = motorMaxTorque;
             motorActuator.maxSpeed = motorMaxSpeed;

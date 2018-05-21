@@ -11,7 +11,7 @@ public class BotHealth : MonoBehaviour {
 
     public OnHealthValueEvent onChange;
     public OnHealthValueEvent onChangePercent;
-    public OnDeathEvent onDeath;
+    public GameObjectEvent onDeath;
 
     private bool runDiscover = true;
     private List<Health> healthModules;

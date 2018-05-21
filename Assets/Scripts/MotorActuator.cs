@@ -18,7 +18,7 @@ public class MotorActuator : MonoBehaviour, IMotorActuator {
     }
 
     private Rigidbody rb;
-    private AudioSource audio;
+    private GameObject rootGo;
     private float _forwardDrive = 0.0f;
     public bool isLeft = false;
     public float maxTorque;
@@ -29,20 +29,21 @@ public class MotorActuator : MonoBehaviour, IMotorActuator {
 
     void Start() {
         rb = GetComponent<Rigidbody>();
-        audio = GetComponent<AudioSource>();
+        rootGo = PartUtil.GetRootGo(gameObject);
     }
 
     void rbMotor() {
         if (rb == null) return;
         if (Mathf.Approximately(_forwardDrive, 0)) {
             if (motorOn && motorSfx != null) {
-                motorSfx.Stop(audio);
+                motorSfx.Stop(AudioManager.GetInstance().GetEmitter(rootGo, motorSfx));
             }
             motorOn = false;
             return;
         }
         if (!motorOn && motorSfx != null) {
-            motorSfx.Play(audio);
+            //motorSfx.Play(audio);
+            motorSfx.Play(AudioManager.GetInstance().GetEmitter(rootGo, motorSfx));
         }
         motorOn = true;
         var f = maxTorque * _forwardDrive;

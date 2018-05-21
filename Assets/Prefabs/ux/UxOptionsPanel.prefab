@@ -744,6 +744,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   backButton: {fileID: 114807688006348194}
+  sfxVolumeSlider: {fileID: 114159019801456828}
+  musicVolumeSlider: {fileID: 114813456484595808}
+  voiceVolumeSlider: {fileID: 114754788111437812}
+  sfxMasterVolume: {fileID: 11400000, guid: 5f6d9574d346d49f1b140c6266e46b3a, type: 2}
+  musicMasterVolume: {fileID: 11400000, guid: 4b4b3768940fd46f1a554328fd4334a0, type: 2}
+  voiceMasterVolume: {fileID: 11400000, guid: d7ffb369dfdd64ddf9f8eff355a5c0ba, type: 2}
 --- !u!114 &114336269808956502
 MonoBehaviour:
   m_ObjectHideFlags: 1

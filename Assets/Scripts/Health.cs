@@ -8,7 +8,7 @@ using System.Collections.Generic;
 [System.Serializable]
 public class OnHealthValueEvent : UnityEvent<int> { };
 [System.Serializable]
-public class OnDeathEvent : UnityEvent<GameObject> { };
+public class GameObjectEvent : UnityEvent<GameObject> { };
 
 public class Health : MonoBehaviour {
 

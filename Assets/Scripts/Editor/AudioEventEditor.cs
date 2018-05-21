@@ -6,11 +6,11 @@ using UnityEditor;
 public class AudioEventEditor : Editor
 {
 
-	[SerializeField] private AudioSource _previewer;
+	[SerializeField] private AudioEmitter _previewer;
 
 	public void OnEnable()
 	{
-		_previewer = EditorUtility.CreateGameObjectWithHideFlags("Audio preview", HideFlags.HideAndDontSave, typeof(AudioSource)).GetComponent<AudioSource>();
+		_previewer = EditorUtility.CreateGameObjectWithHideFlags("Audio preview", HideFlags.HideAndDontSave, typeof(AudioEmitter)).GetComponent<AudioEmitter>();
 	}
 
 	public void OnDisable()

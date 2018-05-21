@@ -15,12 +15,11 @@ MonoBehaviour:
   - {fileID: 8300000, guid: c9827d13e6ada0d47afe27c48849b7c0, type: 3}
   - {fileID: 8300000, guid: f98bdc07461e3564fae9f30bacca2d97, type: 3}
   - {fileID: 8300000, guid: 438a7faacab59cc4eb4beff5062766f5, type: 3}
-  - {fileID: 8300000, guid: 7592dc9dd82d52440a72b6be72dd0971, type: 3}
   - {fileID: 8300000, guid: 508835dd1e1638347a20774691a710ff, type: 3}
   - {fileID: 8300000, guid: 28cfc10d4cda0f545958552adf251f15, type: 3}
-  volume:
-    minValue: 0.72669363
-    maxValue: 1
-  pitch:
-    minValue: 0.8095961
-    maxValue: 1.4533861
+  volumeRange:
+    minValue: 0.28332835
+    maxValue: 0.44123924
+  pitchRange:
+    minValue: 0.99605215
+    maxValue: 1.3483143
