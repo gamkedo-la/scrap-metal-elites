@@ -23,3 +23,4 @@ MonoBehaviour:
   motorMaxSpeed: 50
   throwForceLateral: 1000
   throwForceUpward: 400
+  damageMultiplier: 5

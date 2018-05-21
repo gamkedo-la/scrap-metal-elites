@@ -2,13 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpinnerActuator : MonoBehaviour, IActuator {
+public class SpinnerActuator : MonoBehaviour, IActuator, IImpactDamageModifier {
     public float actuate {
         get {
             return _actuate;
         }
         set {
             _actuate = value;
+        }
+    }
+
+    public float impactMultiplier {
+        get {
+            return impactDamageMultiplier;
         }
     }
 
@@ -28,6 +34,7 @@ public class SpinnerActuator : MonoBehaviour, IActuator {
     public float maxSpeed;
 	public float throwForceLateral = 400.0f;
 	public float throwForceUpward = 400.0f;
+    public float impactDamageMultiplier = 1f;
 
     void Start() {
         rb = GetComponent<Rigidbody>();

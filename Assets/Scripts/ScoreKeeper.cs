@@ -35,6 +35,10 @@ public class ScoreKeeper : MonoBehaviour {
         listener.Response.AddListener(OnGameRecord);
     }
 
+    void Start() {
+        UpdateScore(0);
+    }
+
     public void OnGameRecord(GameRecord record) {
         switch (record.tag) {
         // start keeping track of score when player has been declared

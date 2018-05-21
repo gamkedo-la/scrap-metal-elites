@@ -8,6 +8,7 @@ public class SpinnerJointApplicator : JointApplicator {
     public float motorMaxSpeed;
 	public float throwForceLateral = 400.0f;
 	public float throwForceUpward = 400.0f;
+    public float damageMultiplier = 1f;
 
     protected override Joint ApplyJoint(GameObject rigidbodyGo, PartConfig config, GameObject target) {
 
@@ -25,6 +26,7 @@ public class SpinnerJointApplicator : JointApplicator {
             actuator.maxSpeed = motorMaxSpeed;
             actuator.throwForceUpward = throwForceUpward;
             actuator.throwForceLateral = throwForceLateral;
+            actuator.impactDamageMultiplier = damageMultiplier;
         }
         return joint;
 
