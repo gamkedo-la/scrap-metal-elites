@@ -504,6 +504,7 @@ MonoBehaviour:
     - name: hammer1
       offset: {x: 0, y: 0.25, z: 0}
       prefab: {fileID: 1166039732656108, guid: 8e837ead78813445696130b313b6ff7b, type: 2}
+    matchMusicTrack: {fileID: 11400000, guid: d0f95ca9ef72941adb886a57af587b11, type: 2}
   - id: champ2
     playerPrefab:
       name: Bob
@@ -515,6 +516,7 @@ MonoBehaviour:
       offset: {x: 0, y: 0, z: 0}
       prefab: {fileID: 1297436841330656, guid: 7e7d1fe8bddda4053a2ff37aaa1e4b81, type: 2}
     hazardPrefabs: []
+    matchMusicTrack: {fileID: 11400000, guid: 90cff9f12916746dd9f7b810ea79da9b, type: 2}
   - id: champ3
     playerPrefab:
       name: Bob
@@ -526,6 +528,7 @@ MonoBehaviour:
       offset: {x: 0, y: 0, z: 0}
       prefab: {fileID: 1354931224165476, guid: 8ecd3d66049b04a0fbc16aeda9eeaea5, type: 2}
     hazardPrefabs: []
+    matchMusicTrack: {fileID: 11400000, guid: e09ee271440754f07b230ce1b6c76439, type: 2}
   - id: champ4
     playerPrefab:
       name: Bob
@@ -537,6 +540,7 @@ MonoBehaviour:
       offset: {x: 0, y: 0, z: 0}
       prefab: {fileID: 1354931224165476, guid: 8ecd3d66049b04a0fbc16aeda9eeaea5, type: 2}
     hazardPrefabs: []
+    matchMusicTrack: {fileID: 11400000, guid: 8ff5c2036d5f34e4695a917dd5137408, type: 2}
   - id: champ5
     playerPrefab:
       name: Bob
@@ -548,6 +552,7 @@ MonoBehaviour:
       offset: {x: 0, y: 0, z: 0}
       prefab: {fileID: 1354931224165476, guid: 8ecd3d66049b04a0fbc16aeda9eeaea5, type: 2}
     hazardPrefabs: []
+    matchMusicTrack: {fileID: 11400000, guid: 0dd93aa9b64f84be5bce945382b0f65f, type: 2}
 --- !u!114 &114881185246938358
 MonoBehaviour:
   m_ObjectHideFlags: 1

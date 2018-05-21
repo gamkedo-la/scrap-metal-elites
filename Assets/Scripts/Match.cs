@@ -19,6 +19,9 @@ public class Match : MonoBehaviour {
     public GameInfo gameInfo;
     public AIConfig defaultAIConfig;
 
+    [Header("Sounds")]
+    public AudioEvent winLossTrack;
+
     [Header("Events")]
     public StringEvent timerMessage;
     public StringEvent bannerFade;
@@ -260,6 +263,11 @@ public class Match : MonoBehaviour {
         yield return null;      // if match timer was skipped (escape pressed), eat the escape by waiting a frame
         StartCoroutine(PauseHandler());
 
+        // start match music
+        if (gameInfo.matchInfo.matchMusicTrack != null) {
+            gameInfo.matchInfo.matchMusicTrack.Play(AudioManager.GetInstance().GetEmitter(gameObject, gameInfo.matchInfo.matchMusicTrack));
+        }
+
         // notify channel
         if (gameEventChannel != null) {
             gameEventChannel.Raise(GameRecord.GameStarted());
@@ -398,6 +406,11 @@ public class Match : MonoBehaviour {
             allBots.Items[i].GetComponent<BotBrain>().DisableControls();
         }
 
+        // stop match music
+        if (gameInfo.matchInfo.matchMusicTrack != null) {
+            gameInfo.matchInfo.matchMusicTrack.Stop(AudioManager.GetInstance().GetEmitter(gameObject, gameInfo.matchInfo.matchMusicTrack));
+        }
+
         // add win/loss for player
         if (winningBot == spawnedPlayer) {
             // create score for win
@@ -419,6 +432,11 @@ public class Match : MonoBehaviour {
             gameInfo.playerInfo.AddLoss();
         }
 
+        // start win/loss music
+        if (winLossTrack != null) {
+            winLossTrack.Play(AudioManager.GetInstance().GetEmitter(gameObject, winLossTrack));
+        }
+
         // setup listener for doneConfirmed event
         var confirmed = false;
         var listener = gameObject.AddComponent<GameEventListener>();
@@ -436,6 +454,10 @@ public class Match : MonoBehaviour {
 
         // wait for match info to be selected
         yield return new WaitUntil(() => confirmed);
+
+        if (winLossTrack != null) {
+            winLossTrack.Stop(AudioManager.GetInstance().GetEmitter(gameObject, winLossTrack));
+        }
 
         // clean up, remove listener
         Destroy(panelGo);

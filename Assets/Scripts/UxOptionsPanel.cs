@@ -17,9 +17,20 @@ public class UxOptionsPanel: UxPanel {
         sfxVolumeSlider.minValue = 0f;
         sfxVolumeSlider.maxValue = 1f;
         sfxVolumeSlider.value = sfxMasterVolume.Value;
+
+        musicVolumeSlider.minValue = 0f;
+        musicVolumeSlider.maxValue = 1f;
+        musicVolumeSlider.value = musicMasterVolume.Value;
+
+        voiceVolumeSlider.minValue = 0f;
+        voiceVolumeSlider.maxValue = 1f;
+        voiceVolumeSlider.value = voiceMasterVolume.Value;
+
         // setup callbacks
         backButton.onClick.AddListener(OnBackClick);
         sfxVolumeSlider.onValueChanged.AddListener((val) => OnValueChanged(sfxVolumeSlider, sfxMasterVolume));
+        musicVolumeSlider.onValueChanged.AddListener((val) => OnValueChanged(musicVolumeSlider, musicMasterVolume));
+        voiceVolumeSlider.onValueChanged.AddListener((val) => OnValueChanged(voiceVolumeSlider, voiceMasterVolume));
     }
 
     public void OnValueChanged(Slider slider, UnitFloatVariable volume) {

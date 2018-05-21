@@ -5,12 +5,15 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
-    path: Assets/Scenes/mainMenu.unity
+  - enabled: 0
+    path: Assets/__DELETED_GUID_Trash/28fa7a7a06058834b85c3dbc735cbcbc
     guid: 28fa7a7a06058834b85c3dbc735cbcbc
-  - enabled: 1
-    path: Assets/Scenes/Main.unity
+  - enabled: 0
+    path: Assets/Scenes/Test2.unity
     guid: bd33eafa05e034f4f9a21e8d6a68dd1c
   - enabled: 1
-    path: Assets/Scenes/Arena Deathmatch.unity
+    path: Assets/Scenes/MainMenu.unity
+    guid: ba1348c5cd3614160b70fa8ae55f9ad1
+  - enabled: 1
+    path: Assets/Scenes/Arena.unity
     guid: aba4a4f879eb44376b8f2ab312b592e5

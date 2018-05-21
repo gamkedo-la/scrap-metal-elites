@@ -1179,6 +1179,7 @@ MonoBehaviour:
   enemyBotDropdown: {fileID: 114915711802237424}
   enemyBotViewPanel: {fileID: 224066508986135432}
   canvasGroup: {fileID: 225259100774917728}
+  musicTrack: {fileID: 11400000, guid: 53b8e5cfa795d45a28a00ec004d58230, type: 2}
   sandboxPrefab: {fileID: 1643981519012756, guid: 2346d249a64584711b1535a4652ccf55,
     type: 2}
   availableBots: {fileID: 11400000, guid: 40f18f0a5064c4c17b81c45e0382af59, type: 2}

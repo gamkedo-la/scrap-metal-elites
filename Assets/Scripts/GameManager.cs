@@ -11,6 +11,9 @@ public class GameManager : MonoBehaviour {
     public GameObject deathMatchBotSelectPanelPrefab;
     public GameObject titleMatchPanelPrefab;
 
+    [Header("Sounds")]
+    public AudioEvent mainMusicTrack;
+
     [Header("Events")]
     public GameEvent cancelSelected;                // used to notify of cancel events (backing out of a panel)
     public GameEvent gameModeSelected;              // used to notify when game mode has been selected
@@ -31,8 +34,8 @@ public class GameManager : MonoBehaviour {
     private bool startStateEngine = false;
     private PlayerInfo playerInfo;          // player name and stats
     private MatchInfo matchInfo = null;
-    private string mainScene = "newMainMenu";
-    private string arenaScene = "Arena DeathMatch";
+    private string mainScene = "MainMenu";
+    private string arenaScene = "Arena";
 
     private static bool managerInstantiated = false;
 
@@ -56,6 +59,11 @@ public class GameManager : MonoBehaviour {
 
     IEnumerator StateMainMenu() {
         if (debug) Debug.Log("StateMainMenu");
+
+        // start main music track
+        if (mainMusicTrack != null) {
+            mainMusicTrack.Play(AudioManager.GetInstance().GetEmitter(gameObject, mainMusicTrack));
+        }
         // instantiate main menu prefab (under canvas)
         var panelGo = Instantiate(mainMenuPrefab, GetCanvas().gameObject.transform);
         yield return null;      // wait a frame for panel initialization
@@ -178,6 +186,11 @@ public class GameManager : MonoBehaviour {
     IEnumerator StateMatchPlay() {
         if (debug) Debug.Log("StateMatchPlay");
 
+        // stop the main music track
+        if (mainMusicTrack != null) {
+            mainMusicTrack.Stop(AudioManager.GetInstance().GetEmitter(gameObject, mainMusicTrack));
+        }
+
         // store current player/match info into shared GameInfo
         gameInfo.playerInfo = playerInfo;
         gameInfo.matchInfo = matchInfo;
@@ -199,6 +212,11 @@ public class GameManager : MonoBehaviour {
         // stop the match scene, reload main menu scene
         SceneManager.LoadScene(mainScene);
         yield return null;
+
+        // restart main music track
+        if (mainMusicTrack != null) {
+            mainMusicTrack.Play(AudioManager.GetInstance().GetEmitter(gameObject, mainMusicTrack));
+        }
 
         // transition back to match select
         StartCoroutine(StateMatchSelect());

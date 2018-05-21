@@ -15,6 +15,9 @@ public class UxDeathmatchPanelController : MonoBehaviour {
     public RectTransform enemyBotViewPanel;
     public CanvasGroup canvasGroup;
 
+    [Header("Sounds")]
+    public AudioEvent musicTrack;
+
     [Header("Prefabs")]
     public GameObject sandboxPrefab;
 
@@ -78,6 +81,7 @@ public class UxDeathmatchPanelController : MonoBehaviour {
         matchInfo.enemyPrefabs[0] = new NamedPrefab();
         matchInfo.enemyPrefabs[0].name = enemyNameInput.text;
         matchInfo.enemyPrefabs[0].prefab = availableBots.Items[enemyBotDropdown.value].prefab;
+        matchInfo.matchMusicTrack = musicTrack;
 
         // initialize sandboxes
         var sandboxGo = Instantiate(sandboxPrefab, new Vector3(100,0,0), Quaternion.identity);
@@ -121,6 +125,15 @@ public class UxDeathmatchPanelController : MonoBehaviour {
     }
 
     public void OnCancel() {
+        // disable sandboxes
+        if (playerSandbox != null) {
+            playerSandbox.Clear();
+            playerSandbox.gameObject.SetActive(false);
+        }
+        if (enemySandbox != null) {
+            enemySandbox.Clear();
+            enemySandbox.gameObject.SetActive(false);
+        }
         Hide();
         selectCancelled.Raise();
     }

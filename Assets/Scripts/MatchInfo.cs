@@ -7,4 +7,5 @@ public class MatchInfo {
     public string enemyTitle;
     public NamedPrefab[] enemyPrefabs;
     public NamedPrefab[] hazardPrefabs;
+    public AudioEvent matchMusicTrack;
 }
