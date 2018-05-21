@@ -323,12 +323,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9e73c9e1505eb045badfef6ec460fa4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicVolume: 0.25
-  musicTracks:
-  - {fileID: 8300000, guid: 9c63e61fad455d74caf3d6b8129bd815, type: 3}
-  music: {fileID: 82223220468399004}
-  announcerVolume: 0.75
-  crowdVolume: 0.25
+  announcerVolume: {fileID: 11400000, guid: d7ffb369dfdd64ddf9f8eff355a5c0ba, type: 2}
+  crowdVolume: {fileID: 11400000, guid: d7ffb369dfdd64ddf9f8eff355a5c0ba, type: 2}
   idleTimeUntilRandom: 1
   audio: {fileID: 0}
   crowdClips:

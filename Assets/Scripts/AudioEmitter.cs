@@ -39,7 +39,7 @@ public class AudioEmitter : MonoBehaviour {
                 audioSource.volume = clipVolume * masterVolume.Value;
                 lastVolume = masterVolume.Value;
             }
-            yield return new WaitForSeconds(volumeCheckInterval);
+            yield return new WaitForSecondsRealtime(volumeCheckInterval);
         }
     }
 

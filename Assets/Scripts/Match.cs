@@ -20,6 +20,7 @@ public class Match : MonoBehaviour {
     public AIConfig defaultAIConfig;
 
     [Header("Sounds")]
+    public AudioEvent announcerTrack;
     public AudioEvent winLossTrack;
 
     [Header("Events")]
@@ -224,6 +225,11 @@ public class Match : MonoBehaviour {
     IEnumerator StateAnnouncer() {
         if (debug) Debug.Log("StateAnnouncer");
 
+        // start announcer music
+        if (announcerTrack != null) {
+            announcerTrack.Play(AudioManager.GetInstance().GetEmitter(gameObject, announcerTrack));
+        }
+
         // enable announcer camera mode
         if (cameraController != null) {
             cameraController.WatchAnnouncer();
@@ -235,6 +241,10 @@ public class Match : MonoBehaviour {
         yield return StartCoroutine(RunTimer(5, null, ()=>(!Input.GetKeyUp(KeyCode.Escape))));
 
         // TODO: add announcer voiceover mechanics/state
+
+        if (announcerTrack != null) {
+            announcerTrack.Stop(AudioManager.GetInstance().GetEmitter(gameObject, announcerTrack));
+        }
 
         // TRANSITION: Countdown
         StartCoroutine(StateCountdown());

@@ -497,6 +497,7 @@ MonoBehaviour:
   allBots: {fileID: 11400000, guid: 0c8c0a9ec335541c59c634bad32ecf99, type: 2}
   gameInfo: {fileID: 11400000, guid: 1054ae867b4e44415b3ff3918a0f3351, type: 2}
   defaultAIConfig: {fileID: 11400000, guid: e21b2f6a9b8d640c7932b26f41391395, type: 2}
+  announcerTrack: {fileID: 0}
   winLossTrack: {fileID: 11400000, guid: 723301e11f95d4bfd9e90f3aa5ec14ab, type: 2}
   timerMessage: {fileID: 11400000, guid: aafb70cdf036448cc9ebbfdf77dccc00, type: 2}
   bannerFade: {fileID: 11400000, guid: ae3334bc53cec4545ac91cdf18936217, type: 2}
