@@ -44,6 +44,7 @@ public class BotBrain : MonoBehaviour {
         if (botHealth != null) {
             botHealth.onDeath.AddListener(OnBotDeath);
         }
+        if (controlsActive) EnableControls();
 	}
 
     public void OnGameRecord(GameRecord record) {

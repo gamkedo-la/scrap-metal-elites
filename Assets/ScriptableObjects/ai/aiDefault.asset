@@ -13,12 +13,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingMode: 0
   startingTargetMode: 2
-  driveRange: 2
+  driveRange: 1.51
+  aimMinAngle: 10
+  drivePulseRange:
+    minValue: 0.9960522
+    maxValue: 0.9960522
+  driveCooldown:
+    minValue: 0
+    maxValue: 0.10324931
   fireDuration: 0.25
   fireCooldown: 1
   fireRange: 2.5
   targetRange: 25
-  aimMinAngle: 10
   retargetInterval: 1
   currentBots: {fileID: 0}
   debug: 0

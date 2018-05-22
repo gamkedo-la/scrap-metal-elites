@@ -2,13 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum AIMood {
-    idle,
-    wander,
-    aggressive,
-    flee
-};
-
 public class AIController : BotBrain {
     public AIConfig config;
 
@@ -17,6 +10,7 @@ public class AIController : BotBrain {
     private float angleToTarget = 0f;
     private float distanceToTarget = 0f;
     private GameObject target;
+    private bool fleeing = false;
 
     public void AssignConfig(AIConfig defaultConfig) {
         // look up config, attached to bot
@@ -61,33 +55,55 @@ public class AIController : BotBrain {
     }
 
     IEnumerator Move() {
+        var activeTime = 0f;
+        var nextPulse = Random.Range(config.drivePulseRange.minValue, config.drivePulseRange.maxValue);
         while (controlsActive) {
             if (target != null) {
-                distanceToTarget = (target.transform.position-transform.position).magnitude;
-                // scale drive based on distance to target and min driveRange
-                var drive = distanceToTarget/config.driveRange - 1f;
-                if (flipped) {
-                    drive = -drive;
+                activeTime += Time.deltaTime;
+                if (activeTime < nextPulse) {
+                    distanceToTarget = (target.transform.position-transform.position).magnitude;
+                    // scale drive based on distance to target and min driveRange
+                    var drive = distanceToTarget/config.driveRange - 1f;
+                    if (flipped) {
+                        drive = -drive;
+                    }
+                    if (fleeing) {
+                        drive = -drive;
+                    }
+                    mover.forwardDrive = Mathf.Clamp(drive, -1f, 1f);
+                } else {
+                    activeTime = 0f;
+                    mover.forwardDrive = 0f;
+                    yield return new WaitForSeconds(Random.Range(config.driveCooldown.minValue, config.driveCooldown.maxValue));
+            		nextPulse = Random.Range(config.drivePulseRange.minValue, config.drivePulseRange.maxValue);
                 }
-                mover.forwardDrive = Mathf.Clamp(drive, -1f, 1f);
             }
             yield return null;  // wait until next frame
         }
     }
 
     IEnumerator Steer() {
+        var activeTime = 0f;
         while (controlsActive) {
             if (mover != null && target != null) {
-                // compute angle to target
-                angleToTarget = AIController.AngleAroundAxis(transform.forward, target.transform.position-transform.position, transform.up);
-                // scale drive, if within min angle scale drive down
-                var drive = angleToTarget/config.aimMinAngle;
-                // flip controls if bot is flipped
-                if (flipped) {
-                    drive = -drive;
+                activeTime += Time.deltaTime;
+                if (activeTime >= config.steeringDelay) {
+                    // compute angle to target
+                    angleToTarget = AIController.AngleAroundAxis(transform.forward, target.transform.position-transform.position, transform.up);
+                    // scale drive, if within min angle scale drive down
+                    var drive = angleToTarget/config.driveSteeringFactor;
+                    // flip controls if bot is flipped
+                    if (flipped) {
+                        drive = -drive;
+                    }
+                    // rotate towards target
+                    mover.rotateDrive = Mathf.Clamp(drive, -1f, 1f);
+
+                    // if within target aim angle, restart active time
+                    if (Mathf.Abs(angleToTarget) < config.aimMinAngle) {
+                        activeTime = 0f;
+                    }
                 }
-                // rotate towards target
-                mover.rotateDrive = Mathf.Clamp(drive, -1f, 1f);
             }
             yield return null;  // wait until next frame
         }
@@ -107,13 +123,29 @@ public class AIController : BotBrain {
         }
     }
 
+    void SetTargetingMode(TargetMode mode) {
+        if (mode == TargetMode.Closest) {
+            TargetClosest();
+        } else if (mode == TargetMode.Player) {
+            TargetPlayer();
+        } else {
+            TargetManual(null);
+        }
+    }
+
+    void SetAIMode(AIMode mode) {
+        currentMode = mode;
+        if (mode == AIMode.hitAndRun) {
+            StartCoroutine(StateHitAndRun());
+        } if (mode == AIMode.flee) {
+            fleeing = true;
+        }
+    }
+
     public override void EnableControls() {
         base.EnableControls();
-        if (config.startingTargetMode == TargetMode.Closest) {
-            TargetClosest();
-        } else if (config.startingTargetMode == TargetMode.Player) {
-            TargetPlayer();
-        }
+        SetTargetingMode(config.startingTargetMode);
+        SetAIMode(config.startingMode);
         StartCoroutine(Fire());
         StartCoroutine(Steer());
         StartCoroutine(Move());
@@ -183,6 +215,20 @@ public class AIController : BotBrain {
 
     }
         */
+
+    IEnumerator StateHitAndRun() {
+        fleeing = false;
+        while (controlsActive && currentMode == AIMode.hitAndRun) {
+            if (distanceToTarget <= config.driveRange) {
+                if (config.debug) Debug.Log(gameObject.name + " fleeing");
+                fleeing = true;
+                yield return new WaitForSeconds(config.fleeDuration);
+            }
+            yield return null;  // wait until next frame
+            if (config.debug && fleeing) Debug.Log(gameObject.name + " no longer fleein g");
+            fleeing = false;
+        }
+    }
 
     IEnumerator StateTargetClosest() {
         while (controlsActive && targetMode == TargetMode.Closest) {

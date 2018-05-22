@@ -6,7 +6,8 @@ public enum AIMode {
     idle,
     wander,
     aggressive,
-    flee
+    flee,
+    hitAndRun
 };
 
 public enum TargetMode {
@@ -27,11 +28,21 @@ public class AIConfig : ScriptableObject {
     [Tooltip("how close should we try to get to target")]
     [Range(0.01f, 5f)]
     public float driveRange = 2f;
-    [Tooltip("angle to target must be +/- this angle to fire weapon")]
-    [Range(1f, 15f)]
-    public float aimMinAngle = 10f;
+	[MinMaxRange(0, 2)]
+	public RangedFloat drivePulseRange;
+	[MinMaxRange(0, 1)]
+	public RangedFloat driveCooldown;
+    [Tooltip("drive steering angle factor")]
+    [Range(5f, 90f)]
+    public float driveSteeringFactor = 10f;
+    [Tooltip("after within aimMinAngle, delay before steering again")]
+    [Range(0f, 2f)]
+    public float steeringDelay = 0f;
 
     [Header("weapon firing params")]
+    [Tooltip("angle to target must be +/- this angle to fire weapon")]
+    [Range(1f, 25f)]
+    public float aimMinAngle = 10f;
     [Tooltip("how long to fire weapon")]
     [Range(0.01f, 5f)]
     public float fireDuration = .25f;
@@ -52,5 +63,7 @@ public class AIConfig : ScriptableObject {
     public BotRuntimeSet currentBots;
 
     [Header("other params")]
+    [Range(1, 5f)]
+    public float fleeDuration = 3f;
     public bool debug = false;
 }

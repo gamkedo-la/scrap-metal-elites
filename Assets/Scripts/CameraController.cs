@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class CameraController: MonoBehaviour {
 
-    enum CameraMode {
+    public enum CameraMode {
         None,
         Overview,
         Announcer,
@@ -24,6 +24,8 @@ public class CameraController: MonoBehaviour {
     public float cameraOffset = 5f;
     [Tooltip("overview position")]
     public Vector3 overviewPosition = new Vector3(0,40,-30);
+    [Tooltip("starting camera mode")]
+    public CameraMode startingCameraMode = CameraMode.None;
 
     [Header("State Variables")]
     public BotRuntimeSet currentBots;
@@ -36,6 +38,14 @@ public class CameraController: MonoBehaviour {
     void Start() {
         desiredPosition = transform.position;
         desiredRotation = transform.rotation;
+        switch (startingCameraMode) {
+        case CameraMode.Overview:
+            WatchOverview();
+            break;
+        case CameraMode.Bots:
+            WatchBots();
+            break;
+        }
     }
     public void WatchStop() {
         cameraMode = CameraMode.None;

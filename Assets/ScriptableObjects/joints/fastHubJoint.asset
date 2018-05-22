@@ -19,5 +19,6 @@ MonoBehaviour:
   applyDamageToTorque: 1
   gameEventChannel: {fileID: 11400000, guid: 7cdbdc64686ff4786ae1b73fdc14d54f, type: 2}
   motor: 1
-  motorMaxTorque: 50
-  motorMaxSpeed: 60
+  motorMaxTorque: 28
+  motorMaxSpeed: 55
+  motorSfx: {fileID: 11400000, guid: eaa0c769518d64c20b2d71e3cfc32e64, type: 2}

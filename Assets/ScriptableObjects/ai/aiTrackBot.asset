@@ -9,23 +9,25 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 780e45953d766464ca5eeb47649e4b56, type: 3}
-  m_Name: aiRamBot
+  m_Name: aiTrackBot
   m_EditorClassIdentifier: 
-  startingMode: 2
+  startingMode: 4
   startingTargetMode: 2
-  driveRange: 1.51
+  driveRange: 2.58
   drivePulseRange:
-    minValue: 0.7652596
-    maxValue: 1.2875797
+    minValue: 0.9960522
+    maxValue: 0.9960522
   driveCooldown:
     minValue: 0
-    maxValue: 0.09717582
+    maxValue: 0.10324931
   driveSteeringFactor: 10
-  aimMinAngle: 5
+  steeringDelay: 0
+  aimMinAngle: 4.7
   fireDuration: 0.25
   fireCooldown: 1
   fireRange: 2.5
   targetRange: 25
   retargetInterval: 1
-  currentBots: {fileID: 11400000, guid: 0c8c0a9ec335541c59c634bad32ecf99, type: 2}
-  debug: 0
+  currentBots: {fileID: 0}
+  fleeDuration: 3
+  debug: 1

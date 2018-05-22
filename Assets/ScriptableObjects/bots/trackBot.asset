@@ -46,7 +46,7 @@ MonoBehaviour:
       offset: {x: 0.25, y: 0, z: 0.75}
       rotation: {x: 0, y: 0, z: 0}
       joint: {fileID: 11400000, guid: 40b16337435db439e9894ed44a6ae7d4, type: 2}
-      part: {fileID: 11400000, guid: 05b59265376f34914a0d6f33bbdcdbcf, type: 2}
+      part: {fileID: 11400000, guid: fe1b8c491b85c4a20b6cf2973fc61e49, type: 2}
   - label: rightRearWheel
     config:
       rows:
@@ -74,7 +74,7 @@ MonoBehaviour:
       offset: {x: 0.25, y: 0, z: -0.75}
       rotation: {x: 0, y: 0, z: 0}
       joint: {fileID: 11400000, guid: 40b16337435db439e9894ed44a6ae7d4, type: 2}
-      part: {fileID: 11400000, guid: 05b59265376f34914a0d6f33bbdcdbcf, type: 2}
+      part: {fileID: 11400000, guid: fe1b8c491b85c4a20b6cf2973fc61e49, type: 2}
   - label: leftFrontWheel
     config:
       rows:
@@ -107,7 +107,7 @@ MonoBehaviour:
       offset: {x: -0.25, y: 0, z: 0.75}
       rotation: {x: 0, y: 180, z: 0}
       joint: {fileID: 11400000, guid: 40b16337435db439e9894ed44a6ae7d4, type: 2}
-      part: {fileID: 11400000, guid: 05b59265376f34914a0d6f33bbdcdbcf, type: 2}
+      part: {fileID: 11400000, guid: fe1b8c491b85c4a20b6cf2973fc61e49, type: 2}
   - label: leftRearWheel
     config:
       rows:
@@ -145,7 +145,7 @@ MonoBehaviour:
       offset: {x: -0.25, y: 0, z: -0.75}
       rotation: {x: 0, y: 180, z: 0}
       joint: {fileID: 11400000, guid: 40b16337435db439e9894ed44a6ae7d4, type: 2}
-      part: {fileID: 11400000, guid: 05b59265376f34914a0d6f33bbdcdbcf, type: 2}
+      part: {fileID: 11400000, guid: fe1b8c491b85c4a20b6cf2973fc61e49, type: 2}
   - label: leftEmpty1
     config:
       rows:
