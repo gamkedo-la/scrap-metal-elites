@@ -16,8 +16,7 @@ MonoBehaviour:
   damage: {fileID: 11400000, guid: cbefe02a4e4ec4c6c9dbc729ebeec2a6, type: 2}
   models:
   - offset: {x: 0, y: 0, z: 0}
-    rotation: {x: -90, y: 0, z: 0}
-    model: {fileID: 1622779195818914, guid: 145afde98a3bd4c4abb048b0c454f8ce, type: 2}
-  applicators:
-  - {fileID: 11400000, guid: 199320462dace4f3f9520126a114b32b, type: 2}
+    rotation: {x: 0, y: 0, z: 0}
+    model: {fileID: 1564762851430106, guid: 78d73353f9b5b4bce9f508f17e9c1732, type: 2}
+  applicators: []
   connectedParts: []
