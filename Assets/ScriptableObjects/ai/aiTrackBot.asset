@@ -13,15 +13,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingMode: 4
   startingTargetMode: 2
-  driveRange: 2.52
+  driveRange: 2.05
   drivePulseRange:
     minValue: 0.9960522
     maxValue: 0.9960522
   driveCooldown:
     minValue: 0
     maxValue: 0.10324931
-  driveSteeringFactor: 5
+  driveSteeringFactor: 11.8
   steeringDelay: 0
+  steeringPowerModifier: 0.409
+  steeringTrack: 1
   aimMinAngle: 4.7
   fireDuration: 0.25
   fireCooldown: 1
@@ -30,4 +32,5 @@ MonoBehaviour:
   retargetInterval: 1
   currentBots: {fileID: 0}
   fleeDuration: 3
+  fleeDistanceThreshold: 3
   debug: 1

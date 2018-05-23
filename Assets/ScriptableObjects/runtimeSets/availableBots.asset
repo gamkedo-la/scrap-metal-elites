@@ -13,18 +13,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Items:
   - name: Pushy
+    offset: {x: 0, y: 0, z: 0}
     prefab: {fileID: 1747757598241954, guid: 38bb754395b7c4f92be06a38923df58d, type: 2}
   - name: Modified Carbide
+    offset: {x: 0, y: 0, z: 0}
     prefab: {fileID: 1531212166475178, guid: c94ec211cf6b54b2784aa784127ad4c2, type: 2}
   - name: Don't Get Flippy With Me
+    offset: {x: 0, y: 0, z: 0}
     prefab: {fileID: 1723417441784214, guid: b0e77aeb58ba441619e98e71fee9e6ca, type: 2}
   - name: Lil' Smokey
+    offset: {x: 0, y: 0, z: 0}
     prefab: {fileID: 1520203798844092, guid: bf2991beebd4b4b46b69d7ea89feff4a, type: 2}
   - name: Pokey
-    prefab: {fileID: 1611224051005754, guid: 3cd03019a769e4363b40abbf0bb6c854, type: 2}
+    offset: {x: 0, y: 0, z: 0}
+    prefab: {fileID: 1611224051005754, guid: 2e9581b00f2374eb8ba4c4d047889c5b, type: 2}
   - name: Big Wheels
+    offset: {x: 0, y: 0, z: 0}
     prefab: {fileID: 1352949254947202, guid: 0900452d0b08345799f5aba3f5744324, type: 2}
   - name: Don't Tread On Me
+    offset: {x: 0, y: 0, z: 0}
     prefab: {fileID: 1354931224165476, guid: 8ecd3d66049b04a0fbc16aeda9eeaea5, type: 2}
   - name: Buggy
+    offset: {x: 0, y: 0, z: 0}
     prefab: {fileID: 1297436841330656, guid: 7e7d1fe8bddda4053a2ff37aaa1e4b81, type: 2}
+  UnPicked: []

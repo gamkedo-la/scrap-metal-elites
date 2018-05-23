@@ -38,6 +38,11 @@ public class AIConfig : ScriptableObject {
     [Tooltip("after within aimMinAngle, delay before steering again")]
     [Range(0f, 2f)]
     public float steeringDelay = 0f;
+    [Tooltip("clamp of steering drive")]
+    [Range(0f, 1f)]
+    public float steeringPowerModifier = 1f;
+    [Tooltip("does bot use track steering")]
+    public bool steeringTrack = true;
 
     [Header("weapon firing params")]
     [Tooltip("angle to target must be +/- this angle to fire weapon")]
@@ -65,5 +70,7 @@ public class AIConfig : ScriptableObject {
     [Header("other params")]
     [Range(1, 5f)]
     public float fleeDuration = 3f;
+    [Range(0f, 5f)]
+    public float fleeDistanceThreshold = 3f;
     public bool debug = false;
 }

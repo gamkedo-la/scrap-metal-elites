@@ -41,7 +41,7 @@ MonoBehaviour:
       offset: {x: 0.26, y: 0, z: 0.5}
       rotation: {x: 0, y: 0, z: 0}
       joint: {fileID: 11400000, guid: 40b16337435db439e9894ed44a6ae7d4, type: 2}
-      part: {fileID: 11400000, guid: 0992266828eea43bd9c6a109396a81ad, type: 2}
+      part: {fileID: 11400000, guid: fe1b8c491b85c4a20b6cf2973fc61e49, type: 2}
   - label: rightRearWheel
     config:
       rows:
@@ -90,9 +90,9 @@ MonoBehaviour:
         floatValue: 0
     part:
       offset: {x: -0.26, y: 0, z: 0.5}
-      rotation: {x: 0, y: 0, z: 180}
+      rotation: {x: 0, y: 180, z: 0}
       joint: {fileID: 11400000, guid: 40b16337435db439e9894ed44a6ae7d4, type: 2}
-      part: {fileID: 11400000, guid: 0992266828eea43bd9c6a109396a81ad, type: 2}
+      part: {fileID: 11400000, guid: 5e4f61845a05f40cb8282c30dfb5f4bd, type: 2}
   - label: leftRearWheel
     config:
       rows:
@@ -172,3 +172,19 @@ MonoBehaviour:
       rotation: {x: 0, y: 0, z: 0}
       joint: {fileID: 11400000, guid: 40b16337435db439e9894ed44a6ae7d4, type: 2}
       part: {fileID: 11400000, guid: f24042d5079214a7da6d7c2f512bebab, type: 2}
+  - label: rightSpike
+    config:
+      rows: []
+    part:
+      offset: {x: -0.2, y: 0, z: 0.5}
+      rotation: {x: 0, y: 0, z: -90}
+      joint: {fileID: 11400000, guid: 40b16337435db439e9894ed44a6ae7d4, type: 2}
+      part: {fileID: 11400000, guid: 77aaecaa25c64490989f2419ce8a3d0f, type: 2}
+  - label: leftSpike
+    config:
+      rows: []
+    part:
+      offset: {x: 0.2, y: 0, z: 0.5}
+      rotation: {x: 0, y: 0, z: 90}
+      joint: {fileID: 11400000, guid: 40b16337435db439e9894ed44a6ae7d4, type: 2}
+      part: {fileID: 11400000, guid: 77aaecaa25c64490989f2419ce8a3d0f, type: 2}

@@ -46,7 +46,6 @@ public class AutoTrackMovement : MonoBehaviour, IMovement {
                 rightScripts.Add(scripts[i]);
             }
         }
-        print("# leftScripts: " + leftScripts.Count + " rightScripts: " + rightScripts.Count);
     }
 
     void Update() {

@@ -25,7 +25,7 @@ MonoBehaviour:
     rotation: {x: 0, y: 0, z: 0}
     joint: {fileID: 11400000, guid: 8b9a36488954149568d4f4eadb45321f, type: 2}
     part: {fileID: 11400000, guid: f1f71c9cf628e4c6c8b250f6d97ae4f2, type: 2}
-  - offset: {x: 0.45, y: 0, z: 0}
-    rotation: {x: 0, y: 0, z: 90}
+  - offset: {x: -0.45, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: -90}
     joint: {fileID: 11400000, guid: 40b16337435db439e9894ed44a6ae7d4, type: 2}
     part: {fileID: 11400000, guid: 77aaecaa25c64490989f2419ce8a3d0f, type: 2}

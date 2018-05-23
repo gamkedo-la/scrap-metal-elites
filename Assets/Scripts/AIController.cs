@@ -17,10 +17,8 @@ public class AIController : BotBrain {
         var builder = GetComponent<BotBuilder>();
         if (builder != null && builder.aiConfig != null) {
             config = builder.aiConfig;
-            Debug.Log("builder config: " + config);
         } else {
             config = defaultConfig;
-            Debug.Log("default config: " + config);
         }
     }
 
@@ -61,11 +59,14 @@ public class AIController : BotBrain {
             if (target != null) {
                 activeTime += Time.deltaTime;
                 if (activeTime < nextPulse) {
-                    distanceToTarget = (target.transform.position-transform.position).magnitude;
                     // scale drive based on distance to target and min driveRange
                     float drive = 0f;
+                    // if fleeing, reverse drive, get out
                     if (fleeing) {
                         drive = -1f;
+                    // if track steering, don't engage forward drive if angleToTarget past threshold
+                    } else if (config.steeringTrack && Mathf.Abs(angleToTarget) >= 15f) {
+                        drive = 0f;
                     } else {
                         drive = distanceToTarget/config.driveRange - 1f;
                     }
@@ -90,8 +91,6 @@ public class AIController : BotBrain {
             if (mover != null && target != null) {
                 activeTime += Time.deltaTime;
                 if (activeTime >= config.steeringDelay) {
-                    // compute angle to target
-                    angleToTarget = AIController.AngleAroundAxis(transform.forward, target.transform.position-transform.position, transform.up);
                     // scale drive, if within min angle scale drive down
                     var drive = angleToTarget/config.driveSteeringFactor;
                     // flip controls if bot is flipped
@@ -99,7 +98,8 @@ public class AIController : BotBrain {
                         drive = -drive;
                     }
                     // rotate towards target
-                    mover.rotateDrive = Mathf.Clamp(drive, -1f, 1f);
+                    //mover.rotateDrive = Mathf.Clamp(drive, -1f, 1f);
+                    mover.rotateDrive = Mathf.Clamp(drive, -config.steeringPowerModifier, config.steeringPowerModifier);
 
                     // if within target aim angle, restart active time
                     if (Mathf.Abs(angleToTarget) < config.aimMinAngle) {
@@ -162,6 +162,13 @@ public class AIController : BotBrain {
 		}
 	}
 
+    void Update () {
+        if (target != null) {
+            angleToTarget = AIController.AngleAroundAxis(transform.forward, target.transform.position-transform.position, transform.up);
+            distanceToTarget = (target.transform.position-transform.position).magnitude;
+        }
+    }
+
     public static float AngleAroundAxis(Vector3 dirA, Vector3 dirB, Vector3 axis)
     {
         // Project A and B onto the plane orthogonal to axis
@@ -222,7 +229,7 @@ public class AIController : BotBrain {
         fleeing = false;
         yield return null;  // wait until next frame
         while (controlsActive && currentMode == AIMode.hitAndRun) {
-            if (distanceToTarget <= config.driveRange) {
+            if (distanceToTarget <= config.fleeDistanceThreshold) {
                 if (config.debug) Debug.Log(gameObject.name + " fleeing");
                 fleeing = true;
                 yield return new WaitForSeconds(config.fleeDuration);
