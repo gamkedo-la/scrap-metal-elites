@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c16a472c5a6b4cfcafc4959de97a920, type: 3}
+  m_Name: largeFastFOWheelSpike2
+  m_EditorClassIdentifier: 
+  mass: {fileID: 0}
+  health: {fileID: 11400000, guid: 17e592848fc6949c99141368cff12bbe, type: 2}
+  damage: {fileID: 11400000, guid: 7e7be862284084a98a428249151e83f5, type: 2}
+  models:
+  - offset: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0}
+    model: {fileID: 1808414059628808, guid: a8f8dea8eb2fc460794ca5436ecac4f2, type: 2}
+  applicators:
+  - {fileID: 11400000, guid: 551bbb5f7df274ebd8a1286359ca07ed, type: 2}
+  connectedParts:
+  - offset: {x: 0.5, y: 0, z: 0.1}
+    rotation: {x: 0, y: 0, z: 0}
+    joint: {fileID: 11400000, guid: 8b9a36488954149568d4f4eadb45321f, type: 2}
+    part: {fileID: 11400000, guid: f1f71c9cf628e4c6c8b250f6d97ae4f2, type: 2}
+  - offset: {x: 0.45, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 90}
+    joint: {fileID: 11400000, guid: 40b16337435db439e9894ed44a6ae7d4, type: 2}
+    part: {fileID: 11400000, guid: 77aaecaa25c64490989f2419ce8a3d0f, type: 2}

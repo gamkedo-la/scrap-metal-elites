@@ -9,7 +9,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c0a0580469dcb4bc2b6c6612d3f69af0, type: 3}
-  m_Name: smallFastWheel
+  m_Name: largeFastBOWheel
   m_EditorClassIdentifier: 
   mass: {fileID: 0}
   health: {fileID: 11400000, guid: 17e592848fc6949c99141368cff12bbe, type: 2}
@@ -28,7 +28,7 @@ MonoBehaviour:
     joint: {fileID: 0}
     part: {fileID: 0}
   hub:
-    offset: {x: 0.4, y: 0, z: 0}
+    offset: {x: 0.4, y: 0, z: -0.1}
     rotation: {x: 0, y: 0, z: 0}
     joint: {fileID: 11400000, guid: 8b9a36488954149568d4f4eadb45321f, type: 2}
     part: {fileID: 11400000, guid: 43af56fd188db4ca281b6056689d98b7, type: 2}

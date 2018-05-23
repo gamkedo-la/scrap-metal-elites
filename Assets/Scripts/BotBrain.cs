@@ -55,7 +55,6 @@ public class BotBrain : MonoBehaviour {
         while (botAlive) {
             var currentFlip = Vector3.Angle(Vector3.up, transform.up) > 90;
             if (currentFlip != flipped) {
-                Debug.Log("just flipped");
                 flipped = currentFlip;
                 if (eventChannel != null) {
                     eventChannel.Raise(GameRecord.BotFlipped(gameObject));

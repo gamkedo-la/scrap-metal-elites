@@ -13,14 +13,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingMode: 4
   startingTargetMode: 2
-  driveRange: 2.58
+  driveRange: 2.52
   drivePulseRange:
     minValue: 0.9960522
     maxValue: 0.9960522
   driveCooldown:
     minValue: 0
     maxValue: 0.10324931
-  driveSteeringFactor: 10
+  driveSteeringFactor: 5
   steeringDelay: 0
   aimMinAngle: 4.7
   fireDuration: 0.25

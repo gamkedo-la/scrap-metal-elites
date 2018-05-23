@@ -63,11 +63,13 @@ public class AIController : BotBrain {
                 if (activeTime < nextPulse) {
                     distanceToTarget = (target.transform.position-transform.position).magnitude;
                     // scale drive based on distance to target and min driveRange
-                    var drive = distanceToTarget/config.driveRange - 1f;
-                    if (flipped) {
-                        drive = -drive;
-                    }
+                    float drive = 0f;
                     if (fleeing) {
+                        drive = -1f;
+                    } else {
+                        drive = distanceToTarget/config.driveRange - 1f;
+                    }
+                    if (flipped) {
                         drive = -drive;
                     }
                     mover.forwardDrive = Mathf.Clamp(drive, -1f, 1f);
@@ -218,6 +220,7 @@ public class AIController : BotBrain {
 
     IEnumerator StateHitAndRun() {
         fleeing = false;
+        yield return null;  // wait until next frame
         while (controlsActive && currentMode == AIMode.hitAndRun) {
             if (distanceToTarget <= config.driveRange) {
                 if (config.debug) Debug.Log(gameObject.name + " fleeing");
@@ -225,7 +228,7 @@ public class AIController : BotBrain {
                 yield return new WaitForSeconds(config.fleeDuration);
             }
             yield return null;  // wait until next frame
-            if (config.debug && fleeing) Debug.Log(gameObject.name + " no longer fleein g");
+            if (config.debug && fleeing) Debug.Log(gameObject.name + " no longer fleeing");
             fleeing = false;
         }
     }

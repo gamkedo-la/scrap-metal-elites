@@ -9,9 +9,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6e751a7e88dda48628b9b3bb820e61b9, type: 3}
-  m_Name: trackBot
+  m_Name: spikeBot2.0
   m_EditorClassIdentifier: 
-  mass: {fileID: 0}
+  mass: {fileID: 11400000, guid: c913f6744212844cdbdddf669bc79928, type: 2}
   health: {fileID: 0}
   damage: {fileID: 0}
   models: []
@@ -22,9 +22,9 @@ MonoBehaviour:
   frame:
     offset: {x: 0, y: 0, z: 0}
     rotation: {x: 0, y: 0, z: 0}
-    model: {fileID: 1853439771169596, guid: ca4d8304e8a97463bac30c14e9a824ea, type: 2}
+    model: {fileID: 1883716674634628, guid: 7091adc79ab1e468b8db4b5e94f963f0, type: 2}
   modules:
-  - label: frontRightWheel
+  - label: rightFrontWheel
     config:
       rows:
       - key: 6
@@ -33,34 +33,24 @@ MonoBehaviour:
         stringValue: 
         floatValue: 0
       - key: 7
-        valueType: 0
-        boolValue: 1
-        stringValue: 
-        floatValue: 0
-      - key: 10
         valueType: 0
         boolValue: 1
         stringValue: 
         floatValue: 0
     part:
-      offset: {x: 0.25, y: 0, z: 0.75}
+      offset: {x: 0.26, y: 0, z: 0.5}
       rotation: {x: 0, y: 0, z: 0}
       joint: {fileID: 11400000, guid: 40b16337435db439e9894ed44a6ae7d4, type: 2}
-      part: {fileID: 11400000, guid: 1f328d45956c847e7b2e93c7f0fff1c0, type: 2}
+      part: {fileID: 11400000, guid: 0992266828eea43bd9c6a109396a81ad, type: 2}
   - label: rightRearWheel
     config:
       rows:
-      - key: 5
+      - key: 7
         valueType: 0
         boolValue: 1
         stringValue: 
         floatValue: 0
       - key: 6
-        valueType: 0
-        boolValue: 1
-        stringValue: 
-        floatValue: 0
-      - key: 7
         valueType: 0
         boolValue: 1
         stringValue: 
@@ -71,10 +61,10 @@ MonoBehaviour:
         stringValue: 
         floatValue: 0
     part:
-      offset: {x: 0.25, y: 0, z: -0.75}
+      offset: {x: 0.26, y: 0, z: -0.5}
       rotation: {x: 0, y: 0, z: 0}
       joint: {fileID: 11400000, guid: 40b16337435db439e9894ed44a6ae7d4, type: 2}
-      part: {fileID: 11400000, guid: 1f328d45956c847e7b2e93c7f0fff1c0, type: 2}
+      part: {fileID: 11400000, guid: 5e4f61845a05f40cb8282c30dfb5f4bd, type: 2}
   - label: leftFrontWheel
     config:
       rows:
@@ -93,30 +83,20 @@ MonoBehaviour:
         boolValue: 1
         stringValue: 
         floatValue: 0
-      - key: 11
-        valueType: 0
-        boolValue: 1
-        stringValue: 
-        floatValue: 0
       - key: 12
         valueType: 0
         boolValue: 1
         stringValue: 
         floatValue: 0
     part:
-      offset: {x: -0.25, y: 0, z: 0.75}
-      rotation: {x: 0, y: 180, z: 0}
+      offset: {x: -0.26, y: 0, z: 0.5}
+      rotation: {x: 0, y: 0, z: 180}
       joint: {fileID: 11400000, guid: 40b16337435db439e9894ed44a6ae7d4, type: 2}
-      part: {fileID: 11400000, guid: 1f328d45956c847e7b2e93c7f0fff1c0, type: 2}
+      part: {fileID: 11400000, guid: 0992266828eea43bd9c6a109396a81ad, type: 2}
   - label: leftRearWheel
     config:
       rows:
       - key: 3
-        valueType: 0
-        boolValue: 1
-        stringValue: 
-        floatValue: 0
-      - key: 5
         valueType: 0
         boolValue: 1
         stringValue: 
@@ -142,11 +122,11 @@ MonoBehaviour:
         stringValue: 
         floatValue: 0
     part:
-      offset: {x: -0.25, y: 0, z: -0.75}
+      offset: {x: -0.26, y: 0, z: -0.5}
       rotation: {x: 0, y: 180, z: 0}
       joint: {fileID: 11400000, guid: 40b16337435db439e9894ed44a6ae7d4, type: 2}
-      part: {fileID: 11400000, guid: 1f328d45956c847e7b2e93c7f0fff1c0, type: 2}
-  - label: leftEmpty1
+      part: {fileID: 11400000, guid: fe1b8c491b85c4a20b6cf2973fc61e49, type: 2}
+  - label: leftEmpty
     config:
       rows:
       - key: 6
@@ -165,34 +145,11 @@ MonoBehaviour:
         stringValue: 
         floatValue: 0
     part:
-      offset: {x: -0.25, y: 0, z: 0.25}
+      offset: {x: -0.26, y: 0, z: 0}
       rotation: {x: 0, y: 0, z: 0}
       joint: {fileID: 11400000, guid: 40b16337435db439e9894ed44a6ae7d4, type: 2}
       part: {fileID: 11400000, guid: f24042d5079214a7da6d7c2f512bebab, type: 2}
-  - label: leftEmpty2
-    config:
-      rows:
-      - key: 6
-        valueType: 0
-        boolValue: 1
-        stringValue: 
-        floatValue: 0
-      - key: 7
-        valueType: 0
-        boolValue: 1
-        stringValue: 
-        floatValue: 0
-      - key: 8
-        valueType: 0
-        boolValue: 1
-        stringValue: 
-        floatValue: 0
-    part:
-      offset: {x: -0.25, y: 0, z: -0.25}
-      rotation: {x: 0, y: 0, z: 0}
-      joint: {fileID: 11400000, guid: 40b16337435db439e9894ed44a6ae7d4, type: 2}
-      part: {fileID: 11400000, guid: f24042d5079214a7da6d7c2f512bebab, type: 2}
-  - label: rightEmpty1
+  - label: rightEmpty
     config:
       rows:
       - key: 6
@@ -211,30 +168,7 @@ MonoBehaviour:
         stringValue: 
         floatValue: 0
     part:
-      offset: {x: 0.25, y: 0, z: 0.25}
-      rotation: {x: 0, y: 0, z: 0}
-      joint: {fileID: 11400000, guid: 40b16337435db439e9894ed44a6ae7d4, type: 2}
-      part: {fileID: 11400000, guid: f24042d5079214a7da6d7c2f512bebab, type: 2}
-  - label: rightEmpty2
-    config:
-      rows:
-      - key: 6
-        valueType: 0
-        boolValue: 1
-        stringValue: 
-        floatValue: 0
-      - key: 7
-        valueType: 0
-        boolValue: 1
-        stringValue: 
-        floatValue: 0
-      - key: 9
-        valueType: 0
-        boolValue: 1
-        stringValue: 
-        floatValue: 0
-    part:
-      offset: {x: 0.25, y: 0, z: -0.25}
+      offset: {x: 0.26, y: 0, z: 0}
       rotation: {x: 0, y: 0, z: 0}
       joint: {fileID: 11400000, guid: 40b16337435db439e9894ed44a6ae7d4, type: 2}
       part: {fileID: 11400000, guid: f24042d5079214a7da6d7c2f512bebab, type: 2}
