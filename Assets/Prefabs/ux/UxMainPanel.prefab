@@ -646,6 +646,8 @@ MonoBehaviour:
     type: 2}
   optionsPrefab: {fileID: 1641078393177010, guid: f4c04fc5ec4ae49889d079960aefa242,
     type: 2}
+  creditsPrefab: {fileID: 1321443020166152, guid: 08ef1cda666d44e358f7de33e28adb7f,
+    type: 2}
   gameInfo: {fileID: 11400000, guid: 1054ae867b4e44415b3ff3918a0f3351, type: 2}
   modeSelected: {fileID: 11400000, guid: fe07d74defd4e49beb078e0e1e995cdb, type: 2}
   onScoreBack: {fileID: 11400000, guid: 57cc429b447a6474881a96cbf3843250, type: 2}

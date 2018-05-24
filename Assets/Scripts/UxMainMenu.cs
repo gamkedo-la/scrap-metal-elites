@@ -14,6 +14,7 @@ public class UxMainMenu : UxPanel {
     [Header("Prefabs")]
     public GameObject scoresPrefab;
     public GameObject optionsPrefab;
+    public GameObject creditsPrefab;
 
     [Header("State Variables")]
     public GameInfo gameInfo;
@@ -79,6 +80,7 @@ public class UxMainMenu : UxPanel {
     }
 
     public void OnCreditsClick() {
+        var panelGo = Instantiate(creditsPrefab, UxUtil.GetCanvas().gameObject.transform);
     }
 
 }
