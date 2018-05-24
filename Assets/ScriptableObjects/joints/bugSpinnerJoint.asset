@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52b3ccffe4fee488c84662aea014a371, type: 3}
+  m_Name: bugSpinnerJoint
+  m_EditorClassIdentifier: 
+  applyBreakForce: 1
+  breakForce: 10000
+  applyBreakTorque: 1
+  breakTorque: 10000
+  applyDamageToForce: 1
+  applyDamageToTorque: 1
+  gameEventChannel: {fileID: 11400000, guid: 7cdbdc64686ff4786ae1b73fdc14d54f, type: 2}
+  motor: 1
+  motorMaxTorque: 30
+  motorMaxSpeed: 50
+  throwForceLateral: 1000
+  throwForceUpward: 400
+  damageMultiplier: 15

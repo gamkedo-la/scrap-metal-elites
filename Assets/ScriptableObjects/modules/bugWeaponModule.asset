@@ -22,9 +22,9 @@ MonoBehaviour:
   connectedParts:
   - offset: {x: 0.455, y: -0.225, z: 0.23}
     rotation: {x: 0, y: 0, z: 0}
-    joint: {fileID: 11400000, guid: 642f33a0f9319468388f9cabae554d53, type: 2}
+    joint: {fileID: 11400000, guid: 78aa3c11de3914e12a870685cd27bfdc, type: 2}
     part: {fileID: 11400000, guid: 3a783ac1681614a85bd5ace2cc686b5f, type: 2}
   - offset: {x: -0.455, y: -0.225, z: 0.23}
     rotation: {x: 0, y: 0, z: 0}
-    joint: {fileID: 11400000, guid: 642f33a0f9319468388f9cabae554d53, type: 2}
+    joint: {fileID: 11400000, guid: 78aa3c11de3914e12a870685cd27bfdc, type: 2}
     part: {fileID: 11400000, guid: 3a783ac1681614a85bd5ace2cc686b5f, type: 2}

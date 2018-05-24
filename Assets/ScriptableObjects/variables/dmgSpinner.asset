@@ -17,6 +17,12 @@ MonoBehaviour:
   impactDamageModifier: 1
   impactScrews: 1
   impactScrewDamage: 3
+  smallImpactSfxThreshold: 0
+  smallImpactSfx: {fileID: 0}
+  mediumImpactSfxThreshold: 0
+  mediumImpactSfx: {fileID: 0}
+  largeImpactSfxThreshold: 0
+  largeImpactSfx: {fileID: 0}
   fireApplyDamage: 1
   fireRate: 1
   burntMaterial: {fileID: 0}

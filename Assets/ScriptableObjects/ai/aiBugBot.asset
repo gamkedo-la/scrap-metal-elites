@@ -9,25 +9,26 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 780e45953d766464ca5eeb47649e4b56, type: 3}
-  m_Name: aiDefault
+  m_Name: aiBugBot
   m_EditorClassIdentifier: 
   startingMode: 0
   startingTargetMode: 2
-  driveRange: 1
+  driveRange: 0.51
   drivePulseRange:
     minValue: 0.9960522
     maxValue: 0.9960522
   driveCooldown:
     minValue: 0
-    maxValue: 0.10324931
-  driveSteeringFactor: 10
+    maxValue: 0.10324925
+  driveSteeringFactor: 90
   steeringDelay: 0
-  steeringPowerModifier: 1
+  steeringPowerModifier: 0.985
   steeringTrack: 1
+  minDriveAngle: 45
   aimMinAngle: 25
-  fireDuration: 0.25
-  fireCooldown: 1
-  fireRange: 2.5
+  fireDuration: 1
+  fireCooldown: 0.25
+  fireRange: 4
   targetRange: 25
   retargetInterval: 1
   currentBots: {fileID: 0}

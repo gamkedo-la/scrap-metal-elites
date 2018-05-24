@@ -65,7 +65,7 @@ public class AIController : BotBrain {
                     if (fleeing) {
                         drive = -1f;
                     // if track steering, don't engage forward drive if angleToTarget past threshold
-                    } else if (config.steeringTrack && Mathf.Abs(angleToTarget) >= 15f) {
+                    } else if (config.steeringTrack && Mathf.Abs(angleToTarget) >= config.minDriveAngle) {
                         drive = 0f;
                     } else {
                         drive = distanceToTarget/config.driveRange - 1f;
@@ -114,6 +114,7 @@ public class AIController : BotBrain {
     IEnumerator Fire() {
         while (controlsActive) {
             if (weapon != null && target != null && Mathf.Abs(angleToTarget) < config.aimMinAngle && distanceToTarget<config.fireRange) {
+                if (config.debug) Debug.Log(gameObject.name + " firing");
                 // fire at target
                 weapon.actuate = 1f;
                 yield return new WaitForSeconds(config.fireDuration);
@@ -162,10 +163,16 @@ public class AIController : BotBrain {
 		}
 	}
 
+    static float lastReport = 0f;
     void Update () {
         if (target != null) {
             angleToTarget = AIController.AngleAroundAxis(transform.forward, target.transform.position-transform.position, transform.up);
             distanceToTarget = (target.transform.position-transform.position).magnitude;
+            lastReport += Time.deltaTime;
+            if (lastReport > .5f) {
+                if (config.debug) Debug.Log("distanceToTarget: " + distanceToTarget);
+                lastReport = 0f;
+            }
         }
     }
 
