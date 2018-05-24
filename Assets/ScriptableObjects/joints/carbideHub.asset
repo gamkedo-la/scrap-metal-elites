@@ -21,3 +21,4 @@ MonoBehaviour:
   motor: 1
   motorMaxTorque: 50
   motorMaxSpeed: 40
+  motorSfx: {fileID: 11400000, guid: eaa0c769518d64c20b2d71e3cfc32e64, type: 2}
