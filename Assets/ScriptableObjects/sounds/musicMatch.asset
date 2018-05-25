@@ -13,10 +13,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioKind: 1
   clips:
-  - {fileID: 8300000, guid: 9c63e61fad455d74caf3d6b8129bd815, type: 3}
+  - {fileID: 8300000, guid: 46f048533aead4ec8bb6e55d5b96e6d8, type: 3}
   volumeRange:
-    minValue: 1
-    maxValue: 1
+    minValue: 0.48375335
+    maxValue: 0.48375335
   pitchRange:
     minValue: 0.9960522
     maxValue: 0.9960522
