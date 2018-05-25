@@ -482,7 +482,7 @@ MonoBehaviour:
   selectCancelled: {fileID: 11400000, guid: 06c41f8b4ad0843a3b7935fcc2cebe8f, type: 2}
   matchRowPrefab: {fileID: 1478645144727444, guid: fdce46296d2cb47beb4617eea8445e79,
     type: 2}
-  debug: 1
+  debug: 0
   matchConfig:
   - id: champ1
     playerPrefab:
@@ -494,13 +494,7 @@ MonoBehaviour:
     - name: Zippy
       offset: {x: 0, y: 0, z: 0}
       prefab: {fileID: 1354931224165476, guid: 8ecd3d66049b04a0fbc16aeda9eeaea5, type: 2}
-    hazardPrefabs:
-    - name: flame1
-      offset: {x: 0, y: 0, z: 0}
-      prefab: {fileID: 1632048421643816, guid: 4534888667a2444918bd649513704008, type: 2}
-    - name: hammer1
-      offset: {x: 0, y: 0.25, z: 0}
-      prefab: {fileID: 1166039732656108, guid: 8e837ead78813445696130b313b6ff7b, type: 2}
+    hazardPrefabs: []
     matchMusicTrack: {fileID: 11400000, guid: d0f95ca9ef72941adb886a57af587b11, type: 2}
   - id: champ2
     playerPrefab:
