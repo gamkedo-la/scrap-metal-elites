@@ -14,30 +14,30 @@ MonoBehaviour:
   top:
     offset: {x: 0, y: 0, z: 0}
     rotation: {x: -90, y: 0, z: 0}
-    joint: {fileID: 11400000, guid: 40b16337435db439e9894ed44a6ae7d4, type: 2}
+    joint: {fileID: 11400000, guid: 12bf8563cbca84ca0a78b569a79bbb40, type: 2}
     part: {fileID: 11400000, guid: 55f998e0acfc64d059abf075a3b28453, type: 2}
   bottom:
     offset: {x: 0, y: 0, z: 0}
     rotation: {x: 90, y: 0, z: 0}
-    joint: {fileID: 11400000, guid: 40b16337435db439e9894ed44a6ae7d4, type: 2}
+    joint: {fileID: 11400000, guid: 12bf8563cbca84ca0a78b569a79bbb40, type: 2}
     part: {fileID: 11400000, guid: 55f998e0acfc64d059abf075a3b28453, type: 2}
   left:
     offset: {x: 0, y: 0, z: 0}
     rotation: {x: 0, y: -90, z: 0}
-    joint: {fileID: 11400000, guid: 40b16337435db439e9894ed44a6ae7d4, type: 2}
+    joint: {fileID: 11400000, guid: 12bf8563cbca84ca0a78b569a79bbb40, type: 2}
     part: {fileID: 11400000, guid: 55f998e0acfc64d059abf075a3b28453, type: 2}
   right:
     offset: {x: 0, y: 0, z: 0}
     rotation: {x: 0, y: 90, z: 0}
-    joint: {fileID: 11400000, guid: 40b16337435db439e9894ed44a6ae7d4, type: 2}
+    joint: {fileID: 11400000, guid: 12bf8563cbca84ca0a78b569a79bbb40, type: 2}
     part: {fileID: 11400000, guid: 55f998e0acfc64d059abf075a3b28453, type: 2}
   front:
     offset: {x: 0, y: 0, z: 0}
     rotation: {x: 0, y: 0, z: 0}
-    joint: {fileID: 11400000, guid: 40b16337435db439e9894ed44a6ae7d4, type: 2}
+    joint: {fileID: 11400000, guid: 12bf8563cbca84ca0a78b569a79bbb40, type: 2}
     part: {fileID: 11400000, guid: 55f998e0acfc64d059abf075a3b28453, type: 2}
   back:
     offset: {x: 0, y: 0, z: 0}
     rotation: {x: 0, y: 180, z: 0}
-    joint: {fileID: 11400000, guid: 40b16337435db439e9894ed44a6ae7d4, type: 2}
+    joint: {fileID: 11400000, guid: 12bf8563cbca84ca0a78b569a79bbb40, type: 2}
     part: {fileID: 11400000, guid: 55f998e0acfc64d059abf075a3b28453, type: 2}

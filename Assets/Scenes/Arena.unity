@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1630980753}
-  m_IndirectSpecularColor: {r: 0.094793655, g: 0.11528721, b: 0.21346194, a: 1}
+  m_IndirectSpecularColor: {r: 0.094793744, g: 0.11528733, b: 0.21346214, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -495,6 +495,7 @@ MonoBehaviour:
   enemySpawns: {fileID: 11400000, guid: e6ed11c5cc09041b8943ffe805590809, type: 2}
   hazardSpawns: {fileID: 11400000, guid: 83492af8a9fad48b5aabad5037216237, type: 2}
   allBots: {fileID: 11400000, guid: 0c8c0a9ec335541c59c634bad32ecf99, type: 2}
+  activeBots: {fileID: 11400000, guid: b5676b1543be344e69318ea0530e2ec9, type: 2}
   gameInfo: {fileID: 11400000, guid: 1054ae867b4e44415b3ff3918a0f3351, type: 2}
   defaultAIConfig: {fileID: 11400000, guid: e21b2f6a9b8d640c7932b26f41391395, type: 2}
   announcerTrack: {fileID: 0}
@@ -758,7 +759,7 @@ MonoBehaviour:
   ballyhooRandom: 0
   startingMode: 1
   debug: 0
-  currentBots: {fileID: 11400000, guid: 0c8c0a9ec335541c59c634bad32ecf99, type: 2}
+  currentBots: {fileID: 11400000, guid: b5676b1543be344e69318ea0530e2ec9, type: 2}
   controlsActive: 1
   dampTime: 0.1
 --- !u!108 &186708557
@@ -772,8 +773,8 @@ Light:
   m_Type: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 5
-  m_Range: 50
-  m_SpotAngle: 15
+  m_Range: 75
+  m_SpotAngle: 25
   m_CookieSize: 10
   m_Shadows:
     m_Type: 2
@@ -1219,7 +1220,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -2637,7 +2638,7 @@ MonoBehaviour:
   ballyhooRandom: 0
   startingMode: 1
   debug: 0
-  currentBots: {fileID: 11400000, guid: 0c8c0a9ec335541c59c634bad32ecf99, type: 2}
+  currentBots: {fileID: 11400000, guid: b5676b1543be344e69318ea0530e2ec9, type: 2}
   controlsActive: 1
   dampTime: 0.1
 --- !u!108 &919617390
@@ -2651,8 +2652,8 @@ Light:
   m_Type: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 5
-  m_Range: 50
-  m_SpotAngle: 15
+  m_Range: 75
+  m_SpotAngle: 25
   m_CookieSize: 10
   m_Shadows:
     m_Type: 2
@@ -2872,7 +2873,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1017095272}
   m_LocalRotation: {x: 0.4683866, y: -0, z: -0, w: 0.8835237}
-  m_LocalPosition: {x: -0.26, y: 39.3, z: -28.3}
+  m_LocalPosition: {x: -0.26, y: 55, z: -28.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2058427640}
@@ -2889,14 +2890,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7387ef517ab145b9a1bfa50ee07908c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minCameraHeight: 8
-  maxCameraHeight: 60
+  minCameraHeight: 5
+  maxCameraHeight: 45
   dampTime: 0.2
   arenaCenter: {x: 0, y: 0, z: 0}
   cameraOffset: 5
-  overviewPosition: {x: 0, y: 40, z: -30}
+  overviewPosition: {x: 0, y: 55, z: -30}
   startingCameraMode: 0
-  currentBots: {fileID: 11400000, guid: 0c8c0a9ec335541c59c634bad32ecf99, type: 2}
+  currentBots: {fileID: 11400000, guid: b5676b1543be344e69318ea0530e2ec9, type: 2}
 --- !u!1001 &1032487879
 Prefab:
   m_ObjectHideFlags: 0
@@ -4515,7 +4516,7 @@ MonoBehaviour:
   ballyhooRandom: 0
   startingMode: 1
   debug: 0
-  currentBots: {fileID: 11400000, guid: 0c8c0a9ec335541c59c634bad32ecf99, type: 2}
+  currentBots: {fileID: 11400000, guid: b5676b1543be344e69318ea0530e2ec9, type: 2}
   controlsActive: 1
   dampTime: 0.1
 --- !u!108 &1770897555
@@ -4529,8 +4530,8 @@ Light:
   m_Type: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 5
-  m_Range: 50
-  m_SpotAngle: 15
+  m_Range: 75
+  m_SpotAngle: 25
   m_CookieSize: 10
   m_Shadows:
     m_Type: 2
@@ -4730,7 +4731,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: a4d1a5e141ecfb0448a8b31a1a96c5f2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 28
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: a4d1a5e141ecfb0448a8b31a1a96c5f2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5579,8 +5580,8 @@ Light:
   m_Type: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 5
-  m_Range: 50
-  m_SpotAngle: 15
+  m_Range: 75
+  m_SpotAngle: 25
   m_CookieSize: 10
   m_Shadows:
     m_Type: 2
@@ -5625,7 +5626,7 @@ MonoBehaviour:
   ballyhooRandom: 0
   startingMode: 1
   debug: 0
-  currentBots: {fileID: 11400000, guid: 0c8c0a9ec335541c59c634bad32ecf99, type: 2}
+  currentBots: {fileID: 11400000, guid: b5676b1543be344e69318ea0530e2ec9, type: 2}
   controlsActive: 1
   dampTime: 0.1
 --- !u!1 &2052456825

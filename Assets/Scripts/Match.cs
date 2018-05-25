@@ -16,6 +16,7 @@ public class Match : MonoBehaviour {
     public SpawnPointRuntimeSet enemySpawns;
     public SpawnPointRuntimeSet hazardSpawns;
     public BotRuntimeSet allBots;
+    public BotRuntimeSet activeBots;
     public GameInfo gameInfo;
     public AIConfig defaultAIConfig;
 
@@ -54,10 +55,27 @@ public class Match : MonoBehaviour {
     private int timerTick = 0;
     private List<BotBrain> aiControllers = new List<BotBrain>();
 
+    void OnDestroy() {
+        activeBots.Clear();
+    }
+
+    void Start() {
+        activeBots.Clear();
+    }
+
     void OnBotDeath(GameObject bot) {
         if (bot != null) {
             if (debug) Debug.Log("Bot died: " + bot.name);
         }
+
+        // mark bot go dark (material wise)
+        var materialDistributor = bot.GetComponent<MaterialDistributor>();
+        if (materialDistributor != null) {
+            materialDistributor.SetMaterials(MaterialTag.Dead);
+        }
+
+        // remove from list of active bots
+        activeBots.Remove(bot.GetComponent<BotBuilder>());
 
         // disable controls on dead bot
         var brain = bot.GetComponent<BotBrain>();
@@ -117,6 +135,9 @@ public class Match : MonoBehaviour {
         if (health != null) {
             health.onDeath.AddListener(OnBotDeath);
         }
+
+        // add new bot to list of active bots
+        activeBots.Add(botGo.GetComponent<BotBuilder>());
 
         // add AI script, disable controls
         BotBrain brain;

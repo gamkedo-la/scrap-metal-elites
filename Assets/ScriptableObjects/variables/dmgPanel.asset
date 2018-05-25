@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   impactApplyDamage: 1
   impactMinDamage: 0
-  impactMaxDamage: 50
+  impactMaxDamage: 500
   impactDamageModifier: 1
   impactScrews: 1
   impactScrewDamage: 10

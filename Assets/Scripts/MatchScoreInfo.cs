@@ -20,6 +20,6 @@ public class MatchScoreInfo {
     }
 
     public override string ToString() {
-        return String.Format("Best Score: {0} - Best Time {1}", score, Match.FmtTimerMsg(true, time));
+        return String.Format("Best Score: {0}\nBest Time {1}", score, Match.FmtTimerMsg(true, time));
     }
 }

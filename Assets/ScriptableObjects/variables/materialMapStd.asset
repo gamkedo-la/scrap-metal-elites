@@ -18,4 +18,6 @@ MonoBehaviour:
     material: {fileID: 2100000, guid: beb5b15457a8ed944a9feeb8eedeb01f, type: 2}
   - tag: 3
     material: {fileID: 2100000, guid: a6101176eb433e5428a507d02a363ab3, type: 2}
+  - tag: 4
+    material: {fileID: 2100000, guid: 035100c54e1ee4a759d5133a91777f89, type: 2}
   debug: 0
