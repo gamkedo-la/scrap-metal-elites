@@ -179,7 +179,7 @@ MonoBehaviour:
       offset: {x: -0.2, y: 0, z: 0.5}
       rotation: {x: 0, y: 0, z: -90}
       joint: {fileID: 11400000, guid: 40b16337435db439e9894ed44a6ae7d4, type: 2}
-      part: {fileID: 11400000, guid: 77aaecaa25c64490989f2419ce8a3d0f, type: 2}
+      part: {fileID: 11400000, guid: 0ef596261e691450a953fdbc496943cb, type: 2}
   - label: leftSpike
     config:
       rows: []
@@ -187,4 +187,4 @@ MonoBehaviour:
       offset: {x: 0.2, y: 0, z: 0.5}
       rotation: {x: 0, y: 0, z: 90}
       joint: {fileID: 11400000, guid: 40b16337435db439e9894ed44a6ae7d4, type: 2}
-      part: {fileID: 11400000, guid: 77aaecaa25c64490989f2419ce8a3d0f, type: 2}
+      part: {fileID: 11400000, guid: 0ef596261e691450a953fdbc496943cb, type: 2}

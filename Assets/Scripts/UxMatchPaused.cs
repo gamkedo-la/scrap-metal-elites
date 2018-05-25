@@ -39,12 +39,12 @@ public class UxMatchPaused : UxPanel {
 
     public void OnOptionsClick() {
         // instantiate scores prefab (under canvas)
-        var panelGo = Instantiate(optionsPanelPrefab, UxUtil.GetCanvas().gameObject.transform);
+        Instantiate(optionsPanelPrefab, UxUtil.GetCanvas().gameObject.transform);
     }
 
     public void OnHelpClick() {
         // instantiate scores prefab (under canvas)
-        var panelGo = Instantiate(helpPanelPrefab, UxUtil.GetCanvas().gameObject.transform);
+        Instantiate(helpPanelPrefab, UxUtil.GetCanvas().gameObject.transform);
     }
 
     public void OnContinueClick() {

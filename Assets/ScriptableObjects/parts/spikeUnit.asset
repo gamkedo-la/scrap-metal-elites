@@ -9,19 +9,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0c16a472c5a6b4cfcafc4959de97a920, type: 3}
-  m_Name: spikeBase2
+  m_Name: spikeUnit
   m_EditorClassIdentifier: 
   mass: {fileID: 0}
-  health: {fileID: 11400000, guid: 17e592848fc6949c99141368cff12bbe, type: 2}
-  damage: {fileID: 11400000, guid: 7e7be862284084a98a428249151e83f5, type: 2}
+  health: {fileID: 11400000, guid: 38e5e491b5d75447883e023653895aeb, type: 2}
+  damage: {fileID: 11400000, guid: 7400b6d7e27364d02baa8f972dde8c1f, type: 2}
   models:
   - offset: {x: 0, y: 0, z: 0}
     rotation: {x: 0, y: 0, z: 0}
-    model: {fileID: 1476883332220316, guid: 7cefd49527d374944bd3bff77e5b099d, type: 2}
+    model: {fileID: 1000978402131556, guid: 58f530f460c8d4eab93f7695b6beaea8, type: 2}
   applicators:
   - {fileID: 11400000, guid: 793127467c4c142a0821c55bc833dee4, type: 2}
-  connectedParts:
-  - offset: {x: 0, y: 0, z: 0}
-    rotation: {x: 0, y: 0, z: 0}
-    joint: {fileID: 11400000, guid: 40b16337435db439e9894ed44a6ae7d4, type: 2}
-    part: {fileID: 0}
+  connectedParts: []

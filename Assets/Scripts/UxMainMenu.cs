@@ -79,16 +79,16 @@ public class UxMainMenu : UxPanel {
 
     public void OnHelpClick() {
         // instantiate options prefab (under canvas)
-        var panelGo = Instantiate(helpPrefab, UxUtil.GetCanvas().gameObject.transform);
+        Instantiate(helpPrefab, UxUtil.GetCanvas().gameObject.transform);
     }
 
     public void OnOptionsClick() {
         // instantiate options prefab (under canvas)
-        var panelGo = Instantiate(optionsPrefab, UxUtil.GetCanvas().gameObject.transform);
+        Instantiate(optionsPrefab, UxUtil.GetCanvas().gameObject.transform);
     }
 
     public void OnCreditsClick() {
-        var panelGo = Instantiate(creditsPrefab, UxUtil.GetCanvas().gameObject.transform);
+        Instantiate(creditsPrefab, UxUtil.GetCanvas().gameObject.transform);
     }
 
 }

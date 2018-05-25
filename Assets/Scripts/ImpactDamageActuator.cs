@@ -52,6 +52,7 @@ public class ImpactDamageActuator : MonoBehaviour {
             for (var i=0; i<multipliers.Length; i++) {
                 multiplier *= multipliers[i].impactMultiplier;
             }
+            Debug.Log("multipler: " + multiplier);
         }
 
         // compute damage
