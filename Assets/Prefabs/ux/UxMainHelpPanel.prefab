@@ -181,9 +181,9 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 'Game Concept: Battle of the bots.  Take the controls of a battle bot to
-    try to take out the opposing enemy AI-controlled bot.  Get in close to use your
-    weapon, ram them, get them to roll into a hazard.  Just watch your own health
-    as they will fight back.
+    try to take out the opposing enemy bots.  Get in close to use your weapon, ram
+    them, get them to roll into a hazard.  Just watch your own health as they will
+    fight back.
 
 
     Death Match Mode: One on one arena action.  You choose both your own and enemy
@@ -196,9 +196,11 @@ MonoBehaviour:
 
     Controls:
 
-    <1> - Activate Weapon
+    <Space> - Activate Weapon
 
-    <W,A,S,D> or <Arrows> Drive/Rotate Bot'
+    <W,A,S,D> or <Arrows> - Drive/Rotate Bot
+
+    <Escape> - Pause'
 --- !u!114 &114322465219282768
 MonoBehaviour:
   m_ObjectHideFlags: 1

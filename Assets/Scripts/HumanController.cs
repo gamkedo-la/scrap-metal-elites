@@ -23,7 +23,7 @@ public class HumanController : BotBrain {
             mover.rotateDrive = Input.GetAxis("Horizontal");
         }
         if (weapon != null) {
-    		weapon.actuate = (Input.GetKey(KeyCode.Alpha1)) ? 1f : 0f;
+    		weapon.actuate = (Input.GetKey(KeyCode.Space)) ? 1f : 0f;
         }
     }
 }
