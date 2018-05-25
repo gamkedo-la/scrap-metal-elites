@@ -20,9 +20,9 @@ MonoBehaviour:
   gameEventChannel: {fileID: 11400000, guid: 7cdbdc64686ff4786ae1b73fdc14d54f, type: 2}
   springForce: 500
   springDamper: 5
-  impactForce: 400
+  impactForce: 100
   impactForceVelocityMultiplier: 1
-  impactDamageMultiplier: 1
+  impactDamageMultiplier: 25
   axis: 0
   anchor: {x: 0, y: 0, z: 0}
   minAngle: -75
