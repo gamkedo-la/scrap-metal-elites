@@ -7,6 +7,7 @@ public class UxMainMenu : UxPanel {
     public Button deathMatchButton;
     public Button titleMatchButton;
     public Button optionsButton;
+    public Button helpButton;
     public Button scoresButton;
     public Button creditsButton;
     public Button quitButton;
@@ -14,6 +15,7 @@ public class UxMainMenu : UxPanel {
     [Header("Prefabs")]
     public GameObject scoresPrefab;
     public GameObject optionsPrefab;
+    public GameObject helpPrefab;
     public GameObject creditsPrefab;
 
     [Header("State Variables")]
@@ -34,6 +36,7 @@ public class UxMainMenu : UxPanel {
         deathMatchButton.onClick.AddListener(()=>{ OnGameModeClick(GameMode.DeathMatch); });
         titleMatchButton.onClick.AddListener(()=>{ OnGameModeClick(GameMode.Championship); });
         optionsButton.onClick.AddListener(OnOptionsClick);
+        helpButton.onClick.AddListener(OnHelpClick);
         scoresButton.onClick.AddListener(OnScoresClick);
         creditsButton.onClick.AddListener(OnCreditsClick);
         quitButton.onClick.AddListener(OnQuitClick);
@@ -72,6 +75,11 @@ public class UxMainMenu : UxPanel {
 
         // clean up
         Destroy(panelGo);
+    }
+
+    public void OnHelpClick() {
+        // instantiate options prefab (under canvas)
+        var panelGo = Instantiate(helpPrefab, UxUtil.GetCanvas().gameObject.transform);
     }
 
     public void OnOptionsClick() {
