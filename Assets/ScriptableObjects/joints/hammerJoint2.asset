@@ -28,4 +28,4 @@ MonoBehaviour:
   minAngle: -89
   maxAngle: 89
   reverse: 1
-  debug: 1
+  debug: 0

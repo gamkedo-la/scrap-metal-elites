@@ -66,13 +66,31 @@ public class BotHealth : MonoBehaviour {
         }
     }
 
+    void Start() {
+        var listener = gameObject.AddComponent<GameRecordEventListener>();
+        listener.SetEvent(gameEventChannel);
+        listener.Response.AddListener(OnGameRecord);
+    }
+
+    public void OnGameRecord(GameRecord record) {
+        // watch for bot joint breaks
+        if (record.tag == GameRecordTag.BotJointBroke && healthModules.Count > 0) {
+            // see if broken module is one we are tracking health for
+            for (var i=healthModules.Count-1; i>=0; i--) {
+                var healthModule = healthModules[i];
+                if (healthModule.gameObject == record.target) {
+                    healthModules.RemoveAt(i);
+                    OnTakeDamage(null, healthModule.health);
+                }
+            }
+        }
+    }
+
     void OnTakeDamage(GameObject from, int amount) {
-        Debug.Log("bot on takeDamage, current health: " + health + " percent: " + healthPercent);
         onChange.Invoke(health);
         onChangePercent.Invoke(healthPercent);
         if (healthPercent <= 0 && !dead) {
             onDeath.Invoke(gameObject);
-            Debug.Log("death");
             dead = true;
             if (gameEventChannel != null) {
                 gameEventChannel.Raise(GameRecord.BotDied(gameObject, from));
@@ -88,7 +106,6 @@ public class BotHealth : MonoBehaviour {
         dead = true;
         if (onDeath != null) {
             onDeath.Invoke(gameObject);
-            Debug.Log("death");
         }
         if (gameEventChannel != null) {
             gameEventChannel.Raise(GameRecord.BotDied(gameObject, null));
