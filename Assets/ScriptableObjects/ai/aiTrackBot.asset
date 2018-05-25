@@ -22,8 +22,9 @@ MonoBehaviour:
     maxValue: 0.10324931
   driveSteeringFactor: 11.8
   steeringDelay: 0
-  steeringPowerModifier: 0.409
+  steeringPowerModifier: 0.5
   steeringTrack: 1
+  minDriveAngle: 15
   aimMinAngle: 4.7
   fireDuration: 0.25
   fireCooldown: 1
