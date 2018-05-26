@@ -246,6 +246,7 @@ GameObject:
   - component: {fileID: 114386237103698626}
   - component: {fileID: 225539975244138390}
   - component: {fileID: 114093142838326454}
+  - component: {fileID: 82404517803247230}
   m_Layer: 5
   m_Name: UxMainPanel
   m_TagString: Untagged
@@ -547,6 +548,86 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!82 &82404517803247230
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1497987298496896}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!114 &114001503619148932
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -722,6 +803,10 @@ MonoBehaviour:
   gameInfo: {fileID: 11400000, guid: 1054ae867b4e44415b3ff3918a0f3351, type: 2}
   modeSelected: {fileID: 11400000, guid: fe07d74defd4e49beb078e0e1e995cdb, type: 2}
   onScoreBack: {fileID: 11400000, guid: 57cc429b447a6474881a96cbf3843250, type: 2}
+  hoverSound: {fileID: 8300000, guid: 508835dd1e1638347a20774691a710ff, type: 3}
+  activateSound: {fileID: 8300000, guid: 80979fba84b8bdf4eb3f0f056438a967, type: 3}
+  backSound: {fileID: 8300000, guid: 7592dc9dd82d52440a72b6be72dd0971, type: 3}
+  myAudioSource: {fileID: 82404517803247230}
 --- !u!114 &114095219147854950
 MonoBehaviour:
   m_ObjectHideFlags: 1

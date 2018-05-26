@@ -25,6 +25,12 @@ public class UxMainMenu : UxPanel {
     public GameEvent modeSelected;            // used to notify main menu selection
     public GameEvent onScoreBack;             // used to return to main menu once score screen has been cleared
 
+    [Header("Sounds")]
+    public AudioClip hoverSound;
+    public AudioClip activateSound;
+    public AudioClip backSound;
+    public AudioSource myAudioSource;
+
     public void Start() {
         // start by displaying and setting up panel
         Display();
@@ -43,6 +49,13 @@ public class UxMainMenu : UxPanel {
     }
 
     public void OnGameModeClick(GameMode gameMode) {
+        if (myAudioSource != null) {
+            Debug.Log("Playing main menu activeSound");
+            myAudioSource.clip = activateSound;
+            myAudioSource.Play();
+        } else {
+            Debug.Log("ERROR: main menu is missing myAudioSource");
+        }
         // game mode is stored in ScriptableObject for GameInfo, shared across scripts and scenes
         gameInfo.gameMode = gameMode;
         // raise notification that game mode has been selected
