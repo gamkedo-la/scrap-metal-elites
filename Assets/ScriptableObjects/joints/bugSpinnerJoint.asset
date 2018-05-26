@@ -19,7 +19,7 @@ MonoBehaviour:
   applyDamageToTorque: 1
   gameEventChannel: {fileID: 11400000, guid: 7cdbdc64686ff4786ae1b73fdc14d54f, type: 2}
   motor: 1
-  motorMaxTorque: 30
+  motorMaxTorque: 225
   motorMaxSpeed: 50
   throwForceLateral: 1000
   throwForceUpward: 400

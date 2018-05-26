@@ -31,7 +31,7 @@ MonoBehaviour:
       offset: {x: 0, y: 0, z: 0}
       rotation: {x: 0, y: 0, z: 0}
       joint: {fileID: 11400000, guid: 40b16337435db439e9894ed44a6ae7d4, type: 2}
-      part: {fileID: 11400000, guid: 9b593dedcfe394171aee3dbce5375d28, type: 2}
+      part: {fileID: 11400000, guid: e2c8101256d6a417a8278379dcde6e3d, type: 2}
   - label: leftWheel
     config:
       rows:
@@ -44,7 +44,7 @@ MonoBehaviour:
       offset: {x: 0, y: 0, z: 0}
       rotation: {x: 0, y: 0, z: 0}
       joint: {fileID: 11400000, guid: 40b16337435db439e9894ed44a6ae7d4, type: 2}
-      part: {fileID: 11400000, guid: c91e7f224f7ca417aaf4d95285eef04e, type: 2}
+      part: {fileID: 11400000, guid: cff4026424270468c95d5166277cf9a7, type: 2}
   - label: weapon
     config:
       rows: []

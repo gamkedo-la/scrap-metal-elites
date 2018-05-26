@@ -11,6 +11,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 678d1a90dc9804132be45601126e32d1, type: 3}
   m_Name: healthBugSaw
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 500
   healthTag: 0
   debug: 0

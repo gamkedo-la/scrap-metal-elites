@@ -539,11 +539,17 @@ MonoBehaviour:
       prefab: {fileID: 1520203798844092, guid: bf2991beebd4b4b46b69d7ea89feff4a, type: 2}
     enemyTitle: The Wannabe
     enemyPrefabs:
-    - name: 
+    - name: Chopper
       offset: {x: 0, y: 0, z: 0}
       prefab: {fileID: 1297436841330656, guid: 7e7d1fe8bddda4053a2ff37aaa1e4b81, type: 2}
     hazardPrefabs:
     - name: flame1
+      offset: {x: 0, y: 0, z: 0}
+      prefab: {fileID: 1632048421643816, guid: 4534888667a2444918bd649513704008, type: 2}
+    - name: flame2
+      offset: {x: 0, y: 0, z: 0}
+      prefab: {fileID: 1632048421643816, guid: 4534888667a2444918bd649513704008, type: 2}
+    - name: flame2
       offset: {x: 0, y: 0, z: 0}
       prefab: {fileID: 1632048421643816, guid: 4534888667a2444918bd649513704008, type: 2}
     - name: flame2

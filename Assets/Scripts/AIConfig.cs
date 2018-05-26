@@ -46,6 +46,9 @@ public class AIConfig : ScriptableObject {
     [Tooltip("for track steering, min angle to engage drive")]
     [Range(0f, 90f)]
     public float minDriveAngle = 15f;
+    [Tooltip("driveMaxAngularVelocity, zero to disable")]
+    [Range(0f, 300f)]
+    public float driveMaxAngularVelocity = 0f;
 
     [Header("weapon firing params")]
     [Tooltip("angle to target must be +/- this angle to fire weapon")]

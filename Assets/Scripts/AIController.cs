@@ -8,6 +8,7 @@ public class AIController : BotBrain {
     private TargetMode targetMode = TargetMode.Manual;
     private AIMode currentMode;
     private float angleToTarget = 0f;
+    private float angularVelocity = 0f;
     private float distanceToTarget = 0f;
     private GameObject target;
     private bool fleeing = false;
@@ -98,8 +99,17 @@ public class AIController : BotBrain {
                         drive = -drive;
                     }
                     // rotate towards target
-                    //mover.rotateDrive = Mathf.Clamp(drive, -1f, 1f);
-                    mover.rotateDrive = Mathf.Clamp(drive, -config.steeringPowerModifier, config.steeringPowerModifier);
+
+                    // scaled based on angular velocity
+                    //var maxVelocity = 100f;
+                    float clamp;
+                    if (config.driveMaxAngularVelocity > 0f) {
+                        var angularFactor = 1f - Mathf.Min(angularVelocity/config.driveMaxAngularVelocity, 1f);
+                        clamp = Mathf.Min(angularFactor, config.steeringPowerModifier);
+                    } else {
+                        clamp = config.steeringPowerModifier;
+                    }
+                    mover.rotateDrive = Mathf.Clamp(drive, -clamp, clamp);
 
                     // if within target aim angle, restart active time
                     if (Mathf.Abs(angleToTarget) < config.aimMinAngle) {
@@ -166,7 +176,10 @@ public class AIController : BotBrain {
     static float lastReport = 0f;
     void Update () {
         if (target != null) {
+            var lastAngle = angleToTarget;
             angleToTarget = AIController.AngleAroundAxis(transform.forward, target.transform.position-transform.position, transform.up);
+            angularVelocity = Mathf.Abs(angleToTarget-lastAngle)/Time.deltaTime;
+            //Debug.Log("angularVelocity: " + angularVelocity);
             distanceToTarget = (target.transform.position-transform.position).magnitude;
             lastReport += Time.deltaTime;
             if (lastReport > .5f) {

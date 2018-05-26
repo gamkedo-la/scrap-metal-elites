@@ -89,8 +89,6 @@ public class CameraController: MonoBehaviour {
             if (currentBots != null && currentBots.Items.Count > 0) {
                 Bounds bounds;
                 if (currentBots.Items.Count > 0) {
-                    Debug.Log("currentBots.Items.Count: " + currentBots.Items.Count);
-                    Debug.Log("currentBots.Items[0]: " + currentBots.Items[0]);
                     bounds = new Bounds(currentBots.Items[0].transform.position, Vector3.zero);
                 } else {
                     bounds = new Bounds(Vector3.zero, Vector3.zero);

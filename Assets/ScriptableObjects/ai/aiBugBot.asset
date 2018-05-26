@@ -20,15 +20,16 @@ MonoBehaviour:
   driveCooldown:
     minValue: 0
     maxValue: 0.10324925
-  driveSteeringFactor: 90
+  driveSteeringFactor: 5
   steeringDelay: 0
-  steeringPowerModifier: 0.985
+  steeringPowerModifier: 0.75
   steeringTrack: 1
-  minDriveAngle: 45
+  minDriveAngle: 20
+  driveMaxAngularVelocity: 55
   aimMinAngle: 25
   fireDuration: 1
   fireCooldown: 0.25
-  fireRange: 4
+  fireRange: 5
   targetRange: 25
   retargetInterval: 1
   currentBots: {fileID: 0}
