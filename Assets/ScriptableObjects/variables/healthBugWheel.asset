@@ -11,6 +11,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 678d1a90dc9804132be45601126e32d1, type: 3}
   m_Name: healthBugWheel
   m_EditorClassIdentifier: 
-  maxHealth: 2500
+  maxHealth: 1000
   healthTag: 1
   debug: 0

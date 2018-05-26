@@ -5,7 +5,7 @@ using UnityEngine;
 public class FlameDamageActuator : MonoBehaviour {
 
     public float fireRate = 0.6f;
-    //public ParticleSystem plume;
+    public float fireDamageDelay = 0f;
     public Material burntMaterial;
     public int burnThreshold = 50;
     public int explodeThreshold = 10;
@@ -20,6 +20,7 @@ public class FlameDamageActuator : MonoBehaviour {
     private MaterialActuator[] materialActuators;
     private bool is_burnt = false;
     private bool is_exploded = false;
+    private float timeOfLastDamage = 0f;
 
     void Start () {
 		sparksPrefab = (GameObject)Resources.Load("Sparks");
@@ -38,19 +39,22 @@ public class FlameDamageActuator : MonoBehaviour {
     private void OnParticleCollision(GameObject other)
     {
 
-        //List<ParticleCollisionEvent> collisionEvents = new List<ParticleCollisionEvent>();
-        //int numCollisionEvents = plume.GetCollisionEvents(other, collisionEvents);
-        var damage = fireRate;
+        if (Time.time - timeOfLastDamage > fireDamageDelay) {
+            timeOfLastDamage = Time.time;
+            var damage = fireRate;
 
-        if (debug) {
-            Debug.Log(gameObject.name + " OnParticleCollision\n" +
-                                        " particle: " + other.name +
-                                        " fireRate: " + fireRate +
-                                        " damage: " + damage);
-        }
+            if (debug) {
+                Debug.Log(gameObject.name + " OnParticleCollision\n" +
+                                            " particle: " + other.name +
+                                            " fireRate: " + fireRate +
+                                            " damage: " + damage);
+            }
 
-        if (health != null) {
-            health.TakeDamage(Mathf.RoundToInt(damage), other);
+            if (health != null) {
+                health.TakeDamage(Mathf.RoundToInt(damage), other);
+            }
+        } else {
+            Debug.Log("skipping flame damage");
         }
 
     }

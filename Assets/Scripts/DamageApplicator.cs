@@ -28,6 +28,9 @@ public class DamageApplicator : ComponentApplicator {
     public bool fireApplyDamage;
     [Tooltip("Damage to apply to health for each flame particle collision")]
     public float fireRate = 1f;
+    [Tooltip("damage delay between flame particles")]
+    [Range(0f,1f)]
+    public float fireDamageDelay = 0f;
     [Tooltip("New material to add once burnt")]
     public Material burntMaterial;
     [Tooltip("Percent of health to fall under before applying burn")]
@@ -66,6 +69,7 @@ public class DamageApplicator : ComponentApplicator {
         if (fireApplyDamage) {
             var actuator = rigidbodyGo.AddComponent<FlameDamageActuator>();
             actuator.fireRate = fireRate;
+            actuator.fireDamageDelay = fireDamageDelay;
             //actuator.plume = plume;
             //actuator.sparks = sparks;
             actuator.burntMaterial = burntMaterial;

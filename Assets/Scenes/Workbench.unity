@@ -131,25 +131,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   botList: {fileID: 0}
   eventChannel: {fileID: 0}
---- !u!1 &216023396 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1297436841330656, guid: 7e7d1fe8bddda4053a2ff37aaa1e4b81,
-    type: 2}
-  m_PrefabInternal: {fileID: 327918016}
---- !u!114 &216023397
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 216023396}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1836fda98f101946a2cb209538ef06d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  botList: {fileID: 0}
-  eventChannel: {fileID: 0}
-  config: {fileID: 11400000, guid: 405d7557abdc64157b354a43ca307b46, type: 2}
 --- !u!1 &262456779
 GameObject:
   m_ObjectHideFlags: 0
@@ -226,10 +207,6 @@ Prefab:
     - target: {fileID: 4619376592998428, guid: 7e7d1fe8bddda4053a2ff37aaa1e4b81, type: 2}
       propertyPath: m_RootOrder
       value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1297436841330656, guid: 7e7d1fe8bddda4053a2ff37aaa1e4b81, type: 2}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7e7d1fe8bddda4053a2ff37aaa1e4b81, type: 2}

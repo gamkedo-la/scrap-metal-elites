@@ -9,14 +9,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0c16a472c5a6b4cfcafc4959de97a920, type: 3}
-  m_Name: flameThrower
+  m_Name: wheelHubFireResist
   m_EditorClassIdentifier: 
   mass: {fileID: 0}
-  health: {fileID: 11400000, guid: 17e592848fc6949c99141368cff12bbe, type: 2}
-  damage: {fileID: 11400000, guid: ef7de23183c5d4f3d84a7de614d39c34, type: 2}
+  health: {fileID: 0}
+  damage: {fileID: 11400000, guid: cda84aac2152c483db6ceed8d498c2a3, type: 2}
   models:
   - offset: {x: 0, y: 0, z: 0}
     rotation: {x: 0, y: 0, z: 0}
-    model: {fileID: 1556272114466002, guid: f31372b6e4a49445aae86964d9869551, type: 2}
+    model: {fileID: 1486721200503198, guid: 1dba77d52ccfd4f8b99dacc0a051db50, type: 2}
   applicators: []
   connectedParts: []

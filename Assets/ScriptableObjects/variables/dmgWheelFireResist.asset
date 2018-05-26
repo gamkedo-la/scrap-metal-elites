@@ -9,7 +9,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e6ef55654b50e4b20bba6c03ab22c0bc, type: 3}
-  m_Name: dmgWheel
+  m_Name: dmgWheelFireResist
   m_EditorClassIdentifier: 
   impactApplyDamage: 1
   impactMinDamage: 10
@@ -25,7 +25,7 @@ MonoBehaviour:
   largeImpactSfx: {fileID: 0}
   fireApplyDamage: 1
   fireRate: 1
-  fireDamageDelay: 0
+  fireDamageDelay: 0.25
   burntMaterial: {fileID: 0}
   burnThreshold: 50
   explodeThreshold: 10
