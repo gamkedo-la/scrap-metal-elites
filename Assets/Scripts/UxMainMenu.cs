@@ -48,14 +48,35 @@ public class UxMainMenu : UxPanel {
         quitButton.onClick.AddListener(OnQuitClick);
     }
 
-    public void OnGameModeClick(GameMode gameMode) {
-        if (myAudioSource != null) {
+    public void hoverSFX()
+    {
+        if (myAudioSource != null)
+        {
+            Debug.Log("Playing main menu hoverSound");
+            myAudioSource.clip = hoverSound;
+            myAudioSource.Play();
+        }
+        else
+        {
+            Debug.Log("ERROR: main menu is missing myAudioSource");
+        }
+    }
+
+    public void activateSFX() {
+        if (myAudioSource != null)
+        {
             Debug.Log("Playing main menu activeSound");
             myAudioSource.clip = activateSound;
             myAudioSource.Play();
-        } else {
+        }
+        else
+        {
             Debug.Log("ERROR: main menu is missing myAudioSource");
         }
+    }
+
+    public void OnGameModeClick(GameMode gameMode) {
+        activateSFX();
         // game mode is stored in ScriptableObject for GameInfo, shared across scripts and scenes
         gameInfo.gameMode = gameMode;
         // raise notification that game mode has been selected
@@ -69,10 +90,12 @@ public class UxMainMenu : UxPanel {
     }
 
     public void OnScoresClick() {
+        activateSFX();
         StartCoroutine(StateWaitScores());
     }
 
     IEnumerator StateWaitScores() {
+        activateSFX();
         // instantiate scores prefab (under canvas)
         var panelGo = Instantiate(scoresPrefab, UxUtil.GetCanvas().gameObject.transform);
         yield return null;      // wait a frame for panel initialization
@@ -91,16 +114,19 @@ public class UxMainMenu : UxPanel {
     }
 
     public void OnHelpClick() {
+        activateSFX();
         // instantiate options prefab (under canvas)
         Instantiate(helpPrefab, UxUtil.GetCanvas().gameObject.transform);
     }
 
     public void OnOptionsClick() {
+        activateSFX();
         // instantiate options prefab (under canvas)
         Instantiate(optionsPrefab, UxUtil.GetCanvas().gameObject.transform);
     }
 
     public void OnCreditsClick() {
+        activateSFX();
         Instantiate(creditsPrefab, UxUtil.GetCanvas().gameObject.transform);
     }
 
