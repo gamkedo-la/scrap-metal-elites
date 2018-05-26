@@ -38,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1520203798844092}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -4, z: 0}
+  m_LocalPosition: {x: 5.11, y: -4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -80,6 +80,7 @@ MonoBehaviour:
   part: {fileID: 11400000, guid: a00461ff57e4349aaada62296f0aa80e, type: 2}
   botList: {fileID: 11400000, guid: 0c8c0a9ec335541c59c634bad32ecf99, type: 2}
   eventChannel: {fileID: 11400000, guid: 7cdbdc64686ff4786ae1b73fdc14d54f, type: 2}
+  aiConfig: {fileID: 11400000, guid: 6b0bcc0a622fa49869442ea825da81fe, type: 2}
 --- !u!114 &114525332611838676
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -118,4 +119,5 @@ MonoBehaviour:
   onDeath:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: OnDeathEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    m_TypeName: GameObjectEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: carbideWheelModule
   m_EditorClassIdentifier: 
   mass: {fileID: 0}
-  health: {fileID: 11400000, guid: 17e592848fc6949c99141368cff12bbe, type: 2}
+  health: {fileID: 11400000, guid: 1b3ad6572f80f4dceac4f4cf0ffbb33b, type: 2}
   damage: {fileID: 11400000, guid: 7e7be862284084a98a428249151e83f5, type: 2}
   models: []
   applicators: []

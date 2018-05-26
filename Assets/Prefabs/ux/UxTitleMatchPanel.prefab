@@ -558,15 +558,36 @@ MonoBehaviour:
     matchMusicTrack: {fileID: 11400000, guid: 8ff5c2036d5f34e4695a917dd5137408, type: 2}
   - id: champ5
     playerPrefab:
-      name: Bob
+      name: Player
       offset: {x: 0, y: 0, z: 0}
-      prefab: {fileID: 1747757598241954, guid: 38bb754395b7c4f92be06a38923df58d, type: 2}
+      prefab: {fileID: 1531212166475178, guid: c94ec211cf6b54b2784aa784127ad4c2, type: 2}
     enemyTitle: The Champ
     enemyPrefabs:
-    - name: 
+    - name: d'Artagnan
       offset: {x: 0, y: 0, z: 0}
-      prefab: {fileID: 1354931224165476, guid: 8ecd3d66049b04a0fbc16aeda9eeaea5, type: 2}
-    hazardPrefabs: []
+      prefab: {fileID: 1611224051005754, guid: 2e9581b00f2374eb8ba4c4d047889c5b, type: 2}
+    - name: Flapjax
+      offset: {x: 0, y: 0, z: 0}
+      prefab: {fileID: 1723417441784214, guid: b0e77aeb58ba441619e98e71fee9e6ca, type: 2}
+    - name: Pushy
+      offset: {x: 0, y: 0, z: 0}
+      prefab: {fileID: 1747757598241954, guid: 38bb754395b7c4f92be06a38923df58d, type: 2}
+    - name: "Lumi\xE8re"
+      offset: {x: 0, y: 0, z: 0}
+      prefab: {fileID: 1520203798844092, guid: bf2991beebd4b4b46b69d7ea89feff4a, type: 2}
+    hazardPrefabs:
+    - name: flame1
+      offset: {x: 0, y: 0, z: 0}
+      prefab: {fileID: 1632048421643816, guid: 4534888667a2444918bd649513704008, type: 2}
+    - name: flame2
+      offset: {x: 0, y: 0, z: 0}
+      prefab: {fileID: 1632048421643816, guid: 4534888667a2444918bd649513704008, type: 2}
+    - name: hammer1
+      offset: {x: 0, y: 0.2, z: 0}
+      prefab: {fileID: 1166039732656108, guid: 8e837ead78813445696130b313b6ff7b, type: 2}
+    - name: hammer2
+      offset: {x: 0, y: 0.2, z: 0}
+      prefab: {fileID: 1166039732656108, guid: 8e837ead78813445696130b313b6ff7b, type: 2}
     matchMusicTrack: {fileID: 11400000, guid: 0dd93aa9b64f84be5bce945382b0f65f, type: 2}
 --- !u!114 &114881185246938358
 MonoBehaviour:

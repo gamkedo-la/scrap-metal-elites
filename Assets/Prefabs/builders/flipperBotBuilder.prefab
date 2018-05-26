@@ -70,7 +70,8 @@ MonoBehaviour:
   onDeath:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: OnDeathEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    m_TypeName: GameObjectEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!114 &114228979204656316
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -107,6 +108,7 @@ MonoBehaviour:
   part: {fileID: 11400000, guid: 6bd77d812245d47569f03942e1241b08, type: 2}
   botList: {fileID: 11400000, guid: 0c8c0a9ec335541c59c634bad32ecf99, type: 2}
   eventChannel: {fileID: 11400000, guid: 7cdbdc64686ff4786ae1b73fdc14d54f, type: 2}
+  aiConfig: {fileID: 11400000, guid: f06388151a26744f99d583fa667f1689, type: 2}
 --- !u!114 &114598582220248348
 MonoBehaviour:
   m_ObjectHideFlags: 1
