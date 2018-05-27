@@ -29,9 +29,14 @@ public class UxScoreboard : UxPanel {
         // load match info
         matchIDs = JsonStore.ListByTag(JsonStore.SaveTag.Score);
         matchIndex = 0;
-        var jsonStr = JsonStore.Load(JsonStore.SaveTag.Score, matchIDs[matchIndex]);
-        board = MatchScoreboard.FromJson(jsonStr);
-        ShowBoard();
+        if (matchIDs.Length > 0) {
+            var jsonStr = JsonStore.Load(JsonStore.SaveTag.Score, matchIDs[matchIndex]);
+            board = MatchScoreboard.FromJson(jsonStr);
+            ShowBoard();
+        } else {
+            prevButton.gameObject.SetActive(false);
+            nextButton.gameObject.SetActive(false);
+        }
 
         // set back button callback
         backButton.onClick.AddListener(OnBack);
