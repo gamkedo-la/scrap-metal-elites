@@ -39,7 +39,9 @@ public class UxScoreboard : UxPanel {
         }
 
         // set back button callback
+        prevButton.onClick.AddListener(OnPrevious);
         backButton.onClick.AddListener(OnBack);
+        nextButton.onClick.AddListener(OnNext);
     }
 
     public void ShowBoard() {
@@ -65,14 +67,12 @@ public class UxScoreboard : UxPanel {
         // hook up buttons - previous
         if (matchIndex > 0) {
             prevButton.gameObject.SetActive(true);
-            prevButton.onClick.AddListener(OnPrevious);
         } else {
             prevButton.gameObject.SetActive(false);
         }
         // next
         if (matchIndex < matchIDs.Length-1) {
             nextButton.gameObject.SetActive(true);
-            nextButton.onClick.AddListener(OnNext);
         } else {
             nextButton.gameObject.SetActive(false);
         }
