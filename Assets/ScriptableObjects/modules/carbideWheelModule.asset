@@ -30,7 +30,7 @@ MonoBehaviour:
     offset: {x: 0, y: 0, z: 0}
     rotation: {x: 0, y: 0, z: 0}
     joint: {fileID: 11400000, guid: 08e5242d2a04a4863aa852bb00719144, type: 2}
-    part: {fileID: 11400000, guid: e5032f5073dec4a01a07df069751ac22, type: 2}
+    part: {fileID: 11400000, guid: 890336bc337aa44bb837930fe7c0b317, type: 2}
   wheel:
     offset: {x: 0, y: 0, z: 0}
     rotation: {x: 0, y: 90, z: 0}
