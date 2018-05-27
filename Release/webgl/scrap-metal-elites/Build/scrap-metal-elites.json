@@ -1,0 +1,11 @@
+{
+"TOTAL_MEMORY": 268435456,
+"dataUrl": "scrap-metal-elites.data.unityweb",
+"asmCodeUrl": "scrap-metal-elites.asm.code.unityweb",
+"asmMemoryUrl": "scrap-metal-elites.asm.memory.unityweb",
+"asmFrameworkUrl": "scrap-metal-elites.asm.framework.unityweb",
+"graphicsAPI": ["WebGL 2.0", "WebGL 1.0"],
+"webglContextAttributes": {"preserveDrawingBuffer": false},
+"splashScreenStyle": "Dark",
+"backgroundColor": "#231F20"
+}
