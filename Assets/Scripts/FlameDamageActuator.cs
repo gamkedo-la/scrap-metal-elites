@@ -53,8 +53,6 @@ public class FlameDamageActuator : MonoBehaviour {
             if (health != null) {
                 health.TakeDamage(Mathf.RoundToInt(damage), other);
             }
-        } else {
-            Debug.Log("skipping flame damage");
         }
 
     }
