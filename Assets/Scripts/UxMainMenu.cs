@@ -115,19 +115,29 @@ public class UxMainMenu : UxPanel {
 
     public void OnHelpClick() {
         activateSFX();
-        // instantiate options prefab (under canvas)
-        Instantiate(helpPrefab, UxUtil.GetCanvas().gameObject.transform);
+        // instantiate help prefab (under canvas)
+        var panelGo = Instantiate(helpPrefab, UxUtil.GetCanvas().gameObject.transform);
+        var uxPanel = panelGo.GetComponent<UxPanel>();
+        uxPanel.onDoneEvent.AddListener(OnSubPanelDone);
+        Hide();
     }
 
     public void OnOptionsClick() {
         activateSFX();
         // instantiate options prefab (under canvas)
-        Instantiate(optionsPrefab, UxUtil.GetCanvas().gameObject.transform);
+        var panelGo = Instantiate(optionsPrefab, UxUtil.GetCanvas().gameObject.transform);
+        var uxPanel = panelGo.GetComponent<UxPanel>();
+        uxPanel.onDoneEvent.AddListener(OnSubPanelDone);
+        Hide();
     }
 
     public void OnCreditsClick() {
         activateSFX();
-        Instantiate(creditsPrefab, UxUtil.GetCanvas().gameObject.transform);
+        // instantiate credits prefab (under canvas)
+        var panelGo = Instantiate(creditsPrefab, UxUtil.GetCanvas().gameObject.transform);
+        var uxPanel = panelGo.GetComponent<UxPanel>();
+        uxPanel.onDoneEvent.AddListener(OnSubPanelDone);
+        Hide();
     }
 
 }

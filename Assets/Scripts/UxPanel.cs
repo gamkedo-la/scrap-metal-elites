@@ -6,8 +6,15 @@ using UnityEngine.UI;
 public class UxPanel : MonoBehaviour {
     private CanvasGroup canvasGroup;
 
+    public UnityEvent onDoneEvent;
+
     void Awake() {
+        onDoneEvent = new UnityEvent();
         canvasGroup = GetComponent<CanvasGroup>();
+    }
+
+    public void OnSubPanelDone() {
+        Display();
     }
 
     public virtual void Display() {
@@ -24,5 +31,9 @@ public class UxPanel : MonoBehaviour {
             canvasGroup.blocksRaycasts = false; //this prevents the UI element to receive input events
             canvasGroup.interactable = false;
         }
+    }
+
+    void OnDestroy() {
+        onDoneEvent.Invoke();
     }
 }
