@@ -319,48 +319,23 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Tylor Allison: Project management and co-lead, wheel and track mechanics,
-    destruction/breakable physics, spike and spinner funcitonality, health functionality,
+  m_Text: "Tylor Allison: Project management and co-lead, wheel and track mechanics,
+    destruction/breakable physics, spike and spinner functionality, health functionality,
     parts system for bot design, arena hazards, round setup menus, match timer, player
-    select, enemy AI, scoreboard, sound integration
-
-
-    Andy King: Flamethrower weapon (functionality, visual effects, sounds), textures
-    (arena, saw blade, bug), sparks particles, detail objects, shadow and shader tuning
-
-
-    Christer "McFunkypants" Kaitila: Crowd simulation, announcer voiceover and integration,
-    crowd member, reverse control, volumetric light cone, 1 song (heavy metal)
-
-
-    Caspar "SpadXIII" Dunant: Models (Carbide, Bug, wheel, spinner),
-
-
-    Cameron Button: Project concept pitch and original lead, initial main menu code,
-    saw prototype, house bot, wheel model, hammer model
-
-
-    Dan Lazar: Logo, arena truss and light gear cookies, volumetric smoke cone (prototype)
-
-
-    Nick Fewkes: Saw blade, models (gears, tires, spikes, chains, scoops), tire material,
-    crowd member
-
-
-    Michael "Misha" Fewkes: Metal impact sounds, crowd member
-
-
-    Stebs: 3 songs (Rebuild, Step, and Hop)
-
-
-    Mykaelos: Initial player GUI during the match
-
-
-    Chris DeLeon: Nut and bolt particles, writing for additional win/lose messages,
-    motor sound
-
-
-    Addl. Crowd Members: Phil Nicholson, Tim Waskett'
+    select, enemy AI, scoreboard, sound integration\n\nAndy King: Flamethrower weapon
+    (functionality, visual effects, sounds), textures (arena, saw blade, bug), sparks
+    particles, detail objects, shadow and shader tuning\n\nChrister \"McFunkypants\"
+    Kaitila: Crowd simulation, announcer voiceover and integration, crowd member,
+    reverse control, volumetric light cone, 1 song (heavy metal)\n\nCaspar \"SpadXIII\"
+    Dunant: Models (Carbide, Bug, wheel, spinner)\n\nCameron Button: Project concept
+    pitch and original lead, initial main menu code, saw prototype, house bot, wheel
+    model, hammer model\n\nDan Lazar: Logo, arena truss and light gear cookies, volumetric
+    smoke cone (prototype)\n\nNick Fewkes: Saw blade, models (gears, tires, spikes,
+    chains, scoops), tire material, crowd member\n\nMichael \"Misha\" Fewkes: Metal
+    impact sounds, crowd member\n\nStebs: 3 songs (Rebuild, Step, and Hop)\n\nMykaelos:
+    Initial player GUI during the match\n\nChris DeLeon: Nut and bolt particles, writing
+    for additional win/lose messages, motor sound\n\nAddl. crowd members: Phil Nicholson,
+    Tim Waskett\n\nTesting: Klaim (A. Jo\xEBl Lamotte), R\xE9my Lapointe"
 --- !u!114 &114830639724696536
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -548,7 +523,7 @@ RectTransform:
   m_GameObject: {fileID: 1084706901818272}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.85, y: 0.85, z: 1}
+  m_LocalScale: {x: 0.75, y: 0.75, z: 1}
   m_Children:
   - {fileID: 224769155050442746}
   m_Father: {fileID: 224724982085268992}
@@ -585,7 +560,7 @@ RectTransform:
   m_GameObject: {fileID: 1321443020166152}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.9, y: 0.9, z: 0.9}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 224857750969683026}
   - {fileID: 224420503988917558}
